@@ -122,7 +122,7 @@ type Props = { homeHref?: string; solid?: boolean };
 export function SiteHeader({ homeHref = "", solid = false }: Props) {
   const nav = useTranslations("nav");
   const [open, setOpen] = useState(false);
-  const [overHero, setOverHero] = useState(!solid);
+  const [scrolled, setScrolled] = useState(solid);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const activeSection = useActiveSection();
   const links = NAV_SECTIONS.map((id) => ({
@@ -131,16 +131,13 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
     current: activeSection === id ? ("location" as const) : undefined,
   }));
 
-  // The header turns solid once the banner has scrolled out from under it.
   useEffect(() => {
-    const hero = document.querySelector("[data-header-over]");
-    if (!hero) return;
-    const observer = new IntersectionObserver(([entry]) => setOverHero(entry.isIntersecting), {
-      rootMargin: "-72px 0px 0px 0px",
-    });
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, []);
+    if (solid) return;
+    const updateScrolled = () => setScrolled(window.scrollY > 0);
+    updateScrolled();
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrolled);
+  }, [solid]);
 
   useEffect(() => {
     if (!open) return;
@@ -153,10 +150,10 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, [open]);
 
-  const transparent = overHero && !open;
+  const transparent = !scrolled && !open;
 
   return (
-    <header data-transparent={transparent} className="site-header">
+    <header data-transparent={transparent} data-scrolled={scrolled} className="site-header">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
