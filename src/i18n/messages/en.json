@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "HARUTO EXPRESS | Vietnam – Japan air freight",
+    "description": "Two-way air freight between Vietnam and Japan for individuals and businesses, with our own warehouse and advisers. See the shipping process and cargo notes."
+  },
+  "nav": {
+    "skip": "Skip to main content",
+    "services": "Services",
+    "pricing": "Pricing",
+    "process": "Process",
+    "contact": "Contact",
+    "cta": "Get advice",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Choose language",
+    "primary": "Main navigation"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Far apart, closely connected.",
+        "description": "Two-way air freight between Vietnam and Japan for individuals and businesses. The HARUTO team supports you from your first enquiry."
+      },
+      {
+        "title": "Two-way air freight",
+        "description": "Ship between Vietnam and Japan, for both individuals and businesses."
+      },
+      {
+        "title": "Our own warehouse and advisers",
+        "description": "Our staff check the goods and documents and confirm the rate with you before accepting a shipment."
+      }
+    ],
+    "primary": "See pricing",
+    "secondary": "Contact us",
+    "carousel": {
+      "label": "HARUTO EXPRESS service banners",
+      "alts": [
+        "Plane over Mount Fuji, Tokyo Tower and cherry blossoms, with shipping boxes in front",
+        "Plane on the Vietnam – Japan route with both flags and landmarks",
+        "Shipping boxes and Japanese goods before Mount Fuji, a pagoda and a delivery truck"
+      ]
+    }
+  },
+  "why": {
+    "title": "Why choose HARUTO?",
+    "warehouse": {
+      "title": "Our own warehouse",
+      "body": "HARUTO has its own warehouse for receiving your shipments."
+    },
+    "consultant": {
+      "title": "Dedicated advisers",
+      "body": "Our staff check the goods and documents and confirm the rate with you before accepting a shipment."
+    },
+    "twoWay": {
+      "title": "Two-way shipping",
+      "body": "We ship by air from Vietnam to Japan and from Japan to Vietnam."
+    }
+  },
+  "services": {
+    "title": "One journey, two solutions",
+    "personal": {
+      "title": "Individuals",
+      "body": "Send parcels, gifts and personal items that meet shipping requirements between Vietnam and Japan."
+    },
+    "business": {
+      "title": "Businesses",
+      "body": "We take on commercial air freight requests and advise on each consignment."
+    },
+    "cta": "Request advice"
+  },
+  "routes": {
+    "title": "Shipping routes",
+    "vietnam": "Vietnam",
+    "japan": "Japan",
+    "mapLabel": "World map showing the two-way air route between Vietnam and Japan; Vietnam is shown with the Hoang Sa and Truong Sa archipelagos"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "intro": "Official rates for each direction are awaiting an update.",
+    "tabsLabel": "Choose shipping direction",
+    "tabs": {
+      "vnJp": "VN → JP",
+      "jpVn": "JP → VN"
+    },
+    "columns": {
+      "weight": "Weight",
+      "price": "Unit price",
+      "status": "Status"
+    },
+    "rows": [
+      "Up to 5 kg",
+      "Over 5 – 20 kg",
+      "Over 20 – 50 kg",
+      "Over 50 kg"
+    ],
+    "pending": "Awaiting update",
+    "note": "Weight bands are for illustration only and are not a rate card.",
+    "scrollLabel": "Pricing table, scrolls horizontally"
+  },
+  "process": {
+    "title": "A 4-step process",
+    "steps": [
+      {
+        "title": "Contact us for advice",
+        "body": "Tell HARUTO your route and the type of goods you need to send."
+      },
+      {
+        "title": "Goods check and rate confirmation",
+        "body": "Our staff check the goods and documents, then confirm the rate."
+      },
+      {
+        "title": "Acceptance and shipping",
+        "body": "HARUTO accepts the goods and ships them by air."
+      },
+      {
+        "title": "Delivery as agreed",
+        "body": "Your goods are delivered according to what we agreed with you."
+      }
+    ],
+    "notes": {
+      "title": "Notes on goods",
+      "body": "The goods we can carry depend on each country's regulations. Our staff check the goods and documents before confirming acceptance."
+    }
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "question": "What goods does HARUTO accept?",
+        "answer": "The goods we can carry depend on each country's regulations. Our staff check the goods and documents before confirming acceptance."
+      },
+      {
+        "question": "How are shipping rates calculated?",
+        "answer": "Official rates are awaiting an update. For now, our staff confirm the rate after checking your goods."
+      },
+      {
+        "question": "Can I track my shipment online?",
+        "answer": "Online tracking is being planned. For now, please contact our support staff to ask about your parcel's status."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Request advice",
+    "intro": "Tell HARUTO your route and the type of goods you need to send.",
+    "channelsTitle": "Contact channels",
+    "channels": {
+      "zalo": "Zalo",
+      "hotline": "Hotline",
+      "messenger": "Messenger"
+    },
+    "channelPending": "Awaiting update",
+    "notice": "This website is not accepting online requests yet. Official contact channels will be posted here.",
+    "kindLegend": "You are",
+    "kindPersonal": "An individual",
+    "kindBusiness": "A business",
+    "fields": {
+      "fullName": "Full name",
+      "company": "Company",
+      "phone": "Phone number",
+      "email": "Email",
+      "direction": "Route",
+      "weight": "Weight (kg)",
+      "description": "Description of goods",
+      "consent": "I agree to HARUTO processing my personal data to respond to this request."
+    },
+    "routeVnJp": "Vietnam → Japan",
+    "routeJpVn": "Japan → Vietnam",
+    "optional": "optional",
+    "submit": "Send request",
+    "consultationOnly": "This is a request for advice, not an order confirmation."
+  },
+  "footer": {
+    "positioning": "Two-way air freight between Vietnam and Japan.",
+    "navigationTitle": "Navigation",
+    "logoAlt": "HARUTO EXPRESS logo",
+    "tagline": "Send with full trust. Connect two countries."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you are looking for does not exist or has been moved.",
+    "home": "Back to home",
+    "contact": "Contact us",
+    "metaTitle": "Page not found | HARUTO EXPRESS"
+  }
+}

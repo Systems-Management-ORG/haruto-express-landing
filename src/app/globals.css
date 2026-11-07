@@ -1,0 +1,581 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #235923;
+  --color-deep: #173c22;
+  --color-gold: #e2a240;
+  --color-ivory: #faf8ea;
+  --color-sage: #eaf2e9;
+  --color-ink: #29352c;
+  --color-line: #29352c33;
+  --color-muted: #566359;
+
+  --font-sans: var(--font-brand), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-serif, Georgia, serif;
+
+  --radius-card: 0.75rem;
+  --radius-frame: 0.75rem;
+
+  --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  :lang(ja) {
+    line-break: strict;
+    word-break: auto-phrase;
+  }
+
+  [id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  /* The 1280px content width plus a 2rem gutter on each side. */
+  @media (min-width: 40rem) {
+    .wrap {
+      max-width: 84rem;
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: 4.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    .section {
+      padding-block: 7rem;
+    }
+  }
+
+  /* Transparent over the banner, solid once the banner has scrolled away. */
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 20;
+    border-bottom: 1px solid var(--color-line);
+    background-color: var(--color-ivory);
+    color: var(--color-ink);
+    transition:
+      background-color 200ms var(--ease-ui),
+      border-color 200ms var(--ease-ui),
+      color 200ms var(--ease-ui);
+  }
+
+  .site-header[data-transparent="true"] {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  .heading-1 {
+    font-size: 2.5rem;
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+
+  @media (min-width: 48rem) {
+    .heading-1 {
+      font-size: 3.25rem;
+    }
+  }
+
+  .heading-2 {
+    color: var(--color-forest);
+    font-size: 2rem;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+  }
+
+  @media (min-width: 64rem) {
+    .heading-2 {
+      font-size: 3rem;
+    }
+  }
+
+  :lang(ja) .heading-1,
+  :lang(ja) .heading-2 {
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .btn {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    border: 1px solid transparent;
+    border-radius: 0.375rem;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    line-height: 1.3;
+    text-align: center;
+    transition:
+      background-color 140ms var(--ease-ui),
+      border-color 140ms var(--ease-ui),
+      transform 140ms var(--ease-ui);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: translateY(1px) scale(0.985);
+  }
+
+  .btn-primary {
+    background-color: var(--color-forest);
+    color: #fff;
+  }
+
+  .btn-gold {
+    background-color: var(--color-gold);
+    color: var(--color-deep);
+  }
+
+  .btn-outline {
+    border-color: var(--color-forest);
+    color: var(--color-forest);
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+    background-color: #29352c1f;
+    color: var(--color-muted);
+  }
+
+  .m-arrow {
+    transition: transform 140ms var(--ease-ui);
+  }
+
+  /* The one text link style: an underlined action with an arrow. */
+  .link-arrow {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .btn:hover .m-arrow,
+    .link-arrow:hover .m-arrow {
+      transform: translateX(3px);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--color-deep);
+    }
+
+    .btn-gold:hover {
+      background-color: #eeb65f;
+    }
+
+    .btn-outline:hover {
+      background-color: #23592314;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 6px;
+    }
+  }
+
+  /* The menu entry for the section on screen. */
+  .nav-link[aria-current="location"] {
+    color: var(--color-forest);
+    text-decoration: underline;
+    text-decoration-color: var(--color-gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+
+  .card {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background-color: #fff;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .card {
+      padding: 2rem;
+    }
+  }
+
+  /* Open columns parted by a hairline, in place of boxed cards. */
+  .ruled {
+    border-top: 1px solid var(--color-line);
+    padding-top: 1.25rem;
+  }
+
+  /* The banner fills the whole width and height under the header, with live text on the image. */
+  .hero-stage {
+    position: relative;
+    height: 100svh;
+    min-height: 38rem;
+    overflow: hidden;
+    background-color: var(--color-deep);
+  }
+
+  /* The longest slide needs more room than a very small phone's screen. */
+  @media (max-width: 20.5rem) {
+    .hero-stage {
+      min-height: 47rem;
+    }
+  }
+
+  /* Portrait screens stack the picture over the text; the picture takes the height the text leaves. */
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--color-ivory);
+    color: var(--color-deep);
+  }
+
+  .hero-media {
+    position: relative;
+    min-height: 13rem;
+    flex: 1 1 0;
+  }
+
+  .hero-slide:not(:first-child) {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .hero-image {
+    object-fit: cover;
+    object-position: var(--hero-position);
+  }
+
+  /* Keeps the header readable where it sits on the picture. */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(250 248 234 / 0.9) 0, rgb(250 248 234 / 0.9) 4.5rem, rgb(250 248 234 / 0) 7.5rem);
+  }
+
+  .hero-content {
+    position: relative;
+    display: flex;
+    padding-block: 1.75rem 2.25rem;
+  }
+
+  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
+    .hero-slide {
+      display: block;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-image {
+      object-position: 100% 50%;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(90deg, rgb(250 248 234 / 0.96) 0%, rgb(250 248 234 / 0.94) 51%, rgb(250 248 234 / 0) 70%),
+        linear-gradient(180deg, rgb(250 248 234 / 0.82) 0, rgb(250 248 234 / 0.82) 3.5rem, rgb(250 248 234 / 0) 7rem);
+    }
+
+    .hero-content {
+      height: 100%;
+      align-items: center;
+      padding-block: 4.5rem 0;
+    }
+
+    .hero-content .hero-text {
+      max-width: min(40vw, 40rem);
+    }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, min(4.8vw, 8svh), 5.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+  }
+
+  :lang(ja) .hero-title {
+    font-size: clamp(2.25rem, min(4vw, 7svh), 4.25rem);
+    letter-spacing: 0;
+    line-height: 1.3;
+  }
+
+  .hero-text {
+    max-width: 44rem;
+  }
+
+  .btn-outline-light {
+    border-color: #ffffffb3;
+    color: #fff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-outline-light:hover {
+      border-color: #fff;
+      background-color: rgb(255 255 255 / 0.12);
+    }
+  }
+
+  /*
+    Warehouse photos as a still backdrop for the routes section: the layer is fixed but clipped to the
+    section, so the content scrolls over the photos like a window (works where
+    background-attachment: fixed does not, such as iOS Safari).
+  */
+  .route-band {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--color-deep);
+  }
+
+  .route-map {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  @media (min-width: 48rem) {
+    .route-map {
+      aspect-ratio: 15 / 7;
+      max-height: 72svh;
+      width: 100%;
+    }
+  }
+
+  .route-map__label {
+    fill: #fff;
+    font-family: var(--font-display);
+    font-size: 20px;
+    paint-order: stroke;
+    stroke: rgb(15 44 25 / 0.85);
+    stroke-width: 2.4px;
+  }
+
+  @media (min-width: 48rem) {
+    .route-map__label {
+      font-size: 15px;
+    }
+  }
+
+  .route-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    clip-path: inset(0);
+  }
+
+  .route-backdrop__layer {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+  }
+
+  .route-backdrop__layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgb(15 44 25 / 0.8);
+  }
+
+  /* Five by three on desktop; the tile order packs the feature and wide tiles without gaps. */
+  .route-backdrop__grid {
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: 6px;
+    background-color: var(--color-deep);
+  }
+
+  .route-backdrop__tile {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .route-backdrop__tile--wide {
+    grid-column: span 2;
+  }
+
+  .route-backdrop__tile--feature {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (max-width: 63.99rem) {
+    .route-backdrop__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .route-backdrop__tile--wide {
+      grid-column: span 1;
+    }
+
+    .route-backdrop__tile--feature {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .route-backdrop__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .route-backdrop__tile--feature {
+      grid-row: span 1;
+    }
+  }
+
+  /* Without the scroll effect the photos simply sit behind the section. */
+  @media (prefers-reduced-motion: reduce) {
+    .route-backdrop {
+      clip-path: none;
+      overflow: hidden;
+    }
+
+    .route-backdrop__layer {
+      position: absolute;
+      height: 100%;
+    }
+  }
+
+
+  /* The not-found page sits under the transparent header, like the banner. */
+  .not-found-band {
+    position: relative;
+    display: flex;
+    min-height: 100svh;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--color-deep);
+    padding-block: 7rem 5rem;
+    color: #fff;
+  }
+
+  .not-found-flight {
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    width: min(100%, 75rem);
+    overflow: visible;
+    opacity: 0.8;
+  }
+
+  .field-label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 3rem;
+    border: 1px solid #29352c59;
+    border-radius: 0.375rem;
+    background-color: #fff;
+    padding: 0.625rem 0.875rem;
+    font-size: 1rem;
+    transition:
+      border-color 140ms var(--ease-ui),
+      box-shadow 140ms var(--ease-ui);
+  }
+
+  .field:focus-visible {
+    border-color: var(--color-forest);
+    border-radius: 0.375rem;
+    outline: none;
+    box-shadow: 0 0 0 3px #23592333;
+  }
+
+  .faq-item summary {
+    display: flex;
+    min-height: 2.75rem;
+    cursor: pointer;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item[open] .faq-plus {
+    display: none;
+  }
+
+  .faq-item:not([open]) .faq-minus {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .btn:hover,
+  .btn:active,
+  .m-arrow {
+    transform: none !important;
+  }
+}

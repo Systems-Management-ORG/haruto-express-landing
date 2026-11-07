@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "HARUTO EXPRESS | Vận chuyển hàng không Việt Nam – Nhật Bản",
+    "description": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp, có kho riêng và nhân viên tư vấn. Xem quy trình gửi hàng và lưu ý hàng hóa."
+  },
+  "nav": {
+    "skip": "Đến nội dung chính",
+    "services": "Dịch vụ",
+    "pricing": "Bảng giá",
+    "process": "Quy trình",
+    "contact": "Liên hệ",
+    "cta": "Tư vấn ngay",
+    "openMenu": "Mở menu",
+    "closeMenu": "Đóng menu",
+    "language": "Chọn ngôn ngữ",
+    "primary": "Điều hướng chính"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Khoảng cách xa, kết nối gần.",
+        "description": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản dành cho cá nhân và doanh nghiệp. Đội ngũ HARUTO đồng hành cùng bạn từ bước tư vấn."
+      },
+      {
+        "title": "Vận chuyển hàng không hai chiều",
+        "description": "Gửi hàng giữa Việt Nam và Nhật Bản, dành cho cả cá nhân và doanh nghiệp."
+      },
+      {
+        "title": "Có kho hàng riêng, có nhân viên tư vấn",
+        "description": "Nhân viên kiểm tra loại hàng, chứng từ và xác nhận cước với bạn trước khi tiếp nhận."
+      }
+    ],
+    "primary": "Xem bảng giá",
+    "secondary": "Liên hệ tư vấn",
+    "carousel": {
+      "label": "Banner dịch vụ HARUTO EXPRESS",
+      "alts": [
+        "Máy bay bay trên núi Phú Sĩ, tháp Tokyo và hoa anh đào, phía trước là các thùng hàng",
+        "Máy bay trên tuyến Việt Nam – Nhật Bản, cùng cờ và cảnh đặc trưng của hai nước",
+        "Thùng hàng và hàng Nhật trước núi Phú Sĩ, chùa Nhật và xe giao hàng"
+      ]
+    }
+  },
+  "why": {
+    "title": "Vì sao chọn HARUTO?",
+    "warehouse": {
+      "title": "Kho hàng riêng",
+      "body": "HARUTO có kho hàng riêng phục vụ việc tiếp nhận hàng gửi."
+    },
+    "consultant": {
+      "title": "Nhân viên tư vấn",
+      "body": "Nhân viên kiểm tra loại hàng, chứng từ và xác nhận cước với bạn trước khi tiếp nhận."
+    },
+    "twoWay": {
+      "title": "Vận chuyển hai chiều",
+      "body": "Nhận vận chuyển bằng đường hàng không từ Việt Nam đi Nhật Bản và từ Nhật Bản về Việt Nam."
+    }
+  },
+  "services": {
+    "title": "Một hành trình, hai giải pháp",
+    "personal": {
+      "title": "Cá nhân",
+      "body": "Gửi bưu kiện, quà tặng và đồ dùng cá nhân đủ điều kiện vận chuyển giữa Việt Nam và Nhật Bản."
+    },
+    "business": {
+      "title": "Doanh nghiệp",
+      "body": "Tiếp nhận nhu cầu vận chuyển hàng thương mại bằng đường hàng không và tư vấn theo từng lô hàng."
+    },
+    "cta": "Yêu cầu tư vấn"
+  },
+  "routes": {
+    "title": "Tuyến vận chuyển",
+    "vietnam": "Việt Nam",
+    "japan": "Nhật Bản",
+    "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa"
+  },
+  "pricing": {
+    "title": "Bảng giá",
+    "intro": "Bảng giá chính thức cho từng chiều đang chờ cập nhật.",
+    "tabsLabel": "Chọn chiều vận chuyển",
+    "tabs": {
+      "vnJp": "VN → JP",
+      "jpVn": "JP → VN"
+    },
+    "columns": {
+      "weight": "Khối lượng",
+      "price": "Đơn giá",
+      "status": "Trạng thái"
+    },
+    "rows": [
+      "Đến 5 kg",
+      "Trên 5 – 20 kg",
+      "Trên 20 – 50 kg",
+      "Trên 50 kg"
+    ],
+    "pending": "Chờ cập nhật",
+    "note": "Các mốc cân chỉ để minh họa, chưa phải biểu phí.",
+    "scrollLabel": "Bảng giá, có thể cuộn ngang"
+  },
+  "process": {
+    "title": "Quy trình 4 bước",
+    "steps": [
+      {
+        "title": "Liên hệ tư vấn",
+        "body": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi."
+      },
+      {
+        "title": "Kiểm tra hàng và xác nhận cước",
+        "body": "Nhân viên kiểm tra loại hàng, chứng từ và báo cước."
+      },
+      {
+        "title": "Tiếp nhận và vận chuyển",
+        "body": "HARUTO tiếp nhận hàng và vận chuyển bằng đường hàng không."
+      },
+      {
+        "title": "Giao hàng theo thỏa thuận",
+        "body": "Hàng được giao theo nội dung đã thỏa thuận với bạn."
+      }
+    ],
+    "notes": {
+      "title": "Lưu ý hàng hóa",
+      "body": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận."
+    }
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "items": [
+      {
+        "question": "HARUTO nhận những loại hàng nào?",
+        "answer": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận."
+      },
+      {
+        "question": "Giá cước được tính như thế nào?",
+        "answer": "Bảng giá chính thức đang chờ cập nhật. Hiện nhân viên sẽ xác nhận cước sau khi kiểm tra hàng của bạn."
+      },
+      {
+        "question": "Tôi có thể theo dõi vận đơn trực tuyến không?",
+        "answer": "Tính năng tra cứu trực tuyến đang được lên kế hoạch. Hiện hãy liên hệ nhân viên hỗ trợ để hỏi tình trạng kiện hàng."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Yêu cầu tư vấn",
+    "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi.",
+    "channelsTitle": "Kênh liên hệ",
+    "channels": {
+      "zalo": "Zalo",
+      "hotline": "Hotline",
+      "messenger": "Messenger"
+    },
+    "channelPending": "Chờ cập nhật",
+    "notice": "Website chưa nhận yêu cầu trực tuyến. Kênh liên hệ chính thức sẽ được cập nhật tại đây.",
+    "kindLegend": "Bạn là",
+    "kindPersonal": "Cá nhân",
+    "kindBusiness": "Doanh nghiệp",
+    "fields": {
+      "fullName": "Họ tên",
+      "company": "Công ty",
+      "phone": "Số điện thoại",
+      "email": "Email",
+      "direction": "Tuyến",
+      "weight": "Cân nặng (kg)",
+      "description": "Mô tả hàng",
+      "consent": "Tôi đồng ý cho HARUTO xử lý dữ liệu cá nhân để tư vấn yêu cầu này."
+    },
+    "routeVnJp": "Việt Nam → Nhật Bản",
+    "routeJpVn": "Nhật Bản → Việt Nam",
+    "optional": "không bắt buộc",
+    "submit": "Gửi yêu cầu tư vấn",
+    "consultationOnly": "Đây là yêu cầu tư vấn, chưa phải xác nhận đơn hàng."
+  },
+  "footer": {
+    "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
+    "navigationTitle": "Điều hướng",
+    "logoAlt": "Logo HARUTO EXPRESS",
+    "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia."
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "text": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
+    "home": "Về trang chủ",
+    "contact": "Liên hệ tư vấn",
+    "metaTitle": "Không tìm thấy trang | HARUTO EXPRESS"
+  }
+}
