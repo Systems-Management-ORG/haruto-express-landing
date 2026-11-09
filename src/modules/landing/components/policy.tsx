@@ -1,4 +1,6 @@
 import { useTranslations } from "next-intl";
+import { MapEmbed } from "@/shared/components/map-embed";
+import { locationById } from "@/shared/seo/business";
 
 const WEIGHT = ["standard", "bulky", "rounding"] as const;
 const COMPENSATION = ["insured", "uninsured"] as const;
@@ -15,6 +17,7 @@ export function Policy({ show = ALL_BLOCKS, withHeader = true }: { show?: Policy
   const t = useTranslations("policy");
   const tips = t.raw("tips.items") as string[];
   const has = (block: PolicyBlock) => show.includes(block);
+  const japanWarehouse = locationById("japanWarehouse");
 
   return (
     <section id="policy" className="section">
@@ -70,16 +73,27 @@ export function Policy({ show = ALL_BLOCKS, withHeader = true }: { show?: Policy
 
         {has("warehouse") && (
           <div data-reveal className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-12">
-            <div className="card">
-              <h3 className="text-xl text-forest">{t("warehouse.title")}</h3>
-              <dl className="mt-4 grid gap-3">
-                {WAREHOUSE.map((key) => (
-                  <div key={key}>
-                    <dt className="text-sm font-medium text-muted">{t(`warehouse.${key}.label`)}</dt>
-                    <dd className="mt-0.5">{t(`warehouse.${key}.value`)}</dd>
-                  </div>
-                ))}
-              </dl>
+            <div>
+              <div className="card">
+                <h3 className="text-xl text-forest">{t("warehouse.title")}</h3>
+                <dl className="mt-4 grid gap-3">
+                  {WAREHOUSE.map((key) => (
+                    <div key={key}>
+                      <dt className="text-sm font-medium text-muted">{t(`warehouse.${key}.label`)}</dt>
+                      <dd className="mt-0.5">{t(`warehouse.${key}.value`)}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+              {japanWarehouse && (
+                <div className="mt-6">
+                  <MapEmbed
+                    query={japanWarehouse.query}
+                    title={t("warehouse.mapTitle")}
+                    openLabel={t("warehouse.mapOpen")}
+                  />
+                </div>
+              )}
             </div>
             <div>
               <h3 className="text-xl text-forest">{t("tips.title")}</h3>

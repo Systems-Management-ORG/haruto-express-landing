@@ -198,6 +198,9 @@
   },
   "routes": {
     "title": "Shipping routes",
+    "intro": "HARUTO ships both ways by air between Vietnam and Japan, with our own warehouse in Japan and staff who confirm the rate before accepting goods.",
+    "outbound": "Vietnam → Japan",
+    "inbound": "Japan → Vietnam",
     "vietnam": "Vietnam",
     "japan": "Japan",
     "mapLabel": "World map showing the two-way air route between Vietnam and Japan; Vietnam is shown with the Hoang Sa and Truong Sa archipelagos",
@@ -215,6 +218,22 @@
   "pricing": {
     "title": "Pricing",
     "intro": "Two-way air-freight rate policy, effective from 1 October 2026.",
+    "teaser": {
+      "title": "Clear rates for both directions",
+      "intro": "Rates depend on weight and goods type, and include tax and Japan domestic delivery. See the full weight bands and surcharges on the pricing page.",
+      "vnJp": {
+        "label": "Vietnam → Japan",
+        "price": "From 85,000 ₫/kg",
+        "caption": "Clean and mixed goods, priced by weight band."
+      },
+      "jpVn": {
+        "label": "Japan → Vietnam",
+        "price": "155,000 ₫/kg",
+        "caption": "Any weight · buy-for-you rate VCB + 5."
+      },
+      "cta": "See full pricing",
+      "note": "Prices exclude VAT; surcharges apply by category."
+    },
     "tabsLabel": "Choose shipping direction",
     "tabs": {
       "vnJp": "VN → JP",
@@ -339,7 +358,7 @@
       },
       "address": {
         "label": "Address",
-        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階102号室"
       },
       "phone": {
         "label": "Recipient phone",
@@ -348,7 +367,9 @@
       "recipient": {
         "label": "Recipient name",
         "value": "HRT - staff code - customer code (e.g. HRT-T09-Nguyen Van A)"
-      }
+      },
+      "mapTitle": "HARUTO EXPRESS Japan warehouse map",
+      "mapOpen": "Open in Google Maps"
     },
     "tips": {
       "title": "Important notes when shipping",
@@ -408,6 +429,9 @@
   "contact": {
     "title": "Request advice",
     "intro": "Tell HARUTO your route and the type of goods you need to send.",
+    "officeTitle": "HARUTO EXPRESS office",
+    "mapTitle": "HARUTO EXPRESS office map",
+    "mapOpen": "Open in Google Maps",
     "channelsTitle": "Contact channels",
     "channels": {
       "zalo": "Zalo",
@@ -437,6 +461,13 @@
   "footer": {
     "positioning": "Two-way air freight between Vietnam and Japan.",
     "navigationTitle": "Navigation",
+    "addressTitle": "Addresses",
+    "mapHint": "Open Google Maps",
+    "locations": {
+      "japanWarehouse": "Japan warehouse",
+      "vietnamWarehouse": "Vietnam warehouse",
+      "vietnamOffice": "Office"
+    },
     "logoAlt": "HARUTO EXPRESS logo",
     "tagline": "Send with full trust. Connect two countries."
   },

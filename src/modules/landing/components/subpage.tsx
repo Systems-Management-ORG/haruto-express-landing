@@ -29,7 +29,7 @@ function body(key: PageKey): ReactNode {
         </>
       );
     case "pricing":
-      return <Pricing />;
+      return <Pricing withHeader={false} />;
     case "goods":
       return <Goods />;
     case "policy":
@@ -43,7 +43,7 @@ function body(key: PageKey): ReactNode {
     case "faq":
       return <Faq />;
     case "contact":
-      return <Contact />;
+      return <Contact withMap />;
     case "guides":
       return null;
     default:

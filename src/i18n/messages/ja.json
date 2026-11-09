@@ -198,6 +198,9 @@
   },
   "routes": {
     "title": "輸送ルート",
+    "intro": "HARUTO はベトナムと日本の間で双方向の航空輸送を行い、日本に自社倉庫を備え、スタッフがお預かり前に運賃を確認します。",
+    "outbound": "ベトナム → 日本",
+    "inbound": "日本 → ベトナム",
     "vietnam": "ベトナム",
     "japan": "日本",
     "mapLabel": "ベトナムと日本を結ぶ双方向の航空路線を示す世界地図。ベトナムの領土にはホアンサ諸島とチュオンサ諸島を含みます",
@@ -215,6 +218,22 @@
   "pricing": {
     "title": "料金表",
     "intro": "双方向の航空輸送料金ポリシーです。2026年10月1日より適用。",
+    "teaser": {
+      "title": "両方向とも分かりやすい料金",
+      "intro": "料金は重量と貨物の種類で決まり、税金と日本国内配送を含みます。重量帯と追加料金の詳細は料金ページでご確認ください。",
+      "vnJp": {
+        "label": "ベトナム → 日本",
+        "price": "85,000 ₫/kgから",
+        "caption": "クリーン貨物・混載貨物を重量帯で算出。"
+      },
+      "jpVn": {
+        "label": "日本 → ベトナム",
+        "price": "155,000 ₫/kg",
+        "caption": "全重量一律 · 代理購入レート VCB + 5。"
+      },
+      "cta": "料金表の詳細を見る",
+      "note": "表示料金にVATは含まれません。追加料金は品目により異なります。"
+    },
     "tabsLabel": "輸送方向を選択",
     "tabs": {
       "vnJp": "VN → JP",
@@ -339,7 +358,7 @@
       },
       "address": {
         "label": "住所",
-        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階102号室"
       },
       "phone": {
         "label": "受取人電話番号",
@@ -348,7 +367,9 @@
       "recipient": {
         "label": "受取人名",
         "value": "HRT - スタッフコード - 顧客コード（例：HRT-T09-Nguyen Van A）"
-      }
+      },
+      "mapTitle": "HARUTO EXPRESS 日本倉庫の地図",
+      "mapOpen": "Google マップで開く"
     },
     "tips": {
       "title": "発送時の重要なご注意",
@@ -408,6 +429,9 @@
   "contact": {
     "title": "ご相談のお申し込み",
     "intro": "ご希望のルートと貨物の種類をお知らせください。",
+    "officeTitle": "HARUTO EXPRESS オフィス",
+    "mapTitle": "HARUTO EXPRESS オフィスの地図",
+    "mapOpen": "Google マップで開く",
     "channelsTitle": "お問い合わせ窓口",
     "channels": {
       "zalo": "Zalo",
@@ -437,6 +461,13 @@
   "footer": {
     "positioning": "ベトナム・日本間の双方向航空貨物輸送。",
     "navigationTitle": "ナビゲーション",
+    "addressTitle": "所在地",
+    "mapHint": "Google マップを開く",
+    "locations": {
+      "japanWarehouse": "日本倉庫",
+      "vietnamWarehouse": "ベトナム倉庫",
+      "vietnamOffice": "オフィス"
+    },
     "logoAlt": "HARUTO EXPRESSのロゴ",
     "tagline": "信頼をお届けし、二つの国をつなぐ。"
   },

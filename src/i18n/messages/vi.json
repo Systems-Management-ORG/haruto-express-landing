@@ -198,6 +198,9 @@
   },
   "routes": {
     "title": "Tuyến vận chuyển",
+    "intro": "HARUTO nhận vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho riêng tại Nhật và nhân viên xác nhận cước trước khi tiếp nhận.",
+    "outbound": "Việt Nam → Nhật Bản",
+    "inbound": "Nhật Bản → Việt Nam",
     "vietnam": "Việt Nam",
     "japan": "Nhật Bản",
     "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa",
@@ -215,6 +218,22 @@
   "pricing": {
     "title": "Bảng giá",
     "intro": "Chính sách giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026.",
+    "teaser": {
+      "title": "Bảng giá rõ ràng cho cả hai chiều",
+      "intro": "Cước tính theo trọng lượng và loại hàng; đã bao gồm thuế và giao nội địa Nhật. Xem đầy đủ các mốc cân và phụ thu ở trang bảng giá.",
+      "vnJp": {
+        "label": "Việt Nam → Nhật Bản",
+        "price": "Từ 85.000 ₫/kg",
+        "caption": "Hàng sạch và hàng hỗn hợp, tính theo mốc cân."
+      },
+      "jpVn": {
+        "label": "Nhật Bản → Việt Nam",
+        "price": "155.000 ₫/kg",
+        "caption": "Mọi trọng lượng · tỷ giá mua hộ VCB + 5."
+      },
+      "cta": "Xem bảng giá đầy đủ",
+      "note": "Giá chưa bao gồm VAT; phụ thu theo danh mục hàng."
+    },
     "tabsLabel": "Chọn chiều vận chuyển",
     "tabs": {
       "vnJp": "VN → JP",
@@ -339,7 +358,7 @@
       },
       "address": {
         "label": "Địa chỉ",
-        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階102号室"
       },
       "phone": {
         "label": "SĐT người nhận",
@@ -348,7 +367,9 @@
       "recipient": {
         "label": "Tên người nhận",
         "value": "HRT - mã nhân viên - mã khách hàng (ví dụ: HRT-T09-Nguyễn Văn A)"
-      }
+      },
+      "mapTitle": "Bản đồ kho Nhật của HARUTO EXPRESS",
+      "mapOpen": "Mở trên Google Maps"
     },
     "tips": {
       "title": "Lưu ý quan trọng khi gửi hàng",
@@ -408,6 +429,9 @@
   "contact": {
     "title": "Yêu cầu tư vấn",
     "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi.",
+    "officeTitle": "Văn phòng HARUTO EXPRESS",
+    "mapTitle": "Bản đồ văn phòng HARUTO EXPRESS",
+    "mapOpen": "Mở trên Google Maps",
     "channelsTitle": "Kênh liên hệ",
     "channels": {
       "zalo": "Zalo",
@@ -437,6 +461,13 @@
   "footer": {
     "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
     "navigationTitle": "Điều hướng",
+    "addressTitle": "Địa chỉ",
+    "mapHint": "Mở Google Maps",
+    "locations": {
+      "japanWarehouse": "Kho Nhật",
+      "vietnamWarehouse": "Kho Việt Nam",
+      "vietnamOffice": "Văn phòng"
+    },
     "logoAlt": "Logo HARUTO EXPRESS",
     "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia."
   },

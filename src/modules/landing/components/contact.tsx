@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
-import { BUSINESS } from "@/shared/seo/business";
+import { MapEmbed } from "@/shared/components/map-embed";
+import { BUSINESS, locationById } from "@/shared/seo/business";
 import { ContactForm } from "./contact-form";
 
 const CHANNELS = ["zalo", "hotline", "messenger"] as const;
@@ -11,10 +12,12 @@ const CHANNEL_HREF: Record<(typeof CHANNELS)[number], string> = {
   messenger: BUSINESS.messengerUrl,
 };
 
-export function Contact() {
+// `withMap` shows the office location map; used on the dedicated contact page, not the home hub.
+export function Contact({ withMap = false }: { withMap?: boolean }) {
   const t = useTranslations("contact");
   // Only show channels that have a confirmed URL; never render a "pending" placeholder.
   const channels = CHANNELS.filter((channel) => CHANNEL_HREF[channel]);
+  const office = locationById("vietnamOffice");
 
   return (
     <section id="contact" className="section bg-sage">
@@ -49,6 +52,21 @@ export function Contact() {
             <ContactForm />
           </div>
         </div>
+
+        {withMap && office && (
+          <div data-reveal className="mt-12 lg:mt-16">
+            <h3 className="text-xl text-forest">{t("officeTitle")}</h3>
+            <p className="mt-2 text-muted">{office.address}</p>
+            <div className="mt-4 max-w-[48rem]">
+              <MapEmbed
+                query={office.query}
+                src={office.embedSrc}
+                title={t("mapTitle")}
+                openLabel={t("mapOpen")}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

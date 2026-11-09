@@ -15,7 +15,8 @@ const contentSecurityPolicy = [
   "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self'",
   `connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com${isDev ? " ws:" : ""}`,
-  "frame-src https://www.googletagmanager.com",
+  // Google Maps embeds (warehouse location) render in an iframe from these hosts.
+  "frame-src https://www.googletagmanager.com https://www.google.com https://maps.google.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

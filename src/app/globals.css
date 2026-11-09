@@ -509,16 +509,18 @@
     background-color: var(--color-deep);
   }
 
+  /* Near-square East Asia map; contained (no crop). Fills its grid column on desktop. */
   .route-map {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1008 / 948;
     overflow: hidden;
+    width: 100%;
   }
 
-  @media (min-width: 48rem) {
+  /* On mobile the map stacks under the text, so cap and centre it. */
+  @media (max-width: 63.99rem) {
     .route-map {
-      aspect-ratio: 15 / 7;
-      max-height: 72svh;
-      width: 100%;
+      max-width: 34rem;
+      margin-inline: auto;
     }
   }
 
@@ -535,6 +537,67 @@
     .route-map__label {
       font-size: 15px;
     }
+  }
+
+  /*
+    Self-running flight animation on the route map (no scroll trigger, no JS): a light streak and a
+    plane travel each arc on a loop, with pulsing pings at the two cities. Driven by CSS so it
+    animates on its own and can be switched off for reduced motion.
+  */
+  .route-streak {
+    stroke-dasharray: 0.06 1;
+    animation: route-streak 6s linear infinite;
+  }
+
+  .route-streak--in {
+    animation-delay: 3s;
+  }
+
+  @keyframes route-streak {
+    from { stroke-dashoffset: 0; }
+    to { stroke-dashoffset: -1; }
+  }
+
+  .route-plane {
+    offset-rotate: auto;
+    animation: route-fly 6s linear infinite;
+  }
+
+  .route-plane--out {
+    offset-path: path("M161 463.5 C 320 350, 520 250, 663 229");
+  }
+
+  .route-plane--in {
+    offset-path: path("M663 229 C 500 300, 330 430, 161 463.5");
+    animation-delay: 3s;
+  }
+
+  @keyframes route-fly {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+  }
+
+  .route-ping {
+    r: 18px;
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    animation: route-ping 3s ease-out infinite;
+  }
+
+  .route-ping--delay {
+    animation-delay: 1.5s;
+  }
+
+  @keyframes route-ping {
+    0% { transform: scale(0.28); opacity: 0.65; }
+    70%, 100% { transform: scale(1); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route-streak { display: none; }
+    .route-ping { animation: none; opacity: 0; }
+    .route-plane { animation: none; offset-distance: 52%; }
   }
 
   .route-backdrop {
