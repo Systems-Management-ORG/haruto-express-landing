@@ -7,12 +7,12 @@ Snapshot: commit `4e6b080` (2026-11-09). Site live tại https://harutoexpress.c
 
 ## 0. Nguyên tắc chung (áp dụng mọi session)
 
-1. **Không bịa thông tin doanh nghiệp.** Số điện thoại, Zalo, địa chỉ VN, tên pháp lý, giá JP→VN, thời gian giao: nếu chưa có trong `src/i18n/messages/*.json` thì để `TODO` trong file cấu hình `src/shared/seo/business.ts` và **không render** ra UI/JSON-LD khi giá trị rỗng.
+1. **Không bịa thông tin doanh nghiệp.** Số điện thoại, Zalo, địa chỉ VN, tên pháp lý, thời gian giao: nếu chưa có trong `src/i18n/messages/*.json` thì để `TODO` trong file cấu hình `src/shared/seo/business.ts` và **không render** ra UI/JSON-LD khi giá trị rỗng.
 2. **Trang thiếu nội dung thì không index.** Mỗi trang có cờ `indexable` trong registry. `indexable: false` → `robots: noindex, follow` và không có trong sitemap.
 3. **Không nhân bản nội dung giữa ngôn ngữ.** Một trang chỉ được generate cho locale đã có bản dịch thật. Locale thiếu bản dịch → 404, không fallback sang tiếng Việt. hreflang chỉ liệt kê các locale đang tồn tại.
 4. **Một nguồn sự thật:** mọi URL, title, hreflang, sitemap, breadcrumb đều đi ra từ `src/shared/seo/pages.ts`. Không hard-code URL ở component.
 5. Giữ nguyên style hiện có (Tailwind v4, class `wrap`, `heading-2`, `card`, `btn`…), GSAP reveal (`data-reveal`), a11y (skip link, aria), CSP trong `next.config.ts`.
-6. Mỗi session: branch riêng `seo/sNN-<tên>`, chạy `npm run typecheck && npm run build` phải pass, commit nhỏ theo bước. Cuối session ghi tóm tắt vào mục **Changelog** cuối file này.
+6. Mỗi session: `git pull` main trước, làm trên branch riêng `seo/sNN-<tên>`, commit nhỏ theo bước. `npm run typecheck && npm run build` phải pass. Cuối session ghi tóm tắt vào mục **Changelog**, rồi báo kết quả và **hỏi trước khi merge vào main/push** (nếu main tự deploy lên harutoexpress.com thì merge = lên production).
 
 ---
 
@@ -22,7 +22,7 @@ Snapshot: commit `4e6b080` (2026-11-09). Site live tại https://harutoexpress.c
 - `lang` theo locale, metadata riêng VI/JA/EN, `metadataBase` + `og:image` đã hoạt động trên live.
 - Ảnh WebP qua `next/image`, tên file ảnh có từ khóa, 404 trả `noindex`.
 - Security headers + CSP đã mở cho GTM/GA4 (`GTM-PL7NKB8J`).
-- Nội dung thật đã có: bảng giá VN→JP (hàng sạch / hỗn hợp), phụ phí, chính sách cân nặng, đền bù, mua hộ/đấu giá hộ/vận chuyển hộ, địa chỉ kho Nhật.
+- Nội dung thật đã có: bảng giá VN→JP (hàng sạch / hỗn hợp), bảng giá JP→VN (`pricing.freight`), phụ phí, chính sách cân nặng, đền bù, mua hộ/đấu giá hộ/vận chuyển hộ, địa chỉ kho Nhật.
 
 ### Vấn đề — theo mức độ
 | # | Mức | Vấn đề | Vị trí |
@@ -34,7 +34,7 @@ Snapshot: commit `4e6b080` (2026-11-09). Site live tại https://harutoexpress.c
 | 5 | 🟠 | H1 = slogan "Khoảng cách xa, kết nối gần." không chứa từ khóa; slide 2–3 sinh thêm H2 | `hero.tsx` |
 | 6 | 🟠 | Title đặt brand trước, dùng cụm "vận chuyển hàng không" thay vì cụm người dùng gõ ("gửi hàng đi Nhật", "ship hàng Nhật về VN") | `meta` trong messages |
 | 7 | 🟠 | **Cả site chỉ 3 URL** (1 trang × 3 ngôn ngữ). Menu toàn anchor `#`. Một URL không thể xếp hạng cho bảng giá, hàng cấm, mua hộ, địa chỉ kho… cùng lúc | `site-header.tsx`, `landing-page.tsx` |
-| 8 | 🟠 | Tab JP→VN của bảng giá chưa có dữ liệu | `pricing.jpVn` |
+| 8 | 🟠 | Chưa có thời gian vận chuyển dự kiến cho cả hai chiều (khách hay hỏi, nên có trên trang dịch vụ) | — |
 | 9 | 🟡 | 3 ảnh hero đều tải eager; ảnh kho `alt=""` | `hero.tsx`, `routes.tsx` |
 | 10 | 🟡 | Language switcher link cứng `/${locale}` + hash → sẽ sai khi có trang con | `site-header.tsx` |
 | 11 | 🟡 | Chưa có event đo chuyển đổi (click Zalo/hotline/messenger, submit form) | — |
@@ -52,8 +52,8 @@ Snapshot: commit `4e6b080` (2026-11-09). Site live tại https://harutoexpress.c
 |---|---|---|---|---|---|
 | `home` | `/vi` | `/ja`, `/en` | gửi hàng đi Nhật, chuyển phát Việt Nhật | hero, why, services, process (tóm tắt) + link sang trang con | Có |
 | `shipToJapan` | `/vi/gui-hang-di-nhat` | `/shipping-vietnam-to-japan` | gửi hàng đi Nhật, ship hàng sang Nhật | services.personal, pricing.vnJp (tóm tắt), process | Có |
-| `shipToVietnam` | `/vi/ship-hang-nhat-ve-viet-nam` | `/shipping-japan-to-vietnam` | ship hàng Nhật về Việt Nam, gửi hàng từ Nhật về VN | process, kho Nhật | **Thiếu giá JP→VN** → `indexable:false` |
-| `pricing` | `/vi/bang-gia` | `/pricing` | giá gửi hàng đi Nhật 1kg, bảng giá ship Nhật | pricing (đầy đủ), freight, surcharge | Có (VN→JP) |
+| `shipToVietnam` | `/vi/ship-hang-nhat-ve-viet-nam` | `/shipping-japan-to-vietnam` | ship hàng Nhật về Việt Nam, gửi hàng từ Nhật về VN | pricing.freight (155.000 ₫/kg, tỷ giá mua hộ), process, kho Nhật | Có |
+| `pricing` | `/vi/bang-gia` | `/pricing` | giá gửi hàng đi Nhật 1kg, bảng giá ship Nhật | pricing.vnJp, pricing.freight (JP→VN), surcharge | Có (cả 2 chiều) |
 | `goods` | `/vi/hang-nhan-va-hang-cam` | `/accepted-and-prohibited-items` | hàng cấm gửi đi Nhật, gửi thực phẩm đi Nhật | pricing.vnJp.clean/mixed desc, process.notes | Có (cần mở rộng) |
 | `policy` | `/vi/chinh-sach-van-chuyen` | `/shipping-policy` | cách tính cân hàng cồng kềnh, đền bù thất lạc | policy.weight, policy.compensation | Có |
 | `concierge` | `/vi/mua-ho-hang-nhat` | `/japan-buying-service` | mua hộ hàng Nhật, đấu giá hộ Nhật | policy.concierge | Có (mỏng) |
@@ -131,7 +131,7 @@ Ghi chú next-intl: dùng `pathnames` + `localePrefix: "always"`; thư mục rou
 - [ ] Hotline, Zalo (số/OA link), Messenger link, email
 - [ ] Địa chỉ VN (nếu có văn phòng/kho), giờ làm việc
 - [ ] Tên pháp lý / mã số doanh nghiệp (cho footer + Organization)
-- [ ] Bảng giá JP→VN, thời gian vận chuyển dự kiến mỗi chiều
+- [ ] Thời gian vận chuyển dự kiến mỗi chiều
 - [ ] 8–12 câu FAQ thật từ Zalo/Messenger
 - [ ] Facebook Page / Zalo OA URL (`sameAs`)
 - [ ] Review bản dịch JA/EN
@@ -174,7 +174,7 @@ Chi tiết tiêu chí hoàn thành:
 - Done khi: mọi route build tĩnh, switcher đúng, sitemap chỉ có home ×3, 404 vẫn đúng.
 
 ### S3 — Trang dịch vụ
-- Viết nội dung VI cho `shipToJapan`, `business`, (khung) `shipToVietnam` vào namespace riêng trong `vi.json`; dùng dữ liệu đã có, phần thiếu để TODO và giữ `indexable:false`.
+- Viết nội dung VI cho `shipToJapan`, `shipToVietnam`, `business` vào namespace riêng trong `vi.json`; dùng dữ liệu đã có, phần thiếu để TODO và giữ `indexable:false`.
 - `Service` JSON-LD, breadcrumb, related links, CTA.
 - Bật `indexable:true` cho trang đủ nội dung (≥300 từ, không TODO hiển thị).
 
