@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -137,6 +137,39 @@ export function Hero() {
           </div>
         );
       })}
+
+      <div className="hero-controls" role="group" aria-label={t("carousel.controls")}>
+        <button
+          type="button"
+          onClick={() => show(active - 1)}
+          aria-label={t("carousel.prev")}
+          className="hero-control"
+        >
+          <CaretLeft size={20} weight="bold" aria-hidden />
+        </button>
+        <div className="hero-dots">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.title}
+              type="button"
+              onClick={() => setActive(index)}
+              aria-label={t("carousel.goto", { index: index + 1 })}
+              aria-current={index === active}
+              className={`hero-dot${index === active ? " is-active" : ""}`}
+            >
+              <span aria-hidden />
+            </button>
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={() => show(active + 1)}
+          aria-label={t("carousel.next")}
+          className="hero-control"
+        >
+          <CaretRight size={20} weight="bold" aria-hidden />
+        </button>
+      </div>
     </section>
   );
 }

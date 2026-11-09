@@ -35,6 +35,10 @@
     "secondary": "Liên hệ tư vấn",
     "carousel": {
       "label": "Banner dịch vụ HARUTO EXPRESS",
+      "controls": "Điều khiển banner",
+      "prev": "Ảnh trước",
+      "next": "Ảnh tiếp theo",
+      "goto": "Đến ảnh {index}",
       "alts": [
         "Máy bay bay trên núi Phú Sĩ, tháp Tokyo và hoa anh đào, phía trước là các thùng hàng",
         "Máy bay trên tuyến Việt Nam – Nhật Bản, cùng cờ và cảnh đặc trưng của hai nước",

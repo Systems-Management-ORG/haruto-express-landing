@@ -35,6 +35,10 @@
     "secondary": "Contact us",
     "carousel": {
       "label": "HARUTO EXPRESS service banners",
+      "controls": "Banner controls",
+      "prev": "Previous image",
+      "next": "Next image",
+      "goto": "Go to image {index}",
       "alts": [
         "Plane over Mount Fuji, Tokyo Tower and cherry blossoms, with shipping boxes in front",
         "Plane on the Vietnam – Japan route with both flags and landmarks",
