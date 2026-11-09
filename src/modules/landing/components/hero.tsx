@@ -129,7 +129,9 @@ export function Hero() {
                 <div data-hero-line className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a href="#pricing" className="btn btn-gold">
                     {t("primary")}
-                    <ArrowRight size={18} aria-hidden className="m-arrow" />
+                    <span className="btn-chip" aria-hidden>
+                      <ArrowRight size={14} weight="bold" />
+                    </span>
                   </a>
                   <a href="#contact" data-track="cta_contact" className="btn btn-outline">
                     {t("secondary")}

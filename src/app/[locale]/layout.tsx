@@ -79,6 +79,7 @@ export default async function LocaleLayout({ children, params }: LocaleParams & 
         <JsonLd data={website(locale)} />
         <AnalyticsEvents />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <div className="grain" aria-hidden />
         <GoogleTagManager />
       </body>
     </html>
