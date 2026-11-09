@@ -81,13 +81,54 @@
   },
   "pricing": {
     "title": "Bảng giá",
-    "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam, áp dụng từ 01/10/2026. Giá dịch vụ chưa bao gồm VAT.",
+    "intro": "Chính sách giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026.",
     "tabsLabel": "Chọn chiều vận chuyển",
     "tabs": {
       "vnJp": "VN → JP",
       "jpVn": "JP → VN"
     },
-    "pendingNote": "Bảng giá chính thức chiều Việt Nam → Nhật Bản đang chờ cập nhật.",
+    "vnJp": {
+      "intro": "Giá đã bao gồm thuế và ship nội địa Nhật — khách chỉ việc nhận hàng tại địa chỉ. Miễn phí gom đơn và đóng hàng.",
+      "scrollLabel": "Bảng giá, có thể cuộn ngang",
+      "columns": {
+        "weight": "Khối lượng",
+        "price": "Đơn giá"
+      },
+      "clean": {
+        "title": "Hàng sạch",
+        "desc": "Thời trang, đồ dùng, nội thất, máy móc, phụ kiện, sách vở… Không nhận thực phẩm, mỹ phẩm, thuốc và hàng fake. Đảm bảo hàng hóa 100%. Ưu đãi khách buôn: sản lượng tháng này là mốc tính cước cho tháng sau.",
+        "rows": [
+          { "weight": "1 – 5 kg", "price": "130.000 ₫/kg" },
+          { "weight": "6 – 9 kg", "price": "125.000 ₫/kg" },
+          { "weight": "10 – 20 kg", "price": "105.000 ₫/kg" },
+          { "weight": "50 – 100 kg", "price": "89.000 ₫/kg" },
+          { "weight": "100 – 200 kg", "price": "88.000 ₫/kg" },
+          { "weight": "200 – 500 kg", "price": "85.000 ₫/kg" },
+          { "weight": "Trên 500 kg", "price": "Thương lượng" }
+        ],
+        "note": "Phụ thu 200.000 ₫/kiện. Giá đã gồm ship nội địa Nhật."
+      },
+      "mixed": {
+        "title": "Hàng hỗn hợp",
+        "desc": "Nhận đa dạng mặt hàng: quần áo, giày dép, thực phẩm… Không đảm bảo với chế phẩm thịt, hàng fake, hạt giống, hoa quả, mỹ phẩm, thuốc. Cấm gửi: chất gây nghiện, chất kích thích, vũ khí, đạn dược…",
+        "rows": [
+          { "weight": "1 kg", "price": "390.000 ₫/kg" },
+          { "weight": "2 kg", "price": "260.000 ₫/kg" },
+          { "weight": "3 kg", "price": "215.000 ₫/kg" },
+          { "weight": "4 kg", "price": "185.000 ₫/kg" },
+          { "weight": "5 kg", "price": "170.000 ₫/kg" },
+          { "weight": "6 kg", "price": "150.000 ₫/kg" },
+          { "weight": "7 – 9 kg", "price": "140.000 ₫/kg" },
+          { "weight": "10 kg", "price": "135.000 ₫/kg" },
+          { "weight": "11 – 14 kg", "price": "125.000 ₫/kg" },
+          { "weight": "15 – 20 kg", "price": "120.000 ₫/kg" },
+          { "weight": "21 – 25 kg", "price": "108.000 ₫/kg" },
+          { "weight": "26 – 30 kg", "price": "105.000 ₫/kg" }
+        ],
+        "note": "Giá đã gồm ship nội địa Nhật."
+      },
+      "rounding": "Làm tròn cân nặng — Hàng sạch: theo mốc 0,5 kg (ví dụ 3,2 kg → 3,5 kg). Hàng hỗn hợp: dưới 0,1 kg làm tròn xuống, trên 0,1 kg làm tròn lên (ví dụ 3,09 kg → 3 kg; 3,1 kg → 4 kg)."
+    },
     "freight": {
       "weight": "Cước hàng không, với mọi trọng lượng",
       "price": "155.000 ₫/kg",

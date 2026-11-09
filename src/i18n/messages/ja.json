@@ -81,13 +81,54 @@
   },
   "pricing": {
     "title": "料金表",
-    "intro": "日本 → ベトナム路線の料金ポリシーです。2026年10月1日より適用。表示料金にVATは含まれません。",
+    "intro": "双方向の航空輸送料金ポリシーです。2026年10月1日より適用。",
     "tabsLabel": "輸送方向を選択",
     "tabs": {
       "vnJp": "VN → JP",
       "jpVn": "JP → VN"
     },
-    "pendingNote": "ベトナム → 日本方向の正式な料金表は現在更新待ちです。",
+    "vnJp": {
+      "intro": "料金には税金と日本国内配送が含まれ、お客様は住所で荷物を受け取るだけです。まとめ・梱包は無料です。",
+      "scrollLabel": "料金表（横にスクロールできます）",
+      "columns": {
+        "weight": "重量",
+        "price": "単価"
+      },
+      "clean": {
+        "title": "クリーン貨物",
+        "desc": "ファッション、日用品、家具、機械、アクセサリー、書籍など。食品・化粧品・薬品・偽造品はお取り扱いできません。貨物を100%保証。卸売り特典：今月の取扱量が翌月の料金基準になります。",
+        "rows": [
+          { "weight": "1 – 5 kg", "price": "130,000 VND/kg" },
+          { "weight": "6 – 9 kg", "price": "125,000 VND/kg" },
+          { "weight": "10 – 20 kg", "price": "105,000 VND/kg" },
+          { "weight": "50 – 100 kg", "price": "89,000 VND/kg" },
+          { "weight": "100 – 200 kg", "price": "88,000 VND/kg" },
+          { "weight": "200 – 500 kg", "price": "85,000 VND/kg" },
+          { "weight": "500 kg超", "price": "応相談" }
+        ],
+        "note": "1梱包あたり200,000 VNDの追加料金。料金に日本国内配送を含みます。"
+      },
+      "mixed": {
+        "title": "混載貨物",
+        "desc": "衣類、履物、食品など幅広くお取り扱い。肉製品、偽造品、種子、果物、化粧品、薬品は保証対象外です。発送禁止：麻薬、興奮剤、武器、弾薬など。",
+        "rows": [
+          { "weight": "1 kg", "price": "390,000 VND/kg" },
+          { "weight": "2 kg", "price": "260,000 VND/kg" },
+          { "weight": "3 kg", "price": "215,000 VND/kg" },
+          { "weight": "4 kg", "price": "185,000 VND/kg" },
+          { "weight": "5 kg", "price": "170,000 VND/kg" },
+          { "weight": "6 kg", "price": "150,000 VND/kg" },
+          { "weight": "7 – 9 kg", "price": "140,000 VND/kg" },
+          { "weight": "10 kg", "price": "135,000 VND/kg" },
+          { "weight": "11 – 14 kg", "price": "125,000 VND/kg" },
+          { "weight": "15 – 20 kg", "price": "120,000 VND/kg" },
+          { "weight": "21 – 25 kg", "price": "108,000 VND/kg" },
+          { "weight": "26 – 30 kg", "price": "105,000 VND/kg" }
+        ],
+        "note": "料金に日本国内配送を含みます。"
+      },
+      "rounding": "重量の丸め — クリーン貨物：0.5 kg単位（例：3.2 kg → 3.5 kg）。混載貨物：0.1 kg未満は切り下げ、0.1 kg超は切り上げ（例：3.09 kg → 3 kg、3.1 kg → 4 kg）。"
+    },
     "freight": {
       "weight": "航空輸送料金・全重量一律",
       "price": "155,000 VND/kg",

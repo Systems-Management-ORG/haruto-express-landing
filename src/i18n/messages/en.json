@@ -81,13 +81,54 @@
   },
   "pricing": {
     "title": "Pricing",
-    "intro": "Rate policy for the Japan → Vietnam route, effective from 1 October 2026. Service prices exclude VAT.",
+    "intro": "Two-way air-freight rate policy, effective from 1 October 2026.",
     "tabsLabel": "Choose shipping direction",
     "tabs": {
       "vnJp": "VN → JP",
       "jpVn": "JP → VN"
     },
-    "pendingNote": "The official Vietnam → Japan rate card is awaiting an update.",
+    "vnJp": {
+      "intro": "Prices include tax and Japan domestic delivery — the customer simply receives the goods at the address. Consolidation and packing are free.",
+      "scrollLabel": "Rate table, scrolls horizontally",
+      "columns": {
+        "weight": "Weight",
+        "price": "Unit price"
+      },
+      "clean": {
+        "title": "Clean goods",
+        "desc": "Fashion, household items, furniture, machinery, accessories, books… We do not accept food, cosmetics, medicine, or counterfeit goods. Goods are 100% guaranteed. Wholesale perk: this month's volume sets next month's rate.",
+        "rows": [
+          { "weight": "1 – 5 kg", "price": "130,000 VND/kg" },
+          { "weight": "6 – 9 kg", "price": "125,000 VND/kg" },
+          { "weight": "10 – 20 kg", "price": "105,000 VND/kg" },
+          { "weight": "50 – 100 kg", "price": "89,000 VND/kg" },
+          { "weight": "100 – 200 kg", "price": "88,000 VND/kg" },
+          { "weight": "200 – 500 kg", "price": "85,000 VND/kg" },
+          { "weight": "Over 500 kg", "price": "Negotiable" }
+        ],
+        "note": "Surcharge of 200,000 VND/parcel. Price includes Japan domestic delivery."
+      },
+      "mixed": {
+        "title": "Mixed goods",
+        "desc": "A wide range accepted: clothing, footwear, food… Not guaranteed for meat products, counterfeits, seeds, fruit, cosmetics, or medicine. Prohibited: narcotics, stimulants, weapons, ammunition…",
+        "rows": [
+          { "weight": "1 kg", "price": "390,000 VND/kg" },
+          { "weight": "2 kg", "price": "260,000 VND/kg" },
+          { "weight": "3 kg", "price": "215,000 VND/kg" },
+          { "weight": "4 kg", "price": "185,000 VND/kg" },
+          { "weight": "5 kg", "price": "170,000 VND/kg" },
+          { "weight": "6 kg", "price": "150,000 VND/kg" },
+          { "weight": "7 – 9 kg", "price": "140,000 VND/kg" },
+          { "weight": "10 kg", "price": "135,000 VND/kg" },
+          { "weight": "11 – 14 kg", "price": "125,000 VND/kg" },
+          { "weight": "15 – 20 kg", "price": "120,000 VND/kg" },
+          { "weight": "21 – 25 kg", "price": "108,000 VND/kg" },
+          { "weight": "26 – 30 kg", "price": "105,000 VND/kg" }
+        ],
+        "note": "Price includes Japan domestic delivery."
+      },
+      "rounding": "Weight rounding — Clean goods: to the nearest 0.5 kg (e.g. 3.2 kg → 3.5 kg). Mixed goods: under 0.1 kg rounds down, over 0.1 kg rounds up (e.g. 3.09 kg → 3 kg; 3.1 kg → 4 kg)."
+    },
     "freight": {
       "weight": "Air freight, any weight",
       "price": "155,000 VND/kg",
