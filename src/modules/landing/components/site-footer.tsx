@@ -1,11 +1,14 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import type { Locale } from "@/shared/constants/locales";
+import { type PageKey, pagePath } from "@/shared/seo/pages";
 
-const LINKS = ["services", "pricing", "process", "contact"] as const;
+const LINKS: PageKey[] = ["shipToJapan", "shipToVietnam", "pricing", "policy", "faq", "contact"];
 
 export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
   const t = useTranslations("footer");
-  const nav = useTranslations("nav");
+  const tPages = useTranslations("pages");
+  const locale = useLocale() as Locale;
 
   return (
     <footer className="bg-deep py-12 text-ivory lg:py-16">
@@ -28,10 +31,10 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
           <nav aria-label={t("navigationTitle")} className="md:col-span-4 md:col-start-9">
             <p className="text-sm font-medium text-ivory/70">{t("navigationTitle")}</p>
             <ul className="mt-2">
-              {LINKS.map((link) => (
-                <li key={link}>
-                  <a href={`${homeHref}#${link}`} className="flex min-h-11 items-center hover:text-gold">
-                    {nav(link)}
+              {LINKS.map((key) => (
+                <li key={key}>
+                  <a href={pagePath(locale, key)} className="flex min-h-11 items-center hover:text-gold">
+                    {tPages(`${key}.nav`)}
                   </a>
                 </li>
               ))}

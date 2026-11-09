@@ -3,6 +3,123 @@
     "title": "Shipping between Vietnam and Japan by air | HARUTO EXPRESS",
     "description": "Ship parcels both ways between Vietnam and Japan for people and businesses: clear rates, our own Japan warehouse, and real advisers. Contact HARUTO for a quote."
   },
+  "pages": {
+    "relatedTitle": "Explore more",
+    "home": { "nav": "Home", "breadcrumb": "Home" },
+    "shipToJapan": {
+      "nav": "Ship to Japan",
+      "breadcrumb": "Ship to Japan",
+      "title": "Ship to Japan by air from Vietnam",
+      "intro": "Send parcels, gifts and commercial goods from Vietnam to Japan. HARUTO carries clean and mixed goods, prices by weight band, and includes tax and Japan domestic delivery.",
+      "metaTitle": "Ship to Japan from Vietnam | HARUTO EXPRESS",
+      "metaDescription": "Ship to Japan from Vietnam for individuals and businesses: clean and mixed goods, pricing by weight band, tax and Japan domestic delivery included."
+    },
+    "shipToVietnam": {
+      "nav": "Ship to Vietnam",
+      "breadcrumb": "Ship from Japan to Vietnam",
+      "title": "Ship from Japan to Vietnam",
+      "intro": "Move goods from Japan to Vietnam by air at 155,000 VND/kg, with buy-for-you and ship-for-you services. Send your items to HARUTO's Japan warehouse to get started.",
+      "metaTitle": "Ship from Japan to Vietnam | HARUTO EXPRESS",
+      "metaDescription": "Ship from Japan to Vietnam by air at 155,000 VND/kg, with buy-for-you and ship-for-you services and a receiving warehouse in Japan. Contact us to begin."
+    },
+    "pricing": {
+      "nav": "Pricing",
+      "breadcrumb": "Pricing",
+      "title": "Vietnam – Japan shipping rates",
+      "intro": "Rates for both directions: Vietnam → Japan is priced by weight band for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. Includes surcharges and how weight is calculated.",
+      "metaTitle": "Vietnam – Japan shipping rates | HARUTO",
+      "metaDescription": "Two-way Vietnam – Japan shipping rates: clean and mixed goods by weight band, Japan to Vietnam at 155,000 VND/kg, plus surcharges and weight rules."
+    },
+    "goods": {
+      "nav": "Accepted & prohibited",
+      "breadcrumb": "Accepted and prohibited items",
+      "title": "Accepted items and prohibited goods",
+      "intro": "What HARUTO carries, which goods are not guaranteed through customs, and which items are prohibited under the laws of both countries.",
+      "metaTitle": "Accepted and prohibited items to Japan | HARUTO",
+      "metaDescription": "Items HARUTO accepts for Japan, goods not guaranteed through customs, and items prohibited by law. Check before sending parcels Vietnam–Japan.",
+      "accepted": {
+        "title": "Accepted for shipping",
+        "items": [
+          "Fashion, clothing, footwear",
+          "Household items, furniture, machinery, accessories",
+          "Books and stationery",
+          "Food (for mixed goods)"
+        ]
+      },
+      "notGuaranteed": {
+        "title": "Not guaranteed through customs",
+        "items": [
+          "Meat products, fruit, seeds",
+          "Cosmetics, medicine",
+          "Counterfeit goods"
+        ]
+      },
+      "prohibited": {
+        "title": "Prohibited",
+        "items": [
+          "Narcotics and stimulants",
+          "Weapons and ammunition",
+          "Items prohibited by the laws of both countries"
+        ]
+      }
+    },
+    "policy": {
+      "nav": "Policy",
+      "breadcrumb": "Shipping policy",
+      "title": "Shipping and compensation policy",
+      "intro": "How weight is calculated for standard and bulky goods, the rounding rules, and the compensation policy for lost goods with and without insurance.",
+      "metaTitle": "Shipping & compensation policy | HARUTO",
+      "metaDescription": "HARUTO shipping policy: volumetric weight for bulky goods, weight rounding rules, and compensation for lost goods with or without cargo insurance."
+    },
+    "concierge": {
+      "nav": "Buying service",
+      "breadcrumb": "Buy & bid service",
+      "title": "Buy, bid and ship-for-you from Japan",
+      "intro": "HARUTO buys, bids and ships goods on your behalf from Japan. See the payment and deposit terms for each option before sending a request.",
+      "metaTitle": "Japan buying & bidding service | HARUTO",
+      "metaDescription": "HARUTO buy-for-you, bid-for-you and ship-for-you from Japan: payment terms, a 50% deposit for bidding and a full refund if a bid fails. Ask us for advice."
+    },
+    "japanWarehouse": {
+      "nav": "Japan warehouse",
+      "breadcrumb": "Japan warehouse address",
+      "title": "Japan warehouse address and how to send goods",
+      "intro": "Details of the receiving warehouse in Japan: postal code, address, recipient phone and the recipient-name convention, plus important notes for sending goods to the warehouse.",
+      "metaTitle": "HARUTO EXPRESS Japan warehouse address",
+      "metaDescription": "HARUTO's receiving warehouse in Japan: postal code, address, recipient phone, recipient-name convention and notes for sending goods there."
+    },
+    "faq": {
+      "nav": "FAQ",
+      "breadcrumb": "Frequently asked questions",
+      "title": "Frequently asked questions",
+      "intro": "Answers to common questions about which goods we carry, how rates are calculated, and tracking parcels between Vietnam and Japan.",
+      "metaTitle": "Frequently asked questions | HARUTO EXPRESS",
+      "metaDescription": "Common questions about Vietnam – Japan shipping: which goods we carry, how rates are calculated from actual and volumetric weight, and how to track your parcel."
+    },
+    "business": {
+      "nav": "Business",
+      "breadcrumb": "Business",
+      "title": "Commercial shipping between Vietnam and Japan",
+      "intro": "We handle commercial air-freight needs and advise per shipment. Detailed content is being prepared.",
+      "metaTitle": "Business shipping | HARUTO EXPRESS",
+      "metaDescription": "Commercial air-freight shipping between Vietnam and Japan, with advice per shipment. Detailed content is being prepared."
+    },
+    "contact": {
+      "nav": "Contact",
+      "breadcrumb": "Contact",
+      "title": "Contact HARUTO EXPRESS",
+      "intro": "Tell HARUTO your route and the type of goods you need to send to get advice and a quote.",
+      "metaTitle": "Contact | HARUTO EXPRESS",
+      "metaDescription": "Contact HARUTO EXPRESS for advice on two-way Vietnam – Japan shipping and a quote for your parcel."
+    },
+    "guides": {
+      "nav": "Guides",
+      "breadcrumb": "Guides",
+      "title": "Shipping guides",
+      "intro": "Guides on packing, declaring and sending goods between Vietnam and Japan. Content is being written.",
+      "metaTitle": "Shipping guides | HARUTO EXPRESS",
+      "metaDescription": "Guides on packing, declaring and sending goods between Vietnam and Japan from HARUTO EXPRESS. Content is being written and will be published soon."
+    }
+  },
   "nav": {
     "skip": "Skip to main content",
     "services": "Services",

@@ -2,18 +2,29 @@
 
 import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { LOCALES, LOCALE_LABELS, LOCALE_NAMES } from "@/shared/constants/locales";
+import type { Locale } from "@/shared/constants/locales";
+import { type PageKey, pagePath } from "@/shared/seo/pages";
 
+// The path without its leading locale segment, so the language switcher can keep the visitor
+// on the same page in another language (e.g. /vi/pricing → /en/pricing).
+function pathWithoutLocale(pathname: string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length > 0 && (LOCALES as readonly string[]).includes(parts[0])) parts.shift();
+  return parts.length ? `/${parts.join("/")}` : "";
+}
 
-// The links stay in the markup while closed so search engines can still find every language.
 function LanguageMenu({ inline = false }: { inline?: boolean }) {
   const locale = useLocale();
+  const pathname = usePathname();
   const label = useTranslations("nav")("language");
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const rest = pathWithoutLocale(pathname);
 
   useEffect(() => {
     if (!open) return;
@@ -30,7 +41,6 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
       className="relative"
       onKeyDown={(event) => {
         if (event.key !== "Escape" || !open) return;
-        // Tells the mobile menu's handler that this Escape only closed the language list.
         event.preventDefault();
         setOpen(false);
         toggleRef.current?.focus();
@@ -59,13 +69,9 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
         {LOCALES.map((item) => (
           <li key={item}>
             <a
-              href={`/${item}`}
+              href={`/${item}${rest}`}
               lang={item}
               aria-current={item === locale ? "page" : undefined}
-              onClick={(event) => {
-                // Keep the section the visitor last jumped to when the language changes.
-                event.currentTarget.href = `/${item}${window.location.hash}`;
-              }}
               className={`flex min-h-11 items-center px-3 text-sm ${
                 item === locale ? "font-medium text-forest" : ""
               }`}
@@ -79,57 +85,22 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
   );
 }
 
-const NAV_SECTIONS = ["services", "pricing", "policy", "process", "contact"] as const;
-type NavSection = (typeof NAV_SECTIONS)[number];
+// Primary navigation points at real routes from the registry.
+const NAV_KEYS: PageKey[] = ["shipToJapan", "shipToVietnam", "pricing", "policy", "faq"];
 
-// The last menu section whose top has passed this line stays active, so sections without a menu
-// entry of their own (routes, FAQ) keep the entry before them lit.
-const ACTIVE_LINE = 0.4;
-
-function useActiveSection() {
-  const [active, setActive] = useState<NavSection | null>(null);
-
-  useEffect(() => {
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const line = window.innerHeight * ACTIVE_LINE;
-      let current: NavSection | null = null;
-      for (const id of NAV_SECTIONS) {
-        const section = document.getElementById(id);
-        if (section && section.getBoundingClientRect().top <= line) current = id;
-      }
-      setActive(current);
-    };
-    const schedule = () => {
-      if (!frame) frame = window.requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", schedule);
-    return () => {
-      window.removeEventListener("scroll", schedule);
-      window.removeEventListener("resize", schedule);
-      window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
-  return active;
-}
-
-type Props = { homeHref?: string; solid?: boolean };
-
-export function SiteHeader({ homeHref = "", solid = false }: Props) {
+export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string; solid?: boolean }) {
   const nav = useTranslations("nav");
+  const tPages = useTranslations("pages");
+  const locale = useLocale() as Locale;
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(solid);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const activeSection = useActiveSection();
-  const links = NAV_SECTIONS.map((id) => ({
-    href: `${homeHref}#${id}`,
-    label: nav(id),
-    current: activeSection === id ? ("location" as const) : undefined,
-  }));
+
+  const links = NAV_KEYS.map((key) => {
+    const href = pagePath(locale, key);
+    return { href, label: tPages(`${key}.nav`), current: pathname === href ? ("page" as const) : undefined };
+  });
 
   useEffect(() => {
     if (solid) return;
@@ -153,7 +124,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
   const transparent = !scrolled && !open;
 
   return (
-    <header data-transparent={transparent} data-scrolled={scrolled} className="site-header">
+    <header data-transparent={transparent} data-scrolled={scrolled} data-solid={solid || undefined} className="site-header">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
@@ -161,7 +132,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
         {nav("skip")}
       </a>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-4 lg:justify-start lg:gap-8 xl:gap-10">
-        <a href={`${homeHref}#top`} className="flex min-h-11 items-center gap-2.5">
+        <a href={homeHref || `/${locale}`} className="flex min-h-11 items-center gap-2.5">
           <Image
             src="/logo/haruto-mark.png"
             alt=""
@@ -192,7 +163,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
             <LanguageMenu />
           </div>
           <a
-            href={`${homeHref}#contact`}
+            href={pagePath(locale, "contact")}
             data-track="cta_contact"
             className="btn btn-primary hidden whitespace-nowrap sm:inline-flex"
           >
@@ -234,7 +205,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
-            <a href={`${homeHref}#contact`} data-track="cta_contact" onClick={() => setOpen(false)} className="btn btn-primary w-full sm:hidden">
+            <a href={pagePath(locale, "contact")} data-track="cta_contact" onClick={() => setOpen(false)} className="btn btn-primary w-full sm:hidden">
               {nav("cta")}
             </a>
           </div>

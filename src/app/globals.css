@@ -111,6 +111,11 @@
     box-shadow: 0 8px 24px rgb(16 44 33 / 0.08);
   }
 
+  /* Subpages have no hero to sit over, so the header takes normal flow instead of overlaying. */
+  .site-header[data-solid="true"] {
+    margin-bottom: 0;
+  }
+
   .heading-1 {
     font-size: 2.5rem;
     line-height: 1.06;
