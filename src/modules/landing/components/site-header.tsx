@@ -193,6 +193,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
           </div>
           <a
             href={`${homeHref}#contact`}
+            data-track="cta_contact"
             className="btn btn-primary hidden whitespace-nowrap sm:inline-flex"
           >
             {nav("cta")}
@@ -233,7 +234,7 @@ export function SiteHeader({ homeHref = "", solid = false }: Props) {
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
-            <a href={`${homeHref}#contact`} onClick={() => setOpen(false)} className="btn btn-primary w-full sm:hidden">
+            <a href={`${homeHref}#contact`} data-track="cta_contact" onClick={() => setOpen(false)} className="btn btn-primary w-full sm:hidden">
               {nav("cta")}
             </a>
           </div>

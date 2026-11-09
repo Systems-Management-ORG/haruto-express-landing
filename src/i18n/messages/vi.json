@@ -222,7 +222,11 @@
       "items": [
         "Chụp ảnh kiện hàng trước khi gửi.",
         "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
-        "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng."
+        "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng.",
+        "Hàng gửi đến kho phải đủ thông tin người nhận: tên, số điện thoại, địa chỉ.",
+        "Khi nhận hàng, quay video liền mạch quá trình kiểm đếm để làm căn cứ khiếu nại. Không có video hoặc quá 24 giờ kể từ khi nhận sẽ không được giải quyết.",
+        "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
+        "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
       ]
     }
   },

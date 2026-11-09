@@ -128,7 +128,7 @@ export function Hero() {
                     {t("primary")}
                     <ArrowRight size={18} aria-hidden className="m-arrow" />
                   </a>
-                  <a href="#contact" className="btn btn-outline">
+                  <a href="#contact" data-track="cta_contact" className="btn btn-outline">
                     {t("secondary")}
                   </a>
                 </div>
