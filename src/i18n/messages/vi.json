@@ -3,6 +3,123 @@
     "title": "Gửi hàng đi Nhật, ship hàng Nhật về VN | HARUTO EXPRESS",
     "description": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
   },
+  "pages": {
+    "relatedTitle": "Xem thêm",
+    "home": { "nav": "Trang chủ", "breadcrumb": "Trang chủ" },
+    "shipToJapan": {
+      "nav": "Gửi đi Nhật",
+      "breadcrumb": "Gửi hàng đi Nhật",
+      "title": "Gửi hàng đi Nhật bằng đường hàng không",
+      "intro": "Gửi bưu kiện, quà tặng và hàng kinh doanh từ Việt Nam sang Nhật Bản. HARUTO nhận hàng sạch và hàng hỗn hợp, báo cước theo mốc cân, đã gồm thuế và giao nội địa Nhật.",
+      "metaTitle": "Gửi hàng đi Nhật giá tốt | HARUTO EXPRESS",
+      "metaDescription": "Gửi hàng đi Nhật từ Việt Nam cho cá nhân và doanh nghiệp: nhận hàng sạch và hỗn hợp, cước theo mốc cân, đã gồm thuế và giao nội địa Nhật. Liên hệ HARUTO."
+    },
+    "shipToVietnam": {
+      "nav": "Ship Nhật về VN",
+      "breadcrumb": "Ship hàng Nhật về Việt Nam",
+      "title": "Ship hàng Nhật về Việt Nam",
+      "intro": "Chuyển hàng từ Nhật Bản về Việt Nam bằng đường hàng không với cước 155.000 ₫/kg và dịch vụ mua hộ, vận chuyển hộ. Gửi hàng về kho Nhật của HARUTO để được tiếp nhận.",
+      "metaTitle": "Ship hàng Nhật về Việt Nam | HARUTO EXPRESS",
+      "metaDescription": "Ship hàng Nhật về Việt Nam bằng đường hàng không: cước 155.000 ₫/kg, có mua hộ và vận chuyển hộ, kho nhận hàng tại Nhật. Liên hệ HARUTO để được tư vấn."
+    },
+    "pricing": {
+      "nav": "Bảng giá",
+      "breadcrumb": "Bảng giá",
+      "title": "Bảng giá vận chuyển Việt Nam – Nhật Bản",
+      "intro": "Bảng giá hai chiều: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Kèm biểu phụ thu và cách tính cân.",
+      "metaTitle": "Bảng giá gửi hàng Việt – Nhật | HARUTO",
+      "metaDescription": "Bảng giá vận chuyển hai chiều Việt Nam – Nhật Bản: hàng sạch và hỗn hợp theo mốc cân, chiều Nhật về 155.000 ₫/kg, kèm phụ thu và cách tính cân."
+    },
+    "goods": {
+      "nav": "Hàng nhận & cấm",
+      "breadcrumb": "Hàng nhận và hàng cấm",
+      "title": "Hàng nhận vận chuyển và hàng cấm gửi",
+      "intro": "Danh mục hàng HARUTO nhận vận chuyển, nhóm hàng không đảm bảo trong quá trình thông quan và nhóm hàng bị cấm gửi theo quy định pháp luật của hai nước.",
+      "metaTitle": "Hàng nhận và hàng cấm gửi đi Nhật | HARUTO",
+      "metaDescription": "Danh mục hàng nhận đi Nhật, nhóm hàng không đảm bảo khi thông quan và nhóm hàng cấm gửi theo quy định. Kiểm tra trước khi gửi hàng Việt – Nhật.",
+      "accepted": {
+        "title": "Hàng nhận vận chuyển",
+        "items": [
+          "Thời trang, quần áo, giày dép",
+          "Đồ dùng, nội thất, máy móc, phụ kiện",
+          "Sách vở và văn phòng phẩm",
+          "Thực phẩm (áp dụng với hàng hỗn hợp)"
+        ]
+      },
+      "notGuaranteed": {
+        "title": "Không đảm bảo khi thông quan",
+        "items": [
+          "Chế phẩm thịt, hoa quả, hạt giống",
+          "Mỹ phẩm, thuốc thang",
+          "Hàng fake (hàng nhái)"
+        ]
+      },
+      "prohibited": {
+        "title": "Cấm gửi",
+        "items": [
+          "Chất gây nghiện, chất kích thích",
+          "Vũ khí, đạn dược",
+          "Các mặt hàng bị pháp luật hai nước cấm vận chuyển"
+        ]
+      }
+    },
+    "policy": {
+      "nav": "Chính sách",
+      "breadcrumb": "Chính sách vận chuyển",
+      "title": "Chính sách vận chuyển và đền bù",
+      "intro": "Cách tính khối lượng cho hàng thường và hàng cồng kềnh, quy ước làm tròn cân, cùng chính sách đền bù khi hàng hóa thất lạc có và không có bảo hiểm.",
+      "metaTitle": "Chính sách vận chuyển & đền bù | HARUTO",
+      "metaDescription": "Chính sách vận chuyển HARUTO: cách tính cân hàng cồng kềnh theo thể tích, quy ước làm tròn, và mức đền bù khi thất lạc hàng hóa có hoặc không mua bảo hiểm."
+    },
+    "concierge": {
+      "nav": "Mua hộ",
+      "breadcrumb": "Mua hộ – đấu giá hộ",
+      "title": "Mua hộ, đấu giá hộ và vận chuyển hộ hàng Nhật",
+      "intro": "HARUTO nhận mua hộ, đấu giá hộ và vận chuyển hộ hàng từ Nhật Bản. Xem điều kiện thanh toán và đặt cọc cho từng hình thức trước khi gửi yêu cầu.",
+      "metaTitle": "Mua hộ hàng Nhật, đấu giá hộ | HARUTO",
+      "metaDescription": "Dịch vụ mua hộ, đấu giá hộ và vận chuyển hộ hàng Nhật của HARUTO: điều kiện thanh toán, đặt cọc 50% khi đấu giá và hoàn cọc nếu không thành công."
+    },
+    "japanWarehouse": {
+      "nav": "Kho Nhật",
+      "breadcrumb": "Địa chỉ kho Nhật",
+      "title": "Địa chỉ kho Nhật và cách gửi hàng về kho",
+      "intro": "Thông tin kho nhận hàng tại Nhật Bản: mã bưu điện, địa chỉ, số điện thoại người nhận và quy ước ghi tên người nhận, cùng lưu ý quan trọng khi gửi hàng về kho.",
+      "metaTitle": "Địa chỉ kho Nhật của HARUTO EXPRESS",
+      "metaDescription": "Địa chỉ kho nhận hàng tại Nhật của HARUTO: mã bưu điện, địa chỉ, số điện thoại người nhận, quy ước ghi tên người nhận và lưu ý khi gửi hàng về kho."
+    },
+    "faq": {
+      "nav": "Hỏi đáp",
+      "breadcrumb": "Câu hỏi thường gặp",
+      "title": "Câu hỏi thường gặp",
+      "intro": "Giải đáp các câu hỏi thường gặp về loại hàng nhận vận chuyển, cách tính cước và theo dõi kiện hàng giữa Việt Nam và Nhật Bản.",
+      "metaTitle": "Câu hỏi thường gặp | HARUTO EXPRESS",
+      "metaDescription": "Câu hỏi thường gặp về vận chuyển Việt Nam – Nhật Bản: loại hàng nhận gửi, cách tính cước theo cân thực tế và cân thể tích, và cách theo dõi kiện hàng của bạn."
+    },
+    "business": {
+      "nav": "Doanh nghiệp",
+      "breadcrumb": "Doanh nghiệp",
+      "title": "Vận chuyển hàng thương mại Việt Nam – Nhật Bản",
+      "intro": "Tiếp nhận nhu cầu vận chuyển hàng thương mại bằng đường hàng không và tư vấn theo từng lô hàng. Nội dung chi tiết đang được cập nhật.",
+      "metaTitle": "Vận chuyển hàng doanh nghiệp | HARUTO",
+      "metaDescription": "Giải pháp vận chuyển hàng thương mại Việt Nam – Nhật Bản bằng đường hàng không, tư vấn theo từng lô hàng. Nội dung chi tiết đang được cập nhật."
+    },
+    "contact": {
+      "nav": "Liên hệ",
+      "breadcrumb": "Liên hệ",
+      "title": "Liên hệ HARUTO EXPRESS",
+      "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi để nhận tư vấn và báo cước.",
+      "metaTitle": "Liên hệ | HARUTO EXPRESS",
+      "metaDescription": "Liên hệ HARUTO EXPRESS để được tư vấn vận chuyển hai chiều Việt Nam – Nhật Bản và nhận báo cước cho kiện hàng của bạn."
+    },
+    "guides": {
+      "nav": "Hướng dẫn",
+      "breadcrumb": "Hướng dẫn",
+      "title": "Hướng dẫn gửi hàng",
+      "intro": "Các bài hướng dẫn đóng gói, khai báo và gửi hàng giữa Việt Nam và Nhật Bản. Nội dung đang được biên soạn.",
+      "metaTitle": "Hướng dẫn gửi hàng | HARUTO EXPRESS",
+      "metaDescription": "Hướng dẫn đóng gói, khai báo và gửi hàng giữa Việt Nam và Nhật Bản của HARUTO EXPRESS. Nội dung đang được biên soạn và sẽ sớm cập nhật."
+    }
+  },
   "nav": {
     "skip": "Đến nội dung chính",
     "services": "Dịch vụ",
@@ -14,7 +131,12 @@
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu",
     "language": "Chọn ngôn ngữ",
-    "primary": "Điều hướng chính"
+    "primary": "Điều hướng chính",
+    "groups": {
+      "services": "Dịch vụ",
+      "pricing": "Bảng giá",
+      "guides": "Hướng dẫn"
+    }
   },
   "hero": {
     "h1": "Gửi hàng Việt Nam – Nhật Bản bằng đường hàng không",
@@ -76,6 +198,9 @@
   },
   "routes": {
     "title": "Tuyến vận chuyển",
+    "intro": "HARUTO nhận vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho riêng tại Nhật và nhân viên xác nhận cước trước khi tiếp nhận.",
+    "outbound": "Việt Nam → Nhật Bản",
+    "inbound": "Nhật Bản → Việt Nam",
     "vietnam": "Việt Nam",
     "japan": "Nhật Bản",
     "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa",
@@ -93,6 +218,22 @@
   "pricing": {
     "title": "Bảng giá",
     "intro": "Chính sách giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026.",
+    "teaser": {
+      "title": "Bảng giá rõ ràng cho cả hai chiều",
+      "intro": "Cước tính theo trọng lượng và loại hàng; đã bao gồm thuế và giao nội địa Nhật. Xem đầy đủ các mốc cân và phụ thu ở trang bảng giá.",
+      "vnJp": {
+        "label": "Việt Nam → Nhật Bản",
+        "price": "Từ 85.000 ₫/kg",
+        "caption": "Hàng sạch và hàng hỗn hợp, tính theo mốc cân."
+      },
+      "jpVn": {
+        "label": "Nhật Bản → Việt Nam",
+        "price": "155.000 ₫/kg",
+        "caption": "Mọi trọng lượng · tỷ giá mua hộ VCB + 5."
+      },
+      "cta": "Xem bảng giá đầy đủ",
+      "note": "Giá chưa bao gồm VAT; phụ thu theo danh mục hàng."
+    },
     "tabsLabel": "Chọn chiều vận chuyển",
     "tabs": {
       "vnJp": "VN → JP",
@@ -217,7 +358,7 @@
       },
       "address": {
         "label": "Địa chỉ",
-        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階102号室"
       },
       "phone": {
         "label": "SĐT người nhận",
@@ -226,7 +367,9 @@
       "recipient": {
         "label": "Tên người nhận",
         "value": "HRT - mã nhân viên - mã khách hàng (ví dụ: HRT-T09-Nguyễn Văn A)"
-      }
+      },
+      "mapTitle": "Bản đồ kho Nhật của HARUTO EXPRESS",
+      "mapOpen": "Mở trên Google Maps"
     },
     "tips": {
       "title": "Lưu ý quan trọng khi gửi hàng",
@@ -286,6 +429,9 @@
   "contact": {
     "title": "Yêu cầu tư vấn",
     "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi.",
+    "officeTitle": "Văn phòng HARUTO EXPRESS",
+    "mapTitle": "Bản đồ văn phòng HARUTO EXPRESS",
+    "mapOpen": "Mở trên Google Maps",
     "channelsTitle": "Kênh liên hệ",
     "channels": {
       "zalo": "Zalo",
@@ -315,6 +461,13 @@
   "footer": {
     "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
     "navigationTitle": "Điều hướng",
+    "addressTitle": "Địa chỉ",
+    "mapHint": "Mở Google Maps",
+    "locations": {
+      "japanWarehouse": "Kho Nhật",
+      "vietnamWarehouse": "Kho Việt Nam",
+      "vietnamOffice": "Văn phòng"
+    },
     "logoAlt": "Logo HARUTO EXPRESS",
     "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia."
   },

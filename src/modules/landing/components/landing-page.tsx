@@ -2,8 +2,7 @@ import { Contact } from "./contact";
 import { Faq } from "./faq";
 import { Hero } from "./hero";
 import { MotionLayer } from "./motion-layer";
-import { Policy } from "./policy";
-import { Pricing } from "./pricing";
+import { PricingTeaser } from "./pricing-teaser";
 import { Process } from "./process";
 import { Routes } from "./routes";
 import { Services } from "./services";
@@ -11,6 +10,8 @@ import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
 import { Why } from "./why";
 
+// Home is a hub: each section is a short overview that links to its own page. The full pricing
+// tables and policy details live on their dedicated routes, so the home page stays scannable.
 export function LandingPage() {
   return (
     <>
@@ -20,8 +21,7 @@ export function LandingPage() {
         <Why />
         <Services />
         <Routes />
-        <Pricing />
-        <Policy />
+        <PricingTeaser />
         <Process />
         <Faq />
         <Contact />

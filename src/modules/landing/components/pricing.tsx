@@ -12,7 +12,7 @@ type Rate = { weight: string; price: string };
 
 const VN_JP_GOODS = ["clean", "mixed"] as const;
 
-export function Pricing() {
+export function Pricing({ withHeader = true }: { withHeader?: boolean }) {
   const t = useTranslations("pricing");
   const surcharges = t.raw("surcharge.rows") as Surcharge[];
   const [active, setActive] = useState<Direction>("vnJp");
@@ -29,10 +29,14 @@ export function Pricing() {
   return (
     <section id="pricing" className="section">
       <div className="wrap">
-        <h2 data-reveal className="heading-2">{t("title")}</h2>
-        <p className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
+        {withHeader && (
+          <>
+            <h2 data-reveal className="heading-2">{t("title")}</h2>
+            <p className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
+          </>
+        )}
 
-        <div role="tablist" aria-label={t("tabsLabel")} className="mt-8 flex gap-6 border-b border-line lg:mt-10">
+        <div role="tablist" aria-label={t("tabsLabel")} className={`flex gap-6 border-b border-line ${withHeader ? "mt-8 lg:mt-10" : ""}`}>
           {DIRECTIONS.map((direction) => (
             <button
               key={direction}
