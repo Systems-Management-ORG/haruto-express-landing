@@ -22,6 +22,10 @@ const contentSecurityPolicy = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    // Allow the higher-quality encode the hero banners request; default optimization softens them.
+    qualities: [75, 90],
+  },
   experimental: {
     // Serves paths the locale routing does not handle, such as a missing file.
     globalNotFound: true,
