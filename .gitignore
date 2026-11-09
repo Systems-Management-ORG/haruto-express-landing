@@ -24,5 +24,6 @@ pnpm-debug.log*
 .vscode/
 .idea/
 .claude/*.lock
+.claude/skills/
 .DS_Store
 Thumbs.db

@@ -664,6 +664,46 @@
   .faq-item:not([open]) .faq-minus {
     display: none;
   }
+
+  /* Editorial film grain: a fixed, non-interactive layer that gives the warm paper a physical texture. */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Button-in-button: the trailing arrow sits in its own chip and drifts on hover. */
+  .btn-chip {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: rgb(23 60 34 / 0.12);
+    transition: transform 160ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover .btn-chip {
+      transform: translate(2px, -1px);
+    }
+
+    .card {
+      transition:
+        box-shadow 220ms var(--ease-ui),
+        transform 220ms var(--ease-ui);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 12px rgb(16 44 33 / 0.06);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
