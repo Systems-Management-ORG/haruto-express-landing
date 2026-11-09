@@ -7,29 +7,30 @@ import { Faq } from "./faq";
 import { Goods } from "./goods";
 import { Policy } from "./policy";
 import { Pricing } from "./pricing";
-import { Process } from "./process";
+import { PricingTeaser } from "./pricing-teaser";
 import { Services } from "./services";
 
-// The body shown under the PageHero for each subpage, composed from existing sections so the
-// content is proven and consistent. Home is rendered separately as the hub.
+// The body shown under the PageHero for each subpage. The two route pages carry that direction's
+// full pricing plus the shared policy (weight + compensation); JP→VN also shows concierge and the
+// Japan warehouse. /bang-gia is a short overview linking to both routes.
 function body(key: PageKey): ReactNode {
   switch (key) {
     case "shipToJapan":
       return (
         <>
-          <Services />
-          <Process />
+          <Pricing direction="vnJp" />
+          <Policy show={["weight", "compensation"]} />
         </>
       );
     case "shipToVietnam":
       return (
         <>
-          <Process />
-          <Policy show={["warehouse"]} withHeader={false} />
+          <Pricing direction="jpVn" />
+          <Policy show={["weight", "compensation", "concierge", "warehouse"]} />
         </>
       );
     case "pricing":
-      return <Pricing withHeader={false} />;
+      return <PricingTeaser withHeader={false} />;
     case "goods":
       return <Goods />;
     case "policy":

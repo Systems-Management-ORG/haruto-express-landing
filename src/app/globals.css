@@ -271,7 +271,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
     min-width: 15rem;
     border: 1px solid var(--color-line);
     border-radius: var(--radius-card);
@@ -279,6 +279,20 @@
     padding-block: 0.5rem;
     box-shadow: 0 12px 32px rgb(10 30 18 / 0.14);
     z-index: 60;
+  }
+
+  /*
+    Invisible bridge covering the gap between the trigger and the panel, so moving the cursor
+    down into the dropdown never crosses a dead zone that would close it. Paired with the
+    close-delay in the header, the hover target stays continuous.
+  */
+  .nav-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.75rem;
+    height: 0.75rem;
   }
 
   .nav-panel a[aria-current="page"] {

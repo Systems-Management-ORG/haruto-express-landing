@@ -98,8 +98,23 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
   const [scrolled, setScrolled] = useState(solid);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const closeTimer = useRef<number | null>(null);
 
   const isCurrent = (key: Parameters<typeof pagePath>[1]) => pathname === pagePath(locale, key);
+
+  // Hover intent: open immediately, but delay closing so brief exits (crossing to the panel,
+  // moving diagonally) do not make the dropdown flicker.
+  const openNow = (id: string) => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    setOpenGroup(id);
+  };
+  const scheduleClose = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setOpenGroup(null), 180);
+  };
+  useEffect(() => () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+  }, []);
 
   useEffect(() => {
     if (solid) return;
@@ -160,8 +175,8 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                 <li
                   key={item.id}
                   className="nav-group relative"
-                  onMouseEnter={() => setOpenGroup(item.id)}
-                  onMouseLeave={() => setOpenGroup((current) => (current === item.id ? null : current))}
+                  onMouseEnter={() => openNow(item.id)}
+                  onMouseLeave={scheduleClose}
                 >
                   <button
                     type="button"
