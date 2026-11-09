@@ -131,7 +131,12 @@
     "openMenu": "Mở menu",
     "closeMenu": "Đóng menu",
     "language": "Chọn ngôn ngữ",
-    "primary": "Điều hướng chính"
+    "primary": "Điều hướng chính",
+    "groups": {
+      "services": "Dịch vụ",
+      "pricing": "Bảng giá",
+      "guides": "Hướng dẫn"
+    }
   },
   "hero": {
     "h1": "Gửi hàng Việt Nam – Nhật Bản bằng đường hàng không",

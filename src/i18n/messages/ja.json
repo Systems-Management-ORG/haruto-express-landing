@@ -131,7 +131,12 @@
     "openMenu": "メニューを開く",
     "closeMenu": "メニューを閉じる",
     "language": "言語を選択",
-    "primary": "メインナビゲーション"
+    "primary": "メインナビゲーション",
+    "groups": {
+      "services": "サービス",
+      "pricing": "料金",
+      "guides": "ご利用ガイド"
+    }
   },
   "hero": {
     "h1": "ベトナム・日本間の航空便で荷物を発送",

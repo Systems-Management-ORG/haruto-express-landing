@@ -10,7 +10,7 @@ import { SiteHeader } from "@/modules/landing/components/site-header";
 import { SubPage } from "@/modules/landing/components/subpage";
 import { JsonLd } from "@/shared/seo/json-ld";
 import { buildPageMetadata } from "@/shared/seo/metadata";
-import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageBySlug } from "@/shared/seo/pages";
+import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageByLocaleSlug } from "@/shared/seo/pages";
 import { breadcrumb, faqPage, service } from "@/shared/seo/schema";
 
 type Props = { params: Promise<{ locale: string; rest: string[] }> };
@@ -22,13 +22,13 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
-    SUBPAGE_KEYS.map((key) => ({ locale, rest: [PAGES[key].slug] })),
+    SUBPAGE_KEYS.map((key) => ({ locale, rest: [PAGES[key].slugs[locale]] })),
   );
 }
 
-function resolveKey(rest: string[]): Exclude<PageKey, "home"> | null {
+function resolveKey(locale: Locale, rest: string[]): Exclude<PageKey, "home"> | null {
   if (rest.length !== 1) return null;
-  const def = pageBySlug(rest[0]);
+  const def = pageByLocaleSlug(locale, rest[0]);
   if (!def || def.key === "home") return null;
   return def.key as Exclude<PageKey, "home">;
 }
@@ -36,7 +36,7 @@ function resolveKey(rest: string[]): Exclude<PageKey, "home"> | null {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, rest } = await params;
   if (!hasLocale(routing.locales, locale)) return {};
-  const key = resolveKey(rest);
+  const key = resolveKey(locale as Locale, rest);
   if (!key) return {};
   return buildPageMetadata(locale as Locale, key);
 }
@@ -47,7 +47,7 @@ const SERVICE_PAGES: PageKey[] = ["shipToJapan", "shipToVietnam", "pricing", "co
 export default async function SubRoute({ params }: Props) {
   const { locale, rest } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
-  const key = resolveKey(rest);
+  const key = resolveKey(locale as Locale, rest);
   if (!key) notFound();
   setRequestLocale(locale);
 

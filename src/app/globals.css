@@ -253,13 +253,37 @@
     transition: transform 220ms var(--ease-ui);
   }
 
-  .nav-link[aria-current="location"] {
+  .nav-link[aria-current="location"],
+  .nav-link[aria-current="page"],
+  .nav-link[data-active] {
     color: var(--color-forest);
     opacity: 1;
   }
 
-  .nav-link[aria-current="location"]::after {
+  .nav-link[aria-current="location"]::after,
+  .nav-link[aria-current="page"]::after,
+  .nav-link[data-active]::after {
     transform: scaleX(1);
+  }
+
+  /* Dropdown panel for grouped navigation (Dịch vụ / Bảng giá / Hướng dẫn). */
+  .nav-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.25rem;
+    min-width: 15rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background-color: var(--color-ivory);
+    padding-block: 0.5rem;
+    box-shadow: 0 12px 32px rgb(10 30 18 / 0.14);
+    z-index: 60;
+  }
+
+  .nav-panel a[aria-current="page"] {
+    color: var(--color-forest);
+    font-weight: 500;
   }
 
   .card {

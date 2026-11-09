@@ -131,7 +131,12 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "language": "Choose language",
-    "primary": "Main navigation"
+    "primary": "Main navigation",
+    "groups": {
+      "services": "Services",
+      "pricing": "Pricing",
+      "guides": "Guides"
+    }
   },
   "hero": {
     "h1": "Shipping between Vietnam and Japan by air",
