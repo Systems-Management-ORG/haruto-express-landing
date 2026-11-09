@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/google-tag-manager";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/shared/constants/locales";
 import { fontClassName } from "@/shared/lib/fonts";
@@ -63,7 +64,9 @@ export default async function LocaleLayout({ children, params }: LocaleParams & 
   return (
     <html lang={locale} className={fontClassName(locale)}>
       <body>
+        <GoogleTagManagerNoScript />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <GoogleTagManager />
       </body>
     </html>
   );

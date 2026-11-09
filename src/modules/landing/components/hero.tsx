@@ -138,37 +138,35 @@ export function Hero() {
         );
       })}
 
-      <div className="hero-controls" role="group" aria-label={t("carousel.controls")}>
-        <button
-          type="button"
-          onClick={() => show(active - 1)}
-          aria-label={t("carousel.prev")}
-          className="hero-control"
-        >
-          <CaretLeft size={20} weight="bold" aria-hidden />
-        </button>
-        <div className="hero-dots">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.title}
-              type="button"
-              onClick={() => setActive(index)}
-              aria-label={t("carousel.goto", { index: index + 1 })}
-              aria-current={index === active}
-              className={`hero-dot${index === active ? " is-active" : ""}`}
-            >
-              <span aria-hidden />
-            </button>
-          ))}
-        </div>
-        <button
-          type="button"
-          onClick={() => show(active + 1)}
-          aria-label={t("carousel.next")}
-          className="hero-control"
-        >
-          <CaretRight size={20} weight="bold" aria-hidden />
-        </button>
+      <button
+        type="button"
+        onClick={() => show(active - 1)}
+        aria-label={t("carousel.prev")}
+        className="hero-nav hero-nav--prev"
+      >
+        <CaretLeft size={34} weight="bold" aria-hidden />
+      </button>
+      <button
+        type="button"
+        onClick={() => show(active + 1)}
+        aria-label={t("carousel.next")}
+        className="hero-nav hero-nav--next"
+      >
+        <CaretRight size={34} weight="bold" aria-hidden />
+      </button>
+      <div className="hero-dots" role="group" aria-label={t("carousel.controls")}>
+        {slides.map((slide, index) => (
+          <button
+            key={slide.title}
+            type="button"
+            onClick={() => setActive(index)}
+            aria-label={t("carousel.goto", { index: index + 1 })}
+            aria-current={index === active}
+            className={`hero-dot${index === active ? " is-active" : ""}`}
+          >
+            <span aria-hidden />
+          </button>
+        ))}
       </div>
     </section>
   );
