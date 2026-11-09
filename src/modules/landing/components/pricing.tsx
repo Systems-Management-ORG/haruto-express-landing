@@ -7,10 +7,13 @@ type Direction = "vnJp" | "jpVn";
 
 const DIRECTIONS: Direction[] = ["vnJp", "jpVn"];
 
+type Surcharge = { item: string; fee: string };
+
 export function Pricing() {
   const t = useTranslations("pricing");
-  const rows = t.raw("rows") as string[];
-  const [active, setActive] = useState<Direction>("vnJp");
+  const surcharges = t.raw("surcharge.rows") as Surcharge[];
+  // The Japan → Việt Nam rate card is published; the other direction is still pending.
+  const [active, setActive] = useState<Direction>("jpVn");
   const tabRefs = useRef<Partial<Record<Direction, HTMLButtonElement | null>>>({});
 
   const moveFocus = (event: KeyboardEvent<HTMLButtonElement>) => {
@@ -25,7 +28,7 @@ export function Pricing() {
     <section id="pricing" className="section">
       <div className="wrap">
         <h2 data-reveal className="heading-2">{t("title")}</h2>
-        <p className="mt-4 max-w-[40rem] sm:text-lg">{t("intro")}</p>
+        <p className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
 
         <div role="tablist" aria-label={t("tabsLabel")} className="mt-8 flex gap-6 border-b border-line lg:mt-10">
           {DIRECTIONS.map((direction) => (
@@ -52,28 +55,44 @@ export function Pricing() {
         </div>
 
         <div data-reveal id="pricing-panel" role="tabpanel" aria-labelledby={`tab-${active}`}>
-          <div tabIndex={0} role="group" aria-label={t("scrollLabel")} className="overflow-x-auto">
-            <table className="w-full min-w-[19rem] text-left">
-              <thead>
-                <tr className="border-b border-line text-sm text-muted">
-                  <th scope="col" className="py-4 pr-4 font-medium">{t("columns.weight")}</th>
-                  <th scope="col" className="py-4 pr-4 font-medium">{t("columns.price")}</th>
-                  <th scope="col" className="py-4 pr-4 font-medium">{t("columns.status")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row} className="border-b border-line">
-                    <th scope="row" className="py-4 pr-4 font-medium whitespace-nowrap lg:py-5">{row}</th>
-                    <td className="py-4 pr-4 lg:py-5">—</td>
-                    <td className="py-4 whitespace-nowrap text-muted lg:py-5">{t("pending")}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {active === "jpVn" ? (
+            <>
+              <div className="mt-8 grid gap-6 rounded-card border border-line bg-white p-6 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-10 sm:p-8">
+                <div>
+                  <p className="text-sm text-muted">{t("freight.weight")}</p>
+                  <p className="mt-1 font-display text-4xl text-forest lg:text-5xl">{t("freight.price")}</p>
+                </div>
+                <ul className="grid gap-2 text-sm text-muted sm:text-base">
+                  <li>{t("freight.buyRate")}</li>
+                  <li>{t("freight.domestic")}</li>
+                  <li>{t("freight.vat")}</li>
+                </ul>
+              </div>
+
+              <h3 className="mt-10 text-xl text-forest lg:mt-12">{t("surcharge.title")}</h3>
+              <div tabIndex={0} role="group" aria-label={t("scrollLabel")} className="mt-4 overflow-x-auto">
+                <table className="w-full min-w-[22rem] text-left">
+                  <thead>
+                    <tr className="border-b border-line text-sm text-muted">
+                      <th scope="col" className="py-4 pr-6 font-medium">{t("surcharge.columns.item")}</th>
+                      <th scope="col" className="py-4 pr-4 font-medium">{t("surcharge.columns.fee")}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {surcharges.map((row) => (
+                      <tr key={row.item} className="border-b border-line align-top">
+                        <th scope="row" className="max-w-[28rem] py-4 pr-6 font-medium">{row.item}</th>
+                        <td className="py-4 whitespace-nowrap">{row.fee}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <p className="mt-8 text-muted">{t("pendingNote")}</p>
+          )}
         </div>
-        <p className="mt-4 text-sm text-muted">{t("note")}</p>
       </div>
     </section>
   );

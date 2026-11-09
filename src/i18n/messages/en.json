@@ -7,6 +7,7 @@
     "skip": "Skip to main content",
     "services": "Services",
     "pricing": "Pricing",
+    "policy": "Policy",
     "process": "Process",
     "contact": "Contact",
     "cta": "Get advice",
@@ -76,26 +77,109 @@
   },
   "pricing": {
     "title": "Pricing",
-    "intro": "Official rates for each direction are awaiting an update.",
+    "intro": "Rate policy for the Japan → Vietnam route, effective from 1 October 2026. Service prices exclude VAT.",
     "tabsLabel": "Choose shipping direction",
     "tabs": {
       "vnJp": "VN → JP",
       "jpVn": "JP → VN"
     },
-    "columns": {
-      "weight": "Weight",
-      "price": "Unit price",
-      "status": "Status"
+    "pendingNote": "The official Vietnam → Japan rate card is awaiting an update.",
+    "freight": {
+      "weight": "Air freight, any weight",
+      "price": "155,000 VND/kg",
+      "buyRate": "Buy-for-you exchange rate: VCB + 5, no surcharge.",
+      "domestic": "Domestic Vietnam delivery is paid by the customer, who chooses the carrier (our warehouse staff can help book it).",
+      "vat": "Service prices exclude VAT."
     },
-    "rows": [
-      "Up to 5 kg",
-      "Over 5 – 20 kg",
-      "Over 20 – 50 kg",
-      "Over 50 kg"
-    ],
-    "pending": "Awaiting update",
-    "note": "Weight bands are for illustration only and are not a rate card.",
-    "scrollLabel": "Pricing table, scrolls horizontally"
+    "surcharge": {
+      "title": "Surcharges",
+      "columns": {
+        "item": "Category",
+        "fee": "Surcharge"
+      },
+      "rows": [
+        { "item": "Electronics and items with batteries (Starlink, used laptops, used phones, cameras…)", "fee": "150,000 VND/item" },
+        { "item": "Perfume, items containing alcohol…", "fee": "350,000 VND/item" },
+        { "item": "Carton repackaging", "fee": "25,500 VND/kg" },
+        { "item": "Wooden crating", "fee": "34,000 VND/kg" },
+        { "item": "Foam box repackaging (domestic delivery)", "fee": "50,000 VND/box" },
+        { "item": "Special-handling packing", "fee": "85,000 VND/kg" },
+        { "item": "Other", "fee": "Contact us" }
+      ]
+    },
+    "scrollLabel": "Surcharge table, scrolls horizontally"
+  },
+  "policy": {
+    "title": "Policy & services",
+    "intro": "How HARUTO Express calculates weight, handles compensation, and runs its buy-for-you, bid-for-you, and ship-for-you services.",
+    "weight": {
+      "title": "How weight is calculated",
+      "standard": {
+        "title": "Standard goods",
+        "body": "Charged by the actual weighed kilograms."
+      },
+      "bulky": {
+        "title": "Bulky goods",
+        "body": "Counted as bulky when length + width + height exceeds 140 cm or the weight is over 30 kg (e.g. bicycles, suitcases, speakers, wedding-dress or suit boxes). Volumetric weight = (Length × Width × Height) ÷ 6,000 (cm). The freight uses the greater of actual and volumetric weight."
+      },
+      "rounding": {
+        "title": "Rounding rules",
+        "body": "Under 1 kg rounds up to 1 kg. Over 1 kg rounds to one decimal place (e.g. 3.04 kg → 3 kg; 3.05 kg → 3.1 kg)."
+      }
+    },
+    "compensation": {
+      "title": "Compensation for lost goods",
+      "insured": {
+        "title": "With cargo insurance",
+        "body": "100% of the declared value is compensated. Insurance fee: 8% of the declared value."
+      },
+      "uninsured": {
+        "title": "Without cargo insurance",
+        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order."
+      }
+    },
+    "concierge": {
+      "title": "Buy · Bid · Ship for you",
+      "buy": {
+        "title": "Buy for you",
+        "body": "The customer pays 100% of the product value."
+      },
+      "auction": {
+        "title": "Bid for you",
+        "body": "A 50% deposit is placed before bidding. If the bid wins, the customer pays the balance for HARUTO to settle. If it loses, HARUTO refunds 100% of the deposit."
+      },
+      "ship": {
+        "title": "Ship for you",
+        "body": "The customer buys and sends goods to HARUTO's Japan warehouse using the details below."
+      }
+    },
+    "warehouse": {
+      "title": "Japan warehouse shipping details",
+      "postal": {
+        "label": "Postal code",
+        "value": "133-0056"
+      },
+      "address": {
+        "label": "Address",
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+      },
+      "phone": {
+        "label": "Recipient phone",
+        "value": "070-3850-5733"
+      },
+      "recipient": {
+        "label": "Recipient name",
+        "value": "HRT - staff code - customer code (e.g. HRT-T09-Nguyen Van A)"
+      }
+    },
+    "tips": {
+      "title": "Important notes when shipping",
+      "items": [
+        "Photograph the package before sending.",
+        "Declare the value, quantity, and item details accurately.",
+        "If bought at a supermarket, keep the receipt (bill) and include it inside the package."
+      ]
+    }
   },
   "process": {
     "title": "A 4-step process",

@@ -2,6 +2,7 @@ import { Contact } from "./contact";
 import { Faq } from "./faq";
 import { Hero } from "./hero";
 import { MotionLayer } from "./motion-layer";
+import { Policy } from "./policy";
 import { Pricing } from "./pricing";
 import { Process } from "./process";
 import { Routes } from "./routes";
@@ -20,6 +21,7 @@ export function LandingPage() {
         <Services />
         <Routes />
         <Pricing />
+        <Policy />
         <Process />
         <Faq />
         <Contact />

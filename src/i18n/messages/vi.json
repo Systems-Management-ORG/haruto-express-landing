@@ -7,6 +7,7 @@
     "skip": "Đến nội dung chính",
     "services": "Dịch vụ",
     "pricing": "Bảng giá",
+    "policy": "Chính sách",
     "process": "Quy trình",
     "contact": "Liên hệ",
     "cta": "Tư vấn ngay",
@@ -76,26 +77,109 @@
   },
   "pricing": {
     "title": "Bảng giá",
-    "intro": "Bảng giá chính thức cho từng chiều đang chờ cập nhật.",
+    "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam, áp dụng từ 01/10/2026. Giá dịch vụ chưa bao gồm VAT.",
     "tabsLabel": "Chọn chiều vận chuyển",
     "tabs": {
       "vnJp": "VN → JP",
       "jpVn": "JP → VN"
     },
-    "columns": {
-      "weight": "Khối lượng",
-      "price": "Đơn giá",
-      "status": "Trạng thái"
+    "pendingNote": "Bảng giá chính thức chiều Việt Nam → Nhật Bản đang chờ cập nhật.",
+    "freight": {
+      "weight": "Cước hàng không, với mọi trọng lượng",
+      "price": "155.000 ₫/kg",
+      "buyRate": "Tỷ giá mua hộ: VCB + 5, không phụ thu.",
+      "domestic": "Cước nội địa Việt Nam do khách tự chi trả và tự chọn đơn vị vận chuyển (có thể nhờ nhân viên kho hỗ trợ book đơn).",
+      "vat": "Giá dịch vụ chưa bao gồm VAT."
     },
-    "rows": [
-      "Đến 5 kg",
-      "Trên 5 – 20 kg",
-      "Trên 20 – 50 kg",
-      "Trên 50 kg"
-    ],
-    "pending": "Chờ cập nhật",
-    "note": "Các mốc cân chỉ để minh họa, chưa phải biểu phí.",
-    "scrollLabel": "Bảng giá, có thể cuộn ngang"
+    "surcharge": {
+      "title": "Phụ thu",
+      "columns": {
+        "item": "Danh mục",
+        "fee": "Phụ thu"
+      },
+      "rows": [
+        { "item": "Thiết bị điện tử, đồ có pin (Starlink, laptop cũ, điện thoại cũ, máy ảnh…)", "fee": "150.000 ₫/sản phẩm" },
+        { "item": "Nước hoa, đồ có cồn…", "fee": "350.000 ₫/sản phẩm" },
+        { "item": "Đóng lại kiện carton", "fee": "25.500 ₫/kg" },
+        { "item": "Đóng gỗ", "fee": "34.000 ₫/kg" },
+        { "item": "Đóng lại thùng xốp (áp dụng giao nội địa)", "fee": "50.000 ₫/thùng" },
+        { "item": "Đóng hàng đặc biệt", "fee": "85.000 ₫/kg" },
+        { "item": "Khác", "fee": "Liên hệ" }
+      ]
+    },
+    "scrollLabel": "Bảng phụ thu, có thể cuộn ngang"
+  },
+  "policy": {
+    "title": "Chính sách & dịch vụ",
+    "intro": "Các quy định về cách tính khối lượng, đền bù và dịch vụ mua hộ – đấu giá hộ – vận chuyển hộ của HARUTO Express.",
+    "weight": {
+      "title": "Cách tính khối lượng",
+      "standard": {
+        "title": "Hàng thường",
+        "body": "Tính theo số kg cân được thực tế."
+      },
+      "bulky": {
+        "title": "Hàng cồng kềnh",
+        "body": "Được coi là cồng kềnh khi tổng (dài + rộng + cao) vượt 140 cm hoặc nặng trên 30 kg (ví dụ: xe đạp, vali, loa, thùng áo cưới, thùng áo vest…). Trọng lượng thể tích = (Dài × Rộng × Cao) ÷ 6.000 (cm). Cước tính theo số cân lớn hơn giữa cân thực tế và cân thể tích."
+      },
+      "rounding": {
+        "title": "Quy ước làm tròn",
+        "body": "Dưới 1 kg làm tròn thành 1 kg. Trên 1 kg làm tròn đến một chữ số thập phân (ví dụ 3,04 kg → 3 kg; 3,05 kg → 3,1 kg)."
+      }
+    },
+    "compensation": {
+      "title": "Chính sách đền bù khi thất lạc hàng hóa",
+      "insured": {
+        "title": "Có mua bảo hiểm hàng hóa",
+        "body": "Đền bù 100% giá trị hàng hóa khách khai báo. Phí bảo hiểm: 8% giá trị khai báo."
+      },
+      "uninsured": {
+        "title": "Không mua bảo hiểm hàng hóa",
+        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 ₫/đơn hàng."
+      }
+    },
+    "concierge": {
+      "title": "Mua hộ · Đấu giá hộ · Vận chuyển hộ",
+      "buy": {
+        "title": "Mua hộ",
+        "body": "Khách hàng thanh toán 100% giá trị sản phẩm."
+      },
+      "auction": {
+        "title": "Đấu giá hộ",
+        "body": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công: thanh toán phần còn lại để HARUTO chi trả. Đấu không thành công: HARUTO hoàn 100% tiền cọc."
+      },
+      "ship": {
+        "title": "Vận chuyển hộ",
+        "body": "Khách tự mua và gửi hàng về kho Nhật của HARUTO theo thông tin bên dưới."
+      }
+    },
+    "warehouse": {
+      "title": "Thông tin gửi hàng kho Nhật",
+      "postal": {
+        "label": "Mã bưu điện",
+        "value": "133-0056"
+      },
+      "address": {
+        "label": "Địa chỉ",
+        "value": "東京都江戸川区南小岩8-5-4 グリームコーポ1階(102)"
+      },
+      "phone": {
+        "label": "SĐT người nhận",
+        "value": "070-3850-5733"
+      },
+      "recipient": {
+        "label": "Tên người nhận",
+        "value": "HRT - mã nhân viên - mã khách hàng (ví dụ: HRT-T09-Nguyễn Văn A)"
+      }
+    },
+    "tips": {
+      "title": "Lưu ý quan trọng khi gửi hàng",
+      "items": [
+        "Chụp ảnh kiện hàng trước khi gửi.",
+        "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
+        "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng."
+      ]
+    }
   },
   "process": {
     "title": "Quy trình 4 bước",

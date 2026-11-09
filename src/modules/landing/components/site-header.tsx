@@ -79,7 +79,7 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
   );
 }
 
-const NAV_SECTIONS = ["services", "pricing", "process", "contact"] as const;
+const NAV_SECTIONS = ["services", "pricing", "policy", "process", "contact"] as const;
 type NavSection = (typeof NAV_SECTIONS)[number];
 
 // The last menu section whose top has passed this line stays active, so sections without a menu
