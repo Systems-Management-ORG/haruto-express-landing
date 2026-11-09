@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "HARUTO EXPRESS | Vietnam – Japan air freight",
-    "description": "Two-way air freight between Vietnam and Japan for individuals and businesses, with our own warehouse and advisers. See the shipping process and cargo notes."
+    "title": "Shipping between Vietnam and Japan by air | HARUTO EXPRESS",
+    "description": "Ship parcels both ways between Vietnam and Japan for people and businesses: clear rates, our own Japan warehouse, and real advisers. Contact HARUTO for a quote."
   },
   "nav": {
     "skip": "Skip to main content",
@@ -17,6 +17,7 @@
     "primary": "Main navigation"
   },
   "hero": {
+    "h1": "Shipping between Vietnam and Japan by air",
     "slides": [
       {
         "title": "Far apart, closely connected.",
@@ -77,7 +78,17 @@
     "title": "Shipping routes",
     "vietnam": "Vietnam",
     "japan": "Japan",
-    "mapLabel": "World map showing the two-way air route between Vietnam and Japan; Vietnam is shown with the Hoang Sa and Truong Sa archipelagos"
+    "mapLabel": "World map showing the two-way air route between Vietnam and Japan; Vietnam is shown with the Hoang Sa and Truong Sa archipelagos",
+    "photoAlts": [
+      "Parcels awaiting processing at the HARUTO Express warehouse",
+      "Parcels stacked on a pallet in the HARUTO warehouse",
+      "Front of the HARUTO Express warehouse",
+      "Inside the HARUTO Express warehouse",
+      "Boxes stacked in the HARUTO warehouse",
+      "Work area and parcels at the HARUTO warehouse",
+      "Parcels wrapped in protective film at the warehouse",
+      "Japanese consumer goods at the HARUTO warehouse"
+    ]
   },
   "pricing": {
     "title": "Pricing",
@@ -264,7 +275,7 @@
       },
       {
         "question": "How are shipping rates calculated?",
-        "answer": "Official rates are awaiting an update. For now, our staff confirm the rate after checking your goods."
+        "answer": "Rates use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. See the Pricing section for the full tables and surcharges."
       },
       {
         "question": "Can I track my shipment online?",
@@ -281,7 +292,6 @@
       "hotline": "Hotline",
       "messenger": "Messenger"
     },
-    "channelPending": "Awaiting update",
     "notice": "This website is not accepting online requests yet. Official contact channels will be posted here.",
     "kindLegend": "You are",
     "kindPersonal": "An individual",

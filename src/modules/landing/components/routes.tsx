@@ -22,15 +22,16 @@ const WAREHOUSE_TILES = [
 
 export function Routes() {
   const t = useTranslations("routes");
+  const photoAlts = t.raw("photoAlts") as string[];
 
   return (
     <section id="routes" className="section route-band text-white">
       <div className="route-backdrop" aria-hidden="true">
         <div className="route-backdrop__layer">
           <div className="route-backdrop__grid" data-route-grid>
-            {WAREHOUSE_TILES.map(({ file, size }) => (
+            {WAREHOUSE_TILES.map(({ file, size }, index) => (
               <div key={file} className={`route-backdrop__tile${size ? ` route-backdrop__tile--${size}` : ""}`}>
-                <Image src={`/images/haruto/kho/${file}`} alt="" fill sizes="(max-width: 767px) 50vw, 40vw" className="object-cover" />
+                <Image src={`/images/haruto/kho/${file}`} alt={photoAlts[index] ?? ""} fill sizes="(max-width: 767px) 50vw, 40vw" className="object-cover" />
               </div>
             ))}
           </div>

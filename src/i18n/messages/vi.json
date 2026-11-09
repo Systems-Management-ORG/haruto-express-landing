@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "HARUTO EXPRESS | Vận chuyển hàng không Việt Nam – Nhật Bản",
-    "description": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp, có kho riêng và nhân viên tư vấn. Xem quy trình gửi hàng và lưu ý hàng hóa."
+    "title": "Gửi hàng đi Nhật, ship hàng Nhật về VN | HARUTO EXPRESS",
+    "description": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
   },
   "nav": {
     "skip": "Đến nội dung chính",
@@ -17,6 +17,7 @@
     "primary": "Điều hướng chính"
   },
   "hero": {
+    "h1": "Gửi hàng Việt Nam – Nhật Bản bằng đường hàng không",
     "slides": [
       {
         "title": "Khoảng cách xa, kết nối gần.",
@@ -77,7 +78,17 @@
     "title": "Tuyến vận chuyển",
     "vietnam": "Việt Nam",
     "japan": "Nhật Bản",
-    "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa"
+    "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa",
+    "photoAlts": [
+      "Kiện hàng chờ xử lý tại kho HARUTO Express",
+      "Kiện hàng xếp trên pallet trong kho HARUTO",
+      "Mặt tiền kho HARUTO Express",
+      "Bên trong kho hàng HARUTO Express",
+      "Thùng hàng xếp chồng trong kho HARUTO",
+      "Khu làm việc và kiện hàng tại kho HARUTO",
+      "Kiện hàng được bọc màng bảo vệ tại kho",
+      "Hàng tiêu dùng Nhật Bản tại kho HARUTO"
+    ]
   },
   "pricing": {
     "title": "Bảng giá",
@@ -264,7 +275,7 @@
       },
       {
         "question": "Giá cước được tính như thế nào?",
-        "answer": "Bảng giá chính thức đang chờ cập nhật. Hiện nhân viên sẽ xác nhận cước sau khi kiểm tra hàng của bạn."
+        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Xem mục Bảng giá để biết chi tiết và phụ thu."
       },
       {
         "question": "Tôi có thể theo dõi vận đơn trực tuyến không?",
@@ -281,7 +292,6 @@
       "hotline": "Hotline",
       "messenger": "Messenger"
     },
-    "channelPending": "Chờ cập nhật",
     "notice": "Website chưa nhận yêu cầu trực tuyến. Kênh liên hệ chính thức sẽ được cập nhật tại đây.",
     "kindLegend": "Bạn là",
     "kindPersonal": "Cá nhân",
