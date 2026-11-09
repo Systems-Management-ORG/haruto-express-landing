@@ -13,6 +13,8 @@ const CHANNEL_HREF: Record<(typeof CHANNELS)[number], string> = {
 
 export function Contact() {
   const t = useTranslations("contact");
+  // Only show channels that have a confirmed URL; never render a "pending" placeholder.
+  const channels = CHANNELS.filter((channel) => CHANNEL_HREF[channel]);
 
   return (
     <section id="contact" className="section bg-sage">
@@ -21,30 +23,27 @@ export function Contact() {
           <div data-reveal className="lg:col-span-5 lg:pr-8">
             <h2 className="heading-2">{t("title")}</h2>
             <p className="mt-4 sm:text-lg">{t("intro")}</p>
-            <h3 className="mt-8 text-sm font-medium text-muted lg:mt-12">{t("channelsTitle")}</h3>
-            <dl className="mt-2 border-t border-line">
-              {CHANNELS.map((channel) => {
-                const href = CHANNEL_HREF[channel];
-                return (
-                  <div key={channel} className="flex min-h-12 items-center justify-between gap-4 border-b border-line">
-                    <dt className="font-medium">{t(`channels.${channel}`)}</dt>
-                    <dd className="text-sm">
-                      {href ? (
+            {channels.length > 0 && (
+              <>
+                <h3 className="mt-8 text-sm font-medium text-muted lg:mt-12">{t("channelsTitle")}</h3>
+                <dl className="mt-2 border-t border-line">
+                  {channels.map((channel) => (
+                    <div key={channel} className="flex min-h-12 items-center justify-between gap-4 border-b border-line">
+                      <dt className="font-medium">{t(`channels.${channel}`)}</dt>
+                      <dd className="text-sm">
                         <a
-                          href={href}
+                          href={CHANNEL_HREF[channel]}
                           data-track={`click_${channel}`}
                           className="font-medium text-forest underline underline-offset-4"
                         >
                           {channel === "hotline" ? BUSINESS.hotlineTel : t(`channels.${channel}`)}
                         </a>
-                      ) : (
-                        <span className="text-muted">{t("channelPending")}</span>
-                      )}
-                    </dd>
-                  </div>
-                );
-              })}
-            </dl>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </>
+            )}
           </div>
           <div data-reveal className="lg:col-span-6 lg:col-start-7">
             <ContactForm />

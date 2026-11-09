@@ -88,7 +88,6 @@ export function Hero() {
       }}
     >
       {slides.map((slide, index) => {
-        const Heading = index === 0 ? "h1" : "h2";
         return (
           <div
             key={slide.title}
@@ -107,7 +106,7 @@ export function Hero() {
                 alt={alts[index]}
                 fill
                 priority={index === 0}
-                loading={index === 0 ? undefined : "eager"}
+                loading={index === 0 ? undefined : "lazy"}
                 sizes="100vw"
                 quality={90}
                 className="hero-image"
@@ -117,10 +116,14 @@ export function Hero() {
             </div>
             <div className="hero-content wrap">
               <div className="hero-text">
-                <Heading data-hero-line className="hero-title">
-                  {slide.title}
-                </Heading>
-                <p data-hero-line className="mt-5 max-w-[36rem] text-base leading-[1.65] sm:text-lg xl:text-xl">
+                {index === 0 ? (
+                  <h1 data-hero-line className="hero-title">{t("h1")}</h1>
+                ) : (
+                  // Same keyword headline kept per slide for a steady look; only slide 0 is the H1.
+                  <p data-hero-line aria-hidden className="hero-title">{t("h1")}</p>
+                )}
+                <p data-hero-line className="mt-4 text-lg font-medium sm:text-xl">{slide.title}</p>
+                <p data-hero-line className="mt-3 max-w-[36rem] text-base leading-[1.6] sm:text-lg">
                   {slide.description}
                 </p>
                 <div data-hero-line className="mt-8 flex flex-col gap-3 sm:flex-row">
