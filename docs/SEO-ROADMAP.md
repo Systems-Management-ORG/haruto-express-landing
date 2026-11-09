@@ -205,3 +205,4 @@ Chi tiết tiêu chí hoàn thành:
 
 ## Changelog
 <!-- Mỗi session thêm 1 dòng: ngày — session — tóm tắt — trang nào đã indexable -->
+- 2026-11-09 — S7 + một phần S1 (sitemap, robots, canonical/hreflang, JSON-LD Organization/WebSite, business.ts, manifest, tracking, seo:check). Còn lại của S1: H1, meta, FAQ giá, kênh liên hệ, alt ảnh kho, hero priority.
