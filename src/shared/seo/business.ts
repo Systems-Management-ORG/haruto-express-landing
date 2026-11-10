@@ -15,11 +15,20 @@ export const BUSINESS = {
   // Zalo opens a chat with the sales consultant; the fanpage is the business Facebook page.
   zaloUrl: "https://zalo.me/0334992147",
   facebookUrl: "https://www.facebook.com/VnjpLogisticVanChuyen2ChieuVietNhat",
-  hotlineTel: "",
   messengerUrl: "",
   // Social / profile URLs for Organization.sameAs.
   sameAs: ["https://www.facebook.com/VnjpLogisticVanChuyen2ChieuVietNhat"] as string[],
 } as const;
+
+// Hotlines per country. `display` is how the number is written locally; `tel` is the E.164 form
+// for tel: links and structured data. Labels live under `contact.hotlines.<id>`.
+export type HotlineId = "japan" | "vietnam";
+export const HOTLINES: { id: HotlineId; display: string; tel: string; country: "JP" | "VN" }[] = [
+  { id: "japan", display: "070-3850-5733", tel: "+81-70-3850-5733", country: "JP" },
+  { id: "vietnam", display: "0334-992-147", tel: "+84-334-992-147", country: "VN" },
+];
+
+export const telHref = (tel: string) => `tel:${tel.replace(/-/g, "")}`;
 
 // Physical locations. `id` keys an i18n label under `locations.<id>`; `query` is what Google Maps
 // searches on. The Japan warehouse is the drop-off point for the JP→VN route.

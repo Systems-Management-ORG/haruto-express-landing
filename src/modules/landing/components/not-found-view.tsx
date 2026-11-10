@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
-import { PLANE_PATH } from "./plane-icon";
+import { PLANE_PATH, planeTransform } from "./plane-icon";
 
 gsap.registerPlugin(useGSAP, MotionPathPlugin);
 
@@ -43,7 +43,7 @@ export function NotFoundView({ homeHref }: { homeHref: string }) {
         <path d={FLIGHT} fill="none" stroke="#faf8ea" strokeOpacity="0.3" strokeWidth="1.5" strokeDasharray="4 8" />
         <path id="lost-flight" data-flight d={FLIGHT} pathLength={1} fill="none" stroke="#e2a240" strokeWidth="2" />
         <g data-plane transform="translate(1160 60)">
-          <path d={PLANE_PATH} fill="#faf8ea" transform="rotate(90)" />
+          <path d={PLANE_PATH} fill="#faf8ea" transform={planeTransform(34)} />
         </g>
       </svg>
 

@@ -1,4 +1,4 @@
-import { BUSINESS, SITE_URL } from "./business";
+import { BUSINESS, HOTLINES, SITE_URL } from "./business";
 
 // Renders a JSON-LD block. Safe under the CSP: it is a data script, not executable JS.
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -25,9 +25,12 @@ function prune<T extends Record<string, unknown>>(object: T): T {
 const ORG_ID = `${SITE_URL}/#organization`;
 
 export function organization() {
-  const contactPoint = BUSINESS.phone
-    ? { "@type": "ContactPoint", telephone: BUSINESS.phone, contactType: "customer service" }
-    : undefined;
+  const contactPoint = HOTLINES.map((line) => ({
+    "@type": "ContactPoint",
+    telephone: line.tel,
+    contactType: "customer service",
+    areaServed: line.country,
+  }));
 
   return prune({
     "@context": "https://schema.org",

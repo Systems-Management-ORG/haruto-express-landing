@@ -4,10 +4,10 @@ import { RelatedLinks } from "@/shared/components/related-links";
 import type { PageKey } from "@/shared/seo/pages";
 import { Contact } from "./contact";
 import { Faq } from "./faq";
+import { Fulfillment } from "./fulfillment";
 import { Goods } from "./goods";
 import { Policy } from "./policy";
 import { Pricing, Surcharges } from "./pricing";
-import { Services } from "./services";
 
 // The body shown under the PageHero for each subpage. The two route pages carry that direction's
 // full pricing plus the shared policy (weight + compensation); JP→VN also shows concierge and the
@@ -48,7 +48,7 @@ function body(key: PageKey): ReactNode {
     case "japanWarehouse":
       return <Policy show={["warehouse"]} withHeader={false} />;
     case "business":
-      return <Services />;
+      return <Fulfillment />;
     case "faq":
       return <Faq />;
     case "contact":

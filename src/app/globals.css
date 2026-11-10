@@ -949,6 +949,147 @@
     }
   }
 
+  /* ---- Fulfillment (FFM) page ---- */
+
+  .ffm-step {
+    position: relative;
+    display: flex;
+    min-height: 7rem;
+    align-items: center;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* Large faint step number in the corner: the six items read as a flow. */
+  .ffm-step__no {
+    position: absolute;
+    right: 1rem;
+    bottom: -0.75rem;
+    color: rgb(35 89 35 / 0.08);
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .ffm-photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    box-shadow: 0 24px 48px rgb(16 44 33 / 0.14);
+  }
+
+  .ffm-photo__badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: inline-flex;
+    max-width: calc(100% - 2rem);
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    background-color: rgb(23 60 34 / 0.92);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .ffm-photo__badge svg {
+    flex-shrink: 0;
+    color: var(--color-gold);
+  }
+
+  .ffm-cta {
+    background:
+      radial-gradient(50rem 26rem at 100% 0%, rgb(226 162 64 / 0.18), transparent 60%),
+      var(--color-deep);
+  }
+
+  .ffm-line {
+    display: flex;
+    min-height: 4.5rem;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgb(250 248 234 / 0.18);
+    border-radius: var(--radius-card);
+    background-color: rgb(250 248 234 / 0.06);
+    padding: 0.75rem 1.25rem;
+    transition:
+      background-color 160ms var(--ease-ui),
+      border-color 160ms var(--ease-ui);
+  }
+
+  .ffm-line > img {
+    border-radius: 0.625rem;
+  }
+
+  .ffm-line__icon {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background-color: var(--color-gold);
+    color: var(--color-deep);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .ffm-line:hover {
+      border-color: var(--color-gold);
+      background-color: rgb(250 248 234 / 0.12);
+    }
+  }
+
+  /* ---- Phone (hotline) icon: the supplied SVG as a mask, filled with the text colour ---- */
+
+  .phone-icon {
+    display: inline-block;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: url("/images/haruto/icon-phone-calling.svg") center / contain no-repeat;
+    mask: url("/images/haruto/icon-phone-calling.svg") center / contain no-repeat;
+  }
+
+  .footer-phone {
+    display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: var(--color-gold);
+    color: var(--color-deep);
+  }
+
+  /* Call button in the floating stack (small screens): green, with a gentle ring pulse. */
+  .contact-fab__btn.contact-fab__call {
+    display: flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: #1f9d55;
+    color: #fff;
+    filter: none;
+    box-shadow: 0 8px 20px rgb(16 44 33 / 0.25);
+    animation: fab-call-ring 2.4s ease-out infinite;
+  }
+
+  @keyframes fab-call-ring {
+    0% { box-shadow: 0 8px 20px rgb(16 44 33 / 0.25), 0 0 0 0 rgb(31 157 85 / 0.5); }
+    70%, 100% { box-shadow: 0 8px 20px rgb(16 44 33 / 0.25), 0 0 0 14px rgb(31 157 85 / 0); }
+  }
+
   /* ---- Chat channels (Zalo, fanpage) ---- */
 
   .contact-fab {
