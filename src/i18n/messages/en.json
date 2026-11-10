@@ -76,11 +76,11 @@
     },
     "concierge": {
       "nav": "Buying service",
-      "breadcrumb": "Buy & bid service",
-      "title": "Buy, bid and ship-for-you from Japan",
-      "intro": "HARUTO buys, bids and ships goods on your behalf from Japan. See the payment and deposit terms for each option before sending a request.",
-      "metaTitle": "Japan buying & bidding service | HARUTO",
-      "metaDescription": "HARUTO buy-for-you, bid-for-you and ship-for-you from Japan: payment terms, a 50% deposit for bidding and a full refund if a bid fails. Ask us for advice."
+      "breadcrumb": "Buying & payment service",
+      "title": "Buy and pay for Japanese goods for you – no international card needed",
+      "intro": "Send a product link from Yahoo Auction, Mercari, Rakuten or Amazon Japan: HARUTO quotes, pays the shop, receives it at the Tokyo warehouse and ships it to Vietnam.",
+      "metaTitle": "Japan buying & payment service | HARUTO",
+      "metaDescription": "We pay on Yahoo Auction, Mercari, Rakuten and Amazon Japan for you, no international card needed. Send a link; HARUTO quotes, buys, bids and ships to Vietnam."
     },
     "japanWarehouse": {
       "nav": "Japan warehouse",
@@ -197,6 +197,56 @@
       "body": "Rather than spending time on logistics, let HARUTO EXPRESS run the warehouse side. Contact us today for a solution that fits your business.",
       "contact": "Request advice",
       "tagline": "HARUTO EXPRESS – connecting logistics, growing Vietnam – Japan business."
+    }
+  },
+  "concierge": {
+    "hero": {
+      "eyebrow": "Buying service · Payment on your behalf",
+      "title": "No international card? Not sure how to pay in Japan?",
+      "body": "Don't let payment stand between you and shopping in Japan. With HARUTO EXPRESS you just send the product link and we take care of the rest.",
+      "platformsLabel": "We pay on your behalf on",
+      "platforms": [
+        "Yahoo Auction",
+        "Mercari",
+        "Rakuten",
+        "Amazon Japan"
+      ],
+      "extra": "Buying and auction bidding too",
+      "ctaLink": "Send a product link on Zalo",
+      "ctaContact": "Request advice",
+      "imageAlt": "Japan buying service: phone confirming payment, HARUTO boxes, Tokyo warehouse and a flight to Vietnam"
+    },
+    "steps": {
+      "title": "A simple process",
+      "items": [
+        "Send the link of the product you want",
+        "HARUTO sends a quick, clear quote",
+        "We pay the Japanese shop for you",
+        "Goods arrive at our Tokyo warehouse",
+        "Shipped safely to Vietnam"
+      ]
+    },
+    "why": {
+      "title": "Why HARUTO EXPRESS?",
+      "items": [
+        {
+          "title": "No Visa/MasterCard international card needed"
+        },
+        {
+          "title": "Clear, transparent exchange rate",
+          "body": "Buying rate: VCB + 5, no surcharge."
+        },
+        {
+          "title": "Help from A to Z, even for first-time buyers"
+        },
+        {
+          "title": "Easy order tracking all the way to delivery"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Just send the product link",
+      "body": "HARUTO turns the things you love in Japan into goods in your hands in Vietnam, quickly and with peace of mind."
     }
   },
   "hero": {

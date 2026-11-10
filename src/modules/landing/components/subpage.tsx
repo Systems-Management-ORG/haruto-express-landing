@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/shared/components/page-hero";
 import { RelatedLinks } from "@/shared/components/related-links";
 import type { PageKey } from "@/shared/seo/pages";
+import { ConciergeBody, ConciergeHero } from "./concierge";
 import { Contact } from "./contact";
 import { Faq } from "./faq";
 import { Fulfillment } from "./fulfillment";
@@ -44,7 +45,7 @@ function body(key: PageKey): ReactNode {
     case "policy":
       return <Policy show={["weight", "compensation"]} withHeader={false} />;
     case "concierge":
-      return <Policy show={["concierge"]} withHeader={false} />;
+      return <ConciergeBody />;
     case "japanWarehouse":
       return <Policy show={["warehouse"]} withHeader={false} />;
     case "business":
@@ -63,7 +64,8 @@ function body(key: PageKey): ReactNode {
 export function SubPage({ page }: { page: Exclude<PageKey, "home"> }) {
   return (
     <main id="main">
-      <PageHero page={page} />
+      {/* The buying-service page has its own art-directed banner; every other page the standard hero. */}
+      {page === "concierge" ? <ConciergeHero /> : <PageHero page={page} />}
       {body(page)}
       <RelatedLinks page={page} />
     </main>

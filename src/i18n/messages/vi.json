@@ -76,11 +76,11 @@
     },
     "concierge": {
       "nav": "Mua hộ",
-      "breadcrumb": "Mua hộ – đấu giá hộ",
-      "title": "Mua hộ, đấu giá hộ và vận chuyển hộ hàng Nhật",
-      "intro": "HARUTO nhận mua hộ, đấu giá hộ và vận chuyển hộ hàng từ Nhật Bản. Xem điều kiện thanh toán và đặt cọc cho từng hình thức trước khi gửi yêu cầu.",
-      "metaTitle": "Mua hộ hàng Nhật, đấu giá hộ | HARUTO",
-      "metaDescription": "Dịch vụ mua hộ, đấu giá hộ và vận chuyển hộ hàng Nhật của HARUTO: điều kiện thanh toán, đặt cọc 50% khi đấu giá và hoàn cọc nếu không thành công."
+      "breadcrumb": "Mua hộ – thanh toán hộ",
+      "title": "Mua hộ, thanh toán hộ hàng Nhật – không cần thẻ quốc tế",
+      "intro": "Gửi link sản phẩm từ Yahoo Auction, Mercari, Rakuten hay Amazon Nhật: HARUTO báo giá, thanh toán hộ, nhận hàng tại kho Tokyo và vận chuyển về Việt Nam.",
+      "metaTitle": "Mua hộ, thanh toán hộ hàng Nhật | HARUTO",
+      "metaDescription": "Thanh toán hộ Yahoo Auction, Mercari, Rakuten, Amazon Nhật không cần thẻ quốc tế. Gửi link sản phẩm, HARUTO báo giá, mua hộ, đấu giá hộ và ship về Việt Nam."
     },
     "japanWarehouse": {
       "nav": "Kho Nhật",
@@ -197,6 +197,56 @@
       "body": "Thay vì mất thời gian xử lý các khâu hậu cần, hãy để HARUTO EXPRESS lo phần kho vận. Liên hệ ngay hôm nay để được tư vấn giải pháp phù hợp với nhu cầu doanh nghiệp.",
       "contact": "Gửi yêu cầu tư vấn",
       "tagline": "HARUTO EXPRESS – Kết nối logistics, mở rộng kinh doanh Việt – Nhật."
+    }
+  },
+  "concierge": {
+    "hero": {
+      "eyebrow": "Mua hộ · Thanh toán hộ hàng Nhật",
+      "title": "Không có thẻ quốc tế? Không biết thanh toán hàng Nhật?",
+      "body": "Đừng để việc thanh toán trở thành rào cản khi mua hàng từ Nhật Bản. Với HARUTO EXPRESS, bạn chỉ cần gửi link sản phẩm, mọi việc còn lại hãy để chúng tôi hỗ trợ.",
+      "platformsLabel": "Thanh toán hộ trên",
+      "platforms": [
+        "Yahoo Auction",
+        "Mercari",
+        "Rakuten",
+        "Amazon Nhật"
+      ],
+      "extra": "Hỗ trợ mua hộ và đấu giá hộ",
+      "ctaLink": "Gửi link sản phẩm qua Zalo",
+      "ctaContact": "Yêu cầu tư vấn",
+      "imageAlt": "Mua hộ hàng Nhật: điện thoại xác nhận thanh toán, thùng hàng HARUTO, kho Tokyo và máy bay về Việt Nam"
+    },
+    "steps": {
+      "title": "Quy trình đơn giản",
+      "items": [
+        "Gửi link sản phẩm cần mua",
+        "HARUTO báo giá nhanh chóng, minh bạch",
+        "Thanh toán hộ cho shop Nhật",
+        "Nhận hàng tại kho Tokyo",
+        "Vận chuyển an toàn về Việt Nam"
+      ]
+    },
+    "why": {
+      "title": "Vì sao nên chọn HARUTO EXPRESS?",
+      "items": [
+        {
+          "title": "Không cần thẻ Visa/MasterCard quốc tế"
+        },
+        {
+          "title": "Tỷ giá rõ ràng, minh bạch",
+          "body": "Tỷ giá mua hộ: VCB + 5, không phụ thu."
+        },
+        {
+          "title": "Hỗ trợ từ A–Z, kể cả người mới mua hàng Nhật"
+        },
+        {
+          "title": "Theo dõi đơn hàng dễ dàng trong suốt quá trình vận chuyển"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Chỉ cần gửi link sản phẩm",
+      "body": "HARUTO sẽ giúp bạn biến món đồ yêu thích từ Nhật thành hàng có mặt tại Việt Nam một cách nhanh chóng và an tâm."
     }
   },
   "hero": {
