@@ -24,6 +24,13 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* In-page links (e.g. the goods-group chips) glide to their target. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   body {
     background-color: var(--color-ivory);
     color: var(--color-ink);
@@ -569,24 +576,10 @@
   }
 
   /*
-    Self-running flight animation on the route map (no scroll trigger, no JS): a light streak and a
-    plane travel each arc on a loop, with pulsing pings at the two cities. Driven by CSS so it
+    Self-running flight animation on the route map (no scroll trigger, no JS): a plane travels each
+    arc on a loop, with pulsing pings at the two cities. Driven by CSS so it
     animates on its own and can be switched off for reduced motion.
   */
-  .route-streak {
-    stroke-dasharray: 0.06 1;
-    animation: route-streak 6s linear infinite;
-  }
-
-  .route-streak--in {
-    animation-delay: 3s;
-  }
-
-  @keyframes route-streak {
-    from { stroke-dashoffset: 0; }
-    to { stroke-dashoffset: -1; }
-  }
-
   .route-plane {
     offset-rotate: auto;
     animation: route-fly 6s linear infinite;
@@ -624,7 +617,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .route-streak { display: none; }
     .route-ping { animation: none; opacity: 0; }
     .route-plane { animation: none; offset-distance: 52%; }
   }
@@ -949,102 +941,234 @@
     }
   }
 
-  /* ---- Fulfillment (FFM) page ---- */
+  /* ---- Fulfillment (FFM) page, after the "FFM JAPAN" poster ---- */
 
-  .ffm-step {
+  .ffm-hero {
     position: relative;
-    display: flex;
-    min-height: 7rem;
-    align-items: center;
-    gap: 1rem;
     overflow: hidden;
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
-    background-color: #fff;
-    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-line);
+    background:
+      radial-gradient(44rem 26rem at 90% 0%, rgb(219 234 254 / 0.55), transparent 65%),
+      linear-gradient(180deg, #fdfaf3, #f8f3e7);
   }
 
-  /* Large faint step number in the corner: the six items read as a flow. */
-  .ffm-step__no {
-    position: absolute;
-    right: 1rem;
-    bottom: -0.75rem;
-    color: rgb(35 89 35 / 0.08);
-    font-family: var(--font-display);
-    font-size: 4.5rem;
+  .ffm-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 0.3em;
+    font-family: var(--font-sans);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900;
     line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  /* The small Japanese flag beside the headline. */
+  .ffm-title__flag {
+    position: relative;
+    display: inline-block;
+    width: 0.62em;
+    height: 0.42em;
+    margin-left: 0.1em;
+    border-radius: 0.06em;
+    background: radial-gradient(circle at 50% 50%, #bc002d 0 28%, #fff 29%);
+    box-shadow: 0 2px 8px rgb(16 44 33 / 0.18);
+  }
+
+  /* The warehouse scene, feathered into the page on its left and bottom edges. */
+  .ffm-scene__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem;
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent 0, #000 12%),
+      linear-gradient(180deg, #000 74%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(90deg, transparent 0, #000 12%),
+      linear-gradient(180deg, #000 74%, transparent 100%);
+    mask-composite: intersect;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ffm-scene__img {
+      animation: auction-art-in 900ms var(--ease-ui) both;
+    }
+  }
+
+  .ffm-section-title {
+    display: table;
+    margin-inline: auto;
+    border-radius: 999px;
+    background-color: var(--color-forest);
+    padding: 0.5rem 1.5rem;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2.2vw, 1.375rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  /* Five round step icons joined by orange arrows on large screens. */
+  .ffm-flow {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1rem;
+    border: 1px solid rgb(35 89 35 / 0.25);
+    border-radius: 1.5rem;
+    background-color: #fffdf8;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ffm-flow__step {
+    position: relative;
+    text-align: center;
+  }
+
+  .ffm-flow__icon {
+    display: block;
+    width: 6.5rem;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 999px;
+    transition: transform 300ms var(--ease-ui);
+  }
+
+  @media (min-width: 40rem) {
+    .ffm-flow {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .ffm-flow {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      padding: 2.25rem 2rem;
+    }
+
+    .ffm-flow__step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 3.25rem;
+      right: -0.9rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      background-color: #f28c13;
+      clip-path: polygon(0 20%, 55% 20%, 55% 0, 100% 50%, 55% 100%, 55% 80%, 0 80%);
+      transform: translate(50%, -50%);
+    }
+  }
+
+  .ffm-flow__extra {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.25rem auto 0;
+    border-radius: 999px;
+    background-color: #fff3e0;
+    padding: 0.5rem 1.125rem;
+    color: #9a4d00;
+    font-weight: 600;
+  }
+
+  .ffm-audience {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+    border: 1px solid rgb(35 89 35 / 0.25);
+    border-radius: 1.5rem;
+    background-color: #fffdf8;
+  }
+
+  .ffm-audience__item {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .ffm-audience__item:nth-child(odd) {
+    border-right: 1px solid rgb(35 89 35 / 0.18);
+  }
+
+  .ffm-audience__item:nth-child(n + 3) {
+    border-top: 1px solid rgb(35 89 35 / 0.18);
+  }
+
+  @media (min-width: 64rem) {
+    .ffm-audience {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .ffm-audience__item {
+      padding: 2rem 1.25rem;
+    }
+
+    .ffm-audience__item:nth-child(n) {
+      border-top: 0;
+      border-right: 0;
+    }
+
+    .ffm-audience__item + .ffm-audience__item {
+      border-left: 1px solid rgb(35 89 35 / 0.18);
+    }
+  }
+
+  .ffm-benefits {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--color-deep), var(--color-forest));
+    color: var(--color-ivory);
+  }
+
+  /* Orange sweep at the foot of the band, as on the poster. */
+  .ffm-benefits::after {
+    content: "";
+    position: absolute;
+    right: -5%;
+    bottom: -1.75rem;
+    left: 40%;
+    height: 3rem;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    border-top: 4px solid #f28c13;
     pointer-events: none;
   }
 
-  .ffm-photo {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    border-radius: 1.25rem;
-    box-shadow: 0 24px 48px rgb(16 44 33 / 0.14);
-  }
-
-  .ffm-photo__badge {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    display: inline-flex;
-    max-width: calc(100% - 2rem);
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 999px;
-    background-color: rgb(23 60 34 / 0.92);
-    padding: 0.5rem 1rem;
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-
-  .ffm-photo__badge svg {
+  .ffm-benefit__icon {
+    width: 3.5rem;
+    height: 3.5rem;
     flex-shrink: 0;
-    color: var(--color-gold);
+    border-radius: 999px;
   }
 
+  .ffm-closing {
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(36rem 18rem at 50% 0%, rgb(255 237 213 / 0.8), transparent 70%),
+      var(--color-sage);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 64rem) {
+    .ffm-closing {
+      padding: 3.5rem;
+    }
+  }
+
+  /* Dark closing band shared by the buying-service page. */
   .ffm-cta {
     background:
       radial-gradient(50rem 26rem at 100% 0%, rgb(226 162 64 / 0.18), transparent 60%),
       var(--color-deep);
   }
 
-  .ffm-line {
-    display: flex;
-    min-height: 4.5rem;
-    align-items: center;
-    gap: 1rem;
-    border: 1px solid rgb(250 248 234 / 0.18);
-    border-radius: var(--radius-card);
-    background-color: rgb(250 248 234 / 0.06);
-    padding: 0.75rem 1.25rem;
-    transition:
-      background-color 160ms var(--ease-ui),
-      border-color 160ms var(--ease-ui);
-  }
-
-  .ffm-line > img {
-    border-radius: 0.625rem;
-  }
-
-  .ffm-line__icon {
-    display: inline-flex;
-    width: 2.5rem;
-    height: 2.5rem;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.75rem;
-    background-color: var(--color-gold);
-    color: var(--color-deep);
-  }
-
   @media (hover: hover) and (pointer: fine) {
-    .ffm-line:hover {
-      border-color: var(--color-gold);
-      background-color: rgb(250 248 234 / 0.12);
+    .ffm-flow__step:hover .ffm-flow__icon {
+      transform: translateY(-4px) scale(1.04);
     }
   }
 
@@ -1211,6 +1335,769 @@
       width: calc(100% - 5.25rem + 1.5rem);
       height: 2px;
       background: repeating-linear-gradient(90deg, var(--color-gold) 0 6px, transparent 6px 10px);
+    }
+  }
+
+  /* ---- Auction (đấu giá hộ) page ---- */
+
+  .auction-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-line);
+    background:
+      radial-gradient(48rem 30rem at 85% 10%, rgb(255 237 213 / 0.7), transparent 65%),
+      linear-gradient(180deg, #fdfaf3, #f7f3e8);
+  }
+
+  /* Swoosh in the corner, echoing the green/orange curves of the artwork. */
+  .auction-hero::before {
+    content: "";
+    position: absolute;
+    top: -13rem;
+    left: -13rem;
+    width: 22rem;
+    height: 16rem;
+    border-radius: 50%;
+    border-right: 14px solid var(--color-forest);
+    border-bottom: 8px solid #f97316;
+    transform: rotate(-12deg);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .auction-title {
+    font-family: var(--font-sans);
+    font-size: clamp(2.75rem, 7vw, 4.75rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .auction-title {
+    letter-spacing: 0;
+    line-height: 1.15;
+    text-transform: none;
+  }
+
+  .auction-ribbon {
+    display: inline-block;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 0.75rem) 50%, 100% 100%, 0 100%, 0.75rem 50%);
+    background: linear-gradient(90deg, var(--color-forest), #2f7a2f);
+    padding: 0.5rem 1.75rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .auction-art {
+    position: relative;
+  }
+
+  /* The left edge of the scene feathers into the page, so the art has no hard frame. */
+  .auction-art__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 14%);
+  }
+
+  .auction-seal {
+    position: absolute;
+    top: 46%;
+    right: 2%;
+    display: flex;
+    width: 7.5rem;
+    height: 7.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #fff;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 30%, #ef4444, #b91c1c);
+    padding: 0.75rem;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 14px 30px rgb(127 29 29 / 0.35);
+  }
+
+  @media (max-width: 39.99rem) {
+    .auction-seal {
+      width: 6rem;
+      height: 6rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .auction-art__img {
+      animation: auction-art-in 900ms var(--ease-ui) both;
+    }
+
+    .auction-seal {
+      animation:
+        auction-seal-in 700ms 450ms var(--ease-ui) both,
+        auction-float 5s 1.2s ease-in-out infinite;
+    }
+  }
+
+  @keyframes auction-art-in {
+    from { opacity: 0; transform: translateX(24px) scale(1.02); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes auction-seal-in {
+    from { opacity: 0; scale: 0.6; }
+    to { opacity: 1; scale: 1; }
+  }
+
+  @keyframes auction-float {
+    0%, 100% { translate: 0 0; rotate: -4deg; }
+    50% { translate: 0 -8px; rotate: 3deg; }
+  }
+
+  .auction-product {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background-color: #fff;
+    transition:
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui);
+  }
+
+  .auction-product__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #fbf6ec;
+    padding: 0.5rem;
+  }
+
+  .auction-product__media img {
+    transition: transform 500ms var(--ease-ui);
+  }
+
+  .auction-product__label {
+    flex: 1;
+    background-color: var(--color-forest);
+    padding: 0.75rem 0.75rem;
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  @media (min-width: 64rem) {
+    .muaho-steps--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .auction-terms {
+    display: flex;
+    max-width: 52rem;
+    gap: 1rem;
+    margin-inline: auto;
+    border: 1px dashed rgb(35 89 35 / 0.35);
+    border-radius: var(--radius-card);
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .auction-benefits {
+    background: linear-gradient(90deg, var(--color-deep), var(--color-forest));
+    color: var(--color-ivory);
+  }
+
+  .auction-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  @media (min-width: 64rem) {
+    .auction-benefit {
+      padding-inline: 1.5rem;
+    }
+
+    .auction-benefit + .auction-benefit {
+      border-left: 1px solid rgb(250 248 234 / 0.25);
+    }
+  }
+
+  .auction-cta {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(40rem 20rem at 0% 0%, rgb(255 237 213 / 0.9), transparent 60%),
+      var(--color-sage);
+    padding: 2rem 1.5rem 9rem;
+  }
+
+  .auction-cta__truck {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(85%, 26rem);
+    height: auto;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 25%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 25%);
+  }
+
+  @media (min-width: 64rem) {
+    .auction-cta {
+      padding: 3rem 3.5rem;
+    }
+
+    .auction-cta__truck {
+      width: 30rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .auction-cta__truck {
+      animation: auction-truck 1.1s var(--ease-ui) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+
+  @keyframes auction-truck {
+    from { opacity: 0; translate: 3rem 0; }
+    to { opacity: 1; translate: 0 0; }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .auction-product:hover {
+      translate: 0 -4px;
+      box-shadow: 0 16px 32px rgb(16 44 33 / 0.12);
+    }
+
+    .auction-product:hover .auction-product__media img {
+      transform: scale(1.08);
+    }
+  }
+
+  /* ---- Ship Japan → Vietnam page (poster layout) ---- */
+
+  .shipvn-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(40rem 22rem at 50% 0%, rgb(255 237 213 / 0.75), transparent 70%),
+      linear-gradient(180deg, #fdfaf3, #faf6ec);
+  }
+
+  .shipvn-title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 0.6em;
+    font-family: var(--font-sans);
+    font-size: clamp(2.1rem, 5.6vw, 4.25rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .shipvn-title__dash {
+    color: var(--color-forest);
+  }
+
+  @media (max-width: 47.99rem) {
+    .shipvn-title {
+      flex-direction: column;
+    }
+
+    .shipvn-title__dash {
+      display: none;
+    }
+  }
+
+  :lang(ja) .shipvn-title {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .shipvn-store {
+    display: flex;
+    min-height: 7.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    box-shadow: 0 6px 18px rgb(16 44 33 / 0.06);
+    transition:
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui);
+  }
+
+  .shipvn-store__name {
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .shipvn-scene {
+    position: relative;
+    container-type: inline-size;
+  }
+
+  /* Live labels sitting on the blank green tags painted under each map pin. */
+  .shipvn-tag {
+    position: absolute;
+    min-width: 11%;
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background-color: #155c2a;
+    padding: 0.35cqw 1.2cqw;
+    color: #fff;
+    font-size: clamp(0.625rem, 1.45cqw, 1.05rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .shipvn-tag--jp {
+    top: 87.8%;
+    left: 20.2%;
+  }
+
+  .shipvn-tag--vn {
+    top: 71.3%;
+    left: 89%;
+  }
+
+  .shipvn-stat {
+    border: 2px solid var(--color-forest);
+    border-radius: 1.25rem;
+    background-color: #fff;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+
+  .shipvn-stat--rate {
+    border-color: #ea580c;
+  }
+
+  .shipvn-stat__value {
+    margin-top: 0.25rem;
+    color: var(--color-forest);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .shipvn-stat--rate .shipvn-stat__value {
+    color: #ea580c;
+  }
+
+  .shipvn-heading {
+    color: #ea580c;
+    font-size: clamp(1.5rem, 3.4vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .shipvn-service {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    transition:
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui),
+      border-color 220ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .shipvn-store:hover,
+    .shipvn-service--link:hover {
+      translate: 0 -3px;
+      box-shadow: 0 14px 28px rgb(16 44 33 / 0.12);
+    }
+
+    .shipvn-service--link:hover {
+      border-color: var(--color-forest);
+    }
+
+    .shipvn-service--link:hover .m-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  /* ---- Ship Vietnam → Japan page ---- */
+
+  /* Banner: copy on the left, the ship-viet-nhat scene on the right, its left edge feathered. */
+  .vnjp-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-line);
+    background:
+      radial-gradient(44rem 26rem at 85% 0%, rgb(219 234 254 / 0.5), transparent 65%),
+      linear-gradient(180deg, #fdfaf3, #f8f3e7);
+  }
+
+  /* Corner sweep echoing the green/orange curve of the artwork. */
+  .vnjp-hero::before {
+    content: "";
+    position: absolute;
+    top: -13rem;
+    left: -13rem;
+    width: 22rem;
+    height: 16rem;
+    border-radius: 50%;
+    border-right: 14px solid var(--color-forest);
+    border-bottom: 8px solid #f97316;
+    transform: rotate(-12deg);
+    pointer-events: none;
+  }
+
+  .vnjp-hero__art {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 12%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .vnjp-hero__art {
+      animation: auction-art-in 900ms var(--ease-ui) both;
+    }
+  }
+
+  .shipvn-title--start {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  @media (max-width: 47.99rem) {
+    .shipvn-title--start {
+      align-items: flex-start;
+    }
+  }
+
+  .vnjp-badge {
+    display: inline-flex;
+    width: 4rem;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    color: var(--color-forest);
+    box-shadow: inset 0 0 0 2px rgb(234 88 12 / 0.35);
+  }
+
+  .vnjp-chip {
+    border: 1px solid rgb(250 248 234 / 0.35);
+    border-radius: 999px;
+    padding: 0.125rem 0.625rem;
+    color: var(--color-ivory);
+    font-size: 0.8125rem;
+    transition:
+      background-color 160ms var(--ease-ui),
+      border-color 160ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .vnjp-chip:hover {
+      border-color: var(--color-gold);
+      background-color: rgb(250 248 234 / 0.1);
+    }
+  }
+
+  /* ---- Accepted & prohibited goods page ("5 groups customs check" poster) ---- */
+
+  .customs-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--color-line);
+    background:
+      radial-gradient(46rem 26rem at 85% 0%, rgb(219 234 254 / 0.6), transparent 65%),
+      linear-gradient(180deg, #fdfaf3, #f6f2e8);
+  }
+
+  .customs-title {
+    font-family: var(--font-sans);
+    font-size: clamp(2.25rem, 5.6vw, 4.25rem);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .customs-title {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  /* "5 groups" sits on a slanted green tag, as on the poster. */
+  .customs-title__count {
+    display: inline-block;
+    margin-bottom: 0.15em;
+    border-radius: 0.2em;
+    background-color: var(--color-forest);
+    padding: 0.05em 0.35em;
+    color: #fff;
+    transform: skewX(-6deg);
+  }
+
+  .customs-alert {
+    display: flex;
+    max-width: 36rem;
+    gap: 0.875rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, var(--color-deep), var(--color-forest));
+    padding: 1rem 1.25rem;
+    color: #fff;
+    box-shadow: 0 12px 28px rgb(16 44 33 / 0.18);
+  }
+
+  .customs-scene {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 10%);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .customs-scene {
+      animation: auction-art-in 900ms var(--ease-ui) both;
+    }
+  }
+
+  .customs-chips {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .customs-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .customs-chip__img {
+    display: block;
+    width: clamp(3.75rem, 14vw, 7rem);
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid var(--color-forest);
+    border-radius: 999px;
+    background-color: #fffaf0;
+    box-shadow: 0 8px 18px rgb(16 44 33 / 0.1);
+    transition:
+      translate 220ms var(--ease-ui),
+      box-shadow 220ms var(--ease-ui);
+  }
+
+  .customs-chip__label {
+    color: var(--color-forest);
+    font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .customs-chip__label {
+    text-transform: none;
+  }
+
+  .customs-panel {
+    border-radius: 1.5rem;
+    background:
+      radial-gradient(28rem 14rem at 100% 0%, rgb(219 234 254 / 0.75), transparent 70%),
+      #f4f8fb;
+    padding: 1.5rem;
+  }
+
+  .customs-panel__title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.375rem, 2.6vw, 1.875rem);
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .customs-panel__title {
+    text-transform: none;
+  }
+
+  .customs-panel__count {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    border-radius: 0.375rem;
+    background-color: var(--color-forest);
+    padding: 0.125rem 0.625rem;
+    color: #fff;
+  }
+
+  .customs-card {
+    scroll-margin-top: 6rem;
+    border-radius: 1rem;
+    background-color: #fffaf0;
+    padding: 1rem 0.75rem;
+    text-align: center;
+    box-shadow: 0 6px 16px rgb(16 44 33 / 0.06);
+    transition:
+      translate 220ms var(--ease-ui),
+      box-shadow 220ms var(--ease-ui);
+  }
+
+  .customs-card__no {
+    color: var(--color-forest);
+    font-family: var(--font-sans);
+    font-size: 1.75rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .customs-card__title {
+    margin-top: 0.25rem;
+    color: #ea580c;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  :lang(ja) .customs-card__title {
+    text-transform: none;
+  }
+
+  .customs-card__media {
+    height: 7rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    .customs-card__media {
+      height: 9.5rem;
+    }
+  }
+
+  .customs-support {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--color-deep), var(--color-forest) 70%, #1e7a36);
+    padding: 2rem 1.5rem 9rem;
+    color: #fff;
+  }
+
+  .customs-support__art {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+    width: 13rem;
+    height: auto;
+    border-radius: 0.75rem;
+  }
+
+  @media (min-width: 64rem) {
+    .customs-support {
+      padding: 2.75rem 3rem;
+    }
+
+    .customs-support__art {
+      top: 50%;
+      right: 3rem;
+      bottom: auto;
+      width: 17rem;
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Colour-coded goods lists: green accepted, amber not guaranteed, red prohibited. */
+  .goods-list {
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    background-color: #fff;
+  }
+
+  .goods-list__head {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 1.25rem;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .goods-list--ok .goods-list__head { background-color: var(--color-forest); }
+  .goods-list--ok .goods-list__mark { color: var(--color-forest); }
+  .goods-list--warn .goods-list__head { background-color: #d97706; }
+  .goods-list--warn .goods-list__mark { color: #d97706; }
+  .goods-list--ban .goods-list__head { background-color: #b91c1c; }
+  .goods-list--ban .goods-list__mark { color: #b91c1c; }
+
+  .customs-services {
+    background: linear-gradient(100deg, var(--color-deep) 0 55%, #ea580c 55.1% 100%);
+    color: #fff;
+  }
+
+  @media (max-width: 63.99rem) {
+    .customs-services {
+      background: linear-gradient(180deg, var(--color-deep), var(--color-forest));
+    }
+  }
+
+  .customs-service-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    border-radius: 999px;
+    padding: 0.375rem 1.125rem;
+    font-weight: 700;
+    transition:
+      background-color 160ms var(--ease-ui),
+      color 160ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .customs-chip:hover .customs-chip__img,
+    .customs-card:hover {
+      translate: 0 -4px;
+      box-shadow: 0 16px 30px rgb(16 44 33 / 0.14);
+    }
+
+    .customs-service-link:hover {
+      background-color: #fff;
+      color: var(--color-forest);
     }
   }
 
@@ -1691,4 +2578,39 @@
   .m-arrow {
     transform: none !important;
   }
+}
+
+/*
+  Soft page-to-page transitions (cross-document View Transitions). Each click to another page
+  fades the old page out and eases the new one in, while the header keeps its place instead of
+  flashing. Browsers without support simply navigate as before; reduced motion turns it off.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  .site-header {
+    view-transition-name: site-header;
+  }
+
+  ::view-transition-old(root) {
+    animation: vt-out 160ms ease-in both;
+  }
+
+  ::view-transition-new(root) {
+    animation: vt-in 340ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  ::view-transition-group(site-header) {
+    animation-duration: 0s;
+  }
+}
+
+@keyframes vt-out {
+  to { opacity: 0; }
+}
+
+@keyframes vt-in {
+  from { opacity: 0; transform: translateY(10px); }
 }

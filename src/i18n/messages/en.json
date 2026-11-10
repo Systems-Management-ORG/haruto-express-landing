@@ -12,18 +12,18 @@
     "shipToJapan": {
       "nav": "Ship to Japan",
       "breadcrumb": "Ship to Japan",
-      "title": "Ship to Japan by air from Vietnam",
-      "intro": "Send parcels, gifts and commercial goods from Vietnam to Japan. HARUTO carries clean and mixed goods, prices by weight band, and includes tax and Japan domestic delivery.",
-      "metaTitle": "Ship to Japan from Vietnam | HARUTO EXPRESS",
-      "metaDescription": "Ship to Japan from Vietnam for individuals and businesses: clean and mixed goods, pricing by weight band, tax and Japan domestic delivery included."
+      "title": "Ship to Japan from Vietnam – parcels, gifts and goods",
+      "intro": "Send personal parcels, gifts and commercial goods from Vietnam to Japan: HARUTO advises on rules for each item, supports customs clearance and keeps you updated in transit.",
+      "metaTitle": "Ship from Vietnam to Japan | HARUTO",
+      "metaDescription": "Ship parcels, gifts and commercial goods from Vietnam to Japan. Advice on item rules before you send, customs clearance support and shipment tracking."
     },
     "shipToVietnam": {
       "nav": "Ship to Vietnam",
       "breadcrumb": "Ship from Japan to Vietnam",
-      "title": "Ship from Japan to Vietnam",
-      "intro": "Move goods from Japan to Vietnam by air at 155,000 VND/kg, with buy-for-you and ship-for-you services. Send your items to HARUTO's Japan warehouse to get started.",
-      "metaTitle": "Ship from Japan to Vietnam | HARUTO EXPRESS",
-      "metaDescription": "Ship from Japan to Vietnam by air at 155,000 VND/kg, with buy-for-you and ship-for-you services and a receiving warehouse in Japan. Contact us to begin."
+      "title": "Buy in Japan, ship to Vietnam with HARUTO EXPRESS",
+      "intro": "Buy from Yahoo Japan, Mercari, Rakuten or Amazon JP and ship to Vietnam by air: from 155,000 VND/kg, payment rate VCB + 5, free consolidation at our Japan warehouse.",
+      "metaTitle": "Ship from Japan to Vietnam from 155,000 VND/kg | HARUTO",
+      "metaDescription": "Buying service, Yahoo Auction bidding and air shipping from Japan to Vietnam: from 155,000 VND/kg, payment rate VCB + 5, free consolidation in Japan."
     },
     "pricing": {
       "nav": "Pricing",
@@ -37,9 +37,9 @@
       "nav": "Accepted & prohibited",
       "breadcrumb": "Accepted and prohibited items",
       "title": "Accepted items and prohibited goods",
-      "intro": "What HARUTO carries, which goods are not guaranteed through customs, and which items are prohibited under the laws of both countries.",
+      "intro": "The 5 groups of goods customs check most closely between Japan and Vietnam, plus the goods HARUTO carries, those not guaranteed through customs and those prohibited.",
       "metaTitle": "Accepted and prohibited items to Japan | HARUTO",
-      "metaDescription": "Items HARUTO accepts for Japan, goods not guaranteed through customs, and items prohibited by law. Check before sending parcels Vietnam–Japan.",
+      "metaDescription": "5 groups customs check closely between Japan and Vietnam: cosmetics, branded goods, supplements, food, battery devices. Plus accepted and prohibited items.",
       "accepted": {
         "title": "Accepted for shipping",
         "items": [
@@ -82,6 +82,14 @@
       "metaTitle": "Japan buying & payment service | HARUTO",
       "metaDescription": "We pay on Yahoo Auction, Mercari, Rakuten and Amazon Japan for you, no international card needed. Send a link; HARUTO quotes, buys, bids and ships to Vietnam."
     },
+    "auction": {
+      "nav": "Auction service",
+      "breadcrumb": "Japan auction bidding",
+      "title": "Japan auction bidding service – great finds, great prices",
+      "intro": "HARUTO EXPRESS bids for you directly on Japanese auction sites, opening up thousands of unique items every day, delivered to you in Vietnam.",
+      "metaTitle": "Japan auction bidding (Yahoo! Auction) | HARUTO",
+      "metaDescription": "We bid for you on Yahoo! Auction, Mercari and Rakuten: electronics, cameras, watches, figures, designer bags. Clear fees, order tracking, shipping to Vietnam."
+    },
     "japanWarehouse": {
       "nav": "Japan warehouse",
       "breadcrumb": "Japan warehouse address",
@@ -102,7 +110,7 @@
       "nav": "Fulfillment (FFM)",
       "breadcrumb": "Fulfillment in Japan",
       "title": "Fulfillment (FFM) in Japan for Vietnamese businesses",
-      "intro": "Selling in Japan without a warehouse there? HARUTO EXPRESS receives, stores, processes orders and delivers within Japan, so you can run leaner and save costs without building your own logistics setup.",
+      "intro": "Instead of investing in warehousing, staff and operations in Japan, Vietnamese businesses can use HARUTO EXPRESS FFM: receiving, storage, picking, packing and domestic delivery in Japan.",
       "metaTitle": "Fulfillment (FFM) in Japan for businesses | HARUTO",
       "metaDescription": "Fulfillment in Japan for Vietnamese businesses: receiving, storage, inventory tracking, picking and packing, domestic delivery and Japan ⇄ Vietnam shipping."
     },
@@ -160,43 +168,87 @@
     }
   },
   "fulfillment": {
-    "services": {
-      "title": "What HARUTO EXPRESS handles",
-      "intro": "The whole warehouse flow in Japan, from goods arriving at the warehouse to reaching your customer.",
+    "hero": {
+      "srTitle": "Warehousing in Japan for Vietnamese businesses",
+      "ribbon": "Storage & order fulfillment in Japan",
+      "tagline": "HARUTO – your Japan ⇄ Vietnam carrier",
+      "body": "Doing business in Japan or planning to expand there? Instead of investing in warehousing, staff and operations in Japan, your business can use the FFM (fulfillment) service from HARUTO EXPRESS.",
+      "imageAlt": "HARUTO EXPRESS warehouse in Japan with a delivery truck, Mount Fuji and cherry blossoms"
+    },
+    "steps": {
+      "title": "FFM in Japan with HARUTO",
       "items": [
-        "Receiving and storage in Japan",
-        "Inventory management and stock tracking",
-        "Order processing and picking",
-        "Packing to your requirements",
-        "Domestic delivery within Japan",
-        "Japan ⇄ Vietnam shipping support"
-      ]
+        {
+          "title": "Receive",
+          "body": "Receiving and storage in Japan"
+        },
+        {
+          "title": "Inventory",
+          "body": "Accurate, transparent stock management"
+        },
+        {
+          "title": "Pick & pack",
+          "body": "Picked per order, packed to your requirements"
+        },
+        {
+          "title": "Deliver",
+          "body": "Domestic delivery across Japan"
+        },
+        {
+          "title": "Report",
+          "body": "Regular, clear order reports"
+        }
+      ],
+      "extra": "Japan ⇄ Vietnam shipping support"
     },
     "audience": {
-      "title": "FFM is a fit for",
+      "title": "Built for",
       "items": [
-        "Vietnamese businesses bringing products to the Japanese market",
-        "Sellers on e-commerce marketplaces",
-        "Businesses that need storage and transit warehousing in Japan",
-        "Brands looking for a cross-border logistics partner"
+        {
+          "title": "Exporters",
+          "body": "Vietnamese businesses exporting to Japan"
+        },
+        {
+          "title": "Vietnamese retailers",
+          "body": "Selling on Japanese e-commerce marketplaces"
+        },
+        {
+          "title": "Cross-border e-commerce",
+          "body": "Businesses that need a transit warehouse in Japan"
+        },
+        {
+          "title": "Vietnamese brands in Japan",
+          "body": "Growing their business in the Japanese market"
+        }
       ]
     },
-    "why": {
-      "title": "Why HARUTO EXPRESS?",
+    "benefits": {
       "items": [
-        "No need to invest in your own warehouse in Japan",
-        "Streamlined storage and order handling",
-        "Warehousing joined up with Japan ⇄ Vietnam international shipping",
-        "Flexible to your needs and business size"
-      ],
-      "warehouses": "International warehouses: Tokyo (Japan) – Hanoi (Vietnam)",
-      "photoAlt": "Front of the HARUTO EXPRESS warehouse"
+        {
+          "title": "Lower costs",
+          "body": "Less spent on warehousing and operations"
+        },
+        {
+          "title": "Fast order handling",
+          "body": "Professional process, on-time delivery"
+        },
+        {
+          "title": "Transparent & safe",
+          "body": "Tight control, goods kept safe"
+        },
+        {
+          "title": "Focus on growth",
+          "body": "You sell, HARUTO handles the rest"
+        }
+      ]
+    },
+    "closing": {
+      "body": "With its Japan – Vietnam operating network, HARUTO helps businesses cut logistics costs, ease the operational load and focus on growing the business.",
+      "tagline": "Connecting Vietnam – Japan logistics"
     },
     "cta": {
-      "title": "Grow your business in Japan with us",
-      "body": "Rather than spending time on logistics, let HARUTO EXPRESS run the warehouse side. Contact us today for a solution that fits your business.",
       "contact": "Request advice",
-      "tagline": "HARUTO EXPRESS – connecting logistics, growing Vietnam – Japan business."
+      "zalo": "Chat on Zalo"
     }
   },
   "concierge": {
@@ -247,6 +299,280 @@
     "cta": {
       "title": "Just send the product link",
       "body": "HARUTO turns the things you love in Japan into goods in your hands in Vietnam, quickly and with peace of mind."
+    }
+  },
+  "auction": {
+    "hero": {
+      "eyebrow": "Japan auction bidding service",
+      "titleA": "Japan",
+      "titleB": "auctions",
+      "ribbon": "Quality finds, great prices, every day",
+      "body": "Want quality products from Japan at attractive prices? HARUTO EXPRESS bids for you directly on Japanese auction sites, giving you easy access to thousands of unique items every day.",
+      "platformsLabel": "Direct bidding on trusted Japanese sites",
+      "platforms": [
+        "Yahoo! Auction",
+        "Rakuten",
+        "Mercari"
+      ],
+      "badge": "Thousands of products",
+      "ctaLink": "Send a product link on Zalo",
+      "imageAlt": "Japan auctions: phone bidding on a camera, gavel, parcels, Mount Fuji and cherry blossoms"
+    },
+    "products": {
+      "title": "A wide range of products",
+      "intro": "Thousands of unique items go up on Japanese auctions every day.",
+      "items": [
+        "Electronics, cameras, watches",
+        "Collectibles, models, figures",
+        "Bags and designer fashion",
+        "Sports gear and home appliances",
+        "Clearance and rare items from Japan"
+      ]
+    },
+    "steps": {
+      "title": "How auction bidding works",
+      "items": [
+        {
+          "title": "Send the link",
+          "body": "The item you want to bid on"
+        },
+        {
+          "title": "Quote",
+          "body": "We quote and help you set your bid"
+        },
+        {
+          "title": "Bid",
+          "body": "We bid until you win"
+        },
+        {
+          "title": "Ship",
+          "body": "Goods reach our Japan warehouse, then Vietnam"
+        }
+      ]
+    },
+    "terms": {
+      "title": "Auction bidding terms"
+    },
+    "benefits": {
+      "items": [
+        {
+          "title": "Transparent fees",
+          "body": "No hidden costs"
+        },
+        {
+          "title": "Attentive support",
+          "body": "An experienced team that responds fast"
+        },
+        {
+          "title": "Easy tracking",
+          "body": "Order status updated throughout"
+        },
+        {
+          "title": "Safe and reliable",
+          "body": "Genuine goods, carefully packed"
+        }
+      ],
+      "tagline": "Shop Japan easily, right from Vietnam."
+    },
+    "cta": {
+      "title": "Contact HARUTO EXPRESS today",
+      "body": "Send the link of the item you want to bid on; HARUTO quotes, helps set your bid and brings it to Vietnam."
+    }
+  },
+  "shipVn": {
+    "hero": {
+      "titleA": "Buy in Japan",
+      "titleB": "Ship to Vietnam",
+      "ribbon": "Many stores – easy finds – great prices every day!",
+      "body": "Want to buy from Yahoo Japan, Mercari, Rakuten or Amazon JP but stuck on payment and shipping? HARUTO EXPRESS handles it all."
+    },
+    "stores": {
+      "items": [
+        {
+          "name": "Yahoo! JAPAN",
+          "note": "Auctions and wide-ranging shopping"
+        },
+        {
+          "name": "Mercari",
+          "note": "Pre-owned and rare Japanese finds"
+        },
+        {
+          "name": "Rakuten",
+          "note": "A shopping paradise"
+        },
+        {
+          "name": "Amazon JP",
+          "note": "Millions of products"
+        },
+        {
+          "name": "…",
+          "note": "And many more stores"
+        }
+      ]
+    },
+    "scene": {
+      "alt": "A HARUTO plane carrying boxes and shopping bags from Japan to Vietnam",
+      "japan": "Japan",
+      "vietnam": "Vietnam"
+    },
+    "stats": {
+      "priceLabel": "Shipping from",
+      "price": "155,000 VND/kg",
+      "rateLabel": "Payment rate",
+      "rate": "VCB + 5"
+    },
+    "services": {
+      "title": "Buying & shipping Japan ⇄ Vietnam",
+      "more": "View details",
+      "items": [
+        {
+          "title": "Buy for you",
+          "body": "Every Japanese online store"
+        },
+        {
+          "title": "Auctions",
+          "body": "Genuine Yahoo Auction"
+        },
+        {
+          "title": "Consolidation",
+          "body": "Free consolidation at our Japan warehouse"
+        },
+        {
+          "title": "Fast shipping",
+          "body": "Air freight Japan ⇄ Vietnam, fast and steady"
+        },
+        {
+          "title": "Trusted",
+          "body": "Safe, transparent, attentive support"
+        }
+      ]
+    },
+    "why": {
+      "title": "With you from order to delivery",
+      "body": "From cosmetics, fashion and homeware to collectibles and high-value auction wins, HARUTO EXPRESS stays with you from the moment you order to the moment you receive it.",
+      "items": [
+        "Fast, steady deliveries",
+        "Help checking items before you buy",
+        "Transparent order tracking",
+        "A dedicated support team"
+      ]
+    }
+  },
+  "shipJp": {
+    "hero": {
+      "titleA": "Ship from Vietnam",
+      "titleB": "to Japan",
+      "ribbon": "Freight service from Vietnam to Japan",
+      "body": "Want to send goods, gifts or products for your business from Vietnam to Japan? Looking for a carrier that supports you through the whole international shipment?",
+      "promise": "HARUTO EXPRESS is ready to go with you on the Vietnam – Japan route!",
+      "imageAlt": "Shipping from Vietnam to Japan: a map linking both countries, a plane, gifts, HARUTO parcels, tracking devices and a customs stamp"
+    },
+    "services": {
+      "title": "What HARUTO handles",
+      "more": "See accepted items",
+      "items": [
+        "Receiving and shipping goods from Vietnam to Japan",
+        "Personal parcels, gifts and commercial goods",
+        "Advice on the rules for each item before you send",
+        "Customs clearance support",
+        "Shipment tracking and status updates"
+      ]
+    },
+    "audience": {
+      "title": "A good fit for",
+      "items": [
+        "Individuals sending gifts and essentials to family in Japan",
+        "Vietnamese businesses exporting goods to Japan",
+        "Sellers expanding their market and distribution in Japan",
+        "Customers who ship from Vietnam to Japan regularly"
+      ]
+    },
+    "why": {
+      "title": "Why choose HARUTO EXPRESS?",
+      "items": [
+        {
+          "title": "A full logistics ecosystem",
+          "body": "Shipping, buying service, customs support and FFM on the Japan – Vietnam route."
+        },
+        {
+          "title": "Support at every step",
+          "body": "We stay with you through each stage of your shipment."
+        },
+        {
+          "title": "Flexible solutions",
+          "body": "For both personal and business needs."
+        },
+        {
+          "title": "Connecting markets",
+          "body": "Helping bring Vietnamese goods to the Japanese market."
+        }
+      ]
+    },
+    "closing": {
+      "body": "Contact HARUTO EXPRESS today for route advice and a detailed quote!",
+      "tagline": "HARUTO EXPRESS – Bringing Vietnamese goods to Japan, with trust.",
+      "cta": "Request advice"
+    }
+  },
+  "customs": {
+    "hero": {
+      "titleA": "5 groups of goods",
+      "titleB": "customs often inspect",
+      "ribbon": "When shipping Japan ⇄ Vietnam",
+      "alertTitle": "Don't wait until customs to find out it can't be sent!",
+      "alertBody": "Many everyday items can be inspected by customs, or need extra paperwork, once they are shipped internationally.",
+      "imageAlt": "Customs check: checklist, magnifying glass and HARUTO parcels, a plane and the Vietnam – Japan map"
+    },
+    "groups": {
+      "intro": "Groups that are usually checked more closely:",
+      "specialCount": "3 groups",
+      "specialTitle": "that need special care",
+      "restCount": "2 more groups",
+      "restTitle": "to keep an eye on",
+      "items": [
+        {
+          "short": "Cosmetics",
+          "title": "Cosmetics",
+          "body": "Creams, lipsticks, perfumes, serums... are checked for ingredients, volume and labelling."
+        },
+        {
+          "short": "Branded goods",
+          "title": "Branded goods",
+          "body": "Bags, wallets, shoes and well-known brands may need proof of origin."
+        },
+        {
+          "short": "Supplements",
+          "title": "Supplements",
+          "body": "Health supplements, vitamins and products with treatment claims are checked strictly."
+        },
+        {
+          "short": "Packaged food",
+          "title": "Food and snacks",
+          "body": "Packaged food, local specialties and ready-made food may be checked under each country's food-safety rules."
+        },
+        {
+          "short": "Battery devices",
+          "title": "Electronics with batteries",
+          "body": "Power banks, smartwatches, wireless earbuds and other lithium-battery products have their own rules for air freight."
+        }
+      ]
+    },
+    "support": {
+      "title": "checks goods before you send",
+      "body": "HARUTO EXPRESS helps check goods before you buy or ship them, to keep transit risks to a minimum.",
+      "ask": "Just send a photo, a product link or the item details and the HARUTO EXPRESS team will advise you quickly.",
+      "zalo": "Send item details on Zalo",
+      "contact": "Request advice"
+    },
+    "lists": {
+      "title": "Accepted and prohibited goods",
+      "intro": "What HARUTO carries, which goods are not guaranteed through customs, and which are prohibited under the laws of both countries."
+    },
+    "services": {
+      "title": "Shipping – Buying – Auctions, both ways Japan ⇄ Vietnam",
+      "ship": "Shipping",
+      "buy": "Buying service",
+      "auction": "Auctions"
     }
   },
   "hero": {

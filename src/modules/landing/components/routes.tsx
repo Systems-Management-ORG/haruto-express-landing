@@ -94,9 +94,6 @@ export function Routes() {
               <path d={OUTBOUND} fill="none" stroke="#e2a240" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 8" />
               <path d={INBOUND} fill="none" stroke="#faf8ea" strokeWidth="2.6" strokeLinecap="round" strokeDasharray="10 8" opacity="0.9" />
 
-              {/* A light streak travels along each route (CSS dash animation, loops on its own). */}
-              <path className="route-streak route-streak--out" d={OUTBOUND} pathLength={1} fill="none" stroke="#fff3d6" strokeWidth="4" strokeLinecap="round" />
-              <path className="route-streak route-streak--in" d={INBOUND} pathLength={1} fill="none" stroke="#ffffff" strokeWidth="3.6" strokeLinecap="round" />
 
               {/* Pulsing pings at the two cities. */}
               <circle className="route-ping" cx={VIETNAM.x} cy={VIETNAM.y} fill="#e2a240" />

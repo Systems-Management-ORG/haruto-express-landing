@@ -4,7 +4,7 @@ import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
 import { LOCALES, LOCALE_LABELS, LOCALE_NAMES, isLocale } from "@/shared/constants/locales";
 import type { Locale } from "@/shared/constants/locales";
 import { NAV } from "@/shared/seo/nav";
@@ -97,20 +97,27 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
   const [openGroup, setOpenGroup] = useState<string | null>(null); // open dropdown id
   const [scrolled, setScrolled] = useState(solid);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  const navRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<number | null>(null);
 
   const isCurrent = (key: Parameters<typeof pagePath>[1]) => pathname === pagePath(locale, key);
 
-  // Hover intent: open immediately, but delay closing so brief exits (crossing to the panel,
-  // moving diagonally) do not make the dropdown flicker.
-  const openNow = (id: string) => {
+  // Hover intent, for a real mouse only: open immediately, but delay closing so brief exits
+  // (crossing to the panel, moving diagonally) do not make the dropdown flicker. Touch is left to
+  // the click toggle; a tap also fires pointerenter, and handling both opened then closed it.
+  const openNow = (event: ReactPointerEvent, id: string) => {
+    if (event.pointerType !== "mouse") return;
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     setOpenGroup(id);
   };
-  const scheduleClose = () => {
+  const scheduleClose = (event: ReactPointerEvent) => {
+    if (event.pointerType !== "mouse") return;
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
     closeTimer.current = window.setTimeout(() => setOpenGroup(null), 180);
+  };
+  const closeMenu = () => {
+    setOpen(false);
+    setOpenGroup(null);
   };
   useEffect(() => () => {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
@@ -124,15 +131,38 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
     return () => window.removeEventListener("scroll", updateScrolled);
   }, [solid]);
 
-  // Close an open dropdown on outside click.
+  // Close the dropdown / mobile menu on a press outside the whole header. "Inside" must cover the
+  // mobile menu too: it used to check the desktop nav only, so every tap in the mobile menu closed
+  // the group on pointerdown, the click then re-opened it, and child links collapsed under the
+  // finger before the tap landed.
   useEffect(() => {
-    if (!openGroup) return;
+    if (!openGroup && !open) return;
     const onDown = (event: PointerEvent) => {
-      if (!navRef.current?.contains(event.target as Node)) setOpenGroup(null);
+      if (headerRef.current?.contains(event.target as Node)) return;
+      setOpenGroup(null);
+      setOpen(false);
     };
     document.addEventListener("pointerdown", onDown);
     return () => document.removeEventListener("pointerdown", onDown);
-  }, [openGroup]);
+  }, [openGroup, open]);
+
+  // While the mobile menu is open the page behind it does not scroll, and widening the window to
+  // the desktop layout closes it.
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    const previous = root.style.overflow;
+    root.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 64rem)");
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) closeMenu();
+    };
+    desktop.addEventListener("change", onChange);
+    return () => {
+      root.style.overflow = previous;
+      desktop.removeEventListener("change", onChange);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open && !openGroup) return;
@@ -149,7 +179,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
   const transparent = !scrolled && !open && !openGroup;
 
   return (
-    <header data-transparent={transparent} data-scrolled={scrolled} data-solid={solid || undefined} className="site-header">
+    <header ref={headerRef} data-transparent={transparent} data-scrolled={scrolled} data-solid={solid || undefined} className="site-header">
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
@@ -162,7 +192,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           <span className="text-[0.9375rem] font-medium leading-tight tracking-wide whitespace-nowrap">HARUTO EXPRESS</span>
         </a>
 
-        <nav ref={navRef} aria-label={nav("primary")} className="hidden lg:block">
+        <nav aria-label={nav("primary")} className="hidden lg:block">
           <ul className="flex items-center gap-6 xl:gap-8">
             {NAV.map((item) =>
               item.type === "link" ? (
@@ -175,8 +205,8 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                 <li
                   key={item.id}
                   className="nav-group relative"
-                  onMouseEnter={() => openNow(item.id)}
-                  onMouseLeave={scheduleClose}
+                  onPointerEnter={(event) => openNow(event, item.id)}
+                  onPointerLeave={scheduleClose}
                 >
                   <button
                     type="button"
@@ -217,21 +247,21 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? nav("closeMenu") : nav("openMenu")}
-            onClick={() => setOpen((value) => !value)}
-            className="flex size-11 items-center justify-center rounded-lg border border-current lg:hidden"
+            onClick={() => (open ? closeMenu() : setOpen(true))}
+            className="flex size-11 touch-manipulation items-center justify-center rounded-lg border border-current lg:hidden"
           >
             {open ? <X size={22} aria-hidden /> : <List size={22} aria-hidden />}
           </button>
         </div>
       </div>
 
-      <div id="mobile-menu" hidden={!open} className="max-h-[calc(100svh-4.5rem)] overflow-y-auto border-t border-line bg-ivory text-ink lg:hidden">
+      <div id="mobile-menu" hidden={!open} className="max-h-[calc(100svh-4.5rem)] overflow-y-auto overscroll-contain border-t border-line bg-ivory text-ink lg:hidden">
         <nav aria-label={nav("primary")} className="wrap py-3">
           <ul>
             {NAV.map((item) =>
               item.type === "link" ? (
                 <li key={item.key} className="border-b border-line">
-                  <a href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} onClick={() => setOpen(false)} className="nav-link flex min-h-14 items-center text-lg font-medium">
+                  <a href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} onClick={closeMenu} className="nav-link flex min-h-14 touch-manipulation items-center text-lg font-medium">
                     {tPages(`${item.key}.nav`)}
                   </a>
                 </li>
@@ -241,7 +271,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                     type="button"
                     aria-expanded={openGroup === item.id}
                     onClick={() => setOpenGroup((current) => (current === item.id ? null : item.id))}
-                    className="flex min-h-14 w-full items-center justify-between text-lg font-medium"
+                    className="flex min-h-14 w-full touch-manipulation items-center justify-between text-lg font-medium"
                   >
                     {groups(item.id)}
                     <CaretDown size={16} aria-hidden className={`transition-transform duration-150 ${openGroup === item.id ? "rotate-180" : ""}`} />
@@ -249,7 +279,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                   <ul hidden={openGroup !== item.id} className="pb-2">
                     {item.children.map((key) => (
                       <li key={key}>
-                        <a href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} onClick={() => setOpen(false)} className="flex min-h-12 items-center pl-4 text-base hover:text-forest">
+                        <a href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} onClick={closeMenu} className="flex min-h-12 touch-manipulation items-center pl-4 text-base hover:text-forest">
                           {tPages(`${key}.nav`)}
                         </a>
                       </li>
@@ -261,7 +291,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
-            <a href={pagePath(locale, "contact")} data-track="cta_contact" onClick={() => setOpen(false)} className="btn btn-primary w-full sm:hidden">
+            <a href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-primary w-full sm:hidden">
               {nav("cta")}
             </a>
           </div>

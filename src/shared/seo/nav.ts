@@ -8,7 +8,7 @@ export type NavItem =
   | { type: "group"; id: "services" | "pricing" | "guides"; children: PageKey[] };
 
 export const NAV: NavItem[] = [
-  { type: "group", id: "services", children: ["shipToJapan", "shipToVietnam", "concierge", "business"] },
+  { type: "group", id: "services", children: ["shipToJapan", "shipToVietnam", "concierge", "auction", "business"] },
   { type: "group", id: "pricing", children: ["pricing", "goods"] },
   { type: "group", id: "guides", children: ["policy", "japanWarehouse", "faq"] },
   { type: "link", key: "contact" },

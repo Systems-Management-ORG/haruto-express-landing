@@ -82,10 +82,10 @@ export function ConciergeHero() {
           <li className="muaho-chip muaho-chip--alt">{t("extra")}</li>
         </ul>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <SendLinkButton label={t("ctaLink")} />
-          <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-outline bg-white/70">
+        <div className="mt-8">
+          <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
             {t("ctaContact")}
+            <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
           </a>
         </div>
       </div>

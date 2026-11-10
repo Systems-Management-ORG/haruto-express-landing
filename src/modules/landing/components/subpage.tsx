@@ -2,33 +2,26 @@ import type { ReactNode } from "react";
 import { PageHero } from "@/shared/components/page-hero";
 import { RelatedLinks } from "@/shared/components/related-links";
 import type { PageKey } from "@/shared/seo/pages";
+import { AuctionBody, AuctionHero } from "./auction";
 import { ConciergeBody, ConciergeHero } from "./concierge";
 import { Contact } from "./contact";
+import { CustomsBody, CustomsHero } from "./customs-check";
 import { Faq } from "./faq";
-import { Fulfillment } from "./fulfillment";
-import { Goods } from "./goods";
+import { Fulfillment, FulfillmentHero } from "./fulfillment";
 import { Policy } from "./policy";
 import { Pricing, Surcharges } from "./pricing";
+import { ShipJapanBody, ShipJapanHero } from "./ship-japan";
+import { ShipVietnamBody, ShipVietnamHero } from "./ship-vietnam";
 
 // The body shown under the PageHero for each subpage. The two route pages carry that direction's
-// full pricing plus the shared policy (weight + compensation); JP→VN also shows concierge and the
-// Japan warehouse. /bang-gia carries both directions' rate tables plus surcharges and the weight rules.
+// full pricing plus the shared policy (weight + compensation); JP→VN has its own poster-style
+// page (ship-vietnam.tsx) with rates, surcharges, policy and the Japan warehouse. /bang-gia carries both directions' rate tables plus surcharges and the weight rules.
 function body(key: PageKey): ReactNode {
   switch (key) {
     case "shipToJapan":
-      return (
-        <>
-          <Pricing direction="vnJp" />
-          <Policy show={["weight", "compensation"]} />
-        </>
-      );
+      return <ShipJapanBody />;
     case "shipToVietnam":
-      return (
-        <>
-          <Pricing direction="jpVn" />
-          <Policy show={["weight", "compensation", "concierge", "warehouse"]} />
-        </>
-      );
+      return <ShipVietnamBody />;
     case "pricing":
       return (
         <>
@@ -41,11 +34,13 @@ function body(key: PageKey): ReactNode {
         </>
       );
     case "goods":
-      return <Goods />;
+      return <CustomsBody />;
     case "policy":
       return <Policy show={["weight", "compensation"]} withHeader={false} />;
     case "concierge":
       return <ConciergeBody />;
+    case "auction":
+      return <AuctionBody />;
     case "japanWarehouse":
       return <Policy show={["warehouse"]} withHeader={false} />;
     case "business":
@@ -64,8 +59,22 @@ function body(key: PageKey): ReactNode {
 export function SubPage({ page }: { page: Exclude<PageKey, "home"> }) {
   return (
     <main id="main">
-      {/* The buying-service page has its own art-directed banner; every other page the standard hero. */}
-      {page === "concierge" ? <ConciergeHero /> : <PageHero page={page} />}
+      {/* The buying and auction services have their own art-led banners; every other page the standard hero. */}
+      {page === "shipToJapan" ? (
+        <ShipJapanHero />
+      ) : page === "concierge" ? (
+        <ConciergeHero />
+      ) : page === "auction" ? (
+        <AuctionHero />
+      ) : page === "shipToVietnam" ? (
+        <ShipVietnamHero />
+      ) : page === "goods" ? (
+        <CustomsHero />
+      ) : page === "business" ? (
+        <FulfillmentHero />
+      ) : (
+        <PageHero page={page} />
+      )}
       {body(page)}
       <RelatedLinks page={page} />
     </main>

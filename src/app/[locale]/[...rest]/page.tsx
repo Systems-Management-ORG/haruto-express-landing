@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Service-type pages get a Service node; the FAQ page gets FAQPage. Every page gets a breadcrumb.
-const SERVICE_PAGES: PageKey[] = ["shipToJapan", "shipToVietnam", "pricing", "concierge", "japanWarehouse", "business"];
+const SERVICE_PAGES: PageKey[] = ["shipToJapan", "shipToVietnam", "pricing", "concierge", "auction", "japanWarehouse", "business"];
 
 export default async function SubRoute({ params }: Props) {
   const { locale, rest } = await params;

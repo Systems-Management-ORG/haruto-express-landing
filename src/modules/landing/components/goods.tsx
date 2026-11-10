@@ -1,34 +1,40 @@
-import { CheckCircle, Warning, Prohibit } from "@phosphor-icons/react/dist/ssr";
+import { CheckCircle, Prohibit, Warning } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 
+// Accepted / not-guaranteed / prohibited item lists, from the VN-JP service policy, as three
+// colour-coded cards (green, amber, red) so the level of each list reads at a glance.
 const GROUPS = [
-  { key: "accepted", Icon: CheckCircle, tone: "text-forest" },
-  { key: "notGuaranteed", Icon: Warning, tone: "text-gold" },
-  { key: "prohibited", Icon: Prohibit, tone: "text-[#9f2f2d]" },
+  { key: "accepted", Icon: CheckCircle, tone: "ok" },
+  { key: "notGuaranteed", Icon: Warning, tone: "warn" },
+  { key: "prohibited", Icon: Prohibit, tone: "ban" },
 ] as const;
 
-// Accepted / not-guaranteed / prohibited item lists, from the VN-JP service policy.
 export function Goods() {
   const t = useTranslations("pages.goods");
 
   return (
     <section className="section">
-      <div className="wrap grid gap-8 md:grid-cols-3 md:gap-6">
+      <ul data-reveal-group className="wrap grid gap-5 md:grid-cols-3">
         {GROUPS.map(({ key, Icon, tone }) => {
           const items = t.raw(`${key}.items`) as string[];
           return (
-            <article key={key} className="ruled">
-              <Icon size={30} weight="light" aria-hidden className={tone} />
-              <h2 className="mt-4 text-xl text-forest">{t(`${key}.title`)}</h2>
-              <ul className="mt-3 grid list-disc gap-2 pl-5">
+            <li key={key} className={`goods-list goods-list--${tone}`}>
+              <h3 className="goods-list__head">
+                <Icon size={26} weight="fill" aria-hidden className="shrink-0" />
+                {t(`${key}.title`)}
+              </h3>
+              <ul className="grid gap-2.5 p-5 sm:p-6">
                 {items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="flex gap-2.5">
+                    <Icon size={18} weight="bold" aria-hidden className="goods-list__mark mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
-            </article>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 }

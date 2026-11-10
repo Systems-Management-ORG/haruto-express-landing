@@ -15,6 +15,7 @@ export type PageKey =
   | "goods"
   | "policy"
   | "concierge"
+  | "auction"
   | "japanWarehouse"
   | "business"
   | "faq"
@@ -41,7 +42,8 @@ export const PAGES: Record<PageKey, PageDef> = {
   pricing: { key: "pricing", slugs: s("bang-gia", "pricing"), indexable: true, priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["goods", "policy", "shipToJapan"] },
   goods: { key: "goods", slugs: s("hang-nhan-va-hang-cam", "accepted-and-prohibited-items"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "shipToJapan"] },
   policy: { key: "policy", slugs: s("chinh-sach-van-chuyen", "shipping-policy"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods", "japanWarehouse"] },
-  concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "pricing", "japanWarehouse"] },
+  concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "shipToVietnam", "japanWarehouse"] },
+  auction: { key: "auction", slugs: s("dau-gia-ho-hang-nhat", "japan-auction-service"), indexable: true, priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["concierge", "shipToVietnam", "japanWarehouse"] },
   japanWarehouse: { key: "japanWarehouse", slugs: s("dia-chi-kho-nhat", "japan-warehouse"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "policy", "pricing"] },
   faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "contact"] },
   // Fulfillment (FFM) in Japan for businesses. Key and slug kept from the former "business" page.
