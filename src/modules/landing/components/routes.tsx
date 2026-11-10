@@ -16,18 +16,6 @@ const arc = (p: readonly Pt[]) => `M${p[0][0]} ${p[0][1]} C ${p[1][0]} ${p[1][1]
 const OUTBOUND = arc(OUT_PTS);
 const INBOUND = arc(IN_PTS);
 
-// Point and tangent angle along a cubic bezier, for placing a directional arrowhead on the line.
-function bezierAt(p: readonly Pt[], t: number): { x: number; y: number; angle: number } {
-  const u = 1 - t;
-  const x = u * u * u * p[0][0] + 3 * u * u * t * p[1][0] + 3 * u * t * t * p[2][0] + t * t * t * p[3][0];
-  const y = u * u * u * p[0][1] + 3 * u * u * t * p[1][1] + 3 * u * t * t * p[2][1] + t * t * t * p[3][1];
-  const dx = 3 * u * u * (p[1][0] - p[0][0]) + 6 * u * t * (p[2][0] - p[1][0]) + 3 * t * t * (p[3][0] - p[2][0]);
-  const dy = 3 * u * u * (p[1][1] - p[0][1]) + 6 * u * t * (p[2][1] - p[1][1]) + 3 * t * t * (p[3][1] - p[2][1]);
-  return { x, y, angle: (Math.atan2(dy, dx) * 180) / Math.PI };
-}
-const OUT_ARROW = bezierAt(OUT_PTS, 0.84);
-const IN_ARROW = bezierAt(IN_PTS, 0.84);
-
 // The order packs the mosaic without gaps at every breakpoint.
 const WAREHOUSE_TILES = [
   { file: "kho-haruto-kien-hang-cho-xu-ly.jpg" },
@@ -94,23 +82,27 @@ export function Routes() {
             >
               <image href="/images/haruto/dong-a-vn-nhat.svg" x="-96" y="-34" width="1008" height="948" />
 
-              {/* Faint base routes stay visible without motion (and under reduced-motion). */}
-              <path d={OUTBOUND} fill="none" stroke="#e2a240" strokeWidth="1" strokeDasharray="2 5" opacity="0.35" />
-              <path d={INBOUND} fill="none" stroke="#faf8ea" strokeWidth="1" strokeDasharray="2 5" opacity="0.3" />
+              <defs>
+                <filter id="route-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" />
+                </filter>
+              </defs>
+
+              {/* The two flight paths: a soft glow under a bold dashed line, visible without motion too. */}
+              <path d={OUTBOUND} fill="none" stroke="#e2a240" strokeWidth="10" opacity="0.45" filter="url(#route-glow)" />
+              <path d={INBOUND} fill="none" stroke="#faf8ea" strokeWidth="10" opacity="0.35" filter="url(#route-glow)" />
+              <path d={OUTBOUND} fill="none" stroke="#e2a240" strokeWidth="3" strokeLinecap="round" strokeDasharray="10 8" />
+              <path d={INBOUND} fill="none" stroke="#faf8ea" strokeWidth="2.6" strokeLinecap="round" strokeDasharray="10 8" opacity="0.9" />
 
               {/* A light streak travels along each route (CSS dash animation, loops on its own). */}
-              <path className="route-streak route-streak--out" d={OUTBOUND} pathLength={1} fill="none" stroke="#e2a240" strokeWidth="2.6" strokeLinecap="round" />
-              <path className="route-streak route-streak--in" d={INBOUND} pathLength={1} fill="none" stroke="#faf8ea" strokeWidth="2.4" strokeLinecap="round" />
+              <path className="route-streak route-streak--out" d={OUTBOUND} pathLength={1} fill="none" stroke="#fff3d6" strokeWidth="4" strokeLinecap="round" />
+              <path className="route-streak route-streak--in" d={INBOUND} pathLength={1} fill="none" stroke="#ffffff" strokeWidth="3.6" strokeLinecap="round" />
 
               {/* Pulsing pings at the two cities. */}
               <circle className="route-ping" cx={VIETNAM.x} cy={VIETNAM.y} fill="#e2a240" />
               <circle className="route-ping route-ping--delay" cx={JAPAN.x} cy={JAPAN.y} fill="#e2a240" />
               <circle cx={VIETNAM.x} cy={VIETNAM.y} r="5" fill="#e2a240" stroke="#faf8ea" strokeWidth="1.2" />
               <circle cx={JAPAN.x} cy={JAPAN.y} r="5" fill="#e2a240" stroke="#faf8ea" strokeWidth="1.2" />
-
-              {/* Directional arrowheads on each flight vector, pointing toward the destination. */}
-              <path d="M0 0 L-13 -7 L-13 7 Z" fill="#e2a240" transform={`translate(${OUT_ARROW.x.toFixed(1)} ${OUT_ARROW.y.toFixed(1)}) rotate(${OUT_ARROW.angle.toFixed(1)})`} />
-              <path d="M0 0 L-13 -7 L-13 7 Z" fill="#faf8ea" transform={`translate(${IN_ARROW.x.toFixed(1)} ${IN_ARROW.y.toFixed(1)}) rotate(${IN_ARROW.angle.toFixed(1)})`} />
 
               {/* Planes fly along the arcs via CSS offset-path (self-running, respects reduced motion). */}
               <g className="route-plane route-plane--out">

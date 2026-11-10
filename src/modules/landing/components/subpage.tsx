@@ -6,13 +6,12 @@ import { Contact } from "./contact";
 import { Faq } from "./faq";
 import { Goods } from "./goods";
 import { Policy } from "./policy";
-import { Pricing } from "./pricing";
-import { PricingTeaser } from "./pricing-teaser";
+import { Pricing, Surcharges } from "./pricing";
 import { Services } from "./services";
 
 // The body shown under the PageHero for each subpage. The two route pages carry that direction's
 // full pricing plus the shared policy (weight + compensation); JP→VN also shows concierge and the
-// Japan warehouse. /bang-gia is a short overview linking to both routes.
+// Japan warehouse. /bang-gia carries both directions' rate tables plus surcharges and the weight rules.
 function body(key: PageKey): ReactNode {
   switch (key) {
     case "shipToJapan":
@@ -30,7 +29,16 @@ function body(key: PageKey): ReactNode {
         </>
       );
     case "pricing":
-      return <PricingTeaser withHeader={false} />;
+      return (
+        <>
+          <Pricing direction="vnJp" heading="direction" withSurcharges={false} />
+          <div className="bg-sage">
+            <Pricing direction="jpVn" heading="direction" withSurcharges={false} />
+          </div>
+          <Surcharges plain />
+          <Policy show={["weight"]} withHeader={false} />
+        </>
+      );
     case "goods":
       return <Goods />;
     case "policy":

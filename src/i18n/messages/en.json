@@ -141,6 +141,24 @@
       "guides": "Guides"
     }
   },
+  "home": {
+    "services": {
+      "title": "Freight services",
+      "intro": "Two-way air freight between Vietnam and Japan for individuals and businesses, plus a buying service in Japan.",
+      "more": "View details",
+      "ctaContact": "Request advice",
+      "ctaPricing": "See pricing"
+    },
+    "goods": {
+      "intro": "The goods HARUTO carries. Our staff check the goods type and documents before accepting a shipment.",
+      "more": "See goods not guaranteed through customs and prohibited items"
+    },
+    "guides": {
+      "title": "Guides and policies",
+      "intro": "Worth reading before you ship: weight calculation, compensation, the Japan warehouse address and the goods list.",
+      "more": "Read more"
+    }
+  },
   "hero": {
     "h1": "Shipping between Vietnam and Japan by air",
     "slides": [
@@ -185,6 +203,19 @@
     "twoWay": {
       "title": "Two-way shipping",
       "body": "We ship by air from Vietnam to Japan and from Japan to Vietnam."
+    },
+    "intro": "HARUTO EXPRESS runs two-way air freight between Vietnam and Japan, with its own warehouse and consultants who stay with you from checking the goods to delivery.",
+    "taxIncluded": {
+      "title": "Tax included",
+      "body": "Vietnam → Japan rates include tax and Japan domestic delivery."
+    },
+    "weightBands": {
+      "title": "Clear weight bands",
+      "body": "Rates depend on weight and goods type, with every weight band and surcharge published."
+    },
+    "concierge": {
+      "title": "Buy and bid for you",
+      "body": "We buy, bid and ship goods on your behalf from Japan to Vietnam."
     }
   },
   "services": {
@@ -352,7 +383,22 @@
         ],
         "note": "Price includes Japan domestic delivery."
       },
-      "rounding": "Weight rounding — Clean goods: to the nearest 0.5 kg (e.g. 3.2 kg → 3.5 kg). Mixed goods: under 0.1 kg rounds down, over 0.1 kg rounds up (e.g. 3.09 kg → 3 kg; 3.1 kg → 4 kg)."
+      "roundingRules": {
+        "title": "How weight is rounded",
+        "clean": {
+          "rule": "Rounded up to the next 0.5 kg",
+          "examples": [
+            "3.2 kg → 3.5 kg"
+          ]
+        },
+        "mixed": {
+          "rule": "Less than 0.1 kg over a whole kilo is dropped; 0.1 kg or more counts as a full kilo",
+          "examples": [
+            "3.09 kg → 3 kg",
+            "3.1 kg → 4 kg"
+          ]
+        }
+      }
     },
     "freight": {
       "weight": "Air freight, any weight",
@@ -398,7 +444,8 @@
         }
       ]
     },
-    "scrollLabel": "Surcharge table, scrolls horizontally"
+    "scrollLabel": "Surcharge table, scrolls horizontally",
+    "bestRate": "Best rate"
   },
   "policy": {
     "title": "Policy & services",
@@ -416,17 +463,28 @@
       "rounding": {
         "title": "Rounding rules",
         "body": "Under 1 kg rounds up to 1 kg. Over 1 kg rounds to one decimal place (e.g. 3.04 kg → 3 kg; 3.05 kg → 3.1 kg)."
+      },
+      "diagram": {
+        "label": "How a parcel is measured for volumetric weight",
+        "length": "Length",
+        "width": "Width",
+        "height": "Height",
+        "formula": "(L × W × H) ÷ 6,000"
       }
     },
     "compensation": {
       "title": "Compensation for lost goods",
       "insured": {
         "title": "With cargo insurance",
-        "body": "100% of the declared value is compensated. Insurance fee: 8% of the declared value."
+        "body": "100% of the declared value is compensated. Insurance fee: 8% of the declared value.",
+        "stat": "100%",
+        "statLabel": "of the declared value"
       },
       "uninsured": {
         "title": "Without cargo insurance",
-        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order."
+        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order.",
+        "stat": "100%",
+        "statLabel": "of the shipping value, up to 3,000,000 VND/order"
       }
     },
     "concierge": {
@@ -530,9 +588,10 @@
     "channels": {
       "zalo": "Zalo",
       "hotline": "Hotline",
-      "messenger": "Messenger"
+      "messenger": "Messenger",
+      "facebook": "Facebook page"
     },
-    "notice": "This website is not accepting online requests yet. Official contact channels will be posted here.",
+    "notice": "Fill in the form and HARUTO will get back to you. Need to talk now? Message our consultant on Zalo or reach us on the Facebook page.",
     "kindLegend": "You are",
     "kindPersonal": "An individual",
     "kindBusiness": "A business",
@@ -550,7 +609,24 @@
     "routeJpVn": "Japan → Vietnam",
     "optional": "optional",
     "submit": "Send request",
-    "consultationOnly": "This is a request for advice, not an order confirmation."
+    "consultationOnly": "This is a request for advice, not an order confirmation.",
+    "channelHints": {
+      "zalo": "Chat directly with a consultant",
+      "facebook": "Message us and follow updates on Facebook"
+    },
+    "fab": {
+      "label": "Quick contact",
+      "zalo": "Chat with a consultant on Zalo",
+      "facebook": "Open our Facebook page"
+    },
+    "sending": "Sending…",
+    "error": "We could not send your request. Please try again in a few minutes or message us directly on Zalo or Facebook.",
+    "phoneHint": "Phone number of 8–20 characters: digits and + ( ) - . only",
+    "sent": {
+      "title": "We have your request",
+      "body": "Thank you. A HARUTO consultant will call you back on the number you left.",
+      "again": "Send another request"
+    }
   },
   "footer": {
     "positioning": "Two-way air freight between Vietnam and Japan.",
@@ -563,7 +639,8 @@
       "vietnamOffice": "Office"
     },
     "logoAlt": "HARUTO EXPRESS logo",
-    "tagline": "Send with full trust. Connect two countries."
+    "tagline": "Send with full trust. Connect two countries.",
+    "bottomNote": "Air freight between Vietnam and Japan"
   },
   "notFound": {
     "title": "Page not found",

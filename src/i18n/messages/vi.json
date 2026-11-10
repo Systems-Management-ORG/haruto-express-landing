@@ -141,6 +141,24 @@
       "guides": "Hướng dẫn"
     }
   },
+  "home": {
+    "services": {
+      "title": "Dịch vụ vận chuyển hàng hóa",
+      "intro": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp, kèm dịch vụ mua hộ hàng Nhật.",
+      "more": "Xem chi tiết",
+      "ctaContact": "Đăng ký tư vấn",
+      "ctaPricing": "Bảng giá dịch vụ"
+    },
+    "goods": {
+      "intro": "Các nhóm hàng HARUTO nhận vận chuyển. Nhân viên kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận.",
+      "more": "Xem hàng không đảm bảo thông quan và hàng cấm gửi"
+    },
+    "guides": {
+      "title": "Hướng dẫn và chính sách",
+      "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
+      "more": "Đọc chi tiết"
+    }
+  },
   "hero": {
     "h1": "Gửi hàng Việt Nam – Nhật Bản bằng đường hàng không",
     "slides": [
@@ -185,6 +203,19 @@
     "twoWay": {
       "title": "Vận chuyển hai chiều",
       "body": "Nhận vận chuyển bằng đường hàng không từ Việt Nam đi Nhật Bản và từ Nhật Bản về Việt Nam."
+    },
+    "intro": "HARUTO EXPRESS vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho hàng riêng và nhân viên tư vấn đồng hành từ bước kiểm tra hàng đến khi giao.",
+    "taxIncluded": {
+      "title": "Cước đã gồm thuế",
+      "body": "Cước chiều Việt Nam → Nhật Bản đã bao gồm thuế và giao nội địa Nhật."
+    },
+    "weightBands": {
+      "title": "Bảng giá theo mốc cân",
+      "body": "Cước tính theo trọng lượng và loại hàng, công bố rõ từng mốc cân và phụ thu."
+    },
+    "concierge": {
+      "title": "Mua hộ, đấu giá hộ",
+      "body": "Nhận mua hộ, đấu giá hộ và vận chuyển hộ hàng từ Nhật Bản về Việt Nam."
     }
   },
   "services": {
@@ -352,7 +383,22 @@
         ],
         "note": "Giá đã gồm ship nội địa Nhật."
       },
-      "rounding": "Làm tròn cân nặng — Hàng sạch: theo mốc 0,5 kg (ví dụ 3,2 kg → 3,5 kg). Hàng hỗn hợp: dưới 0,1 kg làm tròn xuống, trên 0,1 kg làm tròn lên (ví dụ 3,09 kg → 3 kg; 3,1 kg → 4 kg)."
+      "roundingRules": {
+        "title": "Cách làm tròn cân",
+        "clean": {
+          "rule": "Làm tròn lên mốc 0,5 kg gần nhất",
+          "examples": [
+            "3,2 kg → 3,5 kg"
+          ]
+        },
+        "mixed": {
+          "rule": "Phần lẻ dưới 0,1 kg được bỏ; từ 0,1 kg trở lên tính thêm 1 kg",
+          "examples": [
+            "3,09 kg → 3 kg",
+            "3,1 kg → 4 kg"
+          ]
+        }
+      }
     },
     "freight": {
       "weight": "Cước hàng không, với mọi trọng lượng",
@@ -398,7 +444,8 @@
         }
       ]
     },
-    "scrollLabel": "Bảng phụ thu, có thể cuộn ngang"
+    "scrollLabel": "Bảng phụ thu, có thể cuộn ngang",
+    "bestRate": "Giá tốt nhất"
   },
   "policy": {
     "title": "Chính sách & dịch vụ",
@@ -416,17 +463,28 @@
       "rounding": {
         "title": "Quy ước làm tròn",
         "body": "Dưới 1 kg làm tròn thành 1 kg. Trên 1 kg làm tròn đến một chữ số thập phân (ví dụ 3,04 kg → 3 kg; 3,05 kg → 3,1 kg)."
+      },
+      "diagram": {
+        "label": "Minh họa cách đo kiện hàng để tính trọng lượng thể tích",
+        "length": "Dài",
+        "width": "Rộng",
+        "height": "Cao",
+        "formula": "(Dài × Rộng × Cao) ÷ 6.000"
       }
     },
     "compensation": {
       "title": "Chính sách đền bù khi thất lạc hàng hóa",
       "insured": {
         "title": "Có mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị hàng hóa khách khai báo. Phí bảo hiểm: 8% giá trị khai báo."
+        "body": "Đền bù 100% giá trị hàng hóa khách khai báo. Phí bảo hiểm: 8% giá trị khai báo.",
+        "stat": "100%",
+        "statLabel": "giá trị hàng khai báo"
       },
       "uninsured": {
         "title": "Không mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 ₫/đơn hàng."
+        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 ₫/đơn hàng.",
+        "stat": "100%",
+        "statLabel": "cước vận chuyển, tối đa 3.000.000 ₫/đơn"
       }
     },
     "concierge": {
@@ -530,9 +588,10 @@
     "channels": {
       "zalo": "Zalo",
       "hotline": "Hotline",
-      "messenger": "Messenger"
+      "messenger": "Messenger",
+      "facebook": "Fanpage Facebook"
     },
-    "notice": "Website chưa nhận yêu cầu trực tuyến. Kênh liên hệ chính thức sẽ được cập nhật tại đây.",
+    "notice": "Điền thông tin bên dưới, HARUTO sẽ liên hệ lại để tư vấn. Cần trao đổi ngay? Nhắn Zalo cho tư vấn viên hoặc liên hệ qua Fanpage.",
     "kindLegend": "Bạn là",
     "kindPersonal": "Cá nhân",
     "kindBusiness": "Doanh nghiệp",
@@ -550,7 +609,24 @@
     "routeJpVn": "Nhật Bản → Việt Nam",
     "optional": "không bắt buộc",
     "submit": "Gửi yêu cầu tư vấn",
-    "consultationOnly": "Đây là yêu cầu tư vấn, chưa phải xác nhận đơn hàng."
+    "consultationOnly": "Đây là yêu cầu tư vấn, chưa phải xác nhận đơn hàng.",
+    "channelHints": {
+      "zalo": "Nhắn tin trực tiếp với tư vấn viên",
+      "facebook": "Nhắn tin và cập nhật tin tức qua Fanpage"
+    },
+    "fab": {
+      "label": "Liên hệ nhanh",
+      "zalo": "Chat Zalo với tư vấn viên",
+      "facebook": "Mở Fanpage Facebook"
+    },
+    "sending": "Đang gửi…",
+    "error": "Chưa gửi được yêu cầu. Vui lòng thử lại sau ít phút hoặc nhắn trực tiếp qua Zalo/Fanpage.",
+    "phoneHint": "Số điện thoại 8–20 ký tự, chỉ gồm số và các ký tự + ( ) - .",
+    "sent": {
+      "title": "Đã nhận yêu cầu của bạn",
+      "body": "Cảm ơn bạn. Nhân viên HARUTO sẽ liên hệ lại qua số điện thoại bạn đã để lại.",
+      "again": "Gửi yêu cầu khác"
+    }
   },
   "footer": {
     "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
@@ -563,7 +639,8 @@
       "vietnamOffice": "Văn phòng"
     },
     "logoAlt": "Logo HARUTO EXPRESS",
-    "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia."
+    "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia.",
+    "bottomNote": "Vận chuyển hàng không Việt Nam – Nhật Bản"
   },
   "notFound": {
     "title": "Không tìm thấy trang",
