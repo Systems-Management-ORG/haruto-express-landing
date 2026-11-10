@@ -12,11 +12,13 @@ export const BUSINESS = {
   phone: "",
   email: "",
   // Contact channels — fill with real URLs to turn the contact rows into tracked links.
-  zaloUrl: "",
+  // Zalo opens a chat with the sales consultant; the fanpage is the business Facebook page.
+  zaloUrl: "https://zalo.me/0334992147",
+  facebookUrl: "https://www.facebook.com/VnjpLogisticVanChuyen2ChieuVietNhat",
   hotlineTel: "",
   messengerUrl: "",
   // Social / profile URLs for Organization.sameAs.
-  sameAs: [] as string[],
+  sameAs: ["https://www.facebook.com/VnjpLogisticVanChuyen2ChieuVietNhat"] as string[],
 } as const;
 
 // Physical locations. `id` keys an i18n label under `locations.<id>`; `query` is what Google Maps

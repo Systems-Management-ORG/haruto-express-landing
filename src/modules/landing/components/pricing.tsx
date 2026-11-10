@@ -1,4 +1,23 @@
+import {
+  BatteryCharging,
+  ChatCircleDots,
+  CheckCircle,
+  CurrencyCircleDollar,
+  Drop,
+  Info,
+  Package,
+  Prohibit,
+  Receipt,
+  Scales,
+  Snowflake,
+  Star,
+  Tree,
+  Truck,
+  Warning,
+} from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { PRICING_IMAGES } from "@/shared/seo/page-media";
 
 export type Direction = "vnJp" | "jpVn";
 
@@ -7,103 +26,235 @@ type Rate = { weight: string; price: string; note?: string };
 
 const VN_JP_GOODS = ["clean", "mixed"] as const;
 
-// Pricing for a single direction (no tabs): the VN→JP tables with per-type descriptions, or the
-// JP→VN flat rate. The surcharge table is shared and shown below. Headings are omitted on route
-// pages that already carry a PageHero.
-export function Pricing({ direction, withHeader = true }: { direction: Direction; withHeader?: boolean }) {
+// Icon per feature line, by position in `pricing.vnJp.<kind>.features` (same order in every locale):
+// the mixed-goods list ends with its not-guaranteed and prohibited lines.
+type Tone = "info" | "ok" | "warn" | "ban";
+const FEATURE_TONES: Record<(typeof VN_JP_GOODS)[number], Tone[]> = {
+  clean: ["info", "ok", "ok", "ok", "ok"],
+  mixed: ["ok", "ok", "warn", "ban"],
+};
+const TONE_ICON = {
+  info: { Icon: Info, className: "text-forest" },
+  ok: { Icon: CheckCircle, className: "text-forest" },
+  warn: { Icon: Warning, className: "text-gold" },
+  ban: { Icon: Prohibit, className: "text-[#9f2f2d]" },
+} as const;
+
+// Icon per surcharge row, by position in `pricing.surcharge.rows`.
+const SURCHARGE_ICONS = [BatteryCharging, Drop, Package, Tree, Snowflake, Star, ChatCircleDots];
+
+// "130.000 ₫/kg" / "130,000 VND/kg" → 130000; text-only prices ("Thương lượng") → null.
+function amount(price: string): number | null {
+  const digits = price.replace(/[^\d]/g, "");
+  return digits ? Number(digits) : null;
+}
+
+// Weight-band table. A bar under each price shows it against the band's highest rate, and the
+// lowest rate is flagged, so the falling price per kg reads at a glance.
+function RateTable({ rows, label }: { rows: Rate[]; label: string }) {
   const t = useTranslations("pricing");
-  const surcharges = t.raw("surcharge.rows") as Surcharge[];
+  const amounts = rows.map((row) => amount(row.price));
+  const known = amounts.filter((value): value is number => value !== null);
+  const max = Math.max(...known);
+  const min = Math.min(...known);
 
   return (
-    <section id="pricing" className="section">
-      <div className="wrap">
-        {withHeader && (
-          <>
-            <h2 data-reveal className="heading-2">{t("title")}</h2>
-            <p className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
-          </>
-        )}
+    <div tabIndex={0} role="group" aria-label={label} className="rate-table-wrap">
+      <table className="rate-table">
+        <thead>
+          <tr>
+            <th scope="col">{t("vnJp.columns.weight")}</th>
+            <th scope="col">{t("vnJp.columns.price")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => {
+            const value = amounts[index];
+            const best = value === min;
+            return (
+              <tr key={row.weight} data-best={best || undefined}>
+                <th scope="row">
+                  <span className="rate-weight">{row.weight}</span>
+                </th>
+                <td>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                    <span className="font-semibold whitespace-nowrap text-ink">{row.price}</span>
+                    {best && <span className="rate-badge">{t("bestRate")}</span>}
+                  </div>
+                  {value !== null && (
+                    <span aria-hidden className="rate-bar">
+                      <span style={{ width: `${Math.max(12, (value / max) * 100)}%` }} />
+                    </span>
+                  )}
+                  {row.note && <span className="mt-1 block text-xs font-medium text-[#9a6514]">{row.note}</span>}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
-        <div data-reveal className={withHeader ? "mt-8 lg:mt-10" : ""}>
-          {direction === "jpVn" ? (
-            <div className="grid gap-6 rounded-card border border-line bg-white p-6 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-10 sm:p-8">
-              <div>
-                <p className="text-sm text-muted">{t("freight.weight")}</p>
-                <p className="mt-1 font-display text-4xl text-forest lg:text-5xl">{t("freight.price")}</p>
+function GoodsRates({ kind }: { kind: (typeof VN_JP_GOODS)[number] }) {
+  const t = useTranslations("pricing");
+  const rows = t.raw(`vnJp.${kind}.rows`) as Rate[];
+  const features = t.raw(`vnJp.${kind}.features`) as string[];
+
+  return (
+    <article className="rate-card">
+      <div className="rate-card__media">
+        <Image src={PRICING_IMAGES[kind]} alt="" fill sizes="(max-width: 1023px) 100vw, 40vw" className="object-cover" />
+        <h3 className="rate-card__title">{t(`vnJp.${kind}.title`)}</h3>
+      </div>
+      <div className="grid gap-6 p-5 sm:p-6">
+        <ul className="grid gap-2.5 text-[0.95rem] leading-relaxed">
+          {features.map((feature, index) => {
+            const { Icon, className } = TONE_ICON[FEATURE_TONES[kind][index] ?? "ok"];
+            return (
+              <li key={feature} className="flex gap-2.5">
+                <Icon size={20} weight="fill" aria-hidden className={`mt-0.5 shrink-0 ${className}`} />
+                <span>{feature}</span>
+              </li>
+            );
+          })}
+        </ul>
+        <div>
+          <RateTable rows={rows} label={t("vnJp.scrollLabel")} />
+          <p className="mt-3 text-sm text-muted">{t(`vnJp.${kind}.note`)}</p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+// Rounding rule per goods type as a short rule plus worked examples, instead of a paragraph.
+function RoundingRules() {
+  const t = useTranslations("pricing.vnJp");
+
+  return (
+    <div className="mt-8">
+      <h3 className="text-xl text-forest">{t("roundingRules.title")}</h3>
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
+        {VN_JP_GOODS.map((kind) => {
+          const examples = t.raw(`roundingRules.${kind}.examples`) as string[];
+          return (
+            <div key={kind} className="info-card flex flex-col gap-3">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="rate-weight">{t(`${kind}.title`)}</span>
+                <span className="font-medium">{t(`roundingRules.${kind}.rule`)}</span>
               </div>
-              <ul className="grid gap-2 text-sm text-muted sm:text-base">
-                <li>{t("freight.buyRate")}</li>
-                <li>{t("freight.domestic")}</li>
-                <li>{t("freight.vat")}</li>
+              <ul className="flex flex-wrap gap-2" aria-label={t("roundingRules.title")}>
+                {examples.map((example) => (
+                  <li key={example} className="rounding-example">
+                    <Scales size={16} weight="duotone" aria-hidden />
+                    {example}
+                  </li>
+                ))}
               </ul>
             </div>
-          ) : (
-            <>
-              <p className="max-w-[48rem] sm:text-lg">{t("vnJp.intro")}</p>
-              {VN_JP_GOODS.map((kind) => {
-                const rows = t.raw(`vnJp.${kind}.rows`) as Rate[];
-                const features = t.raw(`vnJp.${kind}.features`) as string[];
-                return (
-                  <div key={kind} className="mt-10 grid gap-6 lg:grid-cols-2 lg:gap-10">
-                    <div>
-                      <h3 className="text-xl text-forest">{t(`vnJp.${kind}.title`)}</h3>
-                      <ul className="mt-3 grid list-disc gap-2 pl-5 text-sm text-muted sm:text-base">
-                        {features.map((f) => (
-                          <li key={f}>{f}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <div tabIndex={0} role="group" aria-label={t("vnJp.scrollLabel")} className="overflow-x-auto">
-                        <table className="w-full min-w-[18rem] text-left">
-                          <thead>
-                            <tr className="border-b border-line text-sm text-muted">
-                              <th scope="col" className="py-3.5 pr-6 font-medium">{t("vnJp.columns.weight")}</th>
-                              <th scope="col" className="py-3.5 pr-4 font-medium">{t("vnJp.columns.price")}</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {rows.map((row) => (
-                              <tr key={row.weight} className="border-b border-line">
-                                <th scope="row" className="py-3 pr-6 font-medium whitespace-nowrap align-top">{row.weight}</th>
-                                <td className="py-3 align-top">
-                                  <span className="whitespace-nowrap">{row.price}</span>
-                                  {row.note && <span className="mt-0.5 block text-xs font-medium text-gold">{row.note}</span>}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                      <p className="mt-3 text-sm text-muted">{t(`vnJp.${kind}.note`)}</p>
-                    </div>
-                  </div>
-                );
-              })}
-              <p className="mt-6 max-w-[48rem] text-sm text-muted">{t("vnJp.rounding")}</p>
-            </>
-          )}
-        </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
-        <h3 className="mt-12 text-xl text-forest lg:mt-14">{t("surcharge.title")}</h3>
-        <div tabIndex={0} role="group" aria-label={t("scrollLabel")} className="mt-4 overflow-x-auto">
-          <table className="w-full min-w-[22rem] text-left">
-            <thead>
-              <tr className="border-b border-line text-sm text-muted">
-                <th scope="col" className="py-4 pr-6 font-medium">{t("surcharge.columns.item")}</th>
-                <th scope="col" className="py-4 pr-4 font-medium">{t("surcharge.columns.fee")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {surcharges.map((row) => (
-                <tr key={row.item} className="border-b border-line align-top">
-                  <th scope="row" className="max-w-[30rem] py-4 pr-6 font-medium">{row.item}</th>
-                  <td className="py-4">{row.fee}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+// Pricing for a single direction (no tabs): the VN→JP tables per goods type, or the JP→VN flat
+// rate. `heading` "rates" titles the section "Bảng giá", "direction" titles it by route (used when
+// both directions share a page); the shared surcharge grid follows unless `withSurcharges` is off.
+export function Pricing({
+  direction,
+  heading = "rates",
+  withSurcharges = true,
+}: {
+  direction: Direction;
+  heading?: "rates" | "direction";
+  withSurcharges?: boolean;
+}) {
+  const t = useTranslations("pricing");
+
+  return (
+    <>
+      <section id={heading === "rates" ? "pricing" : `pricing-${direction}`} className="section">
+        <div className="wrap">
+          <h2 data-reveal className="heading-2">{heading === "rates" ? t("title") : t(`teaser.${direction}.label`)}</h2>
+          {/* The effective-date line is shared, so a page showing both directions states it once. */}
+          {(heading === "rates" || direction === "vnJp") && <p className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>}
+
+          <div data-reveal className="mt-8 lg:mt-10">
+            {direction === "jpVn" ? (
+              <div className="rate-card lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+                <div className="rate-card__media lg:aspect-auto lg:min-h-full">
+                  <Image src={PRICING_IMAGES.jpVn} alt="" fill sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover object-[78%_50%]" />
+                </div>
+                <div className="p-6 sm:p-8 lg:p-10">
+                  <p className="text-sm font-medium tracking-[0.14em] text-muted uppercase">{t("teaser.jpVn.label")}</p>
+                  <p className="mt-3 font-display text-5xl text-forest lg:text-6xl">{t("freight.price")}</p>
+                  <p className="mt-2 text-muted">{t("freight.weight")}</p>
+                  <ul className="mt-8 grid gap-4 border-t border-line pt-6">
+                    {([
+                      ["buyRate", CurrencyCircleDollar],
+                      ["domestic", Truck],
+                      ["vat", Receipt],
+                    ] as const).map(([key, Icon]) => (
+                      <li key={key} className="flex gap-3">
+                        <span className="icon-chip" aria-hidden>
+                          <Icon size={20} weight="duotone" />
+                        </span>
+                        <span className="pt-1.5">{t(`freight.${key}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <>
+                <p className="callout">
+                  <CheckCircle size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
+                  <span>{t("vnJp.intro")}</span>
+                </p>
+                <div className="mt-8 grid items-start gap-6 lg:grid-cols-2">
+                  {VN_JP_GOODS.map((kind) => (
+                    <GoodsRates key={kind} kind={kind} />
+                  ))}
+                </div>
+                <RoundingRules />
+              </>
+            )}
+          </div>
         </div>
+      </section>
+      {withSurcharges && <Surcharges />}
+    </>
+  );
+}
+
+// Surcharges as icon cards: the item on top, the fee as a tag underneath. `plain` drops the tinted
+// background where the section above is already tinted.
+export function Surcharges({ plain = false }: { plain?: boolean }) {
+  const t = useTranslations("pricing");
+  const rows = t.raw("surcharge.rows") as Surcharge[];
+
+  return (
+    <section id="surcharges" className={plain ? "section" : "section bg-sage"}>
+      <div className="wrap">
+        <h2 data-reveal className="heading-2">{t("surcharge.title")}</h2>
+        <ul data-reveal-group className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:mt-10 lg:grid-cols-4">
+          {rows.map((row, index) => {
+            const Icon = SURCHARGE_ICONS[index] ?? Package;
+            return (
+              <li key={row.item} className="surcharge-card">
+                <span className="icon-chip" aria-hidden>
+                  <Icon size={22} weight="duotone" />
+                </span>
+                <p className="mt-4 flex-1 leading-snug font-medium">{row.item}</p>
+                <p className="surcharge-card__fee">{row.fee}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

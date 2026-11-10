@@ -107,7 +107,7 @@ export function Hero() {
                 fill
                 priority={index === 0}
                 loading={index === 0 ? undefined : "lazy"}
-                sizes="100vw"
+                sizes="(min-width: 1024px) and (min-aspect-ratio: 1/1) 75vw, 100vw"
                 quality={90}
                 className="hero-image"
                 style={{ "--hero-position": IMAGES[index].position } as CSSProperties}

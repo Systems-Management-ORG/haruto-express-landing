@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import { AnalyticsEvents } from "@/shared/analytics/analytics-events";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/google-tag-manager";
 import { routing } from "@/i18n/routing";
+import { ContactFab } from "@/shared/components/contact-links";
 import { SITE_URL } from "@/shared/seo/business";
 import { JsonLd, organization, website } from "@/shared/seo/json-ld";
 import type { Locale } from "@/shared/constants/locales";
@@ -78,7 +79,10 @@ export default async function LocaleLayout({ children, params }: LocaleParams & 
         <JsonLd data={organization()} />
         <JsonLd data={website(locale)} />
         <AnalyticsEvents />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          {children}
+          <ContactFab />
+        </NextIntlClientProvider>
         <div className="grain" aria-hidden />
         <GoogleTagManager />
       </body>

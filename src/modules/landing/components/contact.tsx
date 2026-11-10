@@ -1,23 +1,16 @@
+import { ArrowUpRight, Phone } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
+import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
 import { MapEmbed } from "@/shared/components/map-embed";
 import { BUSINESS, locationById } from "@/shared/seo/business";
 import { ContactForm } from "./contact-form";
 
-const CHANNELS = ["zalo", "hotline", "messenger"] as const;
-
-// Real URLs turn the rows into tracked links; empty values stay as pending text.
-const CHANNEL_HREF: Record<(typeof CHANNELS)[number], string> = {
-  zalo: BUSINESS.zaloUrl,
-  hotline: BUSINESS.hotlineTel ? `tel:${BUSINESS.hotlineTel}` : "",
-  messenger: BUSINESS.messengerUrl,
-};
-
 // `withMap` shows the office location map; used on the dedicated contact page, not the home hub.
 export function Contact({ withMap = false }: { withMap?: boolean }) {
   const t = useTranslations("contact");
-  // Only show channels that have a confirmed URL; never render a "pending" placeholder.
-  const channels = CHANNELS.filter((channel) => CHANNEL_HREF[channel]);
   const office = locationById("vietnamOffice");
+  // Only channels with a confirmed URL are shown; never a "pending" placeholder.
+  const hasChannels = CHAT_CHANNELS.length > 0 || Boolean(BUSINESS.hotlineTel);
 
   return (
     <section id="contact" className="section bg-sage">
@@ -26,25 +19,42 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
           <div data-reveal className="lg:col-span-5 lg:pr-8">
             <h2 className="heading-2">{t("title")}</h2>
             <p className="mt-4 sm:text-lg">{t("intro")}</p>
-            {channels.length > 0 && (
+            {hasChannels && (
               <>
                 <h3 className="mt-8 text-sm font-medium text-muted lg:mt-12">{t("channelsTitle")}</h3>
-                <dl className="mt-2 border-t border-line">
-                  {channels.map((channel) => (
-                    <div key={channel} className="flex min-h-12 items-center justify-between gap-4 border-b border-line">
-                      <dt className="font-medium">{t(`channels.${channel}`)}</dt>
-                      <dd className="text-sm">
-                        <a
-                          href={CHANNEL_HREF[channel]}
-                          data-track={`click_${channel}`}
-                          className="font-medium text-forest underline underline-offset-4"
-                        >
-                          {channel === "hotline" ? BUSINESS.hotlineTel : t(`channels.${channel}`)}
-                        </a>
-                      </dd>
-                    </div>
+                <ul className="mt-3 grid gap-3">
+                  {CHAT_CHANNELS.map(({ id, href }) => (
+                    <li key={id}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-track={`click_${id}`}
+                        className="channel-link group"
+                      >
+                        <ChannelIcon id={id} size={40} />
+                        <span className="flex-1">
+                          <span className="block font-medium text-ink">{t(`channels.${id}`)}</span>
+                          <span className="block text-sm text-muted">{t(`channelHints.${id}`)}</span>
+                        </span>
+                        <ArrowUpRight size={20} aria-hidden className="m-arrow shrink-0 text-forest" />
+                      </a>
+                    </li>
                   ))}
-                </dl>
+                  {BUSINESS.hotlineTel && (
+                    <li>
+                      <a href={`tel:${BUSINESS.hotlineTel}`} data-track="click_hotline" className="channel-link group">
+                        <span className="icon-chip size-10" aria-hidden>
+                          <Phone size={22} weight="duotone" />
+                        </span>
+                        <span className="flex-1">
+                          <span className="block font-medium text-ink">{t("channels.hotline")}</span>
+                          <span className="block text-sm text-muted">{BUSINESS.hotlineTel}</span>
+                        </span>
+                      </a>
+                    </li>
+                  )}
+                </ul>
               </>
             )}
           </div>
