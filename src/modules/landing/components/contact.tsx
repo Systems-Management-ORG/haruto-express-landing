@@ -1,8 +1,8 @@
-import { ArrowUpRight, Phone } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
-import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
+import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
 import { MapEmbed } from "@/shared/components/map-embed";
-import { BUSINESS, locationById } from "@/shared/seo/business";
+import { HOTLINES, locationById, telHref } from "@/shared/seo/business";
 import { ContactForm } from "./contact-form";
 
 // `withMap` shows the office location map; used on the dedicated contact page, not the home hub.
@@ -10,7 +10,7 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
   const t = useTranslations("contact");
   const office = locationById("vietnamOffice");
   // Only channels with a confirmed URL are shown; never a "pending" placeholder.
-  const hasChannels = CHAT_CHANNELS.length > 0 || Boolean(BUSINESS.hotlineTel);
+  const hasChannels = CHAT_CHANNELS.length > 0 || HOTLINES.length > 0;
 
   return (
     <section id="contact" className="section bg-sage">
@@ -41,19 +41,19 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
                       </a>
                     </li>
                   ))}
-                  {BUSINESS.hotlineTel && (
-                    <li>
-                      <a href={`tel:${BUSINESS.hotlineTel}`} data-track="click_hotline" className="channel-link group">
+                  {HOTLINES.map((line) => (
+                    <li key={line.id}>
+                      <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="channel-link group">
                         <span className="icon-chip size-10" aria-hidden>
-                          <Phone size={22} weight="duotone" />
+                          <PhoneIcon size={22} />
                         </span>
                         <span className="flex-1">
-                          <span className="block font-medium text-ink">{t("channels.hotline")}</span>
-                          <span className="block text-sm text-muted">{BUSINESS.hotlineTel}</span>
+                          <span className="block font-medium text-ink">{t(`hotlines.${line.id}`)}</span>
+                          <span className="block text-sm text-muted">{line.display}</span>
                         </span>
                       </a>
                     </li>
-                  )}
+                  ))}
                 </ul>
               </>
             )}

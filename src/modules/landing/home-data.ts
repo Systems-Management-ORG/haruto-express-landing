@@ -15,6 +15,7 @@ export const SERVICE_CARDS: { page: ContentPage; image: string }[] = [
   { page: "shipToJapan", image: "/images/haruto/hero/may-bay-tuyen-viet-nam-nhat-ban.webp" },
   { page: "shipToVietnam", image: "/images/haruto/hero/thung-hang-va-hang-nhat-nui-phu-si.webp" },
   { page: "concierge", image: "/images/haruto/kho/hang-nhat-tieu-dung.webp" },
+  { page: "business", image: "/images/haruto/kho/kho-haruto-kien-hang-tren-pallet.jpg" },
 ];
 
 // One tile per entry of `pages.goods.accepted.items`, in the same order.

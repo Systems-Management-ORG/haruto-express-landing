@@ -99,12 +99,12 @@
       "metaDescription": "Common questions about Vietnam – Japan shipping: which goods we carry, how rates are calculated from actual and volumetric weight, and how to track your parcel."
     },
     "business": {
-      "nav": "Business",
-      "breadcrumb": "Business",
-      "title": "Commercial shipping between Vietnam and Japan",
-      "intro": "We handle commercial air-freight needs and advise per shipment. Detailed content is being prepared.",
-      "metaTitle": "Business shipping | HARUTO EXPRESS",
-      "metaDescription": "Commercial air-freight shipping between Vietnam and Japan, with advice per shipment. Detailed content is being prepared."
+      "nav": "Fulfillment (FFM)",
+      "breadcrumb": "Fulfillment in Japan",
+      "title": "Fulfillment (FFM) in Japan for Vietnamese businesses",
+      "intro": "Selling in Japan without a warehouse there? HARUTO EXPRESS receives, stores, processes orders and delivers within Japan, so you can run leaner and save costs without building your own logistics setup.",
+      "metaTitle": "Fulfillment (FFM) in Japan for businesses | HARUTO",
+      "metaDescription": "Fulfillment in Japan for Vietnamese businesses: receiving, storage, inventory tracking, picking and packing, domestic delivery and Japan ⇄ Vietnam shipping."
     },
     "contact": {
       "nav": "Contact",
@@ -144,7 +144,7 @@
   "home": {
     "services": {
       "title": "Freight services",
-      "intro": "Two-way air freight between Vietnam and Japan for individuals and businesses, plus a buying service in Japan.",
+      "intro": "Two-way air freight between Vietnam and Japan for individuals and businesses, a buying service in Japan, and fulfillment in Japan.",
       "more": "View details",
       "ctaContact": "Request advice",
       "ctaPricing": "See pricing"
@@ -157,6 +157,46 @@
       "title": "Guides and policies",
       "intro": "Worth reading before you ship: weight calculation, compensation, the Japan warehouse address and the goods list.",
       "more": "Read more"
+    }
+  },
+  "fulfillment": {
+    "services": {
+      "title": "What HARUTO EXPRESS handles",
+      "intro": "The whole warehouse flow in Japan, from goods arriving at the warehouse to reaching your customer.",
+      "items": [
+        "Receiving and storage in Japan",
+        "Inventory management and stock tracking",
+        "Order processing and picking",
+        "Packing to your requirements",
+        "Domestic delivery within Japan",
+        "Japan ⇄ Vietnam shipping support"
+      ]
+    },
+    "audience": {
+      "title": "FFM is a fit for",
+      "items": [
+        "Vietnamese businesses bringing products to the Japanese market",
+        "Sellers on e-commerce marketplaces",
+        "Businesses that need storage and transit warehousing in Japan",
+        "Brands looking for a cross-border logistics partner"
+      ]
+    },
+    "why": {
+      "title": "Why HARUTO EXPRESS?",
+      "items": [
+        "No need to invest in your own warehouse in Japan",
+        "Streamlined storage and order handling",
+        "Warehousing joined up with Japan ⇄ Vietnam international shipping",
+        "Flexible to your needs and business size"
+      ],
+      "warehouses": "International warehouses: Tokyo (Japan) – Hanoi (Vietnam)",
+      "photoAlt": "Front of the HARUTO EXPRESS warehouse"
+    },
+    "cta": {
+      "title": "Grow your business in Japan with us",
+      "body": "Rather than spending time on logistics, let HARUTO EXPRESS run the warehouse side. Contact us today for a solution that fits your business.",
+      "contact": "Request advice",
+      "tagline": "HARUTO EXPRESS – connecting logistics, growing Vietnam – Japan business."
     }
   },
   "hero": {
@@ -217,18 +257,6 @@
       "title": "Buy and bid for you",
       "body": "We buy, bid and ship goods on your behalf from Japan to Vietnam."
     }
-  },
-  "services": {
-    "title": "One journey, two solutions",
-    "personal": {
-      "title": "Individuals",
-      "body": "Send parcels, gifts and personal items that meet shipping requirements between Vietnam and Japan."
-    },
-    "business": {
-      "title": "Businesses",
-      "body": "We take on commercial air freight requests and advise on each consignment."
-    },
-    "cta": "Request advice"
   },
   "routes": {
     "title": "Shipping routes",
@@ -591,7 +619,6 @@
       "messenger": "Messenger",
       "facebook": "Facebook page"
     },
-    "notice": "Fill in the form and HARUTO will get back to you. Need to talk now? Message our consultant on Zalo or reach us on the Facebook page.",
     "kindLegend": "You are",
     "kindPersonal": "An individual",
     "kindBusiness": "A business",
@@ -609,7 +636,6 @@
     "routeJpVn": "Japan → Vietnam",
     "optional": "optional",
     "submit": "Send request",
-    "consultationOnly": "This is a request for advice, not an order confirmation.",
     "channelHints": {
       "zalo": "Chat directly with a consultant",
       "facebook": "Message us and follow updates on Facebook"
@@ -617,7 +643,8 @@
     "fab": {
       "label": "Quick contact",
       "zalo": "Chat with a consultant on Zalo",
-      "facebook": "Open our Facebook page"
+      "facebook": "Open our Facebook page",
+      "call": "Call"
     },
     "sending": "Sending…",
     "error": "We could not send your request. Please try again in a few minutes or message us directly on Zalo or Facebook.",
@@ -626,12 +653,17 @@
       "title": "We have your request",
       "body": "Thank you. A HARUTO consultant will call you back on the number you left.",
       "again": "Send another request"
+    },
+    "hotlines": {
+      "japan": "Japan hotline",
+      "vietnam": "Vietnam hotline"
     }
   },
   "footer": {
     "positioning": "Two-way air freight between Vietnam and Japan.",
     "navigationTitle": "Navigation",
     "addressTitle": "Addresses",
+    "hotlineTitle": "Hotline",
     "mapHint": "Open Google Maps",
     "locations": {
       "japanWarehouse": "Japan warehouse",

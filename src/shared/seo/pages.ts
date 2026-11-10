@@ -44,8 +44,9 @@ export const PAGES: Record<PageKey, PageDef> = {
   concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "pricing", "japanWarehouse"] },
   japanWarehouse: { key: "japanWarehouse", slugs: s("dia-chi-kho-nhat", "japan-warehouse"), indexable: true, priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "policy", "pricing"] },
   faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "contact"] },
+  // Fulfillment (FFM) in Japan for businesses. Key and slug kept from the former "business" page.
+  business: { key: "business", slugs: s("doanh-nghiep", "business"), indexable: true, priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["japanWarehouse", "shipToVietnam", "shipToJapan"] },
   // Thin / blocked until the business provides content; reachable in nav but noindex + off sitemap.
-  business: { key: "business", slugs: s("doanh-nghiep", "business"), indexable: false, priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "shipToJapan"] },
   contact: { key: "contact", slugs: s("lien-he", "contact"), indexable: false, priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "faq"] },
   guides: { key: "guides", slugs: s("huong-dan", "guides"), indexable: false, priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods"] },
 };

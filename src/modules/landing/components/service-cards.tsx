@@ -20,12 +20,12 @@ export function ServiceCards() {
           <p data-reveal className="mx-auto mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
         </div>
 
-        <ul data-reveal-group className="mt-10 grid gap-6 md:grid-cols-3 lg:mt-14">
+        <ul data-reveal-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {SERVICE_CARDS.map(({ page, image }) => (
             <li key={page}>
               <a href={pagePath(locale, page)} className="service-card group">
                 <div className="service-card__media">
-                  <Image src={image} alt="" fill sizes="(max-width: 767px) 100vw, 33vw" className="object-cover" />
+                  <Image src={image} alt="" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw" className="object-cover" />
                 </div>
                 <div className="service-card__panel">
                   <h3 className="text-xl leading-snug text-forest">{tPages(`${page}.title`)}</h3>

@@ -2,8 +2,8 @@ import { MapPin } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
-import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
-import { LOCATIONS, mapsUrl } from "@/shared/seo/business";
+import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
+import { HOTLINES, LOCATIONS, mapsUrl, telHref } from "@/shared/seo/business";
 import { NAV } from "@/shared/seo/nav";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
 
@@ -56,6 +56,27 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
                 ))}
               </ul>
             )}
+
+            <p className="footer-heading mt-8">{t("hotlineTitle")}</p>
+            <ul className="mt-3 grid gap-2.5">
+              {HOTLINES.map((line) => (
+                <li key={line.id}>
+                  <a
+                    href={telHref(line.tel)}
+                    data-track={`click_hotline_${line.id}`}
+                    className="group flex min-h-11 items-center gap-3 hover:text-gold"
+                  >
+                    <span className="footer-phone" aria-hidden>
+                      <PhoneIcon size={20} />
+                    </span>
+                    <span>
+                      <span className="block text-sm text-ivory/70 group-hover:text-gold">{tContact(`hotlines.${line.id}`)}</span>
+                      <span className="block text-lg font-semibold tracking-wide">{line.display}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
 
             <p className="footer-heading mt-8">{t("addressTitle")}</p>
             <ul className="mt-3 grid gap-4">

@@ -90,12 +90,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="card" aria-describedby="form-notice" onSubmit={onSubmit}>
-      <div id="form-notice" className="rounded-lg border border-line bg-sage px-4 py-3 text-sm">
-        <p>{t("notice")}</p>
-        {channelButtons}
-      </div>
-
+    <form className="card" onSubmit={onSubmit}>
       {/* Honeypot: hidden from people and assistive tech; bots tend to fill every field. */}
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
@@ -104,7 +99,7 @@ export function ContactForm() {
         </label>
       </div>
 
-      <fieldset className="mt-6">
+      <fieldset>
         <legend className="field-label">{t("kindLegend")}</legend>
         <div className="grid grid-cols-2 gap-2">
           {kinds.map((item) => (
@@ -191,7 +186,6 @@ export function ContactForm() {
         {status === "sending" && <CircleNotch size={18} weight="bold" aria-hidden className="animate-spin" />}
         {status === "sending" ? t("sending") : t("submit")}
       </button>
-      <p className="mt-3 text-sm">{t("consultationOnly")}</p>
     </form>
   );
 }

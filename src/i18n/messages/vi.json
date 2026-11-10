@@ -99,12 +99,12 @@
       "metaDescription": "Câu hỏi thường gặp về vận chuyển Việt Nam – Nhật Bản: loại hàng nhận gửi, cách tính cước theo cân thực tế và cân thể tích, và cách theo dõi kiện hàng của bạn."
     },
     "business": {
-      "nav": "Doanh nghiệp",
-      "breadcrumb": "Doanh nghiệp",
-      "title": "Vận chuyển hàng thương mại Việt Nam – Nhật Bản",
-      "intro": "Tiếp nhận nhu cầu vận chuyển hàng thương mại bằng đường hàng không và tư vấn theo từng lô hàng. Nội dung chi tiết đang được cập nhật.",
-      "metaTitle": "Vận chuyển hàng doanh nghiệp | HARUTO",
-      "metaDescription": "Giải pháp vận chuyển hàng thương mại Việt Nam – Nhật Bản bằng đường hàng không, tư vấn theo từng lô hàng. Nội dung chi tiết đang được cập nhật."
+      "nav": "Fulfillment (FFM)",
+      "breadcrumb": "Fulfillment tại Nhật Bản",
+      "title": "Fulfillment (FFM) tại Nhật Bản cho doanh nghiệp Việt",
+      "intro": "Kinh doanh tại Nhật Bản mà chưa có kho? HARUTO EXPRESS nhận hàng, lưu kho, xử lý đơn và giao hàng nội địa Nhật, giúp doanh nghiệp tối ưu vận hành, tiết kiệm chi phí mà không cần tự xây dựng hệ thống kho vận.",
+      "metaTitle": "Fulfillment (FFM) tại Nhật Bản cho doanh nghiệp | HARUTO",
+      "metaDescription": "Dịch vụ fulfillment tại Nhật Bản: nhận hàng, lưu kho, quản lý tồn kho, soạn và đóng gói đơn, giao nội địa Nhật, kết nối vận chuyển Nhật ⇄ Việt cho doanh nghiệp."
     },
     "contact": {
       "nav": "Liên hệ",
@@ -144,7 +144,7 @@
   "home": {
     "services": {
       "title": "Dịch vụ vận chuyển hàng hóa",
-      "intro": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp, kèm dịch vụ mua hộ hàng Nhật.",
+      "intro": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp, mua hộ hàng Nhật và fulfillment tại Nhật Bản.",
       "more": "Xem chi tiết",
       "ctaContact": "Đăng ký tư vấn",
       "ctaPricing": "Bảng giá dịch vụ"
@@ -157,6 +157,46 @@
       "title": "Hướng dẫn và chính sách",
       "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
       "more": "Đọc chi tiết"
+    }
+  },
+  "fulfillment": {
+    "services": {
+      "title": "HARUTO EXPRESS hỗ trợ",
+      "intro": "Trọn quy trình kho vận tại Nhật Bản, từ lúc hàng về kho đến khi tới tay khách hàng.",
+      "items": [
+        "Nhận hàng và lưu kho tại Nhật Bản",
+        "Quản lý hàng tồn kho, theo dõi số lượng hàng hóa",
+        "Xử lý và soạn hàng theo từng đơn đặt hàng",
+        "Đóng gói hàng hóa theo yêu cầu",
+        "Giao hàng nội địa Nhật Bản",
+        "Hỗ trợ vận chuyển hàng hóa Nhật ⇄ Việt"
+      ]
+    },
+    "audience": {
+      "title": "Dịch vụ FFM phù hợp với",
+      "items": [
+        "Doanh nghiệp Việt Nam muốn đưa sản phẩm vào thị trường Nhật Bản",
+        "Nhà bán hàng trên các sàn thương mại điện tử",
+        "Doanh nghiệp cần kho lưu trữ và trung chuyển hàng hóa tại Nhật",
+        "Thương hiệu cần đối tác logistics hỗ trợ vận hành xuyên biên giới"
+      ]
+    },
+    "why": {
+      "title": "Vì sao nên lựa chọn HARUTO EXPRESS?",
+      "items": [
+        "Không cần tự đầu tư hệ thống kho bãi tại Nhật",
+        "Tối ưu quy trình lưu kho và xử lý đơn hàng",
+        "Kết nối dịch vụ kho vận với vận chuyển quốc tế Nhật ⇄ Việt",
+        "Linh hoạt theo nhu cầu và quy mô kinh doanh của doanh nghiệp"
+      ],
+      "warehouses": "Kho quốc tế: Tokyo (Nhật Bản) – Hà Nội (Việt Nam)",
+      "photoAlt": "Mặt tiền kho HARUTO EXPRESS"
+    },
+    "cta": {
+      "title": "Đồng hành cùng bạn mở rộng kinh doanh tại Nhật Bản",
+      "body": "Thay vì mất thời gian xử lý các khâu hậu cần, hãy để HARUTO EXPRESS lo phần kho vận. Liên hệ ngay hôm nay để được tư vấn giải pháp phù hợp với nhu cầu doanh nghiệp.",
+      "contact": "Gửi yêu cầu tư vấn",
+      "tagline": "HARUTO EXPRESS – Kết nối logistics, mở rộng kinh doanh Việt – Nhật."
     }
   },
   "hero": {
@@ -217,18 +257,6 @@
       "title": "Mua hộ, đấu giá hộ",
       "body": "Nhận mua hộ, đấu giá hộ và vận chuyển hộ hàng từ Nhật Bản về Việt Nam."
     }
-  },
-  "services": {
-    "title": "Một hành trình, hai giải pháp",
-    "personal": {
-      "title": "Cá nhân",
-      "body": "Gửi bưu kiện, quà tặng và đồ dùng cá nhân đủ điều kiện vận chuyển giữa Việt Nam và Nhật Bản."
-    },
-    "business": {
-      "title": "Doanh nghiệp",
-      "body": "Tiếp nhận nhu cầu vận chuyển hàng thương mại bằng đường hàng không và tư vấn theo từng lô hàng."
-    },
-    "cta": "Yêu cầu tư vấn"
   },
   "routes": {
     "title": "Tuyến vận chuyển",
@@ -591,7 +619,6 @@
       "messenger": "Messenger",
       "facebook": "Fanpage Facebook"
     },
-    "notice": "Điền thông tin bên dưới, HARUTO sẽ liên hệ lại để tư vấn. Cần trao đổi ngay? Nhắn Zalo cho tư vấn viên hoặc liên hệ qua Fanpage.",
     "kindLegend": "Bạn là",
     "kindPersonal": "Cá nhân",
     "kindBusiness": "Doanh nghiệp",
@@ -609,7 +636,6 @@
     "routeJpVn": "Nhật Bản → Việt Nam",
     "optional": "không bắt buộc",
     "submit": "Gửi yêu cầu tư vấn",
-    "consultationOnly": "Đây là yêu cầu tư vấn, chưa phải xác nhận đơn hàng.",
     "channelHints": {
       "zalo": "Nhắn tin trực tiếp với tư vấn viên",
       "facebook": "Nhắn tin và cập nhật tin tức qua Fanpage"
@@ -617,7 +643,8 @@
     "fab": {
       "label": "Liên hệ nhanh",
       "zalo": "Chat Zalo với tư vấn viên",
-      "facebook": "Mở Fanpage Facebook"
+      "facebook": "Mở Fanpage Facebook",
+      "call": "Gọi hotline"
     },
     "sending": "Đang gửi…",
     "error": "Chưa gửi được yêu cầu. Vui lòng thử lại sau ít phút hoặc nhắn trực tiếp qua Zalo/Fanpage.",
@@ -626,12 +653,17 @@
       "title": "Đã nhận yêu cầu của bạn",
       "body": "Cảm ơn bạn. Nhân viên HARUTO sẽ liên hệ lại qua số điện thoại bạn đã để lại.",
       "again": "Gửi yêu cầu khác"
+    },
+    "hotlines": {
+      "japan": "Hotline Nhật Bản",
+      "vietnam": "Hotline Việt Nam"
     }
   },
   "footer": {
     "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
     "navigationTitle": "Điều hướng",
     "addressTitle": "Địa chỉ",
+    "hotlineTitle": "Hotline",
     "mapHint": "Mở Google Maps",
     "locations": {
       "japanWarehouse": "Kho Nhật",

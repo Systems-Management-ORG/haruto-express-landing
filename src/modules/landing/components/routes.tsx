@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
-import { PLANE_PATH } from "./plane-icon";
+import { PLANE_PATH, planeTransform } from "./plane-icon";
 
 // Projected positions on dong-a-vn-nhat.svg (Hanoi, Tokyo) in its own coordinate system.
 const VIETNAM = { x: 161, y: 463.5 };
@@ -106,10 +106,10 @@ export function Routes() {
 
               {/* Planes fly along the arcs via CSS offset-path (self-running, respects reduced motion). */}
               <g className="route-plane route-plane--out">
-                <path d={PLANE_PATH} transform="rotate(90) scale(0.9)" fill="#faf8ea" />
+                <path d={PLANE_PATH} transform={planeTransform(40)} fill="#faf8ea" stroke="#173c22" strokeWidth="40" paintOrder="stroke" />
               </g>
               <g className="route-plane route-plane--in">
-                <path d={PLANE_PATH} transform="rotate(90) scale(0.9)" fill="#e2a240" />
+                <path d={PLANE_PATH} transform={planeTransform(40)} fill="#e2a240" stroke="#173c22" strokeWidth="40" paintOrder="stroke" />
               </g>
 
               <text x={VIETNAM.x - 12} y={VIETNAM.y + 6} textAnchor="end" className="route-map__label">
