@@ -574,22 +574,24 @@
     }
   },
   "hero": {
-    "h1": "Gửi hàng Việt Nam – Nhật Bản bằng đường hàng không",
+    "tagline": "Khoảng cách xa, kết nối gần.",
     "slides": [
       {
-        "title": "Khoảng cách xa, kết nối gần.",
-        "description": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản dành cho cá nhân và doanh nghiệp. Đội ngũ HARUTO đồng hành cùng bạn từ bước tư vấn."
+        "title": "Vận Chuyển 2 Chiều Nhật – Việt",
+        "description": "Cung cấp giải pháp vận chuyển hàng hóa chuyên tuyến Nhật – Việt và ngược lại. Dù bạn là cá nhân cần gửi quà biếu, hay doanh nghiệp cần luân chuyển hàng hóa kinh doanh số lượng lớn, chúng tôi đều đáp ứng trọn gói.",
+        "cta": "Xem bảng giá"
       },
       {
-        "title": "Vận chuyển hàng không hai chiều",
-        "description": "Gửi hàng giữa Việt Nam và Nhật Bản, dành cho cả cá nhân và doanh nghiệp."
+        "title": "Mua Hộ Hàng Nhật Trọn Gói – Giá Cực Tốt",
+        "description": "Bạn muốn mua hàng chính hãng từ các trang thương mại điện tử hàng đầu Nhật Bản (Amazon JP, Rakuten, Mercari, Yahoo Shopping...) nhưng vướng rào cản ngôn ngữ, thẻ thanh toán quốc tế hay không có địa chỉ nhận hàng tại Nhật? Hãy để chúng tôi lo từ A–Z.",
+        "cta": "Xem dịch vụ mua hộ"
       },
       {
         "title": "Có kho hàng riêng, có nhân viên tư vấn",
-        "description": "Nhân viên kiểm tra loại hàng, chứng từ và xác nhận cước với bạn trước khi tiếp nhận."
+        "description": "Nhân viên kiểm tra loại hàng, chứng từ và xác nhận cước với bạn trước khi tiếp nhận.",
+        "cta": "Xem bảng giá"
       }
     ],
-    "primary": "Xem bảng giá",
     "secondary": "Liên hệ tư vấn",
     "carousel": {
       "label": "Banner dịch vụ HARUTO EXPRESS",
@@ -599,8 +601,8 @@
       "goto": "Đến ảnh {index}",
       "alts": [
         "Máy bay bay trên núi Phú Sĩ, tháp Tokyo và hoa anh đào, phía trước là các thùng hàng",
-        "Máy bay trên tuyến Việt Nam – Nhật Bản, cùng cờ và cảnh đặc trưng của hai nước",
-        "Thùng hàng và hàng Nhật trước núi Phú Sĩ, chùa Nhật và xe giao hàng"
+        "Thùng hàng và hàng Nhật trước núi Phú Sĩ, chùa Nhật và xe giao hàng",
+        "Máy bay trên tuyến Việt Nam – Nhật Bản, cùng cờ và cảnh đặc trưng của hai nước"
       ]
     }
   },

@@ -3,14 +3,18 @@
 import { ArrowRight, CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import type { Locale } from "@/shared/constants/locales";
+import { pagePath } from "@/shared/seo/pages";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 // "position" is the crop on portrait screens; landscape screens keep the right side of the image.
-const IMAGES = [
-  { file: "may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao", position: "76% 50%" },
-  { file: "may-bay-tuyen-viet-nam-nhat-ban", position: "68% 50%" },
-  { file: "thung-hang-va-hang-nhat-nui-phu-si", position: "70% 50%" },
+// One per slide, in order: two-way shipping, buying service (Japanese goods), own warehouse.
+// "page" is where the slide's main button leads (pricing for shipping, the buying-service page).
+const IMAGES: { file: string; position: string; page: "pricing" | "concierge" }[] = [
+  { file: "may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao", position: "76% 50%", page: "pricing" },
+  { file: "thung-hang-va-hang-nhat-nui-phu-si", position: "70% 50%", page: "concierge" },
+  { file: "may-bay-tuyen-viet-nam-nhat-ban", position: "68% 50%", page: "pricing" },
 ];
 const AUTOPLAY_MS = 6000;
 const SWIPE_PX = 40;
@@ -26,10 +30,11 @@ function playSlideIn(slide: HTMLElement) {
   );
 }
 
-type Slide = { title: string; description: string };
+type Slide = { title: string; description: string; cta: string };
 
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale() as Locale;
   const slides = t.raw("slides") as Slide[];
   const alts = t.raw("carousel.alts") as string[];
   const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -116,19 +121,22 @@ export function Hero() {
             </div>
             <div className="hero-content wrap">
               <div className="hero-text">
+                <p data-hero-line className="text-base font-medium sm:text-lg">{t("tagline")}</p>
+                {/* Each slide carries its own headline; only the first is the page's H1. */}
                 {index === 0 ? (
-                  <h1 data-hero-line className="hero-title">{t("h1")}</h1>
+                  <h1 data-hero-line className="hero-title mt-3">{slide.title}</h1>
                 ) : (
-                  // Same keyword headline kept per slide for a steady look; only slide 0 is the H1.
-                  <p data-hero-line aria-hidden className="hero-title">{t("h1")}</p>
+                  <p data-hero-line className="hero-title mt-3">{slide.title}</p>
                 )}
-                <p data-hero-line className="mt-4 text-lg font-medium sm:text-xl">{slide.title}</p>
-                <p data-hero-line className="mt-3 max-w-[36rem] text-base leading-[1.6] sm:text-lg">
+                <p data-hero-line className="mt-5 max-w-[36rem] text-base leading-[1.6] sm:text-lg">
                   {slide.description}
                 </p>
                 <div data-hero-line className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a href="#pricing" className="btn btn-gold">
-                    {t("primary")}
+                  <a
+                    href={IMAGES[index].page === "pricing" ? "#pricing" : pagePath(locale, IMAGES[index].page)}
+                    className="btn btn-gold"
+                  >
+                    {slide.cta}
                     <span className="btn-chip" aria-hidden>
                       <ArrowRight size={14} weight="bold" />
                     </span>

@@ -427,7 +427,11 @@
     }
   }
 
+  /* Every slide has a headline but only the first is an <h1>, so the heading face is set here too. */
   .hero-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-wrap: balance;
     font-size: clamp(2.5rem, min(4.8vw, 8svh), 5.25rem);
     line-height: 1.06;
     letter-spacing: -0.02em;
@@ -459,6 +463,13 @@
     transition:
       opacity 140ms var(--ease-ui),
       transform 140ms var(--ease-ui);
+  }
+
+  /* On phones the arrows would sit on the headline; swipe and the dots change slides there. */
+  @media (max-width: 47.99rem) {
+    .hero-nav {
+      display: none;
+    }
   }
 
   .hero-nav--prev {

@@ -574,22 +574,24 @@
     }
   },
   "hero": {
-    "h1": "Shipping between Vietnam and Japan by air",
+    "tagline": "Far apart, closely connected.",
     "slides": [
       {
-        "title": "Far apart, closely connected.",
-        "description": "Two-way air freight between Vietnam and Japan for individuals and businesses. The HARUTO team supports you from your first enquiry."
+        "title": "Two-Way Shipping Japan – Vietnam",
+        "description": "Dedicated Japan – Vietnam shipping in both directions. Whether you are sending a gift or a business moving large volumes of stock, we handle it end to end.",
+        "cta": "See pricing"
       },
       {
-        "title": "Two-way air freight",
-        "description": "Ship between Vietnam and Japan, for both individuals and businesses."
+        "title": "Full-Service Japan Buying – Great Prices",
+        "description": "Want genuine products from Japan's top online stores (Amazon JP, Rakuten, Mercari, Yahoo Shopping...) but held back by the language, international payment cards or no delivery address in Japan? Let us take care of everything, A to Z.",
+        "cta": "See the buying service"
       },
       {
         "title": "Our own warehouse and advisers",
-        "description": "Our staff check the goods and documents and confirm the rate with you before accepting a shipment."
+        "description": "Our staff check the goods and documents and confirm the rate with you before accepting a shipment.",
+        "cta": "See pricing"
       }
     ],
-    "primary": "See pricing",
     "secondary": "Contact us",
     "carousel": {
       "label": "HARUTO EXPRESS service banners",
@@ -599,8 +601,8 @@
       "goto": "Go to image {index}",
       "alts": [
         "Plane over Mount Fuji, Tokyo Tower and cherry blossoms, with shipping boxes in front",
-        "Plane on the Vietnam – Japan route with both flags and landmarks",
-        "Shipping boxes and Japanese goods before Mount Fuji, a pagoda and a delivery truck"
+        "Shipping boxes and Japanese goods before Mount Fuji, a pagoda and a delivery truck",
+        "Plane on the Vietnam – Japan route with both flags and landmarks"
       ]
     }
   },
