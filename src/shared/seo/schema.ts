@@ -59,3 +59,17 @@ export function faqPage(items: { question: string; answer: string }[]) {
     })),
   };
 }
+
+// The contact page: its main entity is the Organization node (hotlines, addresses, sameAs).
+export function contactPage({ name, description, url, inLanguage }: { name: string; description: string; url: string; inLanguage: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name,
+    description,
+    url,
+    inLanguage,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntity: { "@id": ORG_ID },
+  };
+}

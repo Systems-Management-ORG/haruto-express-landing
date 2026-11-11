@@ -1,9 +1,92 @@
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, CheckCircle, ClipboardText, MapPin } from "@phosphor-icons/react/dist/ssr";
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
 import { MapEmbed } from "@/shared/components/map-embed";
-import { HOTLINES, locationById, telHref } from "@/shared/seo/business";
+import { HOTLINES, LOCATIONS, locationById, mapsUrl, telHref } from "@/shared/seo/business";
 import { ContactForm } from "./contact-form";
+
+type GuideKey = "zalo" | "facebook" | "hotline" | "form";
+const GUIDE_ICONS: Record<GuideKey, ReactNode> = {
+  zalo: <ChannelIcon id="zalo" size={40} />,
+  facebook: <ChannelIcon id="facebook" size={40} />,
+  hotline: (
+    <span className="icon-chip size-10" aria-hidden>
+      <PhoneIcon size={22} />
+    </span>
+  ),
+  form: (
+    <span className="icon-chip size-10" aria-hidden>
+      <ClipboardText size={22} weight="duotone" />
+    </span>
+  ),
+};
+
+// Contact page only: what each channel is for, what to have ready, and every HARUTO location
+// (addresses from business.ts; no opening hours until the business confirms them).
+export function ContactGuide() {
+  const t = useTranslations("contact.guide");
+  const tFooter = useTranslations("footer");
+  const prepare = t.raw("prepare") as string[];
+
+  return (
+    <section className="section">
+      <div className="wrap">
+        <div data-reveal className="max-w-[44rem]">
+          <h2 className="heading-2">{t("title")}</h2>
+          <p className="mt-4 sm:text-lg">{t("intro")}</p>
+        </div>
+        <ul data-reveal-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {(Object.keys(GUIDE_ICONS) as GuideKey[]).map((key) => (
+            <li key={key} className="card p-6">
+              {GUIDE_ICONS[key]}
+              <h3 className="mt-4 text-lg font-medium text-forest">{t(`itemTitles.${key}`)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{t(`items.${key}`)}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-6">
+          <div data-reveal>
+            <h3 className="text-xl text-forest">{t("prepareTitle")}</h3>
+            <ul className="mt-4 grid gap-3">
+              {prepare.map((item) => (
+                <li key={item} className="flex gap-2.5">
+                  <CheckCircle size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-forest" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div data-reveal>
+            <h3 className="text-xl text-forest">{t("locationsTitle")}</h3>
+            <ul className="mt-4 grid gap-4">
+              {LOCATIONS.map((location) => (
+                <li key={location.id} className="flex gap-3">
+                  <MapPin size={22} weight="duotone" aria-hidden className="mt-0.5 shrink-0 text-forest" />
+                  <span>
+                    <span className="block font-medium text-ink">{tFooter(`locations.${location.id}`)}</span>
+                    <span className="block text-sm text-muted">{t(`locations.${location.id}`)}</span>
+                    <a
+                      href={mapsUrl(location.query)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track="open_map"
+                      className="mt-1 inline-flex items-center gap-1 text-sm underline underline-offset-4"
+                    >
+                      {location.address}
+                      <ArrowUpRight size={14} aria-hidden />
+                    </a>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // `withMap` shows the office location map; used on the dedicated contact page, not the home hub.
 export function Contact({ withMap = false }: { withMap?: boolean }) {

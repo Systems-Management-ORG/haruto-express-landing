@@ -10,8 +10,9 @@ import { SiteHeader } from "@/modules/landing/components/site-header";
 import { SubPage } from "@/modules/landing/components/subpage";
 import { JsonLd } from "@/shared/seo/json-ld";
 import { buildPageMetadata } from "@/shared/seo/metadata";
-import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageByLocaleSlug } from "@/shared/seo/pages";
-import { breadcrumb, faqPage, service } from "@/shared/seo/schema";
+import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageByLocaleSlug, pagePath } from "@/shared/seo/pages";
+import { SITE_URL } from "@/shared/seo/business";
+import { breadcrumb, contactPage, faqPage, service } from "@/shared/seo/schema";
 
 type Props = { params: Promise<{ locale: string; rest: string[] }> };
 
@@ -65,6 +66,16 @@ export default async function SubRoute({ params }: Props) {
     const tFaq = await getTranslations({ locale, namespace: "faq" });
     const items = tFaq.raw("items") as { question: string; answer: string }[];
     graphs.push(faqPage(items));
+  }
+  if (key === "contact") {
+    graphs.push(
+      contactPage({
+        name: tp("title"),
+        description: tp("metaDescription"),
+        url: `${SITE_URL}${pagePath(locale as Locale, key)}`,
+        inLanguage: locale,
+      }),
+    );
   }
 
   return (

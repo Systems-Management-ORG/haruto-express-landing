@@ -118,7 +118,7 @@
       "title": "Liên hệ HARUTO EXPRESS",
       "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi để nhận tư vấn và báo cước.",
       "metaTitle": "Liên hệ | HARUTO EXPRESS",
-      "metaDescription": "Liên hệ HARUTO EXPRESS để được tư vấn vận chuyển hai chiều Việt Nam – Nhật Bản và nhận báo cước cho kiện hàng của bạn."
+      "metaDescription": "Liên hệ HARUTO EXPRESS qua Zalo, Fanpage, hotline Việt Nam – Nhật Bản hoặc form tư vấn để được hỗ trợ vận chuyển hai chiều và nhận báo cước cho kiện hàng."
     },
     "guides": {
       "nav": "Hướng dẫn",
@@ -1031,6 +1031,35 @@
     "hotlines": {
       "japan": "Hotline Nhật Bản",
       "vietnam": "Hotline Việt Nam"
+    },
+    "guide": {
+      "title": "Liên hệ HARUTO qua kênh nào?",
+      "intro": "HARUTO EXPRESS nhận tư vấn qua Zalo, Fanpage Facebook, hotline tại Việt Nam và Nhật Bản, hoặc qua form yêu cầu tư vấn trên trang này. Bạn chọn kênh thuận tiện nhất, nhân viên HARUTO sẽ hỗ trợ tuyến gửi, loại hàng và cước phí cho kiện hàng của bạn.",
+      "items": {
+        "zalo": "Nhắn tin trực tiếp với tư vấn viên. Gửi kèm hình ảnh, link sản phẩm hoặc thông tin hàng hóa để được tư vấn nhanh về tuyến, loại hàng và cước phí.",
+        "facebook": "Nhắn tin cho HARUTO qua Fanpage và theo dõi cập nhật về dịch vụ vận chuyển hai chiều Việt Nam – Nhật Bản.",
+        "hotline": "Gọi hotline Việt Nam khi bạn ở Việt Nam, hotline Nhật Bản khi bạn ở Nhật để trao đổi trực tiếp với nhân viên HARUTO.",
+        "form": "Để lại họ tên, số điện thoại, tuyến và mô tả hàng. Nhân viên HARUTO sẽ liên hệ lại qua số điện thoại bạn đã để lại."
+      },
+      "itemTitles": {
+        "zalo": "Zalo",
+        "facebook": "Fanpage Facebook",
+        "hotline": "Hotline Việt Nam & Nhật Bản",
+        "form": "Form yêu cầu tư vấn"
+      },
+      "prepareTitle": "Thông tin nên chuẩn bị trước khi liên hệ",
+      "prepare": [
+        "Tuyến gửi: Việt Nam → Nhật Bản hoặc Nhật Bản → Việt Nam.",
+        "Loại hàng và mô tả hàng hóa, kèm hình ảnh hoặc link sản phẩm nếu có.",
+        "Cân nặng dự kiến và kích thước kiện hàng (dài × rộng × cao).",
+        "Bạn gửi với tư cách cá nhân hay doanh nghiệp."
+      ],
+      "locationsTitle": "Địa điểm của HARUTO EXPRESS",
+      "locations": {
+        "japanWarehouse": "Kho nhận hàng tại Tokyo cho chiều Nhật Bản → Việt Nam.",
+        "vietnamWarehouse": "Kho hàng của HARUTO tại Hà Nội.",
+        "vietnamOffice": "Văn phòng HARUTO tại TP. Hồ Chí Minh."
+      }
     }
   },
   "footer": {

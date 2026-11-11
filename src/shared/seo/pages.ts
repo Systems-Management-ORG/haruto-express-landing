@@ -53,8 +53,9 @@ export const PAGES: Record<PageKey, PageDef> = {
   faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, updatedAt: "2026-11-09", priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "contact"] },
   // Fulfillment (FFM) in Japan for businesses. Key and slug kept from the former "business" page.
   business: { key: "business", slugs: s("doanh-nghiep", "business"), indexable: true, updatedAt: "2026-11-10", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["japanWarehouse", "shipToVietnam", "shipToJapan"] },
-  // Thin / blocked until the business provides content; reachable in nav but noindex + off sitemap.
-  contact: { key: "contact", slugs: s("lien-he", "contact"), indexable: false, updatedAt: "2026-11-10", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "faq"] },
+  // Contact: real NAP (hotlines, chat channels, locations) from business.ts, so it is indexable.
+  contact: { key: "contact", slugs: s("lien-he", "contact"), indexable: true, updatedAt: "2026-11-11", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "faq"] },
+  // Scaffold until the guides are written (S06): reachable in nav but noindex + off sitemap.
   guides: { key: "guides", slugs: s("huong-dan", "guides"), indexable: false, updatedAt: "2026-11-10", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods"] },
 };
 

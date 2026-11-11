@@ -118,7 +118,7 @@
       "title": "Contact HARUTO EXPRESS",
       "intro": "Tell HARUTO your route and the type of goods you need to send to get advice and a quote.",
       "metaTitle": "Contact | HARUTO EXPRESS",
-      "metaDescription": "Contact HARUTO EXPRESS for advice on two-way Vietnam – Japan shipping and a quote for your parcel."
+      "metaDescription": "Contact HARUTO EXPRESS on Zalo, Facebook, the Vietnam and Japan hotlines or the request form for help with two-way shipping and a quote for your parcel."
     },
     "guides": {
       "nav": "Guides",
@@ -1031,6 +1031,35 @@
     "hotlines": {
       "japan": "Japan hotline",
       "vietnam": "Vietnam hotline"
+    },
+    "guide": {
+      "title": "How to reach HARUTO",
+      "intro": "HARUTO EXPRESS takes enquiries on Zalo, the Facebook page, hotlines in Vietnam and Japan, or the request form on this page. Pick whichever suits you and the HARUTO team will help with the route, the type of goods and the cost of your parcel.",
+      "items": {
+        "zalo": "Chat directly with a consultant. Send photos, product links or item details for quick advice on the route, goods type and cost.",
+        "facebook": "Message HARUTO on the Facebook page and follow updates on the two-way Vietnam – Japan shipping service.",
+        "hotline": "Call the Vietnam hotline when you are in Vietnam, or the Japan hotline when you are in Japan, to talk to the HARUTO team directly.",
+        "form": "Leave your name, phone number, route and a description of the goods. The HARUTO team will call you back on the number you left."
+      },
+      "itemTitles": {
+        "zalo": "Zalo",
+        "facebook": "Facebook page",
+        "hotline": "Vietnam & Japan hotlines",
+        "form": "Request form"
+      },
+      "prepareTitle": "What to have ready before you get in touch",
+      "prepare": [
+        "The route: Vietnam → Japan or Japan → Vietnam.",
+        "The type of goods and a description, with photos or product links if you have them.",
+        "The expected weight and the parcel size (length × width × height).",
+        "Whether you are sending as a person or a business."
+      ],
+      "locationsTitle": "HARUTO EXPRESS locations",
+      "locations": {
+        "japanWarehouse": "Our Tokyo warehouse, where parcels for the Japan → Vietnam route are received.",
+        "vietnamWarehouse": "HARUTO's warehouse in Hanoi.",
+        "vietnamOffice": "HARUTO's office in Ho Chi Minh City."
+      }
     }
   },
   "footer": {

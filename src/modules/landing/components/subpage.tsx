@@ -4,7 +4,7 @@ import { RelatedLinks } from "@/shared/components/related-links";
 import type { PageKey } from "@/shared/seo/pages";
 import { AuctionBody, AuctionHero } from "./auction";
 import { ConciergeBody, ConciergeHero } from "./concierge";
-import { Contact } from "./contact";
+import { Contact, ContactGuide } from "./contact";
 import { CustomsBody, CustomsHero } from "./customs-check";
 import { Faq } from "./faq";
 import { Fulfillment, FulfillmentHero } from "./fulfillment";
@@ -48,7 +48,12 @@ function body(key: PageKey): ReactNode {
     case "faq":
       return <Faq />;
     case "contact":
-      return <Contact withMap />;
+      return (
+        <>
+          <Contact withMap />
+          <ContactGuide />
+        </>
+      );
     case "guides":
       return null;
     default:
