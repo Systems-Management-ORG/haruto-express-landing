@@ -81,6 +81,8 @@ export function SubPage({ page }: { page: Exclude<PageKey, "home"> }) {
         <PageHero page={page} />
       )}
       {body(page)}
+      {/* The questions tagged for this page (renders nothing when none are). */}
+      {page !== "faq" && <Faq page={page} />}
       <RelatedLinks page={page} />
     </main>
   );

@@ -968,15 +968,31 @@
     "items": [
       {
         "question": "HARUTO nhận những loại hàng nào?",
-        "answer": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận."
+        "answer": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận.",
+        "pages": [
+          "goods",
+          "shipToJapan",
+          "shipToVietnam"
+        ]
       },
       {
         "question": "Giá cước được tính như thế nào?",
-        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Xem mục Bảng giá để biết chi tiết và phụ thu."
+        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Xem mục Bảng giá để biết chi tiết và phụ thu.",
+        "pages": [
+          "pricing",
+          "shipToJapan",
+          "shipToVietnam",
+          "policy"
+        ]
       },
       {
         "question": "Tôi có thể theo dõi vận đơn trực tuyến không?",
-        "answer": "Tính năng tra cứu trực tuyến đang được lên kế hoạch. Hiện hãy liên hệ nhân viên hỗ trợ để hỏi tình trạng kiện hàng."
+        "answer": "Tính năng tra cứu trực tuyến đang được lên kế hoạch. Hiện hãy liên hệ nhân viên hỗ trợ để hỏi tình trạng kiện hàng.",
+        "pages": [
+          "shipToJapan",
+          "shipToVietnam",
+          "contact"
+        ]
       }
     ]
   },

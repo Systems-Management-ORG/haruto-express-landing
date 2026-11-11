@@ -968,15 +968,31 @@
     "items": [
       {
         "question": "What goods does HARUTO accept?",
-        "answer": "The goods we can carry depend on each country's regulations. Our staff check the goods and documents before confirming acceptance."
+        "answer": "The goods we can carry depend on each country's regulations. Our staff check the goods and documents before confirming acceptance.",
+        "pages": [
+          "goods",
+          "shipToJapan",
+          "shipToVietnam"
+        ]
       },
       {
         "question": "How are shipping rates calculated?",
-        "answer": "Rates use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. See the Pricing section for the full tables and surcharges."
+        "answer": "Rates use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. See the Pricing section for the full tables and surcharges.",
+        "pages": [
+          "pricing",
+          "shipToJapan",
+          "shipToVietnam",
+          "policy"
+        ]
       },
       {
         "question": "Can I track my shipment online?",
-        "answer": "Online tracking is being planned. For now, please contact our support staff to ask about your parcel's status."
+        "answer": "Online tracking is being planned. For now, please contact our support staff to ask about your parcel's status.",
+        "pages": [
+          "shipToJapan",
+          "shipToVietnam",
+          "contact"
+        ]
       }
     ]
   },
