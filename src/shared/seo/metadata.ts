@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/shared/constants/locales";
+import { OG_SIZE, ogImagePath } from "./page-media";
 import { type PageKey, hreflangLocales, hreflangMap, isIndexable, pagePath } from "./pages";
 
 const OG_LOCALES: Record<Locale, string> = { vi: "vi_VN", ja: "ja_JP", en: "en_US" };
@@ -19,7 +20,11 @@ export async function buildPageMetadata(locale: Locale, key: PageKey): Promise<M
   const languages = indexable ? hreflangMap(key) : undefined;
   const ogLocales = indexable ? hreflangLocales(key) : routing.locales;
 
-  const shareImage = [{ url: "/og/haruto-og.png", width: 1200, height: 630, alt: footer("logoAlt") }];
+  // Each page shares its own 1200×630 art (public/og, built by `npm run og:build`); home keeps
+  // the brand card.
+  const shareImage = [
+    { url: ogImagePath(key), ...OG_SIZE, alt: key === "home" ? footer("logoAlt") : title },
+  ];
 
   return {
     title,

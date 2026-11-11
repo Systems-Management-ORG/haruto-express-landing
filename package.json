@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "seo:check": "node scripts/seo-check.mjs",
-    "pricing:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-pricing-data.mjs"
+    "pricing:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-pricing-data.mjs",
+    "og:build": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-og-images.mjs"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",
