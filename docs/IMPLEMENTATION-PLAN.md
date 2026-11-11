@@ -44,7 +44,7 @@ npm run seo:check         # SEO_CHECK_SKIP_BUILD=1 để chạy nhanh khi đã b
 | ID | Câu hỏi | Chặn task |
 |---|---|---|
 | B1 | Bản dịch JA/EN đã được người biết tiếng review chưa? Nếu chưa → tạm noindex JA/EN | S08-T1 — ✅ đã review (2026-11-11) |
-| B2 | **Bảng giá hàng sạch thiếu mốc 21–49 kg** (đang nhảy từ 10–20 kg sang 50–100 kg). Giá đúng là bao nhiêu? Hàng hỗn hợp chỉ tới 30 kg — trên 30 kg tính thế nào? | S10 |
+| B2 | ~~Bảng giá hàng sạch thiếu mốc 21–49 kg~~ ✅ 21–50 kg = 95.000 VNĐ/kg (2026-11-11). Còn lại: hàng hỗn hợp chỉ tới 30 kg — trên 30 kg tính thế nào? | S10 |
 | B3 | Tên pháp lý + mã số thuế | S08-T4, S11 |
 | B4 | VP 340/16 Quang Trung (HCM) và kho 60 Trương Công Giai (HN) có đón khách không? Giờ làm việc? | S08-T4 — ✅ HN + HCM đón khách, T2–T7 9:00–17:00 |
 | B5 | Thời gian vận chuyển dự kiến mỗi chiều | S10, S11 |

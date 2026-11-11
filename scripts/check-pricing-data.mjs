@@ -10,7 +10,7 @@ import { JP_VN, VN_JP_CLEAN, VN_JP_MIXED, lowestRate } from "../src/modules/land
 const LOCALES = ["vi", "ja", "en"];
 const errors = [];
 
-// "130.000 ₫/kg", "130,000 VND/kg" → 130000; "Thương lượng" / "応相談" → null.
+// "130.000 VNĐ/kg", "130,000 VND/kg" → 130000; "Thương lượng" / "応相談" → null.
 const amount = (text) => {
   const digits = String(text ?? "").replace(/[^\d]/g, "");
   return digits ? Number(digits) : null;

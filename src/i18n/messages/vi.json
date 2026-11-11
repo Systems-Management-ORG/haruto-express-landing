@@ -19,17 +19,17 @@
       "nav": "Ship Nhật về Việt Nam",
       "breadcrumb": "Ship hàng Nhật về Việt Nam",
       "title": "Mua hàng Nhật – ship về Việt Nam cùng HARUTO EXPRESS",
-      "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và ship về Việt Nam bằng đường hàng không: cước từ 155.000đ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
-      "metaTitle": "Ship hàng Nhật về Việt Nam từ 155.000đ/kg | HARUTO",
-      "metaDescription": "Mua hộ, đấu giá Yahoo Auction và ship hàng Nhật về Việt Nam bằng đường hàng không: cước từ 155.000đ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật."
+      "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và ship về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
+      "metaTitle": "Ship hàng Nhật về Việt Nam từ 155.000 VNĐ/kg | HARUTO",
+      "metaDescription": "Mua hộ, đấu giá Yahoo Auction và ship hàng Nhật về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật."
     },
     "pricing": {
       "nav": "Bảng giá",
       "breadcrumb": "Bảng giá",
       "title": "Bảng giá vận chuyển Việt Nam – Nhật Bản",
-      "intro": "Bảng giá hai chiều: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Kèm biểu phụ thu và cách tính cân.",
+      "intro": "Bảng giá hai chiều: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg. Kèm biểu phụ thu và cách tính cân.",
       "metaTitle": "Bảng giá gửi hàng Việt – Nhật | HARUTO",
-      "metaDescription": "Bảng giá vận chuyển hai chiều Việt Nam – Nhật Bản: hàng sạch và hỗn hợp theo mốc cân, chiều Nhật về 155.000 ₫/kg, kèm phụ thu và cách tính cân."
+      "metaDescription": "Bảng giá vận chuyển hai chiều Việt Nam – Nhật Bản: hàng sạch và hỗn hợp theo mốc cân, chiều Nhật về 155.000 VNĐ/kg, kèm phụ thu và cách tính cân."
     },
     "goods": {
       "nav": "Hàng nhận & cấm",
@@ -415,7 +415,7 @@
     },
     "stats": {
       "priceLabel": "Cước vận chuyển chỉ từ",
-      "price": "155.000đ/kg",
+      "price": "155.000 VNĐ/kg",
       "rateLabel": "Tỷ giá thanh toán",
       "rate": "VCB + 5"
     },
@@ -660,12 +660,12 @@
       "intro": "Cước tính theo trọng lượng và loại hàng; đã bao gồm thuế và giao nội địa Nhật. Xem đầy đủ các mốc cân và phụ thu ở trang bảng giá.",
       "vnJp": {
         "label": "Việt Nam → Nhật Bản",
-        "price": "Từ 85.000 ₫/kg",
+        "price": "Từ 85.000 VNĐ/kg",
         "caption": "Hàng sạch và hàng hỗn hợp, tính theo mốc cân."
       },
       "jpVn": {
         "label": "Nhật Bản → Việt Nam",
-        "price": "155.000 ₫/kg",
+        "price": "155.000 VNĐ/kg",
         "caption": "Mọi trọng lượng · tỷ giá mua hộ VCB + 5."
       },
       "cta": "Xem bảng giá đầy đủ",
@@ -696,28 +696,32 @@
         "rows": [
           {
             "weight": "1 – 5 kg",
-            "price": "130.000 ₫/kg",
-            "note": "Phụ thu 200.000 ₫/kiện"
+            "price": "130.000 VNĐ/kg",
+            "note": "Phụ thu 200.000 VNĐ/kiện"
           },
           {
             "weight": "6 – 9 kg",
-            "price": "125.000 ₫/kg"
+            "price": "125.000 VNĐ/kg"
           },
           {
             "weight": "10 – 20 kg",
-            "price": "105.000 ₫/kg"
+            "price": "105.000 VNĐ/kg"
+          },
+          {
+            "weight": "21 – 50 kg",
+            "price": "95.000 VNĐ/kg"
           },
           {
             "weight": "50 – 100 kg",
-            "price": "89.000 ₫/kg"
+            "price": "89.000 VNĐ/kg"
           },
           {
             "weight": "100 – 200 kg",
-            "price": "88.000 ₫/kg"
+            "price": "88.000 VNĐ/kg"
           },
           {
             "weight": "200 – 500 kg",
-            "price": "85.000 ₫/kg"
+            "price": "85.000 VNĐ/kg"
           },
           {
             "weight": "Trên 500 kg",
@@ -737,51 +741,51 @@
         "rows": [
           {
             "weight": "1 kg",
-            "price": "390.000 ₫/kg"
+            "price": "390.000 VNĐ/kg"
           },
           {
             "weight": "2 kg",
-            "price": "260.000 ₫/kg"
+            "price": "260.000 VNĐ/kg"
           },
           {
             "weight": "3 kg",
-            "price": "215.000 ₫/kg"
+            "price": "215.000 VNĐ/kg"
           },
           {
             "weight": "4 kg",
-            "price": "185.000 ₫/kg"
+            "price": "185.000 VNĐ/kg"
           },
           {
             "weight": "5 kg",
-            "price": "170.000 ₫/kg"
+            "price": "170.000 VNĐ/kg"
           },
           {
             "weight": "6 kg",
-            "price": "150.000 ₫/kg"
+            "price": "150.000 VNĐ/kg"
           },
           {
             "weight": "7 – 9 kg",
-            "price": "140.000 ₫/kg"
+            "price": "140.000 VNĐ/kg"
           },
           {
             "weight": "10 kg",
-            "price": "135.000 ₫/kg"
+            "price": "135.000 VNĐ/kg"
           },
           {
             "weight": "11 – 14 kg",
-            "price": "125.000 ₫/kg"
+            "price": "125.000 VNĐ/kg"
           },
           {
             "weight": "15 – 20 kg",
-            "price": "120.000 ₫/kg"
+            "price": "120.000 VNĐ/kg"
           },
           {
             "weight": "21 – 25 kg",
-            "price": "108.000 ₫/kg"
+            "price": "108.000 VNĐ/kg"
           },
           {
             "weight": "26 – 30 kg",
-            "price": "105.000 ₫/kg"
+            "price": "105.000 VNĐ/kg"
           }
         ],
         "note": "Giá đã gồm ship nội địa Nhật."
@@ -805,7 +809,7 @@
     },
     "freight": {
       "weight": "Cước hàng không, với mọi trọng lượng",
-      "price": "155.000 ₫/kg",
+      "price": "155.000 VNĐ/kg",
       "buyRate": "Tỷ giá mua hộ: VCB + 5, không phụ thu.",
       "domestic": "Cước nội địa Việt Nam do khách tự chi trả và tự chọn đơn vị vận chuyển (có thể nhờ nhân viên kho hỗ trợ book đơn).",
       "vat": "Giá dịch vụ chưa bao gồm VAT."
@@ -819,27 +823,27 @@
       "rows": [
         {
           "item": "Thiết bị điện tử, đồ có pin (Starlink, laptop cũ, điện thoại cũ, máy ảnh…)",
-          "fee": "150.000 ₫/sản phẩm"
+          "fee": "150.000 VNĐ/sản phẩm"
         },
         {
           "item": "Nước hoa, đồ có cồn…",
-          "fee": "350.000 ₫/sản phẩm"
+          "fee": "350.000 VNĐ/sản phẩm"
         },
         {
           "item": "Đóng lại kiện carton",
-          "fee": "25.500 ₫/kg"
+          "fee": "25.500 VNĐ/kg"
         },
         {
           "item": "Đóng gỗ",
-          "fee": "34.000 ₫/kg"
+          "fee": "34.000 VNĐ/kg"
         },
         {
           "item": "Đóng lại thùng xốp (74×46×39cm: 3.563 yên/thùng; 46×33×34cm: 2.187 yên/thùng)",
-          "fee": "50.000 ₫/thùng (giao nội địa)"
+          "fee": "50.000 VNĐ/thùng (giao nội địa)"
         },
         {
           "item": "Đóng hàng đặc biệt",
-          "fee": "85.000 ₫/kg"
+          "fee": "85.000 VNĐ/kg"
         },
         {
           "item": "Khác",
@@ -885,9 +889,9 @@
       },
       "uninsured": {
         "title": "Không mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 ₫/đơn hàng.",
+        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 VNĐ/đơn hàng.",
         "stat": "100%",
-        "statLabel": "cước vận chuyển, tối đa 3.000.000 ₫/đơn"
+        "statLabel": "cước vận chuyển, tối đa 3.000.000 VNĐ/đơn"
       }
     },
     "concierge": {
@@ -978,7 +982,7 @@
       },
       {
         "question": "Giá cước được tính như thế nào?",
-        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 ₫/kg. Xem mục Bảng giá để biết chi tiết và phụ thu.",
+        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg. Xem mục Bảng giá để biết chi tiết và phụ thu.",
         "pages": [
           "pricing",
           "shipToJapan",

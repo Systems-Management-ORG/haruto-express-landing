@@ -14,11 +14,12 @@ export type Tier = {
 };
 
 // Vietnam → Japan, clean goods (fashion, household goods, furniture, machinery…).
-// TODO(B2): the published table has no tier for 21–49 kg; nothing is assumed for it here.
+// 21–50 kg tier confirmed by the business (B2, 2026-11-11).
 export const VN_JP_CLEAN: Tier[] = [
   { minKg: 1, maxKg: 5, vndPerKg: 130_000, perParcelFee: 200_000 },
   { minKg: 6, maxKg: 9, vndPerKg: 125_000 },
   { minKg: 10, maxKg: 20, vndPerKg: 105_000 },
+  { minKg: 21, maxKg: 50, vndPerKg: 95_000 },
   { minKg: 50, maxKg: 100, vndPerKg: 89_000 },
   { minKg: 100, maxKg: 200, vndPerKg: 88_000 },
   { minKg: 200, maxKg: 500, vndPerKg: 85_000 },

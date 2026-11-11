@@ -43,7 +43,7 @@ const TONE_ICON = {
 // Icon per surcharge row, by position in `pricing.surcharge.rows`.
 const SURCHARGE_ICONS = [BatteryCharging, Drop, Package, Tree, Snowflake, Star, ChatCircleDots];
 
-// "130.000 ₫/kg" / "130,000 VND/kg" → 130000; text-only prices ("Thương lượng") → null.
+// "130.000 VNĐ/kg" / "130,000 VND/kg" → 130000; text-only prices ("Thương lượng") → null.
 function amount(price: string): number | null {
   const digits = price.replace(/[^\d]/g, "");
   return digits ? Number(digits) : null;

@@ -660,12 +660,12 @@
       "intro": "Rates depend on weight and goods type, and include tax and Japan domestic delivery. See the full weight bands and surcharges on the pricing page.",
       "vnJp": {
         "label": "Vietnam → Japan",
-        "price": "From 85,000 ₫/kg",
+        "price": "From 85,000 VND/kg",
         "caption": "Clean and mixed goods, priced by weight band."
       },
       "jpVn": {
         "label": "Japan → Vietnam",
-        "price": "155,000 ₫/kg",
+        "price": "155,000 VND/kg",
         "caption": "Any weight · buy-for-you rate VCB + 5."
       },
       "cta": "See full pricing",
@@ -697,7 +697,7 @@
           {
             "weight": "1 – 5 kg",
             "price": "130,000 VND/kg",
-            "note": "Surcharge 200,000 ₫/parcel"
+            "note": "Surcharge 200,000 VND/parcel"
           },
           {
             "weight": "6 – 9 kg",
@@ -706,6 +706,10 @@
           {
             "weight": "10 – 20 kg",
             "price": "105,000 VND/kg"
+          },
+          {
+            "weight": "21 – 50 kg",
+            "price": "95,000 VND/kg"
           },
           {
             "weight": "50 – 100 kg",
