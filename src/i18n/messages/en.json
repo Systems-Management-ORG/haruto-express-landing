@@ -153,7 +153,9 @@
       "intro": "Two-way air freight between Vietnam and Japan for individuals and businesses, a buying service in Japan, and fulfillment in Japan.",
       "more": "View details",
       "ctaContact": "Request advice",
-      "ctaPricing": "See pricing"
+      "ctaPricing": "See pricing",
+      "pause": "Pause the services row",
+      "play": "Play the services row"
     },
     "goods": {
       "intro": "The goods HARUTO carries. Our staff check the goods type and documents before accepting a shipment.",
