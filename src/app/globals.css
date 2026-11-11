@@ -924,7 +924,7 @@
 
   @media (prefers-reduced-motion: no-preference) {
     .marquee__track {
-      animation: marquee 48s linear infinite;
+      animation: marquee 32s linear infinite;
     }
 
     @keyframes marquee {
