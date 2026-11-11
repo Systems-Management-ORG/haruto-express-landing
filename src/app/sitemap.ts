@@ -1,21 +1,17 @@
 import type { MetadataRoute } from "next";
-import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/shared/seo/business";
-import { PAGE_KEYS, PAGES, pagePath } from "@/shared/seo/pages";
+import { PAGE_KEYS, PAGES, hreflangLocales, hreflangMap, pagePath } from "@/shared/seo/pages";
 
-// Built from the page registry: one entry per indexable page per locale, each advertising all
-// locales via alternates so the hreflang cluster stays symmetric. x-default points at Vietnamese.
+// Built from the page registry: one entry per page per indexable locale. Each entry advertises
+// the same indexable locales via alternates, so the hreflang cluster stays symmetric.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const indexable = PAGE_KEYS.filter((key) => PAGES[key].indexable);
+  const absolute = (path: string) => `${SITE_URL}${path}`;
 
-  return indexable.flatMap((key) => {
+  return PAGE_KEYS.flatMap((key) => {
     const def = PAGES[key];
-    const languages: Record<string, string> = {
-      ...Object.fromEntries(routing.locales.map((locale) => [locale, `${SITE_URL}${pagePath(locale, key)}`])),
-      "x-default": `${SITE_URL}${pagePath(routing.defaultLocale, key)}`,
-    };
-    return routing.locales.map((locale) => ({
-      url: `${SITE_URL}${pagePath(locale, key)}`,
+    const languages = hreflangMap(key, absolute);
+    return hreflangLocales(key).map((locale) => ({
+      url: absolute(pagePath(locale, key)),
       lastModified: new Date(),
       changeFrequency: def.changeFrequency,
       priority: def.priority,

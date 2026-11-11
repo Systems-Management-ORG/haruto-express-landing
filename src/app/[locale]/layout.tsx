@@ -8,18 +8,13 @@ import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/g
 import { routing } from "@/i18n/routing";
 import { ContactFab } from "@/shared/components/contact-links";
 import { SITE_URL } from "@/shared/seo/business";
+import { hreflangMap, isIndexable } from "@/shared/seo/pages";
 import { JsonLd, organization, website } from "@/shared/seo/json-ld";
 import type { Locale } from "@/shared/constants/locales";
 import { fontClassName } from "@/shared/lib/fonts";
 import "../globals.css";
 
 const OG_LOCALES: Record<Locale, string> = { vi: "vi_VN", ja: "ja_JP", en: "en_US" };
-
-// hreflang map: every existing locale plus x-default pointing at Vietnamese.
-const languageAlternates: Record<string, string> = {
-  ...Object.fromEntries(routing.locales.map((item) => [item, `/${item}`])),
-  "x-default": "/vi",
-};
 
 type LocaleParams = { params: Promise<{ locale: string }> };
 
@@ -46,9 +41,9 @@ export async function generateMetadata({ params }: LocaleParams): Promise<Metada
     metadataBase: new URL(SITE_URL),
     alternates: {
       canonical: `/${locale}`,
-      languages: languageAlternates,
+      languages: isIndexable("home", locale) ? hreflangMap("home") : undefined,
     },
-    robots: process.env.ALLOW_INDEXING === "true" ? undefined : { index: false, follow: true },
+    robots: isIndexable("home", locale) && process.env.ALLOW_INDEXING === "true" ? undefined : { index: false, follow: true },
     openGraph: {
       type: "website",
       siteName: "HARUTO EXPRESS",

@@ -26,6 +26,8 @@ export type PageDef = {
   key: PageKey;
   slugs: Record<Locale, string>; // "" for home
   indexable: boolean;
+  // Locales this page may be indexed in. Defaults to REVIEWED_LOCALES when `indexable` is true.
+  indexableLocales?: readonly Locale[];
   priority: number;
   changeFrequency: "daily" | "weekly" | "monthly";
   parent?: PageKey; // for breadcrumbs; home is the implicit root
@@ -52,6 +54,34 @@ export const PAGES: Record<PageKey, PageDef> = {
   contact: { key: "contact", slugs: s("lien-he", "contact"), indexable: false, priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "faq"] },
   guides: { key: "guides", slugs: s("huong-dan", "guides"), indexable: false, priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods"] },
 };
+
+// Locales whose copy a fluent reader has reviewed. Unreviewed locales still render, but as
+// noindex, off the sitemap and out of the hreflang cluster.
+// TODO(B1): confirm the JA/EN review. Until then all three stay indexable (the current
+// behaviour); set this to ["vi"] to noindex JA/EN.
+export const REVIEWED_LOCALES: readonly Locale[] = ["vi", "ja", "en"];
+
+export function isIndexable(key: PageKey, locale: Locale): boolean {
+  const def = PAGES[key];
+  return def.indexable && (def.indexableLocales ?? REVIEWED_LOCALES).includes(locale);
+}
+
+// A page's hreflang cluster: only its indexable locales, so every member links the same set.
+export function hreflangLocales(key: PageKey): Locale[] {
+  return routing.locales.filter((locale) => isIndexable(key, locale));
+}
+
+// hreflang map for a page, x-default on Vietnamese when it is in the cluster. Empty when the
+// page is indexable nowhere.
+export function hreflangMap(key: PageKey, toUrl: (path: string) => string = (path) => path): Record<string, string> {
+  const locales = hreflangLocales(key);
+  if (locales.length === 0) return {};
+  const fallback = locales.includes(routing.defaultLocale) ? routing.defaultLocale : locales[0];
+  return {
+    ...Object.fromEntries(locales.map((locale) => [locale, toUrl(pagePath(locale, key))])),
+    "x-default": toUrl(pagePath(fallback, key)),
+  };
+}
 
 export const PAGE_KEYS = Object.keys(PAGES) as PageKey[];
 export const SUBPAGE_KEYS = PAGE_KEYS.filter((k) => k !== "home");
