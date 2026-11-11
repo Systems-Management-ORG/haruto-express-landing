@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const languages = hreflangMap(key, absolute);
     return hreflangLocales(key).map((locale) => ({
       url: absolute(pagePath(locale, key)),
-      lastModified: new Date(),
+      lastModified: new Date(def.updatedAt),
       changeFrequency: def.changeFrequency,
       priority: def.priority,
       alternates: { languages },
