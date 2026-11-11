@@ -23,7 +23,7 @@ const GUIDE_ICONS: Record<GuideKey, ReactNode> = {
 };
 
 // Contact page only: what each channel is for, what to have ready, and every HARUTO location
-// (addresses from business.ts; no opening hours until the business confirms them).
+// (addresses from business.ts; opening hours on the walk-in locations, `publicVisit`).
 export function ContactGuide() {
   const t = useTranslations("contact.guide");
   const tFooter = useTranslations("footer");
@@ -67,6 +67,7 @@ export function ContactGuide() {
                   <span>
                     <span className="block font-medium text-ink">{tFooter(`locations.${location.id}`)}</span>
                     <span className="block text-sm text-muted">{t(`locations.${location.id}`)}</span>
+                    {location.publicVisit && <span className="block text-sm font-medium text-forest">{t("hours")}</span>}
                     <a
                       href={mapsUrl(location.query)}
                       target="_blank"

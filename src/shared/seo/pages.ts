@@ -61,8 +61,8 @@ export const PAGES: Record<PageKey, PageDef> = {
 
 // Locales whose copy a fluent reader has reviewed. Unreviewed locales still render, but as
 // noindex, off the sitemap and out of the hreflang cluster.
-// TODO(B1): confirm the JA/EN review. Until then all three stay indexable (the current
-// behaviour); set this to ["vi"] to noindex JA/EN.
+// JA/EN reviewed by a fluent reader (B1, confirmed 2026-11-11), so all three are indexable.
+// Drop a locale here to noindex it and take it out of the sitemap and hreflang cluster.
 export const REVIEWED_LOCALES: readonly Locale[] = ["vi", "ja", "en"];
 
 export function isIndexable(key: PageKey, locale: Locale): boolean {

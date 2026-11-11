@@ -1075,7 +1075,8 @@
         "japanWarehouse": "日本 → ベトナム便の荷物を受け付ける東京の倉庫です。",
         "vietnamWarehouse": "ハノイにあるHARUTOの倉庫です。",
         "vietnamOffice": "ホーチミン市にあるHARUTOのオフィスです。"
-      }
+      },
+      "hours": "営業時間 9:00〜17:00、月曜〜土曜（日曜定休）"
     }
   },
   "footer": {

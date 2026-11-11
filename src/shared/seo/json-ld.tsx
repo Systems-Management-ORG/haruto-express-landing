@@ -36,13 +36,13 @@ function postalAddress(location: Location) {
 }
 
 // A walk-in location, linked to the Organization. Only built for `publicVisit: true` locations
-// (none until B4 is answered), so a drop-off address is never presented as a shop.
+// (the Hanoi warehouse and HCM office, B4), so a drop-off address is never presented as a shop.
 export function localBusiness(location: Location) {
   return prune({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${SITE_URL}/#location-${location.id}`,
-    name: `${BUSINESS.name} ${location.addressLocality}`,
+    name: `${BUSINESS.name} ${location.addressRegion}`,
     url: SITE_URL,
     image: `${SITE_URL}${BUSINESS.logoPath}`,
     telephone: HOTLINES.find((line) => line.country === location.addressCountry)?.tel,

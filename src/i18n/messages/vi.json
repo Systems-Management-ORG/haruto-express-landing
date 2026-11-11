@@ -1075,7 +1075,8 @@
         "japanWarehouse": "Kho nhận hàng tại Tokyo cho chiều Nhật Bản → Việt Nam.",
         "vietnamWarehouse": "Kho hàng của HARUTO tại Hà Nội.",
         "vietnamOffice": "Văn phòng HARUTO tại TP. Hồ Chí Minh."
-      }
+      },
+      "hours": "Đón khách 9:00 – 17:00, Thứ Hai – Thứ Bảy (nghỉ Chủ nhật)"
     }
   },
   "footer": {

@@ -41,8 +41,9 @@ export type LocationId = "japanWarehouse" | "vietnamWarehouse" | "vietnamOffice"
 // The structured fields feed PostalAddress in JSON-LD; an empty string is dropped, never guessed
 // (Vietnamese postal codes are not confirmed, so they stay empty).
 // `publicVisit`: true only when customers can walk in. It gates the LocalBusiness node.
-// TODO(B4): confirm whether the HCM office and the Hanoi warehouse receive customers, and
-// their opening hours (schema.org form, e.g. "Mo-Sa 08:00-17:30").
+// Opening hours confirmed (B4, 2026-11-11): Hanoi warehouse and HCM office receive customers
+// Monday–Saturday, 09:00–17:00 (closed Sunday). schema.org form: "Mo-Sa 09:00-17:00".
+export const OPENING_HOURS = ["Mo-Sa 09:00-17:00"];
 export type Location = {
   id: LocationId;
   address: string;
@@ -80,7 +81,8 @@ export const LOCATIONS: Location[] = [
     addressRegion: "Hà Nội",
     postalCode: "",
     addressCountry: "VN",
-    publicVisit: false, // TODO(B4)
+    publicVisit: true,
+    openingHours: OPENING_HOURS,
   },
   {
     id: "vietnamOffice",
@@ -91,7 +93,8 @@ export const LOCATIONS: Location[] = [
     postalCode: "",
     addressCountry: "VN",
     geo: { latitude: 10.83257079820806, longitude: 106.6688930732914 },
-    publicVisit: false, // TODO(B4)
+    publicVisit: true,
+    openingHours: OPENING_HOURS,
     // Exact coordinates from the office embed, so "Open in Google Maps" lands precisely.
     query: "10.83257079820806,106.6688930732914",
     embedSrc:

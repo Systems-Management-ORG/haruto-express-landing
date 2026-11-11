@@ -1075,7 +1075,8 @@
         "japanWarehouse": "Our Tokyo warehouse, where parcels for the Japan → Vietnam route are received.",
         "vietnamWarehouse": "HARUTO's warehouse in Hanoi.",
         "vietnamOffice": "HARUTO's office in Ho Chi Minh City."
-      }
+      },
+      "hours": "Open to visitors 9:00 – 17:00, Monday – Saturday (closed Sunday)"
     }
   },
   "footer": {
