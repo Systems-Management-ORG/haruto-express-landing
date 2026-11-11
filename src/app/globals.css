@@ -840,9 +840,6 @@
     overflow: hidden;
     border-radius: var(--radius-card);
     background-color: var(--color-sage);
-    transition:
-      translate 200ms var(--ease-ui),
-      box-shadow 200ms var(--ease-ui);
   }
 
   .service-card__media {
@@ -864,102 +861,6 @@
     padding: 1.125rem 1.25rem 0.5rem;
     box-shadow: 0 10px 28px rgb(16 44 33 / 0.1);
     text-align: center;
-  }
-
-  /*
-    Auto-scrolling service row (service-cards.tsx). The track holds three identical sets; it
-    slides by one set (-33.333%) and restarts, so the seam never shows. Items carry their gap as
-    padding so every set is exactly a third of the track. Hover, keyboard focus or the pause
-    button stop it; under reduced motion it is a still, centred, wrapping row of the first set.
-  */
-  .marquee__viewport {
-    overflow: hidden;
-    padding-block: 0.5rem 0.75rem;
-    mask-image: linear-gradient(90deg, transparent, #000 3rem, #000 calc(100% - 3rem), transparent);
-  }
-
-  .marquee__track {
-    display: flex;
-    width: max-content;
-  }
-
-  .marquee__item {
-    flex: none;
-    width: calc(clamp(16.5rem, 78vw, 20rem) + 1.5rem);
-    padding-inline-end: 1.5rem;
-  }
-
-  /* Centred on phones, clear of the floating contact buttons on the right. */
-  .marquee__controls {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.75rem;
-
-    @media (min-width: 40rem) {
-      justify-content: flex-end;
-    }
-  }
-
-  .marquee__toggle {
-    display: grid;
-    width: 2.75rem;
-    height: 2.75rem;
-    place-items: center;
-    border: 1px solid rgb(16 44 33 / 0.18);
-    border-radius: 999px;
-    background-color: #fff;
-    color: var(--color-forest);
-    transition:
-      background-color 140ms var(--ease-ui),
-      transform 90ms var(--ease-ui);
-  }
-
-  .marquee__toggle:hover {
-    background-color: var(--color-sage);
-  }
-
-  .marquee__toggle:active {
-    transform: scale(0.94);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .marquee__track {
-      animation: marquee 32s linear infinite;
-    }
-
-    @keyframes marquee {
-      to {
-        transform: translateX(-33.3333%);
-      }
-    }
-
-    .marquee:hover .marquee__track,
-    .marquee:focus-within .marquee__track,
-    .marquee[data-paused] .marquee__track {
-      animation-play-state: paused;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee__viewport {
-      mask-image: none;
-    }
-
-    .marquee__track {
-      width: auto;
-      flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 1.5rem;
-    }
-
-    .marquee__item {
-      padding-inline: 0.75rem;
-    }
-
-    .marquee__item[data-copy],
-    .marquee__controls {
-      display: none;
-    }
   }
 
   /* Solid brand tiles for the accepted-goods categories. */
@@ -2661,11 +2562,6 @@
     .service-card:hover .service-card__media img,
     .guide-card:hover .guide-card__media img {
       transform: scale(1.05);
-    }
-
-    .service-card:hover {
-      translate: 0 -2px;
-      box-shadow: 0 10px 28px rgb(16 44 33 / 0.12);
     }
 
     .guide-card:hover {
