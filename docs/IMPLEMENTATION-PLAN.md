@@ -58,7 +58,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ## S08 — Sửa data layer SEO
 
-### [ ] S08-T1 · Indexable theo từng locale
+### [x] S08-T1 · Indexable theo từng locale
 - **File**: `src/shared/seo/pages.ts`, `src/shared/seo/metadata.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`
 - **Việc**:
   - Thêm vào `PageDef`: `indexableLocales?: Locale[]` (mặc định = tất cả locale khi `indexable: true`).
@@ -68,12 +68,12 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
   - Hằng `REVIEWED_LOCALES` (tạm `["vi"]` nếu B1 = chưa review) dùng làm mặc định.
 - **DoD**: với `REVIEWED_LOCALES=["vi"]`: sitemap còn 11 URL, `/ja/*` có `noindex, follow`, hreflang của `/vi/*` không trỏ sang JA/EN. Đổi lại `["vi","ja","en"]` → 33 URL như hiện tại.
 
-### [ ] S08-T2 · `lastModified` thật trong sitemap
+### [x] S08-T2 · `lastModified` thật trong sitemap
 - **File**: `pages.ts`, `sitemap.ts`
 - **Việc**: thêm `updatedAt: "YYYY-MM-DD"` cho mỗi `PageDef` (lấy ngày commit gần nhất chạm nội dung trang đó: `git log -1 --format=%cs -- <file>`). Sitemap dùng `new Date(def.updatedAt)`. Ghi chú trong `pages.ts`: "đổi nội dung → cập nhật updatedAt".
 - **DoD**: `/sitemap.xml` có lastmod khác nhau giữa các trang, không còn đổi theo mỗi lần build.
 
-### [ ] S08-T3 · Home dùng chung `buildPageMetadata`
+### [x] S08-T3 · Home dùng chung `buildPageMetadata`
 - **File**: `src/app/[locale]/page.tsx`, `src/app/[locale]/layout.tsx`, `src/i18n/messages/*.json`
 - **Việc**:
   - Chuyển `meta.title` / `meta.description` sang `pages.home.metaTitle` / `pages.home.metaDescription` (3 locale), xóa namespace `meta` nếu không còn ai dùng.
@@ -81,7 +81,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
   - `layout.tsx` chỉ giữ `metadataBase`, `viewport`, icons; bỏ `languageAlternates` hard-code, bỏ canonical/robots/OG ở layout.
 - **DoD**: view-source `/vi`, `/vi/bang-gia` cho canonical + hreflang + robots sinh từ cùng một hàm; `seo:check` sạch.
 
-### [ ] S08-T4 · Organization đầy đủ + LocalBusiness có điều kiện
+### [x] S08-T4 · Organization đầy đủ + LocalBusiness có điều kiện
 - **File**: `src/shared/seo/business.ts`, `src/shared/seo/json-ld.tsx`
 - **Việc**:
   - `LOCATIONS[]` thêm trường có cấu trúc: `streetAddress`, `addressLocality`, `addressRegion`, `postalCode`, `addressCountry` (`"VN"`/`"JP"`), `geo?`, `publicVisit: boolean` (mặc định `false` — chờ B4), `openingHours?: string[]`.
@@ -89,12 +89,12 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
   - Hàm mới `localBusiness(location)` → chỉ render cho location có `publicVisit: true`, `@type: ["LocalBusiness","MovingCompany"]` hoặc `"LocalBusiness"`, `parentOrganization: { "@id": ORG_ID }`.
 - **DoD**: Rich Results Test / validator.schema.org không lỗi; khi `publicVisit` đều `false` thì không có node LocalBusiness.
 
-### [ ] S08-T5 · Mở index trang Liên hệ + `ContactPage`
+### [x] S08-T5 · Mở index trang Liên hệ + `ContactPage`
 - **File**: `pages.ts`, `src/app/[locale]/[...rest]/page.tsx`, `src/shared/seo/schema.ts`
 - **Việc**: `contact.indexable = true`; thêm `contactPage()` trong `schema.ts` (`@type: ContactPage`, `mainEntity: { "@id": ORG_ID }`); render khi `key === "contact"`. Kiểm tra trang có ≥300 từ (thêm đoạn giới thiệu kênh liên hệ / giờ làm nếu thiếu).
 - **DoD**: `/vi/lien-he` vào sitemap, có JSON-LD ContactPage + BreadcrumbList.
 
-### [ ] S08-T6 · Service có `offers` từ dữ liệu thật
+### [x] S08-T6 · Service có `offers` từ dữ liệu thật
 - **File**: `src/shared/seo/schema.ts`, `[...rest]/page.tsx`, `src/i18n/messages/*.json`
 - **Việc**:
   - Tách số liệu giá khỏi chuỗi hiển thị: thêm `src/modules/landing/pricing-data.ts` (dùng chung với S10) xuất `VN_JP_CLEAN`, `VN_JP_MIXED`, `JP_VN` dạng `{ minKg, maxKg, vndPerKg | null }`. Chuỗi trong messages giữ nguyên để hiển thị; thêm test nhỏ (script) so khớp số trong chuỗi với `pricing-data.ts`.
@@ -102,7 +102,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
   - `serviceType` dùng giá trị cố định tiếng Anh theo key (vd `"Air freight Vietnam to Japan"`) thay vì lấy title.
 - **DoD**: validator không lỗi; không có con số nào không xuất hiện trong bảng giá hiển thị.
 
-### [ ] S08-T7 · FAQ mở rộng + FAQ theo trang
+### [ ] S08-T7 · FAQ mở rộng + FAQ theo trang — hạ tầng xong (`pages` + `Faq page`), chờ B6 để đủ ≥10 câu
 - **File**: `src/i18n/messages/*.json` (`faq.items`), `src/modules/landing/components/faq.tsx`, `pages.ts`
 - **Việc**:
   - `faq.items` thêm trường `pages: PageKey[]` (câu hỏi thuộc trang nào). Mở rộng lên 10–12 câu từ B6 (**không tự viết câu trả lời về giá/thời gian chưa có nguồn**).
@@ -110,7 +110,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
   - FAQPage JSON-LD chỉ phát ở `/cau-hoi-thuong-gap` (tránh trùng lặp).
 - **DoD**: trang FAQ ≥10 câu; mỗi trang dịch vụ có block FAQ riêng.
 
-### [ ] S08-T8 · OG image theo trang + robots
+### [x] S08-T8 · OG image theo trang + robots
 - **File**: `metadata.ts`, `src/shared/seo/page-media.ts`, `src/app/robots.ts`
 - **Việc**: `openGraph.images` lấy từ `PAGE_IMAGES[key]` (fallback `/og/haruto-og.png`); tạo bản 1200×630 nếu ảnh gốc khác tỉ lệ (có thể dùng `opengraph-image.tsx` của Next hoặc xuất sẵn bằng `sharp` vào `public/og/<key>.webp`). `robots.ts` thêm `disallow: ["/api/"]`.
 - **DoD**: Facebook Sharing Debugger hiển thị ảnh khác nhau cho từng trang; `/robots.txt` có `Disallow: /api/`.
@@ -286,7 +286,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 | Session | Phụ thuộc | Trạng thái |
 |---|---|---|
-| S08 Data layer SEO | B1, B3, B4, B6 (một phần) | ⬜ |
+| S08 Data layer SEO | B1, B3, B4, B6 (một phần) | 🟡 7/8 xong; T7 chờ B6 (câu hỏi), T4 chờ B3/B4 (dữ liệu) |
 | S09 Analytics + consent | S11-T3 (link chính sách) | ⬜ |
 | S10 Máy tính cước | B2, S08-T6 | ⬜ |
 | S11 Trang tin cậy | B3, B8 | ⬜ |
