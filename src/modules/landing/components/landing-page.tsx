@@ -9,6 +9,7 @@ import { Routes } from "./routes";
 import { ServiceCards } from "./service-cards";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
+import { SkyTow } from "./sky-tow";
 import { Why } from "./why";
 
 // Home is a hub: each section is a short overview that links to its own page. The full pricing
@@ -20,6 +21,7 @@ export function LandingPage() {
       <SiteHeader />
       <main id="main">
         <Hero />
+        <SkyTow />
         <ServiceCards />
         <GoodsTiles />
         <Why />

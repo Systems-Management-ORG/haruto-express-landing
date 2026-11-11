@@ -534,6 +534,72 @@
     }
   }
 
+  /*
+    Plane towing the brand banner, under the hero. Phones and portrait tablets: the hero already
+    fills the screen, so the strip is just as tall as the art at the screen's width (the art is
+    width-bound there). Large landscape screens: the strip takes exactly the height the hero
+    (clamp(36rem, 76svh, 48rem), see .hero-stage) leaves, so hero + strip are one screen tall.
+    The plane + banner art is scaled to the strip's height, or to its width when the strip is
+    too narrow for that.
+  */
+  .sky-tow {
+    container-type: size;
+    display: flex;
+    /* (100vw - gutters) / art aspect / 0.84 stage share of the height */
+    height: clamp(4.5rem, calc((100vw - 2rem) * 614 / 4146 / 0.84), 12rem);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-ivory);
+  }
+
+  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
+    .sky-tow {
+      height: max(7rem, calc(100svh - clamp(36rem, 76svh, 48rem)));
+    }
+  }
+
+  .sky-tow__stage {
+    position: relative;
+    /* 84% of the height: the rest is room for the flapping loose end and the bob */
+    width: min(calc(100cqw - 2rem), calc(84cqh * 4146 / 614));
+    aspect-ratio: 4146 / 614;
+  }
+
+  .sky-tow__plane,
+  .sky-tow__flag {
+    position: absolute;
+  }
+
+  /* Still picture of the cloth, in the server HTML; the WebGL canvas replaces it once it draws. */
+  .sky-tow__still {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* The waving cloth is drawn on a canvas 25% taller than the cloth above and below (HEADROOM in
+     flag-canvas.tsx), so the swinging loose end has room. */
+  .sky-tow__canvas {
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+    height: 150%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sky-tow__stage {
+      animation: sky-tow-bob 5.5s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes sky-tow-bob {
+    from { transform: translateY(-3%) rotate(-0.4deg); }
+    to { transform: translateY(3%) rotate(0.3deg); }
+  }
+
   .btn-outline-light {
     border-color: #ffffffb3;
     color: #fff;
