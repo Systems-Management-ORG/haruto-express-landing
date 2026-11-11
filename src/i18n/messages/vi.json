@@ -1,13 +1,11 @@
 {
-  "meta": {
-    "title": "Gửi hàng đi Nhật, ship hàng Nhật về Việt Nam | HARUTO",
-    "description": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
-  },
   "pages": {
     "relatedTitle": "Xem thêm",
     "home": {
       "nav": "Trang chủ",
-      "breadcrumb": "Trang chủ"
+      "breadcrumb": "Trang chủ",
+      "metaTitle": "Gửi hàng đi Nhật, ship hàng Nhật về Việt Nam | HARUTO",
+      "metaDescription": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
     },
     "shipToJapan": {
       "nav": "Gửi hàng đi Nhật",

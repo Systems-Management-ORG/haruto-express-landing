@@ -1,13 +1,11 @@
 {
-  "meta": {
-    "title": "Shipping between Vietnam and Japan by air | HARUTO EXPRESS",
-    "description": "Ship parcels both ways between Vietnam and Japan for people and businesses: clear rates, our own Japan warehouse, and real advisers. Contact HARUTO for a quote."
-  },
   "pages": {
     "relatedTitle": "Explore more",
     "home": {
       "nav": "Home",
-      "breadcrumb": "Home"
+      "breadcrumb": "Home",
+      "metaTitle": "Shipping between Vietnam and Japan by air | HARUTO EXPRESS",
+      "metaDescription": "Ship parcels both ways between Vietnam and Japan for people and businesses: clear rates, our own Japan warehouse, and real advisers. Contact HARUTO for a quote."
     },
     "shipToJapan": {
       "nav": "Ship to Japan",
