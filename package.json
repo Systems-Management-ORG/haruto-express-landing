@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "seo:check": "node scripts/seo-check.mjs"
+    "seo:check": "node scripts/seo-check.mjs",
+    "pricing:check": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-pricing-data.mjs"
   },
   "dependencies": {
     "@gsap/react": "2.1.2",
