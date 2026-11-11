@@ -427,18 +427,19 @@
     }
   }
 
-  /* Every slide has a headline but only the first is an <h1>, so the heading face is set here too. */
+  /* The whole banner uses one typeface (the text face): headline, description and buttons.
+     Every slide has a headline but only the first is an <h1>, so the face is set here, not by h1. */
   .hero-title {
-    font-family: var(--font-display);
-    font-weight: 400;
+    font-family: var(--font-sans);
+    font-weight: 700;
     text-wrap: balance;
-    font-size: clamp(2.5rem, min(4.8vw, 8svh), 5.25rem);
-    line-height: 1.06;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.25rem, min(4.2vw, 7svh), 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
   }
 
   :lang(ja) .hero-title {
-    font-size: clamp(2.25rem, min(4vw, 7svh), 4.25rem);
+    font-size: clamp(2rem, min(3.6vw, 6.5svh), 3.75rem);
     letter-spacing: 0;
     line-height: 1.3;
   }

@@ -121,12 +121,11 @@ export function Hero() {
             </div>
             <div className="hero-content wrap">
               <div className="hero-text">
-                <p data-hero-line className="text-base font-medium sm:text-lg">{t("tagline")}</p>
                 {/* Each slide carries its own headline; only the first is the page's H1. */}
                 {index === 0 ? (
-                  <h1 data-hero-line className="hero-title mt-3">{slide.title}</h1>
+                  <h1 data-hero-line className="hero-title">{slide.title}</h1>
                 ) : (
-                  <p data-hero-line className="hero-title mt-3">{slide.title}</p>
+                  <p data-hero-line className="hero-title">{slide.title}</p>
                 )}
                 <p data-hero-line className="mt-5 max-w-[36rem] text-base leading-[1.6] sm:text-lg">
                   {slide.description}
