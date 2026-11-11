@@ -9,8 +9,7 @@
 ## 0. Cách dùng file này
 
 ```bash
-git pull origin main                 # hoặc: git fetch && git checkout docs/implementation-plan
-git checkout -b seo/s08-data-layer   # 1 branch / 1 session
+git checkout main && git pull origin main   # làm trực tiếp trên main, không tạo branch
 npm ci
 npm run dev
 ```
@@ -19,7 +18,8 @@ npm run dev
 
 ```
 Đọc docs/SEO-ROADMAP.md (§0) và docs/IMPLEMENTATION-PLAN.md.
-Thực hiện Session S08. Làm lần lượt từng task, commit nhỏ theo task (message: "S08-T1: ...").
+Thực hiện Session S08 trực tiếp trên nhánh main (không tạo branch mới).
+Làm lần lượt từng task, commit nhỏ theo task (message: "S08-T1: ..."), push origin main sau mỗi task đã pass typecheck.
 Không bịa thông tin doanh nghiệp; giá trị chưa có → để rỗng trong business.ts và không render.
 Kết thúc: npm run typecheck && npm run build && npm run seo:check phải sạch,
 tick checkbox trong IMPLEMENTATION-PLAN.md và thêm 1 dòng Changelog vào SEO-ROADMAP.md.
@@ -32,6 +32,8 @@ npm run typecheck
 npm run build
 npm run seo:check         # SEO_CHECK_SKIP_BUILD=1 để chạy nhanh khi đã build
 ```
+
+**Quy ước nhánh**: mọi session làm trực tiếp trên `main` (thay cho quy tắc branch `seo/sNN-*` ở SEO-ROADMAP §0.6). Vì main đi thẳng production, chỉ push khi `typecheck` + `build` pass; task lớn chia nhiều commit nhỏ để dễ `git revert`.
 
 **Thứ tự đề xuất**: S08 → S09 → S10 → S11 → S06 → S12 → S13. S08 nên làm trước vì site đã live và đang được index.
 
@@ -54,7 +56,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S08 — Sửa data layer SEO  · branch `seo/s08-data-layer`
+## S08 — Sửa data layer SEO
 
 ### [ ] S08-T1 · Indexable theo từng locale
 - **File**: `src/shared/seo/pages.ts`, `src/shared/seo/metadata.ts`, `src/app/sitemap.ts`, `src/app/[locale]/layout.tsx`
@@ -115,7 +117,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S09 — Analytics v2 + Consent  · branch `seo/s09-analytics`
+## S09 — Analytics v2 + Consent
 
 ### [ ] S09-T1 · Chuẩn hóa schema event
 - **File**: `src/shared/analytics/analytics-events.tsx`, mọi component có `data-track`
@@ -159,7 +161,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S10 — Máy tính cước  · branch `feat/s10-shipping-calculator`
+## S10 — Máy tính cước
 
 > Chặn bởi **B2** (mốc giá thiếu). Có thể code trước với mốc thiếu hiển thị "Liên hệ báo giá".
 
@@ -190,7 +192,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S11 — Trang tin cậy (E-E-A-T + pháp lý)  · branch `seo/s11-trust-pages`
+## S11 — Trang tin cậy (E-E-A-T + pháp lý)
 
 ### [ ] S11-T1 · Thêm key mới vào registry
 - `about` → `/vi/gioi-thieu` · `/about`
@@ -211,7 +213,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S06 — Guides / Blog  · branch `seo/s06-guides`
+## S06 — Guides / Blog
 
 ### [ ] S06-T1 · Route 2 cấp
 - **File**: `src/app/[locale]/[...rest]/page.tsx` hoặc route riêng `src/app/[locale]/[guides]/[slug]/page.tsx`
@@ -236,7 +238,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S12 — Lead ops & hạ tầng  · branch `feat/s12-lead-ops`
+## S12 — Lead ops & hạ tầng
 
 ### [ ] S12-T1 · Rate-limit bền vững
 - **File**: `src/app/api/leads/route.ts`
@@ -257,7 +259,7 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ---
 
-## S13 — Hiệu năng & QA launch  · branch `perf/s13-cwv`
+## S13 — Hiệu năng & QA launch
 
 ### [ ] S13-T1 · Ảnh LCP
 - `concierge.tsx`: hiện cả ảnh desktop lẫn mobile đều `priority` → dùng `getImageProps` + `<picture>` (art direction) để chỉ 1 ảnh được preload.
@@ -282,12 +284,12 @@ Ghi câu trả lời vào `src/shared/seo/business.ts` hoặc `src/i18n/messages
 
 ## Tổng quan tiến độ
 
-| Session | Branch | Phụ thuộc | Trạng thái |
-|---|---|---|---|
-| S08 Data layer SEO | `seo/s08-data-layer` | B1, B3, B4, B6 (một phần) | ⬜ |
-| S09 Analytics + consent | `seo/s09-analytics` | S11-T3 (link chính sách) | ⬜ |
-| S10 Máy tính cước | `feat/s10-shipping-calculator` | B2, S08-T6 | ⬜ |
-| S11 Trang tin cậy | `seo/s11-trust-pages` | B3, B8 | ⬜ |
-| S06 Guides | `seo/s06-guides` | S10 (link) | ⬜ |
-| S12 Lead ops + CI | `feat/s12-lead-ops` | B7 | ⬜ |
-| S13 Hiệu năng + launch | `perf/s13-cwv` | tất cả | ⬜ |
+| Session | Phụ thuộc | Trạng thái |
+|---|---|---|
+| S08 Data layer SEO | B1, B3, B4, B6 (một phần) | ⬜ |
+| S09 Analytics + consent | S11-T3 (link chính sách) | ⬜ |
+| S10 Máy tính cước | B2, S08-T6 | ⬜ |
+| S11 Trang tin cậy | B3, B8 | ⬜ |
+| S06 Guides | S10 (link) | ⬜ |
+| S12 Lead ops + CI | B7 | ⬜ |
+| S13 Hiệu năng + launch | tất cả | ⬜ |
