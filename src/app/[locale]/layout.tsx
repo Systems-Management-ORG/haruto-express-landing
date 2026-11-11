@@ -8,7 +8,7 @@ import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/g
 import { routing } from "@/i18n/routing";
 import { ContactFab } from "@/shared/components/contact-links";
 import { BUSINESS, SITE_URL } from "@/shared/seo/business";
-import { JsonLd, organization, website } from "@/shared/seo/json-ld";
+import { JsonLd, PUBLIC_LOCATIONS, localBusiness, organization, website } from "@/shared/seo/json-ld";
 import { fontClassName } from "@/shared/lib/fonts";
 import "../globals.css";
 
@@ -41,6 +41,9 @@ export default async function LocaleLayout({ children, params }: LocaleParams & 
         <GoogleTagManagerNoScript />
         <JsonLd data={organization()} />
         <JsonLd data={website(locale)} />
+        {PUBLIC_LOCATIONS.map((location) => (
+          <JsonLd key={location.id} data={localBusiness(location)} />
+        ))}
         <AnalyticsEvents />
         <NextIntlClientProvider>
           {children}

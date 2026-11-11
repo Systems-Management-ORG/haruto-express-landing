@@ -1,4 +1,4 @@
-import { BUSINESS, HOTLINES, SITE_URL } from "./business";
+import { BUSINESS, HOTLINES, LOCATIONS, type Location, SITE_URL, mapsUrl } from "./business";
 
 // Renders a JSON-LD block. Safe under the CSP: it is a data script, not executable JS.
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -24,6 +24,38 @@ function prune<T extends Record<string, unknown>>(object: T): T {
 
 const ORG_ID = `${SITE_URL}/#organization`;
 
+function postalAddress(location: Location) {
+  return prune({
+    "@type": "PostalAddress",
+    streetAddress: location.streetAddress,
+    addressLocality: location.addressLocality,
+    addressRegion: location.addressRegion,
+    postalCode: location.postalCode,
+    addressCountry: location.addressCountry,
+  });
+}
+
+// A walk-in location, linked to the Organization. Only built for `publicVisit: true` locations
+// (none until B4 is answered), so a drop-off address is never presented as a shop.
+export function localBusiness(location: Location) {
+  return prune({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}/#location-${location.id}`,
+    name: `${BUSINESS.name} ${location.addressLocality}`,
+    url: SITE_URL,
+    image: `${SITE_URL}${BUSINESS.logoPath}`,
+    telephone: HOTLINES.find((line) => line.country === location.addressCountry)?.tel,
+    address: postalAddress(location),
+    geo: location.geo ? { "@type": "GeoCoordinates", ...location.geo } : undefined,
+    openingHours: location.openingHours,
+    hasMap: mapsUrl(location.query),
+    parentOrganization: { "@id": ORG_ID },
+  });
+}
+
+export const PUBLIC_LOCATIONS = LOCATIONS.filter((location) => location.publicVisit);
+
 export function organization() {
   const contactPoint = HOTLINES.map((line) => ({
     "@type": "ContactPoint",
@@ -42,6 +74,7 @@ export function organization() {
     logo: `${SITE_URL}${BUSINESS.logoPath}`,
     email: BUSINESS.email || undefined,
     contactPoint,
+    address: LOCATIONS.map(postalAddress),
     sameAs: BUSINESS.sameAs,
   });
 }

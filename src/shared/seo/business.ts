@@ -7,6 +7,7 @@ export const SITE_URL = (process.env.SITE_URL ?? "https://harutoexpress.com").re
 export const BUSINESS = {
   name: "HARUTO EXPRESS",
   // Two-way air freight between Vietnam and Japan.
+  // TODO(B3): registered legal name (and tax code) once the business confirms it.
   legalName: "",
   logoPath: "/logo/haruto-mark.png",
   phone: "",
@@ -36,20 +37,61 @@ export type LocationId = "japanWarehouse" | "vietnamWarehouse" | "vietnamOffice"
 
 // `embedSrc` overrides the keyless embed with an exact Google Maps embed URL (e.g. a Street View
 // panorama) when the business supplies one.
-export const LOCATIONS: { id: LocationId; address: string; query: string; embedSrc?: string }[] = [
+//
+// The structured fields feed PostalAddress in JSON-LD; an empty string is dropped, never guessed
+// (Vietnamese postal codes are not confirmed, so they stay empty).
+// `publicVisit`: true only when customers can walk in. It gates the LocalBusiness node.
+// TODO(B4): confirm whether the HCM office and the Hanoi warehouse receive customers, and
+// their opening hours (schema.org form, e.g. "Mo-Sa 08:00-17:30").
+export type Location = {
+  id: LocationId;
+  address: string;
+  query: string;
+  embedSrc?: string;
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
+  addressCountry: "VN" | "JP";
+  geo?: { latitude: number; longitude: number };
+  publicVisit: boolean;
+  openingHours?: string[];
+};
+
+export const LOCATIONS: Location[] = [
   {
     id: "japanWarehouse",
     address: "〒133-0056 東京都江戸川区南小岩8-5-4 グリームコーポ1階102号室",
     query: "〒133-0056 東京都江戸川区南小岩8-5-4",
+    streetAddress: "南小岩8-5-4 グリームコーポ1階102号室",
+    addressLocality: "江戸川区",
+    addressRegion: "東京都",
+    postalCode: "133-0056",
+    addressCountry: "JP",
+    // A parcel drop-off point for the JP→VN route, not a walk-in shop.
+    publicVisit: false,
   },
   {
     id: "vietnamWarehouse",
     address: "60 Trương Công Giai, Cầu Giấy, Hà Nội",
     query: "60 Trương Công Giai, Cầu Giấy, Hà Nội, Việt Nam",
+    streetAddress: "60 Trương Công Giai",
+    addressLocality: "Cầu Giấy",
+    addressRegion: "Hà Nội",
+    postalCode: "",
+    addressCountry: "VN",
+    publicVisit: false, // TODO(B4)
   },
   {
     id: "vietnamOffice",
     address: "340/16 Quang Trung, Gò Vấp, Hồ Chí Minh",
+    streetAddress: "340/16 Quang Trung",
+    addressLocality: "Gò Vấp",
+    addressRegion: "Hồ Chí Minh",
+    postalCode: "",
+    addressCountry: "VN",
+    geo: { latitude: 10.83257079820806, longitude: 106.6688930732914 },
+    publicVisit: false, // TODO(B4)
     // Exact coordinates from the office embed, so "Open in Google Maps" lands precisely.
     query: "10.83257079820806,106.6688930732914",
     embedSrc:
