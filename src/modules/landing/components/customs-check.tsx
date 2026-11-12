@@ -1,5 +1,6 @@
 import { ArrowRight, ChatCircleText, Gavel, Package, ShoppingCart, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
 import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
@@ -151,14 +152,14 @@ export function CustomsBody() {
                     {t("support.zalo")}
                   </a>
                 )}
-                <a
+                <Link
                   href={`${pagePath(locale, "contact")}#contact`}
                   data-track="cta_contact"
                   className="btn btn-outline border-ivory/50 text-ivory hover:bg-white/10"
                 >
                   {t("support.contact")}
                   <ArrowRight size={18} aria-hidden className="m-arrow" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -179,10 +180,10 @@ export function CustomsBody() {
           <ul className="flex flex-wrap justify-center gap-3">
             {SERVICES.map(({ key, Icon, page }) => (
               <li key={key}>
-                <a href={pagePath(locale, page)} className="customs-service-link">
+                <Link href={pagePath(locale, page)} className="customs-service-link">
                   <Icon size={22} weight="duotone" aria-hidden />
                   {t(`services.${key}`)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

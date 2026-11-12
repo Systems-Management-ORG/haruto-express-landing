@@ -2,12 +2,14 @@
 
 import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } from "react";
 import { LOCALES, LOCALE_LABELS, LOCALE_NAMES, isLocale } from "@/shared/constants/locales";
 import type { Locale } from "@/shared/constants/locales";
 import { NAV } from "@/shared/seo/nav";
+import { rememberReadingSpot, restoreReadingSpot } from "@/shared/lib/reading-spot";
 import { pageByLocaleSlug, pagePath } from "@/shared/seo/pages";
 
 // The same page's URL in another language, resolved through the registry so localized slugs
@@ -70,16 +72,24 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
             : "absolute right-0 top-full mt-1 min-w-40 rounded-md border border-line bg-ivory py-1 text-ink shadow-[0_8px_24px_rgb(10_30_18/0.16)]"
         }
       >
+        {/* Client-side navigation: only the new language's content is fetched and swapped in, no
+            full page reload. The reader's place is noted here and restored on the new page
+            (see reading-spot.ts), so Next must not scroll to the top itself (scroll={false}). */}
         {LOCALES.map((item) => (
           <li key={item}>
-            <a
+            <Link
               href={localeHref(pathname, item)}
               lang={item}
+              scroll={false}
+              onClick={() => {
+                if (item !== locale) rememberReadingSpot(localeHref(pathname, item));
+                setOpen(false);
+              }}
               aria-current={item === locale ? "page" : undefined}
               className={`flex min-h-11 items-center px-3 text-sm ${item === locale ? "font-medium text-forest" : ""}`}
             >
               {LOCALE_NAMES[item]}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -101,6 +111,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
   const closeTimer = useRef<number | null>(null);
 
   const isCurrent = (key: Parameters<typeof pagePath>[1]) => pathname === pagePath(locale, key);
+
+  // After a language switch, scroll back to where the reader was (noted by LanguageMenu).
+  useEffect(() => restoreReadingSpot(pathname), [pathname]);
 
   // Hover intent, for a real mouse only: open immediately, but delay closing so brief exits
   // (crossing to the panel, moving diagonally) do not make the dropdown flicker. Touch is left to
@@ -187,19 +200,19 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
         {nav("skip")}
       </a>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-4 lg:justify-start lg:gap-8 xl:gap-10">
-        <a href={homeHref || `/${locale}`} className="flex min-h-11 items-center gap-2.5">
+        <Link href={homeHref || `/${locale}`} className="flex min-h-11 items-center gap-2.5">
           <Image src="/logo/haruto-mark.png" alt="" width={46} height={40} priority className="site-header__mark h-10 w-auto" />
           <span className="text-[0.9375rem] font-medium leading-tight tracking-wide whitespace-nowrap">HARUTO EXPRESS</span>
-        </a>
+        </Link>
 
         <nav aria-label={nav("primary")} className="hidden lg:block">
           <ul className="flex items-center gap-6 xl:gap-8">
             {NAV.map((item) =>
               item.type === "link" ? (
                 <li key={item.key}>
-                  <a href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} className="nav-link whitespace-nowrap py-3 text-[0.9375rem] font-medium">
+                  <Link href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} className="nav-link whitespace-nowrap py-3 text-[0.9375rem] font-medium">
                     {tPages(`${item.key}.nav`)}
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li
@@ -222,9 +235,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                   <ul id={`nav-${item.id}`} hidden={openGroup !== item.id} className="nav-panel">
                     {item.children.map((key) => (
                       <li key={key}>
-                        <a href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} className="flex min-h-11 items-center whitespace-nowrap px-4 text-[0.9375rem] hover:text-forest">
+                        <Link href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} className="flex min-h-11 items-center whitespace-nowrap px-4 text-[0.9375rem] hover:text-forest">
                           {tPages(`${key}.nav`)}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -238,9 +251,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           <div className="hidden lg:block">
             <LanguageMenu />
           </div>
-          <a href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-primary hidden whitespace-nowrap sm:inline-flex">
+          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-primary hidden whitespace-nowrap sm:inline-flex">
             {nav("cta")}
-          </a>
+          </Link>
           <button
             ref={toggleRef}
             type="button"
@@ -261,9 +274,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
             {NAV.map((item) =>
               item.type === "link" ? (
                 <li key={item.key} className="border-b border-line">
-                  <a href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} onClick={closeMenu} className="nav-link flex min-h-14 touch-manipulation items-center text-lg font-medium">
+                  <Link href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} onClick={closeMenu} className="nav-link flex min-h-14 touch-manipulation items-center text-lg font-medium">
                     {tPages(`${item.key}.nav`)}
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <li key={item.id} className="border-b border-line">
@@ -279,9 +292,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                   <ul hidden={openGroup !== item.id} className="pb-2">
                     {item.children.map((key) => (
                       <li key={key}>
-                        <a href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} onClick={closeMenu} className="flex min-h-12 touch-manipulation items-center pl-4 text-base hover:text-forest">
+                        <Link href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} onClick={closeMenu} className="flex min-h-12 touch-manipulation items-center pl-4 text-base hover:text-forest">
                           {tPages(`${key}.nav`)}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -291,9 +304,9 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
-            <a href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-primary w-full sm:hidden">
+            <Link href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-primary w-full sm:hidden">
               {nav("cta")}
-            </a>
+            </Link>
           </div>
         </nav>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
@@ -58,13 +59,13 @@ export function NotFoundView({ homeHref }: { homeHref: string }) {
           {t("text")}
         </p>
         <div data-line className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href={homeHref} className="btn btn-gold">
+          <Link href={homeHref} className="btn btn-gold">
             {t("home")}
             <ArrowRight size={18} aria-hidden className="m-arrow" />
-          </a>
-          <a href={`${homeHref}#contact`} className="btn btn-outline-light">
+          </Link>
+          <Link href={`${homeHref}#contact`} className="btn btn-outline-light">
             {t("contact")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

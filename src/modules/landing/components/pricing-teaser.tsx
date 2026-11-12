@@ -1,5 +1,6 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { PRICING_IMAGES } from "@/shared/seo/page-media";
@@ -28,7 +29,7 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
 
         <div data-reveal-group className="mt-10 grid gap-5 sm:grid-cols-2 lg:mt-12">
           {CARDS.map(({ key, page }) => (
-            <a key={key} href={pagePath(locale, page)} className="teaser-card group">
+            <Link key={key} href={pagePath(locale, page)} className="teaser-card group">
               <div className="teaser-card__media">
                 <Image src={PRICING_IMAGES[key]} alt="" fill sizes="(max-width: 639px) 100vw, 50vw" className="object-cover object-[75%_50%]" />
                 <span className="teaser-card__label">{t(`${key}.label`)}</span>
@@ -41,7 +42,7 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
                   <ArrowRight size={18} aria-hidden className="m-arrow" />
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

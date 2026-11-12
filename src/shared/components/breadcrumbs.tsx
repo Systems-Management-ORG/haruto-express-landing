@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import type { Locale } from "@/shared/constants/locales";
@@ -28,9 +29,9 @@ export function Breadcrumbs({ page }: { page: PageKey }) {
                 <span aria-current="page">{t(`${key}.breadcrumb`)}</span>
               ) : (
                 <>
-                  <a href={pagePath(locale, key)} className="underline-offset-4 hover:underline">
+                  <Link href={pagePath(locale, key)} className="underline-offset-4 hover:underline">
                     {t(`${key}.breadcrumb`)}
-                  </a>
+                  </Link>
                   <CaretRight size={13} aria-hidden className="opacity-60" />
                 </>
               )}

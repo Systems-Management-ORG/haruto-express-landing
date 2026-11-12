@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   AirplaneTilt,
   ArrowRight,
@@ -31,10 +32,10 @@ function SendLinkButton({ label, variant = "primary" }: { label: string; variant
   const locale = useLocale() as Locale;
   if (!zalo) {
     return (
-      <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className={`btn btn-${variant}`}>
+      <Link href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className={`btn btn-${variant}`}>
         {label}
         <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
-      </a>
+      </Link>
     );
   }
   return (
@@ -83,10 +84,10 @@ export function ConciergeHero() {
         </ul>
 
         <div className="mt-8">
-          <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
+          <Link href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
             {t("ctaContact")}
             <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
-          </a>
+          </Link>
         </div>
       </div>
 

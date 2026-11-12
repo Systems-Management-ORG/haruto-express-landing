@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowsLeftRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
 import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
@@ -22,10 +23,10 @@ function ContactButtons({ withZalo = true }: { withZalo?: boolean }) {
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row">
-      <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
+      <Link href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
         {t("contact")}
         <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
-      </a>
+      </Link>
       {withZalo && zalo && (
         <a
           href={zalo.href}

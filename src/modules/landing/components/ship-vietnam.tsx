@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle, DotsThree, Info } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
 import type { Locale } from "@/shared/constants/locales";
@@ -134,9 +135,9 @@ export function ShipVietnamBody() {
               return (
                 <li key={service.title} className="h-full">
                   {page ? (
-                    <a href={pagePath(locale, page)} className="shipvn-service shipvn-service--link">
+                    <Link href={pagePath(locale, page)} className="shipvn-service shipvn-service--link">
                       {inner}
-                    </a>
+                    </Link>
                   ) : (
                     <div className="shipvn-service">{inner}</div>
                   )}

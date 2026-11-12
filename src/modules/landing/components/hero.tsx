@@ -3,6 +3,7 @@
 import { ArrowRight, CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
@@ -131,7 +132,7 @@ export function Hero() {
                   {slide.description}
                 </p>
                 <div data-hero-line className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a
+                  <Link
                     href={IMAGES[index].page === "pricing" ? "#pricing" : pagePath(locale, IMAGES[index].page)}
                     className="btn btn-gold"
                   >
@@ -139,7 +140,7 @@ export function Hero() {
                     <span className="btn-chip" aria-hidden>
                       <ArrowRight size={14} weight="bold" />
                     </span>
-                  </a>
+                  </Link>
                   <a href="#contact" data-track="cta_contact" className="btn btn-outline">
                     {t("secondary")}
                   </a>
