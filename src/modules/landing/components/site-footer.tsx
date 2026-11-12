@@ -1,5 +1,6 @@
 import { MapPin } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
@@ -23,7 +24,7 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
       <div className="wrap py-12 lg:py-16">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-12 lg:gap-8">
           <div className="col-span-2 lg:col-span-5">
-            <a href={homeHref || `/${locale}`} className="flex items-center gap-4">
+            <Link href={homeHref || `/${locale}`} className="flex items-center gap-4">
               <Image
                 src="/logo/haruto-lockup.webp"
                 alt={t("logoAlt")}
@@ -35,7 +36,7 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
                 <span className="block text-lg font-medium">HARUTO EXPRESS</span>
                 <span className="block text-sm text-gold">{t("tagline")}</span>
               </span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-[26rem] text-ivory/85">{t("positioning")}</p>
             {CHAT_CHANNELS.length > 0 && (
               <ul className="mt-5 flex gap-3">
@@ -108,9 +109,9 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
                 <ul className="mt-2">
                   {links.map((key) => (
                     <li key={key}>
-                      <a href={pagePath(locale, key)} className="flex min-h-10 items-center text-ivory/85 hover:text-gold">
+                      <Link href={pagePath(locale, key)} className="flex min-h-10 items-center text-ivory/85 hover:text-gold">
                         {tPages(`${key}.nav`)}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

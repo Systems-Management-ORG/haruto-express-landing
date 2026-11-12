@@ -11,6 +11,7 @@ import {
   Truck,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
 import { CHAT_CHANNELS, ChannelIcon, PhoneIcon, primaryHotline } from "@/shared/components/contact-links";
@@ -32,10 +33,10 @@ function ZaloButton({ label, variant }: { label: string; variant: "primary" | "g
   const locale = useLocale() as Locale;
   if (!zalo) {
     return (
-      <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className={`btn btn-${variant}`}>
+      <Link href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className={`btn btn-${variant}`}>
         {label}
         <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
-      </a>
+      </Link>
     );
   }
   return (

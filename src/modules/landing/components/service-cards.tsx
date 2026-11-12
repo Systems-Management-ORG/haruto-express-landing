@@ -1,5 +1,6 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
@@ -23,7 +24,7 @@ export function ServiceCards() {
         <ul data-reveal-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {SERVICE_CARDS.map(({ page, image }) => (
             <li key={page}>
-              <a href={pagePath(locale, page)} className="service-card group">
+              <Link href={pagePath(locale, page)} className="service-card group">
                 <div className="service-card__media">
                   <Image src={image} alt="" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw" className="object-cover" />
                 </div>
@@ -35,7 +36,7 @@ export function ServiceCards() {
                     <ArrowRight size={18} aria-hidden className="m-arrow" />
                   </span>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -44,9 +45,9 @@ export function ServiceCards() {
           <a href="#contact" data-track="cta_contact" className="btn btn-primary">
             {t("ctaContact")}
           </a>
-          <a href={pagePath(locale, "pricing")} className="btn btn-outline">
+          <Link href={pagePath(locale, "pricing")} className="btn btn-outline">
             {t("ctaPricing")}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

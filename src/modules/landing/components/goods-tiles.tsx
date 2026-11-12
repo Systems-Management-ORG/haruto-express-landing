@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Armchair, ArrowRight, BookOpen, ForkKnife, TShirt } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -35,10 +36,10 @@ export function GoodsTiles() {
         </ul>
 
         <p data-reveal className="mt-8 text-center">
-          <a href={pagePath(locale, "goods")} className="link-arrow text-forest">
+          <Link href={pagePath(locale, "goods")} className="link-arrow text-forest">
             {t("more")}
             <ArrowRight size={18} aria-hidden className="m-arrow" />
-          </a>
+          </Link>
         </p>
       </div>
     </section>

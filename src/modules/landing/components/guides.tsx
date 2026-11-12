@@ -1,5 +1,6 @@
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
@@ -20,7 +21,7 @@ export function Guides() {
         <p data-reveal className="mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
 
         <div data-reveal-group className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-2">
-          <a href={pagePath(locale, feature.page)} className="guide-card guide-card--feature group">
+          <Link href={pagePath(locale, feature.page)} className="guide-card guide-card--feature group">
             <div className="guide-card__media">
               <Image src={feature.image} alt="" fill sizes="(max-width: 1023px) 100vw, 50vw" className="object-cover" />
             </div>
@@ -32,12 +33,12 @@ export function Guides() {
                 <ArrowRight size={18} aria-hidden className="m-arrow" />
               </span>
             </div>
-          </a>
+          </Link>
 
           <ul className="grid gap-6">
             {rest.map(({ page, image }) => (
               <li key={page}>
-                <a href={pagePath(locale, page)} className="guide-card guide-card--row group">
+                <Link href={pagePath(locale, page)} className="guide-card guide-card--row group">
                   <div className="guide-card__media">
                     <Image src={image} alt="" fill sizes="(max-width: 639px) 100vw, 14rem" className="object-cover" />
                   </div>
@@ -45,7 +46,7 @@ export function Guides() {
                     <h3 className="text-lg leading-snug text-forest">{tPages(`${page}.title`)}</h3>
                     <p className="mt-1.5 line-clamp-2 text-[0.95rem] text-muted">{tPages(`${page}.intro`)}</p>
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

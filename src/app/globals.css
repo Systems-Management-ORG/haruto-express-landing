@@ -376,10 +376,11 @@
     background: linear-gradient(180deg, rgb(250 248 234 / 0.9) 0, rgb(250 248 234 / 0.9) 4.5rem, rgb(250 248 234 / 0) 7.5rem);
   }
 
+  /* Bottom padding leaves a clear band under the buttons for the slide dots. */
   .hero-content {
     position: relative;
     display: flex;
-    padding-block: 1.75rem 2.25rem;
+    padding-block: 1.75rem 3.5rem;
   }
 
   /*
@@ -424,6 +425,10 @@
 
     .hero-content .hero-text {
       max-width: min(40vw, 40rem);
+    }
+
+    .hero-dots {
+      bottom: clamp(1rem, 2.5svh, 2rem);
     }
   }
 
@@ -483,10 +488,11 @@
     transform: translateY(-50%);
   }
 
-  /* Dot indicators move to the bottom centre, also without a background. */
+  /* Dot indicators at the bottom centre, also without a background. Stacked layout (phones,
+     portrait tablets): close to the bottom edge, well below the buttons. */
   .hero-dots {
     position: absolute;
-    bottom: clamp(1rem, 2.5svh, 2rem);
+    bottom: 0.625rem;
     left: 50%;
     z-index: 3;
     display: flex;
@@ -534,6 +540,80 @@
     }
   }
 
+  /*
+    Plane towing the brand banner, under the hero. Phones and portrait tablets: the hero already
+    fills the screen, so the strip is just as tall as the art at the screen's width (the art is
+    width-bound there). Large landscape screens: the strip takes exactly the height the hero
+    (clamp(36rem, 76svh, 48rem), see .hero-stage) leaves, so hero + strip are one screen tall.
+    The plane + banner art is scaled to the strip's height, or to its width when the strip is
+    too narrow for that.
+  */
+  .sky-tow {
+    container-type: size;
+    display: flex;
+    /* (100vw - gutters) / art aspect / 0.84 stage share of the height */
+    height: clamp(4.5rem, calc((100vw - 2rem) * 614 / 4146 / 0.84), 12rem);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-ivory);
+  }
+
+  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
+    .sky-tow {
+      height: max(7rem, calc(100svh - clamp(36rem, 76svh, 48rem)));
+    }
+  }
+
+  /* Phones: no towed banner (too small to read there). display:none also keeps its picture from
+     loading and its WebGL from starting, since both wait for the strip to be on screen. */
+  @media (max-width: 47.99rem) {
+    .sky-tow {
+      display: none;
+    }
+  }
+
+  .sky-tow__stage {
+    position: relative;
+    /* 84% of the height: the rest is room for the flapping loose end and the bob */
+    width: min(calc(100cqw - 2rem), calc(84cqh * 4146 / 614));
+    aspect-ratio: 4146 / 614;
+  }
+
+  .sky-tow__plane,
+  .sky-tow__flag {
+    position: absolute;
+  }
+
+  /* Still picture of the cloth, in the server HTML; the WebGL canvas replaces it once it draws. */
+  .sky-tow__still {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* The waving cloth is drawn on a canvas 25% taller than the cloth above and below (HEADROOM in
+     flag-canvas.tsx), so the swinging loose end has room. */
+  .sky-tow__canvas {
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+    height: 150%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .sky-tow__stage {
+      animation: sky-tow-bob 5.5s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes sky-tow-bob {
+    from { transform: translateY(-3%) rotate(-0.4deg); }
+    to { transform: translateY(3%) rotate(0.3deg); }
+  }
+
   .btn-outline-light {
     border-color: #ffffffb3;
     color: #fff;
@@ -554,14 +634,49 @@
   .route-band {
     position: relative;
     isolation: isolate;
+    /* the desktop map is wider than its column; clip it at the screen edge (no sideways scroll) */
+    overflow-x: clip;
     background-color: var(--color-deep);
   }
 
-  /* Near-square East Asia map; contained (no crop). Fills its grid column on desktop. */
+  /* Near-square East Asia map; contained (no crop). */
   .route-map {
     aspect-ratio: 1008 / 948;
     overflow: hidden;
     width: 100%;
+  }
+
+  .route-map__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /*
+    Desktop: the map runs the section's full height, through its top and bottom padding (7rem,
+    see .section). It keeps its own shape, so it is wider than its column and spills a little to
+    both sides; its edges fade out, so the spill under the text is barely there. The height is
+    capped by the screen width so Hanoi and Tokyo stay on screen down to 1024px.
+  */
+  @media (min-width: 64rem) {
+    .route-map {
+      position: relative;
+      height: min(52rem, 62vw);
+      margin-block: -7rem;
+      aspect-ratio: auto;
+      overflow: visible;
+    }
+
+    .route-map__svg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: auto;
+      max-width: none;
+      height: 100%;
+      aspect-ratio: 1008 / 948;
+      transform: translateX(-50%);
+    }
   }
 
   /* On mobile the map stacks under the text, so cap and centre it. */
@@ -597,12 +712,8 @@
     animation: route-fly 6s linear infinite;
   }
 
-  .route-plane--out {
-    offset-path: path("M161 463.5 C 320 350, 520 250, 663 229");
-  }
-
+  /* The flight paths themselves are set inline in routes.tsx, next to the map's coordinates. */
   .route-plane--in {
-    offset-path: path("M663 229 C 500 300, 330 430, 161 463.5");
     animation-delay: 3s;
   }
 
@@ -716,6 +827,35 @@
     .route-backdrop__layer {
       position: absolute;
       height: 100%;
+    }
+  }
+
+  /*
+    Stacked layout (phones, portrait tablets): three layers on top of each other — the warehouse
+    photos at the back (the backdrop above), the map over them right behind the text, and the
+    text on top. The map is toned down there so the white text stays easy to read over it.
+  */
+  @media (max-width: 63.99rem) {
+    .route-map {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      max-width: none;
+      margin: 0;
+      aspect-ratio: auto;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .route-map__svg {
+      /* the svg keeps its shape and is centred behind the text (preserveAspectRatio meet) */
+      max-width: 40rem;
+      margin-inline: auto;
+    }
+
+    .route-copy {
+      position: relative;
+      z-index: 1;
     }
   }
 

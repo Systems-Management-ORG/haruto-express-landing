@@ -15,6 +15,7 @@ import {
   UsersThree,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
 import type { Locale } from "@/shared/constants/locales";
@@ -102,9 +103,9 @@ export function ShipJapanBody() {
               return (
                 <li key={service} className="h-full">
                   {page ? (
-                    <a href={pagePath(locale, page)} className="shipvn-service shipvn-service--link">
+                    <Link href={pagePath(locale, page)} className="shipvn-service shipvn-service--link">
                       {inner}
-                    </a>
+                    </Link>
                   ) : (
                     <div className="shipvn-service">{inner}</div>
                   )}
@@ -151,9 +152,9 @@ export function ShipJapanBody() {
                     {index === 0 && (
                       <span className="mt-3 flex flex-wrap gap-1.5">
                         {ECOSYSTEM.map((key) => (
-                          <a key={key} href={pagePath(locale, key)} className="vnjp-chip">
+                          <Link key={key} href={pagePath(locale, key)} className="vnjp-chip">
                             {tPages(`${key}.nav`)}
-                          </a>
+                          </Link>
                         ))}
                       </span>
                     )}
@@ -174,10 +175,10 @@ export function ShipJapanBody() {
             <p className="mx-auto mt-5 max-w-[44rem] text-lg font-semibold text-forest sm:text-xl">{t("closing.body")}</p>
             <p className="mt-3 font-medium text-[#c2410c]">{t("closing.tagline")}</p>
             <div className="mt-8 flex justify-center">
-              <a href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
+              <Link href={`${pagePath(locale, "contact")}#contact`} data-track="cta_contact" className="btn btn-primary">
                 {t("closing.cta")}
                 <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

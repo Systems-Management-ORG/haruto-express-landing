@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -17,13 +18,13 @@ export function RelatedLinks({ page }: { page: PageKey }) {
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((key) => (
             <li key={key}>
-              <a
+              <Link
                 href={pagePath(locale, key)}
                 className="card group flex items-center justify-between gap-4"
               >
                 <span className="font-medium text-forest">{t(`${key}.breadcrumb`)}</span>
                 <ArrowRight size={18} aria-hidden className="m-arrow shrink-0 text-forest" />
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
