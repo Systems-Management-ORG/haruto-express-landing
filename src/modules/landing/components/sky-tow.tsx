@@ -25,7 +25,7 @@ export function SkyTow() {
         </div>
         <div className="sky-tow__plane" style={box(PLANE_BOX)}>
           <Image
-            src="/images/haruto/sky-banner/may-bay-keo-co.webp"
+            src="/images/haruto/sky-banner/may-bay-keo-co-canh-xanh.webp"
             alt=""
             fill
             sizes="(min-width: 64rem) 50vw, 55vw"
