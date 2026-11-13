@@ -43,7 +43,9 @@ export function PartnersSection({
     <section id="partners" className={className}>
       <div className="wrap">
         {both && <SectionHead title={t("title")} intro={t("intro")} />}
-        <div className={both ? "mt-10 grid gap-10 lg:mt-12" : "grid gap-10"}>
+        {/* grid-cols-1 = minmax(0, 1fr): the marquee track is max-content wide and must not
+            stretch the column (and with it the carrier cards and the page). */}
+        <div className={both ? "mt-10 grid grid-cols-1 gap-10 lg:mt-12" : "grid grid-cols-1 gap-10"}>
           {show.includes("marketplaces") && (
             <div>
               <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
