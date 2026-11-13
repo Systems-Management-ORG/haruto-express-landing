@@ -16,12 +16,20 @@ export type MarketplaceId =
   | "mandarake";
 
 // Logo of each store that has a file in public/logo. Stores without one → a text chip.
+// yahoo-shopping / rakuma / mandarake: taken from the header of each store's own site (2026-11-13).
 export const MARKETPLACE_LOGOS: Partial<Record<MarketplaceId, string>> = {
   yahoo: "/logo/yahoo-auction.svg",
   mercari: "/logo/mercari.svg",
   rakuten: "/logo/rakuten.svg",
   amazon: "/logo/amazon-jp.svg",
+  yahooShopping: "/logo/yahoo-shopping.png",
+  rakuma: "/logo/rakuma.svg",
+  mandarake: "/logo/mandarake.png",
 };
+
+// Logos that already spell the store's name (wordmarks): shown alone, with the name as alt text,
+// instead of logo + the same name again.
+export const MARKETPLACE_WORDMARKS: MarketplaceId[] = ["yahooShopping", "rakuma", "mandarake"];
 
 // Display order in the marquee (this list alone decides it).
 export const MARQUEE_MARKETPLACES: MarketplaceId[] = [
@@ -39,12 +47,14 @@ export const MARQUEE_MARKETPLACES: MarketplaceId[] = [
 
 export type CarrierId = "sagawa" | "yamato" | "japanPost";
 
-// Official logos are not supplied yet; the logos found online are outdated marks (e.g. Japan Post's
-// pre-2007 "日本郵政公社"), so none is used. Fill a path once the owner adds the file.
+// Current logos from the header of each carrier's own site (2026-11-13); never the outdated marks
+// found elsewhere online (e.g. Japan Post's pre-2007 "日本郵政公社").
+// - yamato.png: the cat mark + ヤマト運輸 from the header image, without the slogan beside it.
+// - japan-post.svg: the white JP POST mark on the #CC0000 header block it sits on there.
 export const CARRIERS: Record<CarrierId, { logo?: string }> = {
-  sagawa: {}, // TODO: official logo → "/logo/carriers/sagawa.svg"
-  yamato: {}, // TODO: official logo → "/logo/carriers/yamato.svg"
-  japanPost: {}, // TODO: official logo → "/logo/carriers/japan-post.svg"
+  sagawa: { logo: "/logo/carriers/sagawa.svg" },
+  yamato: { logo: "/logo/carriers/yamato.png" },
+  japanPost: { logo: "/logo/carriers/japan-post.svg" },
 };
 
 export const CARRIER_ORDER: CarrierId[] = ["sagawa", "yamato", "japanPost"];
