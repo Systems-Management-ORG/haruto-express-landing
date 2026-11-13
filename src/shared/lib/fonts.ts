@@ -1,7 +1,10 @@
-import { Hanken_Grotesk, Newsreader, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Hanken_Grotesk, Lexend, Noto_Sans_JP } from "next/font/google";
 import type { Locale } from "@/shared/constants/locales";
 
-const heading = Newsreader({
+// Fonts of the Haruto design system (../design-system): Lexend for headings (h1, h2, display
+// numbers), Hanken Grotesk for everything else. Japanese uses Noto Sans JP for both, since Lexend
+// has no Japanese glyphs (globals.css points --font-display at it under :lang(ja)).
+const heading = Lexend({
   subsets: ["latin", "vietnamese"],
   variable: "--font-heading",
   display: "swap",
@@ -13,13 +16,6 @@ const text = Hanken_Grotesk({
   display: "swap",
 });
 
-const headingJa = Noto_Serif_JP({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  display: "swap",
-  preload: false,
-});
-
 const textJa = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-brand",
@@ -28,5 +24,5 @@ const textJa = Noto_Sans_JP({
 });
 
 export function fontClassName(locale: Locale): string {
-  return locale === "ja" ? `${headingJa.variable} ${textJa.variable}` : `${heading.variable} ${text.variable}`;
+  return locale === "ja" ? textJa.variable : `${heading.variable} ${text.variable}`;
 }

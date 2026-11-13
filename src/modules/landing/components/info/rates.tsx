@@ -177,7 +177,7 @@ export function RatesJpVn() {
       </div>
       <div className="p-6 sm:p-8 lg:p-10">
         <p className="text-sm font-medium tracking-[0.14em] text-muted uppercase">{t("teaser.jpVn.label")}</p>
-        <p className="mt-3 font-display text-5xl text-forest lg:text-6xl">{t("freight.price")}</p>
+        <p className="mt-3 font-display font-(--weight-display) text-5xl text-forest lg:text-6xl">{t("freight.price")}</p>
         <p className="mt-2 text-muted">{t("freight.weight")}</p>
         <ul className="mt-8 grid gap-4 border-t border-line pt-6">
           {([

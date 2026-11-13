@@ -96,7 +96,7 @@ export function ConciergeTerms() {
     <ol data-reveal-group className="grid gap-5 md:grid-cols-3">
       {CONCIERGE.map(({ key, Icon }, index) => (
         <li key={key} className="info-card relative">
-          <span aria-hidden className="absolute top-5 right-6 font-display text-4xl leading-none text-forest/15">
+          <span aria-hidden className="absolute top-5 right-6 font-display font-(--weight-display) text-4xl leading-none text-forest/15">
             {index + 1}
           </span>
           <span className="icon-chip icon-chip--lg" aria-hidden>

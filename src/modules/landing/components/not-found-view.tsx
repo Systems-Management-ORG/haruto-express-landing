@@ -49,7 +49,7 @@ export function NotFoundView({ homeHref }: { homeHref: string }) {
       </svg>
 
       <div className="wrap relative">
-        <p data-line aria-hidden className="font-display text-7xl leading-none text-gold sm:text-8xl lg:text-9xl">
+        <p data-line aria-hidden className="font-display font-(--weight-display) text-7xl leading-none text-gold sm:text-8xl lg:text-9xl">
           404
         </p>
         <h1 data-line className="heading-1 mt-6 max-w-[40rem] text-white">

@@ -35,7 +35,7 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
                 <span className="teaser-card__label">{t(`${key}.label`)}</span>
               </div>
               <div className="flex flex-1 flex-col p-6 sm:p-8">
-                <p className="font-display text-4xl text-forest lg:text-5xl">{t(`${key}.price`)}</p>
+                <p className="font-display font-(--weight-display) text-4xl text-forest lg:text-5xl">{t(`${key}.price`)}</p>
                 <p className="mt-3 text-muted">{t(`${key}.caption`)}</p>
                 <span className="link-arrow mt-auto pt-4 text-forest">
                   {t("cardCta")}
