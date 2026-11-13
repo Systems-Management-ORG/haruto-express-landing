@@ -32,7 +32,8 @@ import type { MarketplaceId } from "./marketplaces";
 import type { ServiceKey } from "./service-copy";
 
 // Presentation of the six service pages: art, icons/images per item id, which sections render
-// and which actions the buttons take. No copy here; that is in the messages (service-copy.ts).
+// and which actions the buttons take. The hero has no Zalo button (the floating Zalo button and
+// the closing CTA band carry it). No copy here; that is in the messages (service-copy.ts).
 // A section renders only when both its copy and (where listed) its config exist.
 
 type PhIcon = typeof Truck;
@@ -78,8 +79,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
   shipToJapan: {
     hero: {
       art: { src: `${IMG}/ship-ve-vn/gui-hang-viet-nam-nhat-ban.webp`, width: 1192, height: 920, sizes: ART_SIZES },
-      primary: "zalo",
-      secondary: "pricing",
+      primary: "pricing",
     },
     features: {
       visuals: {
@@ -118,8 +118,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
       art: { src: `${IMG}/ship-ve-vn/duong-bay-nhat-viet.webp`, width: 1201, height: 478, sizes: ART_SIZES, variant: "route" },
       marketplaces: ALL_MARKETPLACES,
       withMore: true,
-      primary: "zalo",
-      secondary: "pricing",
+      primary: "pricing",
     },
     features: {
       visuals: {
@@ -148,8 +147,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       art: { src: `${IMG}/mua-ho/mua-ho-hang-nhat.webp`, width: 760, height: 1001, sizes: ART_SIZES },
       marketplaces: ALL_MARKETPLACES,
-      primary: "zalo",
-      secondary: "contact",
+      primary: "contact",
     },
     steps: {
       visuals: {
@@ -176,8 +174,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       art: { src: `${IMG}/dau-gia/dau-gia-hang-nhat-banner.webp`, width: 937, height: 600, sizes: ART_SIZES, variant: "seal" },
       marketplaces: ["yahoo", "rakuten", "mercari"],
-      primary: "zalo",
-      secondary: "call",
+      primary: "call",
     },
     features: {
       variant: "product",
@@ -213,7 +210,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       art: { src: `${IMG}/ffm/kho-ffm-nhat-ban.webp`, width: 512, height: 552, sizes: ART_SIZES },
       primary: "contact",
-      secondary: "zalo",
     },
     steps: {
       visuals: {
@@ -247,8 +243,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       art: { src: `${IMG}/hang-cam/canh-kiem-tra-hai-quan.webp`, width: 694, height: 466, sizes: ART_SIZES },
       chips: "customsGroups",
-      primary: "zalo",
-      secondary: "contact",
+      primary: "contact",
     },
     custom: "customs",
     cta: { primary: "zalo", secondary: "contact" },
