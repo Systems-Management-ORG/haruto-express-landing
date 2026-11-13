@@ -4,6 +4,7 @@ Site marketing đa ngôn ngữ (VI · JA · EN) cho dịch vụ vận chuyển V
 
 ## Đọc trước khi làm
 - **UI (trang, section, component, CSS):** dùng lại component và class đã có (`src/shared/ui/*`, `service/*`, `globals.css`). Không tự thêm token màu, bo góc hay bóng đổ mới; design system đang do người khác phụ trách.
+- **Design system:** `../design-system/index.html` (mục 1 Tokens, mục 12 Components) là nguồn của token. `@theme` trong `globals.css` dùng cùng tên: 3 màu thương hiệu forest · gold · orange (+ `gold-soft/deep/ink`, `orange-deep/soft`), `--shadow-sm/md/lg`, tiêu đề Lexend qua `--weight-display` / `--tracking-display` (tiếng Nhật: Noto Sans JP). Chữ cam cỡ nào cũng dùng `orange-deep`; `orange` chỉ cho nền, viền, icon (cam thuần chỉ đạt 2.9:1 trên nền poster). Không nhập thang `--text-*` / `--space-*` của design system vì sẽ đè utility Tailwind; landing giữ cỡ chữ và nhịp section đã thống nhất. Token mới phải có trong design system trước.
 - **SEO / URL / metadata:** `docs/SEO-ROADMAP.md`, registry `src/shared/seo/pages.ts`.
 - **Prompt thực thi:** `docs/prompts/*.md`. Khi được yêu cầu "thực hiện prompt X", làm đúng thứ tự các bước trong file và báo cáo theo mục Bàn giao của nó.
 
