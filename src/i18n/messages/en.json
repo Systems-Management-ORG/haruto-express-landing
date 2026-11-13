@@ -124,7 +124,7 @@
       "nav": "Guides",
       "breadcrumb": "Guides",
       "title": "Shipping guides",
-      "intro": "Guides on packing, declaring and sending goods between Vietnam and Japan. Content is being written.",
+      "intro": "Worth reading before you ship: weight calculation, compensation, the Japan warehouse address and the goods list.",
       "metaTitle": "Shipping guides | HARUTO EXPRESS",
       "metaDescription": "Guides on packing, declaring and sending goods between Vietnam and Japan from HARUTO EXPRESS. Content is being written and will be published soon."
     }
@@ -607,33 +607,33 @@
       "specialTitle": "that need special care",
       "restCount": "2 more groups",
       "restTitle": "to keep an eye on",
-      "items": [
-        {
+      "items": {
+        "cosmetics": {
           "short": "Cosmetics",
           "title": "Cosmetics",
           "body": "Creams, lipsticks, perfumes, serums... are checked for ingredients, volume and labelling."
         },
-        {
+        "brands": {
           "short": "Branded goods",
           "title": "Branded goods",
           "body": "Bags, wallets, shoes and well-known brands may need proof of origin."
         },
-        {
+        "supplements": {
           "short": "Supplements",
           "title": "Supplements",
           "body": "Health supplements, vitamins and products with treatment claims are checked strictly."
         },
-        {
+        "food": {
           "short": "Packaged food",
           "title": "Food and snacks",
           "body": "Packaged food, local specialties and ready-made food may be checked under each country's food-safety rules."
         },
-        {
+        "batteries": {
           "short": "Battery devices",
           "title": "Electronics with batteries",
           "body": "Power banks, smartwatches, wireless earbuds and other lithium-battery products have their own rules for air freight."
         }
-      ]
+      }
     },
     "lists": {
       "title": "Accepted and prohibited goods",
@@ -656,6 +656,10 @@
     "price": {
       "title": "Shipping rates",
       "unit": "VND/kg"
+    },
+    "ctaDefault": {
+      "title": "Need a quote for your shipment?",
+      "body": "Send the route, goods type and estimated weight, and HARUTO will advise and quote on Zalo or by phone."
     },
     "toc": "On this page"
   },
@@ -793,13 +797,13 @@
       },
       "clean": {
         "title": "Clean goods",
-        "features": [
-          "Fashion, household items, furniture, machinery, accessories, books… We do not accept food, cosmetics, medicine (no counterfeit goods).",
-          "Goods are 100% guaranteed.",
-          "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
-          "Free consolidation and packing.",
-          "Wholesale perk: this month's volume sets next month's rate."
-        ],
+        "features": {
+          "goods": "Fashion, household items, furniture, machinery, accessories, books… We do not accept food, cosmetics, medicine (no counterfeit goods).",
+          "guarantee": "Goods are 100% guaranteed.",
+          "taxIncluded": "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
+          "freePacking": "Free consolidation and packing.",
+          "wholesale": "Wholesale perk: this month's volume sets next month's rate."
+        },
         "rows": [
           {
             "weight": "1 – 5 kg",
@@ -839,12 +843,12 @@
       },
       "mixed": {
         "title": "Mixed goods",
-        "features": [
-          "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
-          "A wide range accepted: clothing, footwear, food…",
-          "Not guaranteed: meat products, counterfeits, seeds, fruit, cosmetics, medicine.",
-          "Prohibited by law: narcotics, stimulants, weapons, ammunition…"
-        ],
+        "features": {
+          "taxIncluded": "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
+          "accepted": "A wide range accepted: clothing, footwear, food…",
+          "notGuaranteed": "Not guaranteed: meat products, counterfeits, seeds, fruit, cosmetics, medicine.",
+          "prohibited": "Prohibited by law: narcotics, stimulants, weapons, ammunition…"
+        },
         "rows": [
           {
             "weight": "1 kg",
@@ -927,36 +931,36 @@
         "item": "Category",
         "fee": "Surcharge"
       },
-      "rows": [
-        {
+      "items": {
+        "electronics": {
           "item": "Electronics and items with batteries (Starlink, used laptops, used phones, cameras…)",
           "fee": "150,000 VND/item"
         },
-        {
+        "perfume": {
           "item": "Perfume, items containing alcohol…",
           "fee": "350,000 VND/item"
         },
-        {
+        "carton": {
           "item": "Carton repackaging",
           "fee": "25,500 VND/kg"
         },
-        {
+        "wooden": {
           "item": "Wooden crating",
           "fee": "34,000 VND/kg"
         },
-        {
+        "foam": {
           "item": "Foam box repackaging (74×46×39cm: ¥3,563/box; 46×33×34cm: ¥2,187/box)",
           "fee": "50,000 VND/box (domestic delivery)"
         },
-        {
+        "special": {
           "item": "Special-handling packing",
           "fee": "85,000 VND/kg"
         },
-        {
+        "other": {
           "item": "Other",
           "fee": "Contact us"
         }
-      ]
+      }
     },
     "scrollLabel": "Surcharge table, scrolls horizontally",
     "bestRate": "Best rate"
@@ -1039,19 +1043,25 @@
     },
     "tips": {
       "title": "Important notes when shipping",
-      "items": [
-        "Photograph the package before sending.",
-        "Declare the value, quantity, and item details accurately.",
-        "If bought at a supermarket, keep the receipt (bill) and include it inside the package.",
-        "Goods sent to the warehouse must include the recipient's full details: name, phone number, and address.",
-        "When receiving goods, record one continuous video of the unboxing as evidence for any claim. Claims without a video, or raised more than 24 hours after receipt, cannot be resolved.",
-        "We do not cover goods with a shelf life of under 10 days.",
-        "If you are not home, HARUTO will reschedule the delivery. Delivery times may change due to weather, natural disasters, or customs clearance in either country."
-      ]
+      "items": {
+        "photo": "Photograph the package before sending.",
+        "declare": "Declare the value, quantity, and item details accurately.",
+        "receipt": "If bought at a supermarket, keep the receipt (bill) and include it inside the package.",
+        "recipient": "Goods sent to the warehouse must include the recipient's full details: name, phone number, and address.",
+        "video": "When receiving goods, record one continuous video of the unboxing as evidence for any claim. Claims without a video, or raised more than 24 hours after receipt, cannot be resolved.",
+        "shelfLife": "We do not cover goods with a shelf life of under 10 days.",
+        "redelivery": "If you are not home, HARUTO will reschedule the delivery. Delivery times may change due to weather, natural disasters, or customs clearance in either country."
+      }
     }
   },
   "faq": {
     "title": "Frequently asked questions",
+    "groups": {
+      "shipping": "Shipping & rates",
+      "buying": "Buying & auction bidding",
+      "warehouse": "Japan warehouse",
+      "business": "Business & fulfillment"
+    },
     "items": [
       {
         "question": "What goods does HARUTO accept?",

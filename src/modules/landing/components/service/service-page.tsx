@@ -2,10 +2,11 @@ import { Gavel } from "@phosphor-icons/react/dist/ssr";
 import { RelatedLinks } from "@/shared/components/related-links";
 import { CtaBand } from "@/shared/ui/cta-band";
 import { SectionHead } from "@/shared/ui/section-head";
+import { useTranslations } from "next-intl";
 import { type ServiceKey, useServiceCopy } from "../../service-copy";
 import { SERVICE_PAGES } from "../../service-pages";
 import { Faq } from "../faq";
-import { Policy } from "../policy";
+import { ConciergeTerms } from "../info/policy-sections";
 import { AudienceRow } from "./audience-row";
 import { BenefitBand } from "./benefit-band";
 import { CustomsGroups, CustomsLists } from "./customs-sections";
@@ -16,11 +17,12 @@ import { StepFlow } from "./step-flow";
 
 // The six service pages, one fixed section order. A section renders only when the page has both
 // its copy and its config. Backgrounds alternate: hero (ivory) → features (sage) → steps (ivory)
-// → price (white) → audience (sage) → benefits (dark) → terms / policy (sage) → FAQ (ivory) →
+// → price (white) → audience (sage) → benefits (dark) → terms / concierge terms (sage) → FAQ (ivory) →
 // CTA (dark) → related (sage).
 export function ServicePage({ page }: { page: ServiceKey }) {
   const copy = useServiceCopy(page);
   const config = SERVICE_PAGES[page];
+  const tPolicy = useTranslations("policy.concierge");
 
   return (
     <>
@@ -82,10 +84,15 @@ export function ServicePage({ page }: { page: ServiceKey }) {
         </section>
       )}
 
-      {config.policy && (
-        <div className="bg-sage">
-          <Policy show={config.policy} withHeader={false} />
-        </div>
+      {config.conciergeTerms && (
+        <section className="section bg-sage">
+          <div className="wrap">
+            <SectionHead title={tPolicy("title")} />
+            <div className="mt-10 lg:mt-12">
+              <ConciergeTerms />
+            </div>
+          </div>
+        </section>
       )}
 
       <Faq page={page} />

@@ -124,7 +124,7 @@
       "nav": "Hướng dẫn",
       "breadcrumb": "Hướng dẫn",
       "title": "Hướng dẫn gửi hàng",
-      "intro": "Các bài hướng dẫn đóng gói, khai báo và gửi hàng giữa Việt Nam và Nhật Bản. Nội dung đang được biên soạn.",
+      "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
       "metaTitle": "Hướng dẫn gửi hàng | HARUTO EXPRESS",
       "metaDescription": "Hướng dẫn đóng gói, khai báo và gửi hàng giữa Việt Nam và Nhật Bản của HARUTO EXPRESS. Nội dung đang được biên soạn và sẽ sớm cập nhật."
     }
@@ -607,33 +607,33 @@
       "specialTitle": "cần lưu ý đặc biệt",
       "restCount": "2 nhóm hàng",
       "restTitle": "còn lại bạn cũng cần chú ý",
-      "items": [
-        {
+      "items": {
+        "cosmetics": {
           "short": "Mỹ phẩm",
           "title": "Mỹ phẩm",
           "body": "Kem dưỡng, son môi, nước hoa, serum... thường được xem xét về thành phần, dung tích và nhãn mác sản phẩm."
         },
-        {
+        "brands": {
           "short": "Hàng hiệu",
           "title": "Hàng thương hiệu",
           "body": "Túi xách, ví, giày dép hoặc các sản phẩm có thương hiệu nổi tiếng có thể bị yêu cầu chứng minh nguồn gốc xuất xứ."
         },
-        {
+        "supplements": {
           "short": "Thực phẩm chức năng",
           "title": "Thực phẩm chức năng",
           "body": "Các sản phẩm hỗ trợ sức khỏe, vitamin hoặc sản phẩm có công dụng điều trị thường thuộc nhóm kiểm tra nghiêm ngặt."
         },
-        {
+        "food": {
           "short": "Thực phẩm đóng gói",
           "title": "Thực phẩm, bánh kẹo",
           "body": "Đồ ăn đóng gói, đặc sản địa phương hay thực phẩm chế biến sẵn có thể bị kiểm tra theo quy định an toàn thực phẩm của từng quốc gia."
         },
-        {
+        "batteries": {
           "short": "Thiết bị có pin",
           "title": "Thiết bị điện tử có pin",
           "body": "Pin dự phòng, đồng hồ thông minh, tai nghe không dây và các sản phẩm sử dụng pin lithium thường có quy định vận chuyển riêng khi đi đường hàng không."
         }
-      ]
+      }
     },
     "lists": {
       "title": "Danh mục hàng nhận và hàng cấm gửi",
@@ -656,6 +656,10 @@
     "price": {
       "title": "Cước vận chuyển",
       "unit": "VNĐ/kg"
+    },
+    "ctaDefault": {
+      "title": "Cần báo giá cho kiện hàng của bạn?",
+      "body": "Gửi tuyến, loại hàng và cân nặng dự kiến, HARUTO tư vấn và báo cước qua Zalo hoặc hotline."
     },
     "toc": "Mục lục trang"
   },
@@ -793,13 +797,13 @@
       },
       "clean": {
         "title": "Hàng sạch",
-        "features": [
-          "Hàng thời trang, đồ dùng, nội thất, máy móc, phụ kiện, sách vở… Không nhận thực phẩm, mỹ phẩm, thuốc thang (không nhận hàng fake).",
-          "Đảm bảo hàng hóa 100%.",
-          "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
-          "Miễn phí gom đơn, đóng hàng.",
-          "Ưu đãi khách buôn: sản lượng tháng này là mốc tính cước cho tháng tiếp theo."
-        ],
+        "features": {
+          "goods": "Hàng thời trang, đồ dùng, nội thất, máy móc, phụ kiện, sách vở… Không nhận thực phẩm, mỹ phẩm, thuốc thang (không nhận hàng fake).",
+          "guarantee": "Đảm bảo hàng hóa 100%.",
+          "taxIncluded": "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
+          "freePacking": "Miễn phí gom đơn, đóng hàng.",
+          "wholesale": "Ưu đãi khách buôn: sản lượng tháng này là mốc tính cước cho tháng tiếp theo."
+        },
         "rows": [
           {
             "weight": "1 – 5 kg",
@@ -839,12 +843,12 @@
       },
       "mixed": {
         "title": "Hàng hỗn hợp",
-        "features": [
-          "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
-          "Nhận đa dạng các loại mặt hàng: quần áo, giày dép, thực phẩm…",
-          "Hàng hóa không đảm bảo: chế phẩm thịt, hàng fake, hạt giống, hoa quả, mỹ phẩm, thuốc thang.",
-          "Hàng hóa cấm gửi theo quy định pháp luật: chất gây nghiện, chất kích thích, vũ khí, đạn dược…"
-        ],
+        "features": {
+          "taxIncluded": "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
+          "accepted": "Nhận đa dạng các loại mặt hàng: quần áo, giày dép, thực phẩm…",
+          "notGuaranteed": "Hàng hóa không đảm bảo: chế phẩm thịt, hàng fake, hạt giống, hoa quả, mỹ phẩm, thuốc thang.",
+          "prohibited": "Hàng hóa cấm gửi theo quy định pháp luật: chất gây nghiện, chất kích thích, vũ khí, đạn dược…"
+        },
         "rows": [
           {
             "weight": "1 kg",
@@ -927,36 +931,36 @@
         "item": "Danh mục",
         "fee": "Phụ thu"
       },
-      "rows": [
-        {
+      "items": {
+        "electronics": {
           "item": "Thiết bị điện tử, đồ có pin (Starlink, laptop cũ, điện thoại cũ, máy ảnh…)",
           "fee": "150.000 VNĐ/sản phẩm"
         },
-        {
+        "perfume": {
           "item": "Nước hoa, đồ có cồn…",
           "fee": "350.000 VNĐ/sản phẩm"
         },
-        {
+        "carton": {
           "item": "Đóng lại kiện carton",
           "fee": "25.500 VNĐ/kg"
         },
-        {
+        "wooden": {
           "item": "Đóng gỗ",
           "fee": "34.000 VNĐ/kg"
         },
-        {
+        "foam": {
           "item": "Đóng lại thùng xốp (74×46×39cm: 3.563 yên/thùng; 46×33×34cm: 2.187 yên/thùng)",
           "fee": "50.000 VNĐ/thùng (giao nội địa)"
         },
-        {
+        "special": {
           "item": "Đóng hàng đặc biệt",
           "fee": "85.000 VNĐ/kg"
         },
-        {
+        "other": {
           "item": "Khác",
           "fee": "Liên hệ"
         }
-      ]
+      }
     },
     "scrollLabel": "Bảng phụ thu, có thể cuộn ngang",
     "bestRate": "Giá tốt nhất"
@@ -1039,19 +1043,25 @@
     },
     "tips": {
       "title": "Lưu ý quan trọng khi gửi hàng",
-      "items": [
-        "Chụp ảnh kiện hàng trước khi gửi.",
-        "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
-        "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng.",
-        "Hàng gửi đến kho phải đủ thông tin người nhận: tên, số điện thoại, địa chỉ.",
-        "Khi nhận hàng, quay video liền mạch quá trình kiểm đếm để làm căn cứ khiếu nại. Không có video hoặc quá 24 giờ kể từ khi nhận sẽ không được giải quyết.",
-        "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
-        "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
-      ]
+      "items": {
+        "photo": "Chụp ảnh kiện hàng trước khi gửi.",
+        "declare": "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
+        "receipt": "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng.",
+        "recipient": "Hàng gửi đến kho phải đủ thông tin người nhận: tên, số điện thoại, địa chỉ.",
+        "video": "Khi nhận hàng, quay video liền mạch quá trình kiểm đếm để làm căn cứ khiếu nại. Không có video hoặc quá 24 giờ kể từ khi nhận sẽ không được giải quyết.",
+        "shelfLife": "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
+        "redelivery": "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
+      }
     }
   },
   "faq": {
     "title": "Câu hỏi thường gặp",
+    "groups": {
+      "shipping": "Vận chuyển & cước",
+      "buying": "Mua hộ & đấu giá hộ",
+      "warehouse": "Kho Nhật",
+      "business": "Doanh nghiệp & FFM"
+    },
     "items": [
       {
         "question": "HARUTO nhận những loại hàng nào?",

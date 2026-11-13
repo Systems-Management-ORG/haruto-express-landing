@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { rawRecord } from "@/shared/lib/raw-messages";
 import { Goods } from "../goods";
 
 // Sections only the accepted & prohibited goods page has: the five customs-check groups (round
@@ -8,26 +9,37 @@ import { Goods } from "../goods";
 
 // Art cut from HARUTO's text-free "5 groups customs check" poster (public/images/haruto/hang-cam).
 const ART = "/images/haruto/hang-cam";
-// One photo per entry of `customs.groups.items`, in order; the first three are the
-// "pay special attention" groups, the last two "also watch out for".
-const GROUP_IMAGES = ["my-pham", "hang-hieu", "thuc-pham-chuc-nang", "thuc-pham-dong-goi", "thiet-bi-co-pin"];
+// One photo per group id of `customs.groups.items` (whose key order is the display order); the
+// first three are the "pay special attention" groups, the last two "also watch out for".
+const GROUP_IMAGES: Record<string, string> = {
+  cosmetics: "my-pham",
+  brands: "hang-hieu",
+  supplements: "thuc-pham-chuc-nang",
+  food: "thuc-pham-dong-goi",
+  batteries: "thiet-bi-co-pin",
+};
 const SPECIAL = 3;
 
 type Group = { short: string; title: string; body: string };
+type Entry = [id: string, group: Group];
+
+function useGroups(): Entry[] {
+  const t = useTranslations("customs");
+  return Object.entries(rawRecord<Group>(t, "groups.items"));
+}
 
 export function CustomsChips() {
-  const t = useTranslations("customs");
-  const groups = t.raw("groups.items") as Group[];
+  const groups = useGroups();
 
   return (
     <div className="wrap pb-10 lg:pb-12">
       <ul className="customs-chips">
-        {groups.map((group, index) => (
-          <li key={group.short}>
+        {groups.map(([id, group], index) => (
+          <li key={id}>
             <a href={`#nhom-${index + 1}`} className="customs-chip">
               <span className="customs-chip__img">
                 <Image
-                  src={`${ART}/${GROUP_IMAGES[index]}.webp`}
+                  src={`${ART}/${GROUP_IMAGES[id]}.webp`}
                   alt=""
                   width={180}
                   height={215}
@@ -44,14 +56,14 @@ export function CustomsChips() {
   );
 }
 
-function GroupCard({ group, index }: { group: Group; index: number }) {
+function GroupCard({ id, group, index }: { id: string; group: Group; index: number }) {
   return (
     <li id={`nhom-${index + 1}`} className="customs-card">
       <p className="customs-card__no">{String(index + 1).padStart(2, "0")}</p>
       <h3 className="customs-card__title">{group.title}</h3>
       <div className="customs-card__media">
         <Image
-          src={`${ART}/${GROUP_IMAGES[index]}.webp`}
+          src={`${ART}/${GROUP_IMAGES[id]}.webp`}
           alt=""
           width={244}
           height={215}
@@ -66,7 +78,7 @@ function GroupCard({ group, index }: { group: Group; index: number }) {
 
 export function CustomsGroups() {
   const t = useTranslations("customs.groups");
-  const groups = t.raw("items") as Group[];
+  const groups = useGroups();
 
   return (
     <section className="section">
@@ -81,8 +93,8 @@ export function CustomsGroups() {
               <span className="block text-sun">{t("specialTitle")}</span>
             </h2>
             <ul data-reveal-group className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-              {groups.slice(0, SPECIAL).map((group, index) => (
-                <GroupCard key={group.title} group={group} index={index} />
+              {groups.slice(0, SPECIAL).map(([id, group], index) => (
+                <GroupCard key={id} id={id} group={group} index={index} />
               ))}
             </ul>
           </div>
@@ -92,8 +104,8 @@ export function CustomsGroups() {
               <span className="block text-sun">{t("restTitle")}</span>
             </h2>
             <ul data-reveal-group className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
-              {groups.slice(SPECIAL).map((group, index) => (
-                <GroupCard key={group.title} group={group} index={index + SPECIAL} />
+              {groups.slice(SPECIAL).map(([id, group], index) => (
+                <GroupCard key={id} id={id} group={group} index={index + SPECIAL} />
               ))}
             </ul>
           </div>

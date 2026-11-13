@@ -29,7 +29,6 @@ import {
 import type { PageKey } from "@/shared/seo/pages";
 import type { CtaAction } from "@/shared/ui/contact-cta";
 import type { Visual } from "@/shared/ui/item-visual";
-import type { PolicyBlock } from "./components/policy";
 import type { MarketplaceId } from "./marketplaces";
 import type { ServiceKey } from "./service-copy";
 
@@ -56,7 +55,7 @@ export type ServicePageConfig = {
   audience?: { visuals: Record<string, Visual> };
   benefits?: { visuals: Record<string, Visual>; chips?: { item: string; pages: PageKey[] } };
   terms?: true;
-  policy?: PolicyBlock[]; // reuses <Policy show={…} withHeader={false} />
+  conciergeTerms?: true; // buying / auction / shipping-only terms (policy.concierge)
   cta: { primary: CtaAction; secondary?: CtaAction };
 };
 
@@ -165,7 +164,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
         tracking: { Icon: Path },
       },
     },
-    policy: ["concierge"],
+    conciergeTerms: true,
     cta: { primary: "zalo", secondary: "call" },
   },
 
