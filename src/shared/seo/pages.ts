@@ -41,7 +41,7 @@ export type PageDef = {
 const s = (vi: string, en: string): Record<Locale, string> => ({ vi, en, ja: en });
 
 export const PAGES: Record<PageKey, PageDef> = {
-  home: { key: "home", slugs: s("", ""), indexable: true, updatedAt: "2026-11-10", priority: 1, changeFrequency: "weekly", related: ["pricing", "shipToJapan", "shipToVietnam"] },
+  home: { key: "home", slugs: s("", ""), indexable: true, updatedAt: "2026-11-13", priority: 1, changeFrequency: "weekly", related: ["pricing", "shipToJapan", "shipToVietnam"] },
   shipToJapan: { key: "shipToJapan", slugs: s("gui-hang-di-nhat", "ship-to-japan"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["pricing", "policy", "goods", "japanWarehouse"] },
   shipToVietnam: { key: "shipToVietnam", slugs: s("ship-hang-nhat-ve-viet-nam", "ship-to-vietnam"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["pricing", "policy", "concierge", "japanWarehouse"] },
   pricing: { key: "pricing", slugs: s("bang-gia", "pricing"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["goods", "policy", "shipToJapan"] },

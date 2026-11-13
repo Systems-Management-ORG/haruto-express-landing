@@ -12,6 +12,7 @@ import { Faq, FaqList } from "../faq";
 import { GuideGrid } from "../guides";
 import { useFaqGroups } from "./faq-groups";
 import { InfoSection } from "./info-section";
+import { CarrierList } from "../partners/carrier-list";
 import { Compensation, WarehouseInfo, WarehouseTips, WeightRules } from "./policy-sections";
 import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 
@@ -27,6 +28,7 @@ const BODIES: Record<FramedId, () => ReactNode> = {
   weight: WeightRules,
   compensation: Compensation,
   warehouse: WarehouseInfo,
+  carriers: () => <CarrierList />,
   warehouseTips: WarehouseTips,
   guideGrid: GuideGrid,
 };
@@ -43,12 +45,14 @@ export function InfoPage({ page }: { page: InfoKey }) {
     weight: t("policy.weight.title"),
     compensation: t("policy.compensation.title"),
     warehouse: t("policy.warehouse.title"),
+    carriers: t("partners.carriers.title"),
     warehouseTips: t("policy.tips.title"),
     guideGrid: t("home.guides.title"),
   };
 
   // Every section the page renders, flattened (the FAQ page renders one section per group).
-  const blocks: { id: string; title: string; body: ReactNode }[] = [];
+  const intros: Partial<Record<FramedId, string>> = { carriers: t("partners.carriers.intro") };
+  const blocks: { id: string; title: string; intro?: string; body: ReactNode }[] = [];
   let raw: ReactNode = null;
   for (const id of config.sections) {
     if (id === "contact") {
@@ -72,7 +76,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
       }
     } else {
       const Body = BODIES[id];
-      blocks.push({ id: anchorOf(id), title: titles[id], body: <Body /> });
+      blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body /> });
     }
   }
 
@@ -106,8 +110,8 @@ export function InfoPage({ page }: { page: InfoKey }) {
         after={toc.length > 0 ? <TocChips items={toc} /> : undefined}
       />
 
-      {blocks.map(({ id, title, body }, index) => (
-        <InfoSection key={id} id={id} tinted={index % 2 === 1} title={title}>
+      {blocks.map(({ id, title, intro, body }, index) => (
+        <InfoSection key={id} id={id} tinted={index % 2 === 1} title={title} intro={intro}>
           {body}
         </InfoSection>
       ))}
