@@ -656,7 +656,8 @@
     "price": {
       "title": "Cước vận chuyển",
       "unit": "VNĐ/kg"
-    }
+    },
+    "toc": "Mục lục trang"
   },
   "marketplaces": {
     "yahoo": {

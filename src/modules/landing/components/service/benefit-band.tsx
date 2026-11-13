@@ -4,7 +4,8 @@ import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
 import type { ServiceCopy } from "../../service-copy";
 import type { ServicePageConfig } from "../../service-pages";
-import { ItemVisual } from "./visual";
+import { ItemVisual } from "@/shared/ui/item-visual";
+import { SectionHead } from "@/shared/ui/section-head";
 
 type Benefits = NonNullable<ServiceCopy["benefits"]>;
 type Config = NonNullable<ServicePageConfig["benefits"]>;
@@ -20,16 +21,7 @@ export function BenefitBand({ copy, config }: { copy: Benefits; config: Config }
   return (
     <section className="svc-band">
       <div className="wrap py-14 lg:py-20">
-        <div className="text-center">
-          <h2 data-reveal className="heading-2 text-white">
-            {copy.title}
-          </h2>
-          {copy.intro && (
-            <p data-reveal className="mx-auto mt-4 max-w-[44rem] text-ivory/85 sm:text-lg">
-              {copy.intro}
-            </p>
-          )}
-        </div>
+        <SectionHead title={copy.title} intro={copy.intro} tone="dark" />
         <ul data-reveal-group className={`mt-10 grid gap-8 sm:grid-cols-2 lg:mt-12 lg:gap-0 ${cols}`}>
           {entries.map(([id, item]) => (
             <li key={id} className="svc-benefit">

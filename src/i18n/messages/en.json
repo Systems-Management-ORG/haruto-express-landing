@@ -656,7 +656,8 @@
     "price": {
       "title": "Shipping rates",
       "unit": "VND/kg"
-    }
+    },
+    "toc": "On this page"
   },
   "marketplaces": {
     "yahoo": {

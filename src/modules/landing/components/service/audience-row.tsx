@@ -1,6 +1,6 @@
 import type { ServiceCopy } from "../../service-copy";
 import type { ServicePageConfig } from "../../service-pages";
-import { ItemVisual } from "./visual";
+import { ItemVisual } from "@/shared/ui/item-visual";
 
 type Audience = NonNullable<ServiceCopy["audience"]>;
 type Config = NonNullable<ServicePageConfig["audience"]>;

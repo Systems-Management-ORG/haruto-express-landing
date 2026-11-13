@@ -656,7 +656,8 @@
     "price": {
       "title": "運賃",
       "unit": "VND/kg"
-    }
+    },
+    "toc": "このページの内容"
   },
   "marketplaces": {
     "yahoo": {

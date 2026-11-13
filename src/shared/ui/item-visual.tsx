@@ -1,7 +1,9 @@
+import type { Truck } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import type { Visual } from "../../service-pages";
 
-// An item's picture: a Phosphor icon in a round badge, or one of HARUTO's small artwork images.
+// An item's picture: a Phosphor icon, or one of HARUTO's small artwork images.
+export type Visual = { Icon: typeof Truck } | { src: string; width: number; height: number };
+
 // Always decorative (the item title carries the meaning). Never `priority`: only the hero art is.
 export function ItemVisual({
   visual,

@@ -27,6 +27,8 @@ import {
   Warehouse,
 } from "@phosphor-icons/react/dist/ssr";
 import type { PageKey } from "@/shared/seo/pages";
+import type { CtaAction } from "@/shared/ui/contact-cta";
+import type { Visual } from "@/shared/ui/item-visual";
 import type { PolicyBlock } from "./components/policy";
 import type { MarketplaceId } from "./marketplaces";
 import type { ServiceKey } from "./service-copy";
@@ -36,9 +38,6 @@ import type { ServiceKey } from "./service-copy";
 // the closing CTA band carry it). No copy here; that is in the messages (service-copy.ts).
 // A section renders only when both its copy and (where listed) its config exist.
 
-type PhIcon = typeof Truck;
-export type Visual = { Icon: PhIcon } | { src: string; width: number; height: number };
-export type CtaAction = "zalo" | "contact" | "call" | "pricing";
 export type Art = { src: string; width: number; height: number; sizes: string; variant?: "route" | "seal" };
 
 export type ServicePageConfig = {

@@ -3,6 +3,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { PAGES, type PageKey, pagePath } from "@/shared/seo/pages";
+import { SectionHead } from "@/shared/ui/section-head";
 
 // Internal-linking block at the foot of every subpage: 2-4 related routes from the registry.
 export function RelatedLinks({ page }: { page: PageKey }) {
@@ -14,7 +15,7 @@ export function RelatedLinks({ page }: { page: PageKey }) {
   return (
     <section className="section bg-sage">
       <div className="wrap">
-        <h2 className="heading-2">{t("relatedTitle")}</h2>
+        <SectionHead title={t("relatedTitle")} align="start" />
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((key) => (
             <li key={key}>

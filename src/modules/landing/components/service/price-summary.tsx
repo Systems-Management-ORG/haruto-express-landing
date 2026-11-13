@@ -2,8 +2,8 @@ import { Info } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { JP_VN, type Tier, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
-import { ContactCta } from "./contact-cta";
-import { SectionHead } from "./section-head";
+import { ContactCta } from "@/shared/ui/contact-cta";
+import { SectionHead } from "@/shared/ui/section-head";
 
 // A short rate summary for a route page; the full tables, surcharges and weight rules live on
 // /bang-gia. Amounts come from pricing-data.ts (never from price strings), as a min – max range

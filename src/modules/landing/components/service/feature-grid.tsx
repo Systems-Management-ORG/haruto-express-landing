@@ -6,7 +6,7 @@ import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
 import type { ServiceCopy } from "../../service-copy";
 import type { ServicePageConfig } from "../../service-pages";
-import { ItemVisual } from "./visual";
+import { ItemVisual } from "@/shared/ui/item-visual";
 
 type Features = NonNullable<ServiceCopy["features"]>;
 type Config = NonNullable<ServicePageConfig["features"]>;

@@ -5,7 +5,8 @@ import { CHAT_CHANNELS, ChannelIcon, PhoneIcon, primaryHotline } from "@/shared/
 import type { Locale } from "@/shared/constants/locales";
 import { telHref } from "@/shared/seo/business";
 import { pagePath } from "@/shared/seo/pages";
-import type { CtaAction } from "../../service-pages";
+
+export type CtaAction = "zalo" | "contact" | "call" | "pricing";
 
 const zalo = CHAT_CHANNELS.find((channel) => channel.id === "zalo");
 
@@ -17,7 +18,7 @@ const VARIANT: Record<Variant, string> = {
   onDark: "btn btn-onDark",
 };
 
-// The one contact button of the service pages. `zalo` opens the consultant chat (falls back to the
+// The one contact button of the service and info pages. `zalo` opens the consultant chat (falls back to the
 // contact form when no Zalo URL is configured), `contact` the form, `call` the visitor's hotline
 // (renders nothing without one), `pricing` the full rate page. Default labels: `service.cta.*`.
 export function ContactCta({ action, label, variant = "primary" }: { action: CtaAction; label?: string; variant?: Variant }) {

@@ -1,6 +1,6 @@
 import type { PageKey } from "./pages";
 
-// One topical image per subpage, shown beside the H1 in PageHero. `position` is the object-position
+// One topical image per subpage, shown beside the H1 in the info-page hero. `position` is the object-position
 // for the crop: the banner illustrations keep their subject on the right, so they crop from there.
 // Paths are under /public; every image here is HARUTO's own (warehouse photos, banner artwork).
 // `og` names the art for the 1200×630 share image when it differs from `src` (pages with their

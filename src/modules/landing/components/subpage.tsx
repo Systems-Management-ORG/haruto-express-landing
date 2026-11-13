@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { PageHero } from "@/shared/components/page-hero";
+import { InfoHero } from "@/shared/ui/info-hero";
 import { RelatedLinks } from "@/shared/components/related-links";
 import type { PageKey } from "@/shared/seo/pages";
 import { isServiceKey } from "../service-copy";
@@ -9,7 +9,7 @@ import { Policy } from "./policy";
 import { Pricing, Surcharges } from "./pricing";
 import { ServicePage } from "./service/service-page";
 
-// The body shown under the PageHero for the non-service subpages. /bang-gia carries both
+// The body shown under the InfoHero for the non-service subpages. /bang-gia carries both
 // directions' rate tables plus surcharges and the weight rules. The six service pages render
 // from one template instead (service/service-page.tsx).
 function body(key: PageKey): ReactNode {
@@ -54,7 +54,7 @@ export function SubPage({ page }: { page: Exclude<PageKey, "home"> }) {
 
   return (
     <main id="main">
-      <PageHero page={page} />
+      <InfoHero page={page} />
       {body(page)}
       {/* The questions tagged for this page (renders nothing when none are). */}
       {page !== "faq" && <Faq page={page} />}

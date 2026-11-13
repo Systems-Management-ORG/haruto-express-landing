@@ -1,16 +1,16 @@
 import { Gavel } from "@phosphor-icons/react/dist/ssr";
 import { RelatedLinks } from "@/shared/components/related-links";
+import { CtaBand } from "@/shared/ui/cta-band";
+import { SectionHead } from "@/shared/ui/section-head";
 import { type ServiceKey, useServiceCopy } from "../../service-copy";
 import { SERVICE_PAGES } from "../../service-pages";
 import { Faq } from "../faq";
 import { Policy } from "../policy";
 import { AudienceRow } from "./audience-row";
 import { BenefitBand } from "./benefit-band";
-import { CtaBand } from "./cta-band";
 import { CustomsGroups, CustomsLists } from "./customs-sections";
 import { FeatureGrid } from "./feature-grid";
 import { PriceSummary } from "./price-summary";
-import { SectionHead } from "./section-head";
 import { ServiceHero } from "./service-hero";
 import { StepFlow } from "./step-flow";
 
@@ -89,7 +89,14 @@ export function ServicePage({ page }: { page: ServiceKey }) {
       )}
 
       <Faq page={page} />
-      <CtaBand copy={copy.cta} config={config.cta} />
+      <CtaBand
+        title={copy.cta.title}
+        body={copy.cta.body}
+        note={copy.cta.note}
+        primary={config.cta.primary}
+        secondary={config.cta.secondary}
+        primaryLabel={copy.cta.primary}
+      />
       <RelatedLinks page={page} />
     </>
   );

@@ -2,7 +2,7 @@ import { Info } from "@phosphor-icons/react/dist/ssr";
 import type { CSSProperties } from "react";
 import type { ServiceCopy } from "../../service-copy";
 import type { ServicePageConfig } from "../../service-pages";
-import { ItemVisual } from "./visual";
+import { ItemVisual } from "@/shared/ui/item-visual";
 
 type Steps = NonNullable<ServiceCopy["steps"]>;
 type Config = NonNullable<ServicePageConfig["steps"]>;
