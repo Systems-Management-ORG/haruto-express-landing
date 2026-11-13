@@ -57,6 +57,27 @@ for (const locale of LOCALES) {
   if (from !== lowest) errors.push(`${locale} teaser.vnJp.price ${from} ≠ lowest rate ${lowest}`);
   const jpVn = amount(pricing.teaser.jpVn.price);
   if (jpVn !== JP_VN[0].vndPerKg) errors.push(`${locale} teaser.jpVn.price ${jpVn} ≠ ${JP_VN[0].vndPerKg}`);
+
+  // Prose that quotes the JP→VN rate: page intros/meta and the FAQ answer about rates. Every
+  // "155.000"-style amount (2–3 digits + thousands) in them must be the flat JP→VN rate.
+  // Smaller numbers such as the volumetric divisor (6.000) are not amounts and are skipped.
+  const prose = {
+    "pages.shipToVietnam.intro": messages.pages.shipToVietnam.intro,
+    "pages.shipToVietnam.metaTitle": messages.pages.shipToVietnam.metaTitle,
+    "pages.shipToVietnam.metaDescription": messages.pages.shipToVietnam.metaDescription,
+    "pages.pricing.intro": messages.pages.pricing.intro,
+    "pages.pricing.metaDescription": messages.pages.pricing.metaDescription,
+  };
+  messages.faq.items.forEach((item, index) => {
+    if (item.pages?.includes("pricing")) prose[`faq.items[${index}].answer`] = item.answer;
+  });
+  for (const [key, text] of Object.entries(prose)) {
+    const found = String(text ?? "").match(/\b\d{2,3}[.,]000\b/g) ?? [];
+    if (found.length === 0) errors.push(`${locale} ${key}: no JP→VN amount found ("${text}")`);
+    for (const match of found) {
+      if (amount(match) !== JP_VN[0].vndPerKg) errors.push(`${locale} ${key}: ${match} ≠ ${JP_VN[0].vndPerKg}`);
+    }
+  }
 }
 
 if (errors.length) {

@@ -98,6 +98,17 @@ async function crawl() {
     const h1s = extractAll(/<h1[\s>]/gi, html);
     if (h1s.length !== 1) fail(pathname, `found ${h1s.length} <h1> (expected 1)`);
 
+    // Glued H1: a heading built from several elements must keep whitespace between them, or its
+    // text (what search engines and the Service schema read) runs words together ("NhậtBản").
+    // Case is compared with Unicode properties: a literal [a-zà-ỹ][A-ZÀ-Ỹ] range also spans
+    // Vietnamese lowercase letters (U+00E0–U+1EF9 mixes both cases) and would flag every H1.
+    const h1Html = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "";
+    if (/<\/[a-z][a-z0-9]*>(?:<!--[\s\S]*?-->)*<[a-z]/i.test(h1Html))
+      fail(pathname, "H1 child elements with no whitespace between them");
+    const h1Text = h1Html.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&#x27;|&#39;/g, "'");
+    const glued = h1Text.match(/\p{Ll}\p{Lu}/u);
+    if (glued) fail(pathname, `H1 text looks glued at "${glued[0]}": "${h1Text.trim()}"`);
+
     // Title length.
     const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
     const title = titleMatch ? titleMatch[1].trim() : "";
