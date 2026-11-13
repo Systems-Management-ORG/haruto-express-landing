@@ -3,7 +3,7 @@
 Site marketing đa ngôn ngữ (VI · JA · EN) cho dịch vụ vận chuyển Việt ⇄ Nhật, chạy tại harutoexpress.com. Stack: Next.js 16 (App Router), next-intl 4, Tailwind v4, GSAP, TypeScript strict.
 
 ## Đọc trước khi làm
-- **UI (trang, section, component, CSS):** `docs/DESIGN-SYSTEM.md` là luật. Không tự đặt màu, cỡ chữ, bo góc, bóng đổ hay khoảng cách nằm ngoài token. Thiếu thì bổ sung vào file đó trước, rồi mới code.
+- **UI (trang, section, component, CSS):** dùng lại component và class đã có (`src/shared/ui/*`, `service/*`, `globals.css`). Không tự thêm token màu, bo góc hay bóng đổ mới; design system đang do người khác phụ trách.
 - **SEO / URL / metadata:** `docs/SEO-ROADMAP.md`, registry `src/shared/seo/pages.ts`.
 - **Prompt thực thi:** `docs/prompts/*.md`. Khi được yêu cầu "thực hiện prompt X", làm đúng thứ tự các bước trong file và báo cáo theo mục Bàn giao của nó.
 
@@ -24,10 +24,9 @@ Site marketing đa ngôn ngữ (VI · JA · EN) cho dịch vụ vận chuyển V
 
 ## Kiểm tra (bắt buộc trước khi push)
 ```bash
-npm run typecheck && npm run design:check && npm run pricing:check && npm run build
+npm run typecheck && npm run pricing:check && npm run build
 npm run start & sleep 5 && npm run seo:check
 ```
-(`design:check` có sau khi prompt `2026-11-13-info-pages-design-system` chạy xong; trước đó thì bỏ qua lệnh này.)
 
 ## Môi trường của chủ repo
 Máy Windows, PowerShell 5.1: khi đưa lệnh cho người dùng tự chạy, **không dùng `&&`**. Viết mỗi lệnh một dòng hoặc nối bằng `;`.
