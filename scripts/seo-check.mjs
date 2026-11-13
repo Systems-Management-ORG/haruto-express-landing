@@ -109,6 +109,19 @@ async function crawl() {
     const glued = h1Text.match(/\p{Ll}\p{Lu}/u);
     if (glued) fail(pathname, `H1 text looks glued at "${glued[0]}": "${h1Text.trim()}"`);
 
+    // Heading order inside <main>: an H3 needs an H2 somewhere before it, an H4 an H3, and so on
+    // (e.g. a section that renders its card titles as H3 with no H2 above them).
+    const mainHtml = html.match(/<main[\s\S]*<\/main>/i)?.[0] ?? "";
+    const seenLevels = new Set();
+    for (const heading of mainHtml.matchAll(/<h([1-6])[\s>]/gi)) {
+      const level = Number(heading[1]);
+      if (level >= 3 && !seenLevels.has(level - 1)) {
+        fail(pathname, `heading order: <h${level}> before any <h${level - 1}> in <main>`);
+        break;
+      }
+      seenLevels.add(level);
+    }
+
     // Title length.
     const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
     const title = titleMatch ? titleMatch[1].trim() : "";
