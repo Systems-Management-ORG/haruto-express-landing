@@ -2082,20 +2082,7 @@
 
   /* ---- Marquee (Japanese stores strip, components/partners) ---- */
 
-  .marquee {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  /* The toggle sits at the right end of the strip. */
-  .marquee__toggle {
-    order: 2;
-  }
-
   .marquee__viewport {
-    flex: 1;
-    min-width: 0;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
@@ -2127,9 +2114,8 @@
       animation: marquee-scroll var(--marquee-duration) linear infinite;
     }
 
-    .marquee:hover .marquee__track,
-    .marquee:focus-within .marquee__track,
-    .marquee[data-paused="true"] .marquee__track {
+    /* Stops while the pointer is over the strip, runs on when it leaves. */
+    .marquee:hover .marquee__track {
       animation-play-state: paused;
     }
   }
@@ -2154,8 +2140,7 @@
       animation: none;
     }
 
-    .marquee__item[aria-hidden="true"],
-    .marquee__toggle {
+    .marquee__item[aria-hidden="true"] {
       display: none;
     }
   }
