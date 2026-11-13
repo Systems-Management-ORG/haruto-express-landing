@@ -14,7 +14,7 @@ export type ContentPage = Exclude<PageKey, "home">;
 export const SERVICE_CARDS: { page: ContentPage; image: string }[] = [
   { page: "shipToJapan", image: "/images/haruto/hero/may-bay-tuyen-viet-nam-nhat-ban.webp" },
   { page: "shipToVietnam", image: "/images/haruto/hero/thung-hang-va-hang-nhat-nui-phu-si.webp" },
-  { page: "concierge", image: "/images/haruto/muaho-mobile.png" },
+  { page: "concierge", image: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp" },
   { page: "business", image: "/images/haruto/kho/kho-haruto-kien-hang-tren-pallet.jpg" },
 ];
 

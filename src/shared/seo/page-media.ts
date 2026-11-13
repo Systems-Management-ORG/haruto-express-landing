@@ -23,7 +23,7 @@ export const PAGE_IMAGES: Record<Exclude<PageKey, "home">, PageImage> = {
     og: "/images/haruto/ship-ve-vn/duong-bay-nhat-viet.webp",
   },
   pricing: { src: `${HERO}/may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao.webp`, position: "80% 50%" },
-  concierge: { src: "/images/haruto/muaho-mobile.png", position: "50% 55%" },
+  concierge: { src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", position: "50% 45%" },
   auction: { src: "/images/haruto/dau-gia/dau-gia-hang-nhat-banner.webp", position: "60% 50%" },
   japanWarehouse: { src: `${KHO}/mat-tien-kho-haruto-express.jpg` },
   goods: { src: `${KHO}/kho-haruto-thung-hang-xep-chong.webp`, og: "/images/haruto/hang-cam/canh-kiem-tra-hai-quan.webp" },

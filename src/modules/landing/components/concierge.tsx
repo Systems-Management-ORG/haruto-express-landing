@@ -59,10 +59,10 @@ export function ConciergeHero() {
   const shared = { alt: t("imageAlt"), sizes: "100vw", priority: true, quality: 90 } as const;
   const {
     props: { srcSet: desktopSet },
-  } = getImageProps({ ...shared, src: "/images/haruto/muaho-desktop.png", width: 1774, height: 887 });
+  } = getImageProps({ ...shared, src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", width: 760, height: 1001 });
   const {
     props: { srcSet: mobileSet, ...img },
-  } = getImageProps({ ...shared, src: "/images/haruto/muaho-mobile.png", width: 958, height: 1642 });
+  } = getImageProps({ ...shared, src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", width: 760, height: 1001 });
 
   return (
     <section className="muaho-hero">
