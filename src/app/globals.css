@@ -1,24 +1,38 @@
 @import "tailwindcss";
 
+/*
+  Tokens follow the Haruto design system (../design-system/index.html, section 1 "TOKENS"):
+  the same palette names, the brand's three colours (forest, gold, orange), radius/shadow/motion.
+  Its --text-* and --space-* scales are not imported: they would redefine Tailwind's own
+  text-* / spacing utilities, and the landing keeps its agreed type sizes and section rhythm.
+*/
 @theme {
   --color-forest: #235923;
   --color-deep: #173c22;
   --color-gold: #e2a240;
+  --color-gold-soft: #fdf3e2;
+  --color-gold-deep: #9a6514;
+  --color-gold-ink: #7a4f10;
   --color-ivory: #faf8ea;
   --color-sage: #eaf2e9;
   --color-ink: #29352c;
   --color-line: #29352c33;
   --color-muted: #566359;
 
-  /* Orange accent of the service posters (H1 second line, sweeps); deep for small text. */
-  --color-sun: #ea580c;
-  --color-sun-deep: #c2410c;
+  /* The third brand colour: backgrounds, icons, large text; -deep for small text on light. */
+  --color-orange: #fd550a;
+  --color-orange-deep: #c23c00;
+  --color-orange-soft: #ffece2;
 
   --font-sans: var(--font-brand), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-heading), ui-serif, Georgia, serif;
 
   --radius-card: 0.75rem;
   --radius-frame: 0.75rem;
+
+  --shadow-sm: 0 1px 2px rgb(16 44 33 / 0.06);
+  --shadow-md: 0 8px 24px rgb(16 44 33 / 0.08);
+  --shadow-lg: 0 12px 32px rgb(10 30 18 / 0.14);
 
   --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -119,7 +133,7 @@
   }
 
   .site-header[data-scrolled="true"] {
-    box-shadow: 0 8px 24px rgb(16 44 33 / 0.08);
+    box-shadow: var(--shadow-md);
   }
 
   /* Subpages have no hero to sit over, so the header takes normal flow instead of overlaying. */
@@ -288,7 +302,7 @@
     border-radius: var(--radius-card);
     background-color: var(--color-ivory);
     padding-block: 0.5rem;
-    box-shadow: 0 12px 32px rgb(10 30 18 / 0.14);
+    box-shadow: var(--shadow-lg);
     z-index: 60;
   }
 
@@ -1104,7 +1118,7 @@
     overflow: hidden;
     border-bottom: 1px solid var(--color-line);
     background:
-      radial-gradient(46rem 26rem at 85% 0%, rgb(255 237 213 / 0.6), transparent 65%),
+      radial-gradient(46rem 26rem at 85% 0%, color-mix(in srgb, var(--color-orange-soft) 60%, transparent), transparent 65%),
       linear-gradient(180deg, #fdfaf3, #f8f3e7);
   }
 
@@ -1118,7 +1132,7 @@
     height: 16rem;
     border-radius: 50%;
     border-right: 14px solid var(--color-forest);
-    border-bottom: 8px solid var(--color-sun);
+    border-bottom: 8px solid var(--color-orange);
     transform: rotate(-12deg);
     pointer-events: none;
   }
@@ -1147,7 +1161,7 @@
 
   .svc-eyebrow {
     margin-top: 1.25rem;
-    color: var(--color-sun-deep);
+    color: var(--color-orange-deep);
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -1178,7 +1192,7 @@
 
   .svc-title__b {
     display: block;
-    color: var(--color-sun);
+    color: var(--color-orange-deep);
   }
 
   :lang(ja) .svc-title {
@@ -1511,9 +1525,9 @@
     align-items: center;
     justify-content: center;
     border-radius: 999px;
-    background: linear-gradient(135deg, #fff7ed, #ffedd5);
+    background: linear-gradient(135deg, #fff, var(--color-orange-soft));
     color: var(--color-forest);
-    box-shadow: inset 0 0 0 2px rgb(234 88 12 / 0.35);
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--color-orange) 35%, transparent);
   }
 
   .svc-feature__img {
@@ -1789,7 +1803,7 @@
     bottom: -1.75rem;
     left: 40%;
     height: 3rem;
-    border-top: 4px solid var(--color-sun);
+    border-top: 4px solid var(--color-orange);
     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     pointer-events: none;
   }
@@ -2027,7 +2041,7 @@
 
   .customs-card__title {
     margin-top: 0.25rem;
-    color: var(--color-sun);
+    color: var(--color-orange-deep);
     font-weight: 800;
     text-transform: uppercase;
   }
@@ -2313,9 +2327,9 @@
     align-items: center;
     gap: 0.375rem;
     border-radius: 0.5rem;
-    background-color: #fdf3e2;
+    background-color: var(--color-gold-soft);
     padding: 0.25rem 0.625rem;
-    color: #7a4f10;
+    color: var(--color-gold-ink);
     font-size: 0.9rem;
     font-weight: 600;
     white-space: nowrap;
@@ -2396,7 +2410,7 @@
   }
 
   .rate-table tbody tr[data-best] {
-    background-color: #fdf3e2;
+    background-color: var(--color-gold-soft);
   }
 
   .rate-weight {
@@ -2493,9 +2507,9 @@
     font-size: 0.9rem;
     margin-top: 1rem;
     border-radius: 0.5rem;
-    background-color: #fdf3e2;
+    background-color: var(--color-gold-soft);
     padding: 0.25rem 0.625rem;
-    color: #7a4f10;
+    color: var(--color-gold-ink);
     font-weight: 600;
   }
 

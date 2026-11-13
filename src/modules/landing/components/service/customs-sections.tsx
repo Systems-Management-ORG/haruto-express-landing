@@ -90,7 +90,7 @@ export function CustomsGroups() {
           <div className="customs-panel">
             <h2 data-reveal className="customs-panel__title">
               <span className="customs-panel__count">{t("specialCount")}</span>{" "}
-              <span className="block text-sun">{t("specialTitle")}</span>
+              <span className="block text-orange-deep">{t("specialTitle")}</span>
             </h2>
             <ul data-reveal-group className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
               {groups.slice(0, SPECIAL).map(([id, group], index) => (
@@ -101,7 +101,7 @@ export function CustomsGroups() {
           <div className="customs-panel">
             <h2 data-reveal className="customs-panel__title">
               <span className="customs-panel__count">{t("restCount")}</span>{" "}
-              <span className="block text-sun">{t("restTitle")}</span>
+              <span className="block text-orange-deep">{t("restTitle")}</span>
             </h2>
             <ul data-reveal-group className="mt-6 grid grid-cols-2 gap-3 sm:gap-4">
               {groups.slice(SPECIAL).map(([id, group], index) => (

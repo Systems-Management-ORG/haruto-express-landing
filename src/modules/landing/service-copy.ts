@@ -14,7 +14,7 @@ export type ServiceCopy = {
   hero: {
     eyebrow?: string; // small caps line above the H1
     titleA: string; // H1 part 1 (forest)
-    titleB: string; // H1 part 2 (sun, on its own line)
+    titleB: string; // H1 part 2 (orange, on its own line)
     ribbon?: string; // green ribbon under the H1 (poster brand device)
     hook?: string; // one bold line before the lead (the pain point)
     lead: string;
