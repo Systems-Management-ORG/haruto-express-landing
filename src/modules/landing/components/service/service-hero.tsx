@@ -31,11 +31,11 @@ export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: Se
               <WarningCircle size={28} weight="fill" aria-hidden className="shrink-0 text-[#f59e0b]" />
               <div>
                 <p className="font-bold">{hero.alert.title}</p>
-                <p className="mt-1 text-sm text-ivory/85 sm:text-base">{hero.alert.body}</p>
+                <p className="customs-alert__body mt-1 text-sm text-ivory/85 sm:text-base">{hero.alert.body}</p>
               </div>
             </div>
           )}
-          {hero.hook && <p className="mt-5 max-w-[36rem] font-semibold text-forest sm:text-lg">{hero.hook}</p>}
+          {hero.hook && <p className="svc-hook">{hero.hook}</p>}
           <p className="svc-lead">{hero.lead}</p>
           {hero.points && (
             <ul className="svc-points">
