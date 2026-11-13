@@ -1,5 +1,6 @@
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ContactCta } from "@/shared/ui/contact-cta";
 import { HeroShell } from "@/shared/ui/hero-shell";
 import type { ServiceCopy, ServiceKey } from "../../service-copy";
@@ -11,7 +12,9 @@ import { MarketplaceRow } from "./marketplace-row";
 // left (within the first screen on a phone), HARUTO's poster artwork on the right with its left
 // edge feathered into the page.
 export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: ServiceCopy; config: ServicePageConfig }) {
+  const tNav = useTranslations("nav.groups");
   const { hero } = copy;
+  const navGroup = config.hero.eyebrowFromNav;
   const { art } = config.hero;
   const primaryLabel = config.hero.primary === "zalo" ? copy.cta.primary : undefined;
 
@@ -19,7 +22,7 @@ export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: Se
     <HeroShell
       page={page}
       variant="poster"
-      eyebrow={hero.eyebrow}
+      eyebrow={hero.eyebrow ?? (navGroup ? tNav(navGroup) : undefined)}
       title={{ a: hero.titleA, b: hero.titleB }}
       lead={hero.lead}
       artModifier={art.variant}

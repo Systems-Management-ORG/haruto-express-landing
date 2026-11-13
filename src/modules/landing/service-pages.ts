@@ -45,6 +45,7 @@ export type ServicePageConfig = {
     marketplaces?: MarketplaceId[];
     withMore?: boolean;
     chips?: "customsGroups";
+    eyebrowFromNav?: "pricing"; // no eyebrow in the copy → the menu group label (nav.groups.<id>)
     primary: CtaAction;
     secondary?: CtaAction;
   };
@@ -241,6 +242,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       art: { src: `${IMG}/hang-cam/canh-kiem-tra-hai-quan.webp`, width: 694, height: 466, sizes: ART_SIZES },
       chips: "customsGroups",
+      eyebrowFromNav: "pricing",
       primary: "contact",
     },
     custom: "customs",
