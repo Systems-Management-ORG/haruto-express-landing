@@ -29,7 +29,7 @@ import {
 import type { PageKey } from "@/shared/seo/pages";
 import type { CtaAction } from "@/shared/ui/contact-cta";
 import type { Visual } from "@/shared/ui/item-visual";
-import type { MarketplaceId } from "./marketplaces";
+import type { MarketplaceId } from "./partners";
 import type { ServiceKey } from "./service-copy";
 
 // Presentation of the six service pages: art, icons/images per item id, which sections render
