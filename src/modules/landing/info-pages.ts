@@ -29,6 +29,7 @@ export type InfoSectionId =
   | "weight"
   | "compensation"
   | "warehouse"
+  | "carriers"
   | "warehouseTips"
   | "faqGroups"
   | "guideGrid"
@@ -60,7 +61,7 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
     cta: { primary: "zalo", secondary: "contact" },
   },
   japanWarehouse: {
-    sections: ["warehouse", "warehouseTips"],
+    sections: ["warehouse", "carriers", "warehouseTips"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },
