@@ -2,7 +2,7 @@ import { Truck } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 import { CARRIER_ORDER, CARRIERS } from "../../partners";
 
-// HARUTO's carriers inside Japan, one card each: the official logo once supplied (CARRIERS), else
+// HARUTO's carriers inside Japan, one card each: the official logo (CARRIERS) or, without one,
 // a truck icon; the name, and the Japanese name under it unless they are the same (JA). Not links.
 export function CarrierList({ heading = "h3" }: { heading?: "h3" | "h4" }) {
   const t = useTranslations("partners.carriers.items");
