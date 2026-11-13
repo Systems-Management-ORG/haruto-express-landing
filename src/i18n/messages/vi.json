@@ -680,62 +680,8 @@
       "name": "Amazon Nhật",
       "note": "Hàng triệu sản phẩm"
     },
-    "yahooShopping": {
-      "name": "Yahoo! Shopping",
-      "note": "Mua sắm tổng hợp"
-    },
-    "zozotown": {
-      "name": "ZOZOTOWN",
-      "note": "Thời trang Nhật"
-    },
-    "rakuma": {
-      "name": "Rakuma",
-      "note": "Chợ đồ cũ của Rakuten"
-    },
-    "qoo10": {
-      "name": "Qoo10",
-      "note": "Mỹ phẩm, đồ gia dụng"
-    },
-    "surugaya": {
-      "name": "Suruga-ya",
-      "note": "Game, anime, đồ sưu tầm"
-    },
-    "mandarake": {
-      "name": "Mandarake",
-      "note": "Manga, figure, đồ sưu tầm"
-    },
     "more": {
       "note": "Và nhiều website khác"
-    }
-  },
-  "partners": {
-    "title": "Sàn mua sắm & đối tác vận chuyển Nhật Bản",
-    "intro": "HARUTO mua hộ trên các sàn thương mại điện tử Nhật và giao nhận hàng trong Nhật cùng các hãng chuyển phát lớn.",
-    "marketplaces": {
-      "title": "Sàn thương mại điện tử Nhật",
-      "cta": "Xem dịch vụ mua hộ"
-    },
-    "carriers": {
-      "title": "Đối tác vận chuyển nội địa Nhật",
-      "intro": "Hàng gửi về kho Nhật và hàng giao tới người nhận tại Nhật được vận chuyển cùng các hãng chuyển phát lớn của Nhật Bản.",
-      "items": {
-        "sagawa": {
-          "name": "Sagawa Express",
-          "native": "佐川急便"
-        },
-        "yamato": {
-          "name": "Yamato Transport",
-          "native": "ヤマト運輸"
-        },
-        "japanPost": {
-          "name": "Japan Post",
-          "native": "日本郵便"
-        }
-      }
-    },
-    "marquee": {
-      "pause": "Tạm dừng dải logo",
-      "play": "Tiếp tục chạy"
     }
   },
   "hero": {

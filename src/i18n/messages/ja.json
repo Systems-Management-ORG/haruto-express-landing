@@ -680,62 +680,8 @@
       "name": "Amazon.co.jp",
       "note": "数百万点の商品"
     },
-    "yahooShopping": {
-      "name": "Yahoo!ショッピング",
-      "note": "総合ショッピング"
-    },
-    "zozotown": {
-      "name": "ZOZOTOWN",
-      "note": "ファッション通販"
-    },
-    "rakuma": {
-      "name": "ラクマ",
-      "note": "楽天のフリマアプリ"
-    },
-    "qoo10": {
-      "name": "Qoo10",
-      "note": "コスメ・日用品"
-    },
-    "surugaya": {
-      "name": "駿河屋",
-      "note": "ゲーム・ホビー・中古品"
-    },
-    "mandarake": {
-      "name": "まんだらけ",
-      "note": "漫画・フィギュア・コレクターズアイテム"
-    },
     "more": {
       "note": "その他多数のサイト"
-    }
-  },
-  "partners": {
-    "title": "対応ECサイトと日本の配送パートナー",
-    "intro": "HARUTOは日本の主要ECサイトで代理購入し、日本国内の配送は大手宅配会社と連携しています。",
-    "marketplaces": {
-      "title": "対応ECサイト",
-      "cta": "代理購入サービスを見る"
-    },
-    "carriers": {
-      "title": "日本国内の配送パートナー",
-      "intro": "日本倉庫への入荷や日本国内のお届けは、日本の大手宅配会社と連携して行っています。",
-      "items": {
-        "sagawa": {
-          "name": "佐川急便",
-          "native": "佐川急便"
-        },
-        "yamato": {
-          "name": "ヤマト運輸",
-          "native": "ヤマト運輸"
-        },
-        "japanPost": {
-          "name": "日本郵便",
-          "native": "日本郵便"
-        }
-      }
-    },
-    "marquee": {
-      "pause": "一時停止",
-      "play": "再生"
     }
   },
   "hero": {

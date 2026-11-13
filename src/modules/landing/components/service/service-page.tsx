@@ -7,7 +7,6 @@ import { type ServiceKey, useServiceCopy } from "../../service-copy";
 import { SERVICE_PAGES } from "../../service-pages";
 import { Faq } from "../faq";
 import { ConciergeTerms } from "../info/policy-sections";
-import { PartnersSection } from "../partners/partners-section";
 import { AudienceRow } from "./audience-row";
 import { BenefitBand } from "./benefit-band";
 import { CustomsGroups, CustomsLists } from "./customs-sections";
@@ -18,7 +17,7 @@ import { StepFlow } from "./step-flow";
 
 // The six service pages, one fixed section order. A section renders only when the page has both
 // its copy and its config. Backgrounds alternate: hero (ivory) → features (sage) → steps (ivory)
-// → partners (sage) → price (white) → audience (sage) → benefits (dark) → terms / concierge terms (sage) → FAQ (ivory) →
+// → price (white) → audience (sage) → benefits (dark) → terms / concierge terms (sage) → FAQ (ivory) →
 // CTA (dark) → related (sage).
 export function ServicePage({ page }: { page: ServiceKey }) {
   const copy = useServiceCopy(page);
@@ -55,9 +54,6 @@ export function ServicePage({ page }: { page: ServiceKey }) {
           </div>
         </section>
       )}
-
-      {/* Sage: between the ivory steps and the white price block. */}
-      {config.partners && <PartnersSection show={config.partners} bg="sage" />}
 
       {config.price && <PriceSummary direction={config.price} />}
 

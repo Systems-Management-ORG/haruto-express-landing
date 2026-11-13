@@ -4,7 +4,6 @@ import { GoodsTiles } from "./goods-tiles";
 import { Guides } from "./guides";
 import { Hero } from "./hero";
 import { MotionLayer } from "./motion-layer";
-import { PartnersSection } from "./partners/partners-section";
 import { PricingTeaser } from "./pricing-teaser";
 import { Routes } from "./routes";
 import { ServiceCards } from "./service-cards";
@@ -23,7 +22,6 @@ export function LandingPage() {
       <main id="main">
         <Hero />
         <SkyTow />
-        <PartnersSection show={["marketplaces", "carriers"]} bg="sage" compact />
         <ServiceCards />
         <GoodsTiles />
         <Why />
