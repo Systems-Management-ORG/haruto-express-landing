@@ -680,8 +680,62 @@
       "name": "Amazon Japan",
       "note": "Millions of products"
     },
+    "yahooShopping": {
+      "name": "Yahoo! Shopping",
+      "note": "General shopping"
+    },
+    "zozotown": {
+      "name": "ZOZOTOWN",
+      "note": "Japanese fashion"
+    },
+    "rakuma": {
+      "name": "Rakuma",
+      "note": "Rakuten's flea market"
+    },
+    "qoo10": {
+      "name": "Qoo10",
+      "note": "Beauty & daily goods"
+    },
+    "surugaya": {
+      "name": "Suruga-ya",
+      "note": "Games, anime & collectibles"
+    },
+    "mandarake": {
+      "name": "Mandarake",
+      "note": "Manga, figures & collectibles"
+    },
     "more": {
       "note": "And many more stores"
+    }
+  },
+  "partners": {
+    "title": "Japanese stores & delivery partners",
+    "intro": "HARUTO buys from Japan's major online stores and works with leading Japanese carriers for domestic delivery.",
+    "marketplaces": {
+      "title": "Japanese online stores",
+      "cta": "See the buying service"
+    },
+    "carriers": {
+      "title": "Domestic carriers in Japan",
+      "intro": "Parcels to our Japan warehouse and deliveries within Japan travel with Japan's leading carriers.",
+      "items": {
+        "sagawa": {
+          "name": "Sagawa Express",
+          "native": "佐川急便"
+        },
+        "yamato": {
+          "name": "Yamato Transport",
+          "native": "ヤマト運輸"
+        },
+        "japanPost": {
+          "name": "Japan Post",
+          "native": "日本郵便"
+        }
+      }
+    },
+    "marquee": {
+      "pause": "Pause",
+      "play": "Play"
     }
   },
   "hero": {
