@@ -1173,7 +1173,7 @@
 
   .svc-eyebrow {
     margin-top: 1.25rem;
-    color: var(--color-orange-deep);
+    color: var(--color-gold); /* the sun of the logo, by the owner's choice */
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -1204,7 +1204,7 @@
 
   .svc-title__b {
     display: block;
-    color: var(--color-orange-deep);
+    color: var(--color-gold); /* the sun of the logo, by the owner's choice */
   }
 
   :lang(ja) .svc-title {

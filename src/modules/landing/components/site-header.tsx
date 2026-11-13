@@ -251,7 +251,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           <div className="hidden lg:block">
             <LanguageMenu />
           </div>
-          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-primary hidden whitespace-nowrap sm:inline-flex">
+          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold hidden whitespace-nowrap sm:inline-flex">
             {nav("cta")}
           </Link>
           <button
@@ -304,7 +304,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
-            <Link href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-primary w-full sm:hidden">
+            <Link href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-gold w-full sm:hidden">
               {nav("cta")}
             </Link>
           </div>
