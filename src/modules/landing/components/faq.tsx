@@ -2,16 +2,17 @@ import { Minus, Plus } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 import type { PageKey } from "@/shared/seo/pages";
 
-// `pages` lists the pages a question belongs to (its FAQ block there). The home hub and
-// /cau-hoi-thuong-gap show every question; FAQPage JSON-LD is emitted on the FAQ page only.
+// `pages` lists the pages a question belongs to (its FAQ block there). The home hub shows the
+// questions tagged "home"; /cau-hoi-thuong-gap shows every question; FAQPage JSON-LD is emitted on
+// the FAQ page only.
 // TODO(B6): grow faq.items to 10–12 real customer questions (from Zalo/Messenger), tagged with
 // `pages` so each service page gets 3–4. No answers about prices or transit times without a source.
 type Item = { question: string; answer: string; pages?: PageKey[] };
 
-export function Faq({ page }: { page?: PageKey } = {}) {
+export function Faq({ page = "home" }: { page?: PageKey } = {}) {
   const t = useTranslations("faq");
   const all = t.raw("items") as Item[];
-  const items = !page || page === "home" || page === "faq" ? all : all.filter((item) => item.pages?.includes(page));
+  const items = page === "faq" ? all : all.filter((item) => item.pages?.includes(page));
   if (items.length === 0) return null;
 
   return (

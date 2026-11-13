@@ -14,6 +14,7 @@ import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageByLocaleSlug, pagePath 
 import { SITE_URL } from "@/shared/seo/business";
 import { breadcrumb, contactPage, faqPage, perKgOffer, service } from "@/shared/seo/schema";
 import { JP_VN, VN_JP_CLEAN, lowestRate } from "@/modules/landing/pricing-data";
+import { getServiceCopy, isServiceKey } from "@/modules/landing/service-copy";
 
 type Props = { params: Promise<{ locale: string; rest: string[] }> };
 
@@ -80,7 +81,16 @@ export default async function SubRoute({ params }: Props) {
   ];
   const serviceType = SERVICE_TYPES[key];
   if (serviceType) {
-    graphs.push(service({ name: tp("title"), description: tp("intro"), serviceType, offers: OFFERS[key] }));
+    // Service pages: the schema names the service by its visible H1 and describes it by the lead.
+    const visible = isServiceKey(key) ? (await getServiceCopy(locale as Locale, key)).hero : null;
+    graphs.push(
+      service({
+        name: visible ? `${visible.titleA} ${visible.titleB}` : tp("title"),
+        description: visible ? visible.lead : tp("intro"),
+        serviceType,
+        offers: OFFERS[key],
+      }),
+    );
   }
   if (key === "faq") {
     const tFaq = await getTranslations({ locale, namespace: "faq" });
