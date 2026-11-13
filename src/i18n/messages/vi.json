@@ -167,358 +167,438 @@
   },
   "fulfillment": {
     "hero": {
-      "srTitle": "Giải pháp kho vận tại Nhật dành cho doanh nghiệp Việt Nam",
+      "eyebrow": "FFM JAPAN",
+      "titleA": "Fulfillment (FFM)",
+      "titleB": "tại Nhật Bản",
       "ribbon": "Giải pháp lưu kho & xử lý đơn hàng tại Nhật Bản",
-      "tagline": "HARUTO – Đơn vị vận chuyển Nhật – Việt",
-      "body": "Bạn đang kinh doanh tại Nhật hoặc muốn mở rộng thị trường Nhật Bản? Thay vì phải đầu tư kho bãi, nhân sự và hệ thống vận hành tại Nhật, doanh nghiệp có thể sử dụng dịch vụ FFM (Fulfillment) từ HARUTO EXPRESS.",
+      "lead": "Bạn đang kinh doanh tại Nhật hoặc muốn mở rộng thị trường Nhật Bản? Thay vì phải đầu tư kho bãi, nhân sự và hệ thống vận hành tại Nhật, doanh nghiệp có thể sử dụng dịch vụ FFM (Fulfillment) từ HARUTO EXPRESS.",
+      "points": [
+        "Nhận hàng, lưu kho và quản lý tồn kho tại Nhật",
+        "Soạn, đóng gói và giao hàng toàn nước Nhật",
+        "Báo cáo đơn hàng định kỳ"
+      ],
       "imageAlt": "Kho HARUTO EXPRESS tại Nhật Bản với xe tải giao hàng, núi Phú Sĩ và hoa anh đào"
     },
     "steps": {
       "title": "Quy trình FFM tại Nhật Bản cùng HARUTO",
-      "items": [
-        {
+      "note": "Hỗ trợ vận chuyển hàng hóa Nhật ⇄ Việt",
+      "items": {
+        "receive": {
           "title": "Nhận hàng",
           "body": "Nhận hàng và lưu kho tại Nhật Bản"
         },
-        {
+        "stock": {
           "title": "Quản lý tồn kho",
           "body": "Quản lý tồn kho chính xác, minh bạch"
         },
-        {
+        "pack": {
           "title": "Soạn & đóng gói",
           "body": "Soạn hàng theo đơn, đóng gói theo yêu cầu"
         },
-        {
+        "deliver": {
           "title": "Giao hàng",
           "body": "Giao hàng nội địa trên toàn nước Nhật"
         },
-        {
+        "report": {
           "title": "Báo cáo",
           "body": "Báo cáo đơn hàng định kỳ, rõ ràng"
         }
-      ],
-      "extra": "Hỗ trợ vận chuyển hàng hóa Nhật ⇄ Việt"
+      }
     },
     "audience": {
       "title": "Dành cho",
-      "items": [
-        {
+      "items": {
+        "exporters": {
           "title": "Doanh nghiệp xuất khẩu",
           "body": "Doanh nghiệp Việt Nam xuất khẩu hàng sang Nhật"
         },
-        {
+        "retailers": {
           "title": "Nhà bán lẻ Việt Nam",
           "body": "Bán hàng trên các sàn thương mại điện tử Nhật Bản"
         },
-        {
+        "crossborder": {
           "title": "TMĐT xuyên biên giới",
           "body": "Doanh nghiệp cần kho trung chuyển tại Nhật"
         },
-        {
+        "brands": {
           "title": "Thương hiệu Việt tại Nhật",
           "body": "Mở rộng hoạt động kinh doanh tại thị trường Nhật"
         }
-      ]
+      }
     },
     "benefits": {
-      "items": [
-        {
+      "title": "Lợi ích khi dùng FFM của HARUTO",
+      "items": {
+        "cost": {
           "title": "Tối ưu chi phí",
           "body": "Giảm chi phí kho bãi và vận hành"
         },
-        {
+        "speed": {
           "title": "Xử lý đơn nhanh chóng",
           "body": "Quy trình chuyên nghiệp, giao hàng đúng hẹn"
         },
-        {
+        "safe": {
           "title": "Minh bạch & an toàn",
           "body": "Quản lý chặt chẽ, hàng hóa an toàn"
         },
-        {
+        "focus": {
           "title": "Tập trung phát triển",
           "body": "Doanh nghiệp tập trung bán hàng, HARUTO lo phần còn lại"
         }
-      ]
-    },
-    "closing": {
-      "body": "Với mạng lưới vận hành Nhật – Việt, HARUTO giúp doanh nghiệp tối ưu chi phí logistics, giảm áp lực vận hành và tập trung phát triển kinh doanh.",
-      "tagline": "Kết nối logistics Việt Nam – Nhật Bản"
+      }
     },
     "cta": {
-      "contact": "Gửi yêu cầu tư vấn",
-      "zalo": "Chat Zalo"
+      "title": "Tư vấn giải pháp FFM cho doanh nghiệp",
+      "body": "Với mạng lưới vận hành Nhật – Việt, HARUTO giúp doanh nghiệp tối ưu chi phí logistics, giảm áp lực vận hành và tập trung phát triển kinh doanh."
     }
   },
   "concierge": {
     "hero": {
       "eyebrow": "Mua hộ · Thanh toán hộ hàng Nhật",
-      "title": "Không có thẻ quốc tế? Không biết thanh toán hàng Nhật?",
-      "body": "Đừng để việc thanh toán trở thành rào cản khi mua hàng từ Nhật Bản. Với HARUTO EXPRESS, bạn chỉ cần gửi link sản phẩm, mọi việc còn lại hãy để chúng tôi hỗ trợ.",
-      "platformsLabel": "Thanh toán hộ trên",
-      "platforms": [
-        "Yahoo Auction",
-        "Mercari",
-        "Rakuten",
-        "Amazon Nhật"
+      "titleA": "Mua hộ hàng Nhật",
+      "titleB": "không cần thẻ quốc tế",
+      "hook": "Không có thẻ quốc tế? Không biết thanh toán hàng Nhật?",
+      "lead": "Đừng để việc thanh toán trở thành rào cản khi mua hàng từ Nhật Bản. Với HARUTO EXPRESS, bạn chỉ cần gửi link sản phẩm, mọi việc còn lại hãy để chúng tôi hỗ trợ.",
+      "points": [
+        "Tỷ giá VCB + 5, không phụ thu",
+        "Nhận hàng tại kho Tokyo",
+        "Hỗ trợ cả mua hộ và đấu giá hộ"
       ],
-      "extra": "Hỗ trợ mua hộ và đấu giá hộ",
-      "ctaLink": "Gửi link sản phẩm qua Zalo",
-      "ctaContact": "Yêu cầu tư vấn",
+      "marketplacesLabel": "Thanh toán hộ trên",
       "imageAlt": "Mua hộ hàng Nhật: điện thoại xác nhận thanh toán, thùng hàng HARUTO, kho Tokyo và máy bay về Việt Nam"
     },
     "steps": {
       "title": "Quy trình đơn giản",
-      "items": [
-        "Gửi link sản phẩm cần mua",
-        "HARUTO báo giá nhanh chóng, minh bạch",
-        "Thanh toán hộ cho shop Nhật",
-        "Nhận hàng tại kho Tokyo",
-        "Vận chuyển an toàn về Việt Nam"
-      ]
+      "items": {
+        "link": {
+          "title": "Gửi link sản phẩm cần mua"
+        },
+        "quote": {
+          "title": "HARUTO báo giá nhanh chóng, minh bạch"
+        },
+        "pay": {
+          "title": "Thanh toán hộ cho shop Nhật"
+        },
+        "warehouse": {
+          "title": "Nhận hàng tại kho Tokyo"
+        },
+        "ship": {
+          "title": "Vận chuyển an toàn về Việt Nam"
+        }
+      }
     },
-    "why": {
+    "benefits": {
       "title": "Vì sao nên chọn HARUTO EXPRESS?",
-      "items": [
-        {
+      "items": {
+        "card": {
           "title": "Không cần thẻ Visa/MasterCard quốc tế"
         },
-        {
+        "rate": {
           "title": "Tỷ giá rõ ràng, minh bạch",
           "body": "Tỷ giá mua hộ: VCB + 5, không phụ thu."
         },
-        {
+        "support": {
           "title": "Hỗ trợ từ A–Z, kể cả người mới mua hàng Nhật"
         },
-        {
+        "tracking": {
           "title": "Theo dõi đơn hàng dễ dàng trong suốt quá trình vận chuyển"
         }
-      ]
+      }
     },
     "cta": {
       "title": "Chỉ cần gửi link sản phẩm",
-      "body": "HARUTO sẽ giúp bạn biến món đồ yêu thích từ Nhật thành hàng có mặt tại Việt Nam một cách nhanh chóng và an tâm."
+      "body": "HARUTO sẽ giúp bạn biến món đồ yêu thích từ Nhật thành hàng có mặt tại Việt Nam một cách nhanh chóng và an tâm.",
+      "primary": "Gửi link sản phẩm qua Zalo"
     }
   },
   "auction": {
     "hero": {
       "eyebrow": "Đấu giá hộ hàng Nhật",
-      "titleA": "Đấu giá",
-      "titleB": "Nhật Bản",
+      "titleA": "Đấu giá hộ",
+      "titleB": "hàng Nhật Bản",
       "ribbon": "Săn hàng chất – giá tốt mỗi ngày",
-      "body": "Bạn muốn sở hữu những sản phẩm chất lượng từ Nhật Bản với mức giá hấp dẫn? HARUTO EXPRESS hỗ trợ đấu giá trực tiếp trên các sàn đấu giá Nhật Bản, giúp bạn dễ dàng tiếp cận hàng ngàn sản phẩm độc đáo mỗi ngày.",
-      "platformsLabel": "Đấu giá trực tiếp từ các sàn uy tín tại Nhật Bản",
-      "platforms": [
-        "Yahoo! Auction",
-        "Rakuten",
-        "Mercari"
+      "lead": "Bạn muốn sở hữu những sản phẩm chất lượng từ Nhật Bản với mức giá hấp dẫn? HARUTO EXPRESS hỗ trợ đấu giá trực tiếp trên các sàn đấu giá Nhật Bản, giúp bạn dễ dàng tiếp cận hàng ngàn sản phẩm độc đáo mỗi ngày.",
+      "points": [
+        "Đặt cọc 50%, không thắng hoàn 100% cọc",
+        "Phí minh bạch, không chi phí ẩn",
+        "Hàng về kho Nhật, ship về Việt Nam"
       ],
+      "marketplacesLabel": "Đấu giá trực tiếp từ các sàn uy tín tại Nhật Bản",
       "badge": "Hàng ngàn sản phẩm đa dạng",
-      "ctaLink": "Gửi link sản phẩm qua Zalo",
       "imageAlt": "Đấu giá hàng Nhật: điện thoại đặt giá máy ảnh, búa đấu giá, thùng hàng, núi Phú Sĩ và hoa anh đào"
     },
-    "products": {
+    "features": {
       "title": "Sản phẩm đa dạng",
       "intro": "Hàng ngàn sản phẩm độc đáo lên sàn đấu giá Nhật Bản mỗi ngày.",
-      "items": [
-        "Đồ điện tử, máy ảnh, đồng hồ",
-        "Đồ sưu tầm, mô hình, figure",
-        "Túi xách, thời trang hàng hiệu",
-        "Dụng cụ thể thao, đồ gia dụng",
-        "Hàng thanh lý, hàng hiếm từ Nhật"
-      ]
+      "items": {
+        "electronics": {
+          "title": "Đồ điện tử, máy ảnh, đồng hồ"
+        },
+        "collectibles": {
+          "title": "Đồ sưu tầm, mô hình, figure"
+        },
+        "fashion": {
+          "title": "Túi xách, thời trang hàng hiệu"
+        },
+        "household": {
+          "title": "Dụng cụ thể thao, đồ gia dụng"
+        },
+        "rare": {
+          "title": "Hàng thanh lý, hàng hiếm từ Nhật"
+        }
+      }
     },
     "steps": {
       "title": "Quy trình đấu giá",
-      "items": [
-        {
+      "items": {
+        "link": {
           "title": "Gửi link",
           "body": "Sản phẩm bạn muốn đấu giá"
         },
-        {
+        "quote": {
           "title": "Báo giá",
           "body": "Chúng tôi báo giá và hỗ trợ đặt cược"
         },
-        {
+        "bid": {
           "title": "Đấu giá",
           "body": "Tiến hành đấu giá đến khi thắng"
         },
-        {
+        "ship": {
           "title": "Vận chuyển",
           "body": "Hàng về kho Nhật, vận chuyển về Việt Nam"
         }
-      ]
-    },
-    "terms": {
-      "title": "Điều kiện đấu giá hộ"
+      }
     },
     "benefits": {
-      "items": [
-        {
+      "title": "Vì sao đấu giá hộ cùng HARUTO?",
+      "intro": "Mua hàng Nhật dễ dàng ngay tại Việt Nam.",
+      "items": {
+        "fees": {
           "title": "Phí minh bạch",
           "body": "Không phát sinh chi phí ẩn"
         },
-        {
+        "support": {
           "title": "Hỗ trợ tận tình",
           "body": "Đội ngũ giàu kinh nghiệm, hỗ trợ nhanh chóng"
         },
-        {
+        "tracking": {
           "title": "Theo dõi dễ dàng",
           "body": "Cập nhật trạng thái đơn hàng liên tục"
         },
-        {
+        "trust": {
           "title": "An toàn – uy tín",
           "body": "Cam kết hàng chính hãng, đóng gói cẩn thận"
         }
-      ],
-      "tagline": "Mua hàng Nhật dễ dàng ngay tại Việt Nam."
+      }
+    },
+    "terms": {
+      "title": "Điều kiện đấu giá hộ",
+      "body": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công: thanh toán phần còn lại để HARUTO chi trả. Đấu không thành công: HARUTO hoàn 100% tiền cọc."
     },
     "cta": {
       "title": "Liên hệ HARUTO EXPRESS ngay",
-      "body": "Gửi link sản phẩm bạn muốn đấu giá, HARUTO báo giá, hỗ trợ đặt cược và đưa hàng về Việt Nam."
+      "body": "Gửi link sản phẩm bạn muốn đấu giá, HARUTO báo giá, hỗ trợ đặt cược và đưa hàng về Việt Nam.",
+      "primary": "Gửi link sản phẩm qua Zalo"
     }
   },
   "shipVn": {
     "hero": {
-      "titleA": "Mua hàng Nhật",
-      "titleB": "Ship về Việt Nam",
+      "titleA": "Ship hàng Nhật",
+      "titleB": "về Việt Nam",
       "ribbon": "Đa dạng website – săn hàng dễ dàng – giá tốt mỗi ngày!",
-      "body": "Bạn muốn mua hàng từ Yahoo Japan, Mercari, Rakuten hay Amazon JP nhưng gặp khó khăn về thanh toán và vận chuyển? HARUTO EXPRESS hỗ trợ trọn gói."
+      "lead": "Bạn muốn mua hàng từ Yahoo Japan, Mercari, Rakuten hay Amazon JP nhưng gặp khó khăn về thanh toán và vận chuyển? HARUTO EXPRESS hỗ trợ trọn gói.",
+      "points": [
+        "Tỷ giá mua hộ VCB + 5, không phụ thu",
+        "Miễn phí gom hàng tại kho Nhật",
+        "Mua hộ trên mọi website nội địa Nhật"
+      ],
+      "marketplacesLabel": "Mua hàng từ các sàn Nhật",
+      "imageAlt": "Máy bay HARUTO chở thùng hàng và túi mua sắm từ Nhật Bản về Việt Nam",
+      "artLabels": {
+        "japan": "Nhật Bản",
+        "vietnam": "Việt Nam"
+      }
     },
-    "stores": {
-      "items": [
-        {
-          "name": "Yahoo! JAPAN",
-          "note": "Đấu giá & mua sắm đa dạng"
-        },
-        {
-          "name": "Mercari",
-          "note": "Đồ cũ, đồ hiếm nội địa Nhật"
-        },
-        {
-          "name": "Rakuten",
-          "note": "Thiên đường mua sắm"
-        },
-        {
-          "name": "Amazon JP",
-          "note": "Hàng triệu sản phẩm"
-        },
-        {
-          "name": "…",
-          "note": "Và nhiều website khác"
-        }
-      ]
-    },
-    "scene": {
-      "alt": "Máy bay HARUTO chở thùng hàng và túi mua sắm từ Nhật Bản về Việt Nam",
-      "japan": "Nhật Bản",
-      "vietnam": "Việt Nam"
-    },
-    "stats": {
-      "priceLabel": "Cước vận chuyển chỉ từ",
-      "price": "155.000 VNĐ/kg",
-      "rateLabel": "Tỷ giá thanh toán",
-      "rate": "VCB + 5"
-    },
-    "services": {
+    "features": {
       "title": "Mua hộ & ship Nhật ⇄ Việt",
       "more": "Xem chi tiết",
-      "items": [
-        {
+      "items": {
+        "buy": {
           "title": "Mua hộ",
           "body": "Tất cả website nội địa Nhật Bản"
         },
-        {
+        "auction": {
           "title": "Đấu giá",
           "body": "Yahoo Auction chính hãng"
         },
-        {
+        "consolidate": {
           "title": "Gom hàng",
           "body": "Miễn phí gom hàng tại kho Nhật"
         },
-        {
+        "fast": {
           "title": "Ship nhanh",
           "body": "Hàng không Nhật ⇄ Việt, về nhanh, ổn định"
         },
-        {
+        "trust": {
           "title": "Uy tín",
           "body": "An toàn – minh bạch, hỗ trợ tận tâm"
         }
-      ]
+      }
     },
-    "why": {
+    "steps": {
+      "title": "Quy trình 4 bước",
+      "note": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận.",
+      "items": {
+        "contact": {
+          "title": "Liên hệ tư vấn",
+          "body": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi."
+        },
+        "check": {
+          "title": "Kiểm tra hàng và xác nhận cước",
+          "body": "Nhân viên kiểm tra loại hàng, chứng từ và báo cước."
+        },
+        "ship": {
+          "title": "Tiếp nhận và vận chuyển",
+          "body": "HARUTO tiếp nhận hàng và vận chuyển bằng đường hàng không."
+        },
+        "deliver": {
+          "title": "Giao hàng theo thỏa thuận",
+          "body": "Hàng được giao theo nội dung đã thỏa thuận với bạn."
+        }
+      }
+    },
+    "benefits": {
       "title": "Đồng hành từ lúc đặt mua đến khi nhận hàng",
-      "body": "Từ mỹ phẩm, thời trang, đồ gia dụng, hàng sưu tầm cho đến các đơn hàng đấu giá giá trị cao, HARUTO EXPRESS luôn đồng hành cùng bạn từ lúc đặt mua đến khi nhận hàng.",
-      "items": [
-        "Hàng về nhanh, ổn định",
-        "Hỗ trợ kiểm tra hàng trước khi mua",
-        "Theo dõi đơn hàng minh bạch",
-        "Đội ngũ hỗ trợ tận tâm"
-      ]
+      "intro": "Từ mỹ phẩm, thời trang, đồ gia dụng, hàng sưu tầm cho đến các đơn hàng đấu giá giá trị cao, HARUTO EXPRESS luôn đồng hành cùng bạn từ lúc đặt mua đến khi nhận hàng.",
+      "items": {
+        "fast": {
+          "title": "Hàng về nhanh, ổn định"
+        },
+        "check": {
+          "title": "Hỗ trợ kiểm tra hàng trước khi mua"
+        },
+        "tracking": {
+          "title": "Theo dõi đơn hàng minh bạch"
+        },
+        "support": {
+          "title": "Đội ngũ hỗ trợ tận tâm"
+        }
+      }
+    },
+    "cta": {
+      "title": "Cần mua hàng Nhật hoặc ship hàng về Việt Nam?",
+      "body": "Gửi link sản phẩm hoặc thông tin kiện hàng qua Zalo, HARUTO báo giá và hướng dẫn gửi hàng về kho Nhật."
     }
   },
   "shipJp": {
     "hero": {
-      "titleA": "Gửi hàng Việt Nam",
-      "titleB": "đi Nhật Bản",
+      "titleA": "Gửi hàng đi Nhật Bản",
+      "titleB": "từ Việt Nam",
       "ribbon": "Dịch vụ vận chuyển hàng hóa từ Việt Nam đi Nhật Bản",
-      "body": "Bạn đang muốn gửi hàng hóa, quà tặng hoặc sản phẩm kinh doanh từ Việt Nam sang Nhật Bản? Bạn đang tìm kiếm một đơn vị vận chuyển hỗ trợ xuyên suốt quá trình gửi hàng quốc tế?",
-      "promise": "HARUTO EXPRESS sẵn sàng đồng hành cùng bạn trên tuyến vận chuyển Việt Nam – Nhật Bản!",
+      "lead": "Bạn đang muốn gửi hàng hóa, quà tặng hoặc sản phẩm kinh doanh từ Việt Nam sang Nhật Bản? Bạn đang tìm kiếm một đơn vị vận chuyển hỗ trợ xuyên suốt quá trình gửi hàng quốc tế?",
+      "points": [
+        "Đã bao gồm thuế và ship nội địa Nhật",
+        "Hàng sạch: miễn phí gom đơn, đóng hàng",
+        "Hỗ trợ thủ tục thông quan"
+      ],
       "imageAlt": "Gửi hàng từ Việt Nam đi Nhật Bản: bản đồ hai nước nối bằng mũi tên, máy bay, quà tặng, thùng hàng HARUTO, thiết bị theo dõi đơn và con dấu thông quan"
     },
-    "services": {
+    "features": {
       "title": "HARUTO hỗ trợ các dịch vụ",
       "more": "Xem danh mục hàng",
-      "items": [
-        "Tiếp nhận và vận chuyển hàng hóa từ Việt Nam đi Nhật Bản",
-        "Hỗ trợ gửi hàng cá nhân, quà tặng và hàng hóa kinh doanh",
-        "Tư vấn quy định đối với từng loại hàng hóa trước khi gửi",
-        "Hỗ trợ thủ tục thông quan hàng hóa",
-        "Theo dõi và cập nhật tình trạng vận chuyển"
-      ]
+      "items": {
+        "receive": {
+          "title": "Tiếp nhận và vận chuyển hàng hóa từ Việt Nam đi Nhật Bản"
+        },
+        "gifts": {
+          "title": "Hỗ trợ gửi hàng cá nhân, quà tặng và hàng hóa kinh doanh"
+        },
+        "rules": {
+          "title": "Tư vấn quy định đối với từng loại hàng hóa trước khi gửi"
+        },
+        "customs": {
+          "title": "Hỗ trợ thủ tục thông quan hàng hóa"
+        },
+        "tracking": {
+          "title": "Theo dõi và cập nhật tình trạng vận chuyển"
+        }
+      }
+    },
+    "steps": {
+      "title": "Quy trình 4 bước",
+      "note": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận.",
+      "items": {
+        "contact": {
+          "title": "Liên hệ tư vấn",
+          "body": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi."
+        },
+        "check": {
+          "title": "Kiểm tra hàng và xác nhận cước",
+          "body": "Nhân viên kiểm tra loại hàng, chứng từ và báo cước."
+        },
+        "ship": {
+          "title": "Tiếp nhận và vận chuyển",
+          "body": "HARUTO tiếp nhận hàng và vận chuyển bằng đường hàng không."
+        },
+        "deliver": {
+          "title": "Giao hàng theo thỏa thuận",
+          "body": "Hàng được giao theo nội dung đã thỏa thuận với bạn."
+        }
+      }
     },
     "audience": {
       "title": "Dịch vụ phù hợp với",
-      "items": [
-        "Cá nhân muốn gửi quà, đồ dùng cho người thân tại Nhật Bản",
-        "Doanh nghiệp Việt Nam có nhu cầu xuất khẩu hàng hóa sang Nhật",
-        "Nhà bán hàng muốn mở rộng thị trường và phân phối sản phẩm tại Nhật Bản",
-        "Khách hàng có nhu cầu gửi hàng thường xuyên từ Việt Nam sang Nhật Bản"
-      ]
+      "items": {
+        "personal": {
+          "title": "Cá nhân muốn gửi quà, đồ dùng cho người thân tại Nhật Bản"
+        },
+        "exporters": {
+          "title": "Doanh nghiệp Việt Nam có nhu cầu xuất khẩu hàng hóa sang Nhật"
+        },
+        "sellers": {
+          "title": "Nhà bán hàng muốn mở rộng thị trường và phân phối sản phẩm tại Nhật Bản"
+        },
+        "regular": {
+          "title": "Khách hàng có nhu cầu gửi hàng thường xuyên từ Việt Nam sang Nhật Bản"
+        }
+      }
     },
-    "why": {
+    "benefits": {
       "title": "Vì sao nên lựa chọn HARUTO EXPRESS?",
-      "items": [
-        {
+      "items": {
+        "ecosystem": {
           "title": "Hệ sinh thái logistics đa dạng",
           "body": "Vận chuyển, mua hộ, hỗ trợ thông quan và FFM trên tuyến Nhật – Việt."
         },
-        {
+        "support": {
           "title": "Hỗ trợ từng khâu",
           "body": "Đồng hành cùng khách hàng trong từng khâu của quá trình gửi hàng."
         },
-        {
+        "flexible": {
           "title": "Giải pháp linh hoạt",
           "body": "Phù hợp cho cả nhu cầu cá nhân và doanh nghiệp."
         },
-        {
+        "market": {
           "title": "Kết nối thị trường",
           "body": "Đồng hành cùng khách hàng kết nối hàng hóa Việt Nam với thị trường Nhật Bản."
         }
-      ]
+      }
     },
-    "closing": {
-      "body": "Liên hệ HARUTO EXPRESS ngay hôm nay để được tư vấn tuyến vận chuyển và báo giá chi tiết!",
-      "tagline": "HARUTO EXPRESS – Kết nối hàng Việt đến Nhật, trao gửi trọn niềm tin!",
-      "cta": "Gửi yêu cầu tư vấn"
+    "cta": {
+      "title": "Nhận tư vấn và báo giá gửi hàng đi Nhật",
+      "body": "Liên hệ HARUTO EXPRESS ngay hôm nay để được tư vấn tuyến vận chuyển và báo giá chi tiết!"
     }
   },
   "customs": {
     "hero": {
-      "titleA": "5 nhóm hàng",
-      "titleB": "dễ bị hải quan kiểm tra",
+      "titleA": "Hàng nhận & hàng cấm",
+      "titleB": "gửi đi Nhật Bản",
       "ribbon": "Khi gửi Nhật ⇄ Việt",
-      "alertTitle": "Đừng để hàng về tới hải quan mới biết không gửi được!",
-      "alertBody": "Nhiều mặt hàng tưởng chừng rất phổ biến nhưng khi vận chuyển quốc tế lại có thể bị hải quan kiểm tra hoặc yêu cầu bổ sung giấy tờ.",
+      "lead": "5 nhóm hàng dễ bị hải quan kiểm tra khi gửi Nhật ⇄ Việt, cùng danh mục hàng HARUTO nhận vận chuyển, hàng không đảm bảo khi thông quan và hàng cấm gửi.",
+      "alert": {
+        "title": "Đừng để hàng về tới hải quan mới biết không gửi được!",
+        "body": "Nhiều mặt hàng tưởng chừng rất phổ biến nhưng khi vận chuyển quốc tế lại có thể bị hải quan kiểm tra hoặc yêu cầu bổ sung giấy tờ."
+      },
       "imageAlt": "Kiểm tra hải quan: bảng kiểm, kính lúp và thùng hàng HARUTO, máy bay và bản đồ tuyến Việt Nam – Nhật Bản"
     },
     "groups": {
@@ -555,22 +635,48 @@
         }
       ]
     },
-    "support": {
-      "title": "hỗ trợ kiểm tra hàng trước khi gửi",
-      "body": "HARUTO EXPRESS hỗ trợ kiểm tra hàng hóa trước khi mua hoặc gửi để hạn chế tối đa các rủi ro phát sinh trong quá trình vận chuyển.",
-      "ask": "Chỉ cần gửi hình ảnh, link sản phẩm hoặc thông tin hàng hóa, đội ngũ HARUTO EXPRESS sẽ tư vấn nhanh chóng cho bạn.",
-      "zalo": "Gửi thông tin hàng qua Zalo",
-      "contact": "Gửi yêu cầu tư vấn"
-    },
     "lists": {
       "title": "Danh mục hàng nhận và hàng cấm gửi",
       "intro": "Nhóm hàng HARUTO nhận vận chuyển, nhóm hàng không đảm bảo khi thông quan và nhóm hàng bị cấm gửi theo quy định pháp luật của hai nước."
     },
-    "services": {
-      "title": "Vận chuyển – Mua hộ – Đấu giá hai chiều Nhật Bản ⇄ Việt Nam",
-      "ship": "Vận chuyển",
-      "buy": "Mua hộ",
-      "auction": "Đấu giá"
+    "cta": {
+      "title": "HARUTO EXPRESS hỗ trợ kiểm tra hàng trước khi gửi",
+      "body": "HARUTO EXPRESS hỗ trợ kiểm tra hàng hóa trước khi mua hoặc gửi để hạn chế tối đa các rủi ro phát sinh trong quá trình vận chuyển.",
+      "note": "Chỉ cần gửi hình ảnh, link sản phẩm hoặc thông tin hàng hóa, đội ngũ HARUTO EXPRESS sẽ tư vấn nhanh chóng cho bạn.",
+      "primary": "Gửi thông tin hàng qua Zalo"
+    }
+  },
+  "service": {
+    "cta": {
+      "zalo": "Chat Zalo với HARUTO",
+      "contact": "Gửi yêu cầu tư vấn",
+      "pricing": "Xem bảng giá đầy đủ",
+      "more": "Xem chi tiết"
+    },
+    "price": {
+      "title": "Cước vận chuyển",
+      "unit": "VNĐ/kg"
+    }
+  },
+  "marketplaces": {
+    "yahoo": {
+      "name": "Yahoo! Auction",
+      "note": "Đấu giá & mua sắm đa dạng"
+    },
+    "mercari": {
+      "name": "Mercari",
+      "note": "Đồ cũ, đồ hiếm nội địa Nhật"
+    },
+    "rakuten": {
+      "name": "Rakuten",
+      "note": "Thiên đường mua sắm"
+    },
+    "amazon": {
+      "name": "Amazon Nhật",
+      "note": "Hàng triệu sản phẩm"
+    },
+    "more": {
+      "note": "Và nhiều website khác"
     }
   },
   "hero": {
@@ -943,31 +1049,6 @@
       ]
     }
   },
-  "process": {
-    "title": "Quy trình 4 bước",
-    "steps": [
-      {
-        "title": "Liên hệ tư vấn",
-        "body": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi."
-      },
-      {
-        "title": "Kiểm tra hàng và xác nhận cước",
-        "body": "Nhân viên kiểm tra loại hàng, chứng từ và báo cước."
-      },
-      {
-        "title": "Tiếp nhận và vận chuyển",
-        "body": "HARUTO tiếp nhận hàng và vận chuyển bằng đường hàng không."
-      },
-      {
-        "title": "Giao hàng theo thỏa thuận",
-        "body": "Hàng được giao theo nội dung đã thỏa thuận với bạn."
-      }
-    ],
-    "notes": {
-      "title": "Lưu ý hàng hóa",
-      "body": "Danh mục hàng nhận vận chuyển phụ thuộc quy định của từng quốc gia. Nhân viên sẽ kiểm tra loại hàng và chứng từ trước khi xác nhận tiếp nhận."
-    }
-  },
   "faq": {
     "title": "Câu hỏi thường gặp",
     "items": [
@@ -977,7 +1058,8 @@
         "pages": [
           "goods",
           "shipToJapan",
-          "shipToVietnam"
+          "shipToVietnam",
+          "home"
         ]
       },
       {
@@ -987,7 +1069,8 @@
           "pricing",
           "shipToJapan",
           "shipToVietnam",
-          "policy"
+          "policy",
+          "home"
         ]
       },
       {
@@ -996,7 +1079,55 @@
         "pages": [
           "shipToJapan",
           "shipToVietnam",
-          "contact"
+          "contact",
+          "home"
+        ]
+      },
+      {
+        "question": "Mua hộ hàng Nhật có cần thẻ Visa/MasterCard không?",
+        "answer": "Không. Bạn chỉ cần gửi link sản phẩm, HARUTO báo giá theo tỷ giá VCB + 5 (không phụ thu) và thanh toán hộ cho shop Nhật. Với đơn mua hộ, bạn thanh toán 100% giá trị sản phẩm.",
+        "pages": [
+          "concierge"
+        ]
+      },
+      {
+        "question": "Đấu giá hộ cần đặt cọc bao nhiêu?",
+        "answer": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công, bạn thanh toán phần còn lại để HARUTO chi trả; đấu không thành công, HARUTO hoàn 100% tiền cọc.",
+        "pages": [
+          "auction",
+          "concierge"
+        ]
+      },
+      {
+        "question": "HARUTO mua hộ trên những website nào?",
+        "answer": "Yahoo! Auction, Mercari, Rakuten, Amazon Nhật và các website nội địa Nhật khác. Gửi link sản phẩm để HARUTO kiểm tra và báo giá.",
+        "pages": [
+          "concierge",
+          "auction",
+          "shipToVietnam"
+        ]
+      },
+      {
+        "question": "Tự mua hàng rồi gửi về kho Nhật của HARUTO được không?",
+        "answer": "Được. Với dịch vụ vận chuyển hộ, bạn tự mua và gửi hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
+        "pages": [
+          "concierge",
+          "shipToVietnam",
+          "japanWarehouse"
+        ]
+      },
+      {
+        "question": "Dịch vụ FFM của HARUTO gồm những gì?",
+        "answer": "Nhận hàng và lưu kho tại Nhật, quản lý tồn kho, soạn và đóng gói đơn theo yêu cầu, giao hàng nội địa trên toàn nước Nhật và báo cáo đơn hàng định kỳ. HARUTO cũng hỗ trợ vận chuyển hàng Nhật ⇄ Việt.",
+        "pages": [
+          "business"
+        ]
+      },
+      {
+        "question": "FFM tại Nhật phù hợp với doanh nghiệp nào?",
+        "answer": "Doanh nghiệp Việt xuất khẩu sang Nhật, nhà bán lẻ bán trên các sàn thương mại điện tử Nhật, doanh nghiệp thương mại điện tử xuyên biên giới cần kho trung chuyển và thương hiệu Việt mở rộng kinh doanh tại Nhật.",
+        "pages": [
+          "business"
         ]
       }
     ]
