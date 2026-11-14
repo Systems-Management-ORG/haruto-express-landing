@@ -98,51 +98,54 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
   return (
     <section id="contact" className="section bg-sage">
       <div className="wrap">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-          <div data-reveal className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
+        {/* Phones: heading, the form, then the channels (the form first, as the one place to
+            convert). Desktop: heading and channels on the left (the channels follow the scroll),
+            the form on the right across both rows. */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-12 lg:gap-y-10">
+          <div data-reveal className="lg:col-span-5">
             <h2 className="heading-2">{t("title")}</h2>
             <p className="mt-4 sm:text-lg">{t("intro")}</p>
-            {hasChannels && (
-              <>
-                <h3 className="mt-8 text-sm font-medium text-muted lg:mt-10">{t("channelsTitle")}</h3>
-                <ul className="mt-3 grid gap-3">
-                  {CHAT_CHANNELS.map(({ id, href }) => (
-                    <li key={id}>
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-track={`click_${id}`}
-                        className="channel-link group"
-                      >
-                        <ChannelIcon id={id} size={40} />
-                        <span className="flex-1">
-                          <span className="block font-medium text-ink">{t(`channels.${id}`)}</span>
-                          <span className="block text-sm text-muted">{t(`channelHints.${id}`)}</span>
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                  {HOTLINES.map((line) => (
-                    <li key={line.id}>
-                      <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="channel-link group">
-                        <span className="icon-chip size-10" aria-hidden>
-                          <PhoneIcon size={22} />
-                        </span>
-                        <span className="flex-1">
-                          <span className="block font-medium text-ink">{t(`hotlines.${line.id}`)}</span>
-                          <span className="block text-sm text-muted">{line.display}</span>
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
           </div>
-          <div data-reveal className="lg:col-span-7">
+          <div data-reveal className="lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1">
             <ContactForm />
           </div>
+          {hasChannels && (
+            <div data-reveal className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
+              <h3 className="text-sm font-medium text-muted">{t("channelsTitle")}</h3>
+              <ul className="mt-3 grid gap-3">
+                {CHAT_CHANNELS.map(({ id, href }) => (
+                  <li key={id}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track={`click_${id}`}
+                      className="channel-link group"
+                    >
+                      <ChannelIcon id={id} size={40} />
+                      <span className="flex-1">
+                        <span className="block font-medium text-ink">{t(`channels.${id}`)}</span>
+                        <span className="block text-sm text-muted">{t(`channelHints.${id}`)}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+                {HOTLINES.map((line) => (
+                  <li key={line.id}>
+                    <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="channel-link group">
+                      <span className="icon-chip size-10" aria-hidden>
+                        <PhoneIcon size={22} />
+                      </span>
+                      <span className="flex-1">
+                        <span className="block font-medium text-ink">{t(`hotlines.${line.id}`)}</span>
+                        <span className="block text-sm text-muted">{line.display}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         {withMap && office && (
