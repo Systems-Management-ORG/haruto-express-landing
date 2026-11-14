@@ -355,14 +355,6 @@
     padding-top: 1.25rem;
   }
 
-  /* Split hero: the copy on the left, the two-way route on a deep-green panel on the right. */
-  .hero-split {
-    border-bottom: 1px solid var(--color-line);
-    background:
-      radial-gradient(46rem 26rem at 85% 0%, rgb(226 162 64 / 0.12), transparent 65%),
-      var(--color-ivory);
-  }
-
   .hero-title {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
@@ -376,47 +368,6 @@
     font-size: clamp(1.875rem, 3.4vw, 3.25rem);
     letter-spacing: 0;
     line-height: 1.3;
-  }
-
-  .hero-map {
-    overflow: hidden;
-    border-radius: 1.25rem;
-    background-color: var(--color-deep);
-    color: var(--color-ivory);
-    box-shadow: var(--shadow-lg);
-  }
-
-  /* The map keeps its own shape inside a fixed-height frame (never cropped). */
-  .hero-map__art {
-    height: clamp(17rem, 34vw, 27rem);
-    padding: 0.75rem 0.75rem 0;
-  }
-
-  .hero-map__foot {
-    border-top: 1px solid rgb(250 248 234 / 0.15);
-    padding: 1.25rem 1.5rem 1.5rem;
-  }
-
-  .hero-map__chip {
-    display: flex;
-    min-height: 2.75rem;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid rgb(250 248 234 / 0.18);
-    border-radius: 0.625rem;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition:
-      border-color 160ms var(--ease-ui),
-      background-color 160ms var(--ease-ui);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .hero-map__chip:hover {
-      border-color: var(--color-gold);
-      background-color: rgb(250 248 234 / 0.06);
-    }
   }
 
   /*
@@ -501,70 +452,6 @@
       border-color: #fff;
       background-color: rgb(255 255 255 / 0.12);
     }
-  }
-
-  .route-map__svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .route-map__label {
-    fill: #fff;
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: 20px;
-    paint-order: stroke;
-    stroke: rgb(15 44 25 / 0.85);
-    stroke-width: 2.4px;
-  }
-
-  @media (min-width: 48rem) {
-    .route-map__label {
-      font-size: 15px;
-    }
-  }
-
-  /*
-    Self-running flight animation on the route map (no scroll trigger, no JS): a plane travels each
-    arc on a loop, with pulsing pings at the two cities. Driven by CSS so it
-    animates on its own and can be switched off for reduced motion.
-  */
-  .route-plane {
-    offset-rotate: auto;
-    animation: route-fly 6s linear infinite;
-  }
-
-  /* The flight paths themselves are set inline in route-map.tsx, next to the map's coordinates. */
-  .route-plane--in {
-    animation-delay: 3s;
-  }
-
-  @keyframes route-fly {
-    from { offset-distance: 0%; }
-    to { offset-distance: 100%; }
-  }
-
-  .route-ping {
-    r: 18px;
-    transform-box: fill-box;
-    transform-origin: center;
-    opacity: 0;
-    animation: route-ping 3s ease-out infinite;
-  }
-
-  .route-ping--delay {
-    animation-delay: 1.5s;
-  }
-
-  @keyframes route-ping {
-    0% { transform: scale(0.28); opacity: 0.65; }
-    70%, 100% { transform: scale(1); opacity: 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .route-ping { animation: none; opacity: 0; }
-    .route-plane { animation: none; offset-distance: 52%; }
   }
 
   /* The not-found page sits under the transparent header, like the banner. */
@@ -905,6 +792,23 @@
 
     .page-hero__text {
       max-width: min(44vw, 40rem);
+    }
+  }
+
+  /* Home banner (`--full`): the design system's page hero as drawn, the picture across the whole
+     banner on landscape desktops (the home pictures are 3360px wide), the copy over the ivory
+     fade on the left. */
+  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
+    .page-hero--full .page-hero__stage {
+      min-height: clamp(36rem, 76svh, 48rem);
+    }
+
+    .page-hero--full .page-hero__media {
+      width: 100%;
+    }
+
+    .page-hero--full .page-hero__media::after {
+      background: linear-gradient(90deg, rgb(250 248 234 / 1) 0%, rgb(250 248 234 / 0.85) 40%, rgb(250 248 234 / 0) 68%);
     }
   }
 
