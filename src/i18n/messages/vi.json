@@ -1230,8 +1230,9 @@
       }
     ],
     "support": {
-      "title": "Chưa thấy câu trả lời?",
-      "body": "Gọi hotline hoặc nhắn Zalo, tư vấn viên sẽ trả lời bạn."
+      "title": "Chưa tìm thấy câu trả lời?",
+      "body": "Gửi câu hỏi cho HARUTO, tư vấn viên sẽ liên hệ lại với bạn.",
+      "cta": "Gửi câu hỏi cho chúng tôi"
     }
   },
   "contact": {

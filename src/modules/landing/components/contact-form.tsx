@@ -90,7 +90,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="card" onSubmit={onSubmit}>
+    <form className="card lg:p-10" onSubmit={onSubmit}>
       {/* Honeypot: hidden from people and assistive tech; bots tend to fill every field. */}
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>

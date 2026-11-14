@@ -1231,7 +1231,8 @@
     ],
     "support": {
       "title": "Didn't find your answer?",
-      "body": "Call our hotline or message us on Zalo and a consultant will reply."
+      "body": "Send HARUTO your question and a consultant will get back to you.",
+      "cta": "Send us your question"
     }
   },
   "contact": {

@@ -98,13 +98,13 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
   return (
     <section id="contact" className="section bg-sage">
       <div className="wrap">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-6">
-          <div data-reveal className="lg:col-span-5 lg:pr-8">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+          <div data-reveal className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
             <h2 className="heading-2">{t("title")}</h2>
             <p className="mt-4 sm:text-lg">{t("intro")}</p>
             {hasChannels && (
               <>
-                <h3 className="mt-8 text-sm font-medium text-muted lg:mt-12">{t("channelsTitle")}</h3>
+                <h3 className="mt-8 text-sm font-medium text-muted lg:mt-10">{t("channelsTitle")}</h3>
                 <ul className="mt-3 grid gap-3">
                   {CHAT_CHANNELS.map(({ id, href }) => (
                     <li key={id}>
@@ -140,7 +140,7 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
               </>
             )}
           </div>
-          <div data-reveal className="lg:col-span-6 lg:col-start-7">
+          <div data-reveal className="lg:col-span-7">
             <ContactForm />
           </div>
         </div>
