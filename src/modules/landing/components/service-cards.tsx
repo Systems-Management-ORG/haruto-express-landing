@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -24,7 +23,7 @@ export function ServiceCards() {
 
         <ServiceFlow />
 
-        <ul data-reveal-group className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <ul data-reveal-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {SERVICE_CARDS.map(({ page, image }) => (
             <li key={page}>
               <Link href={pagePath(locale, page)} className="service-card group">
@@ -36,7 +35,6 @@ export function ServiceCards() {
                   <p className="mt-2 line-clamp-3 text-[0.95rem] leading-relaxed">{tPages(`${page}.intro`)}</p>
                   <span className="link-arrow mt-1 text-forest">
                     {t("more")}
-                    <ArrowRight size={18} aria-hidden className="m-arrow" />
                   </span>
                 </div>
               </Link>

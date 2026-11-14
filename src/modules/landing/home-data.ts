@@ -20,16 +20,16 @@ export const SERVICE_CARDS: { page: ContentPage; image: string }[] = [
 ];
 
 // The service flow, one lane per direction (lane = the route key of `pricing.teaser`). Step text:
-// `home.flow.steps.<id>`; a step with a page links to it. Icons are keyed by step id here.
+// `home.flow.steps.<id>`. Icons are keyed by step id here.
 export type FlowIcon = "ShoppingCart" | "Warehouse" | "AirplaneTilt" | "House" | "Storefront" | "Package" | "Truck";
 type FlowStepId = keyof (typeof Messages)["home"]["flow"]["steps"];
-export const FLOW_LANES: { lane: "jpVn" | "vnJp"; steps: { id: FlowStepId; icon: FlowIcon; page?: ContentPage }[] }[] = [
+export const FLOW_LANES: { lane: "jpVn" | "vnJp"; steps: { id: FlowStepId; icon: FlowIcon }[] }[] = [
   {
     lane: "jpVn",
     steps: [
-      { id: "buy", icon: "ShoppingCart", page: "concierge" },
-      { id: "warehouse", icon: "Warehouse", page: "japanWarehouse" },
-      { id: "flyToVn", icon: "AirplaneTilt", page: "shipToVietnam" },
+      { id: "buy", icon: "ShoppingCart" },
+      { id: "warehouse", icon: "Warehouse" },
+      { id: "flyToVn", icon: "AirplaneTilt" },
       { id: "receive", icon: "House" },
     ],
   },
@@ -38,7 +38,7 @@ export const FLOW_LANES: { lane: "jpVn" | "vnJp"; steps: { id: FlowStepId; icon:
     steps: [
       { id: "dropoff", icon: "Storefront" },
       { id: "pack", icon: "Package" },
-      { id: "flyToJp", icon: "AirplaneTilt", page: "shipToJapan" },
+      { id: "flyToJp", icon: "AirplaneTilt" },
       { id: "deliver", icon: "Truck" },
     ],
   },
