@@ -629,6 +629,16 @@
     display: none;
   }
 
+  .faq-item summary {
+    transition: color 160ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .faq-item summary:hover {
+      color: var(--color-deep);
+    }
+  }
+
   .faq-item[open] .faq-plus {
     display: none;
   }
@@ -1872,44 +1882,70 @@
     color: var(--color-deep);
   }
 
-  /* Call button in the floating stack (small screens): green, with a gentle ring pulse. */
-  .contact-fab__btn.contact-fab__call {
-    display: flex;
-    width: 3.25rem;
-    height: 3.25rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background-color: #1f9d55;
-    color: #fff;
-    filter: none;
-    box-shadow: 0 8px 20px rgb(16 44 33 / 0.25);
-    animation: fab-call-ring 2.4s ease-out infinite;
-  }
-
-  @keyframes fab-call-ring {
-    0% { box-shadow: 0 8px 20px rgb(16 44 33 / 0.25), 0 0 0 0 rgb(31 157 85 / 0.5); }
-    70%, 100% { box-shadow: 0 8px 20px rgb(16 44 33 / 0.25), 0 0 0 14px rgb(31 157 85 / 0); }
-  }
-
   /* ---- Chat channels (Zalo, fanpage) ---- */
 
+  /* Floating quick contact: one round toggle; its options open above it as flat pills. */
   .contact-fab {
     position: fixed;
     right: max(1rem, env(safe-area-inset-right));
     bottom: max(1rem, env(safe-area-inset-bottom));
     z-index: 40;
-  }
-
-  .contact-fab ul {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 0.75rem;
   }
 
-  .contact-fab__btn {
-    display: block;
-    filter: drop-shadow(0 6px 12px rgb(16 44 33 / 0.28));
-    transition: transform 160ms var(--ease-ui);
+  .contact-fab__toggle {
+    display: inline-flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: var(--color-forest);
+    color: #fff;
+    box-shadow: var(--shadow-md);
+    transition:
+      background-color 160ms var(--ease-ui),
+      transform 160ms var(--ease-ui);
+  }
+
+  .contact-fab__list {
+    display: grid;
+    justify-items: end;
+    gap: 0.5rem;
+  }
+
+  .contact-fab__item {
+    display: flex;
+    min-height: 3rem;
+    align-items: center;
+    gap: 0.625rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    background-color: #fff;
+    padding: 0.375rem 1rem 0.375rem 0.5rem;
+    color: var(--color-forest);
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 160ms var(--ease-ui);
+  }
+
+  .contact-fab__item img {
+    border-radius: 0.5rem;
+  }
+
+  .contact-fab__call {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: var(--color-forest);
+    color: #fff;
   }
 
   .channel-link {
@@ -1937,8 +1973,12 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .contact-fab__btn:hover {
-      transform: translateY(-2px) scale(1.04);
+    .contact-fab__toggle:hover {
+      background-color: var(--color-deep);
+    }
+
+    .contact-fab__item:hover {
+      border-color: var(--color-forest);
     }
 
     .channel-link:hover {

@@ -1,5 +1,7 @@
 import { Minus, Plus } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
+import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
+import { HOTLINES, telHref } from "@/shared/seo/business";
 import type { PageKey } from "@/shared/seo/pages";
 
 // `pages` lists the pages a question belongs to (its FAQ block there). The home hub shows the
@@ -37,12 +39,47 @@ export function Faq({ page = "home", className }: { page?: PageKey; className?: 
 
   return (
     <section id="faq" className={className ? `section ${className}` : "section"}>
-      <div className="wrap grid gap-8 lg:grid-cols-12 lg:gap-6">
-        <h2 data-reveal className="heading-2 lg:col-span-5 lg:pr-8">{t("title")}</h2>
-        <div className="lg:col-span-6 lg:col-start-7">
-          <FaqList items={items} />
+      <div className="wrap grid gap-8 lg:grid-cols-[minmax(0,35fr)_minmax(0,65fr)] lg:gap-12">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <h2 data-reveal className="heading-2">{t("title")}</h2>
+          <FaqSupport />
         </div>
+        <FaqList items={items} />
       </div>
     </section>
+  );
+}
+
+// Beside the questions: the two hotlines and the chat channels, for anything the list misses.
+function FaqSupport() {
+  const t = useTranslations("faq");
+  const tContact = useTranslations("contact");
+
+  return (
+    <div data-reveal className="mt-6 rounded-(--radius-card) bg-sage p-6">
+      <p className="text-lg font-semibold text-forest">{t("support.title")}</p>
+      <p className="mt-1 text-muted">{t("support.body")}</p>
+      <ul className="mt-4 grid gap-2">
+        {HOTLINES.map((line) => (
+          <li key={line.id}>
+            <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="flex min-h-11 items-center gap-3 font-semibold text-forest tabular-nums hover:text-deep">
+              <PhoneIcon size={20} />
+              <span>
+                <span className="block text-sm font-normal text-muted">{tContact(`hotlines.${line.id}`)}</span>
+                {line.display}
+              </span>
+            </a>
+          </li>
+        ))}
+        {CHAT_CHANNELS.map(({ id, href }) => (
+          <li key={id}>
+            <a href={href} target="_blank" rel="noopener noreferrer" data-track={`click_${id}`} className="flex min-h-11 items-center gap-3 font-medium text-forest hover:text-deep">
+              <ChannelIcon id={id} size={28} />
+              {tContact(`fab.${id}`)}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

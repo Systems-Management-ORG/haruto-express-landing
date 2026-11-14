@@ -1228,7 +1228,11 @@
           "business"
         ]
       }
-    ]
+    ],
+    "support": {
+      "title": "Didn't find your answer?",
+      "body": "Call our hotline or message us on Zalo and a consultant will reply."
+    }
   },
   "contact": {
     "title": "Request advice",
@@ -1268,7 +1272,9 @@
       "label": "Quick contact",
       "zalo": "Chat with a consultant on Zalo",
       "facebook": "Open our Facebook page",
-      "call": "Call"
+      "call": "Call",
+      "open": "Open quick contact",
+      "close": "Close quick contact"
     },
     "sending": "Sending…",
     "error": "We could not send your request. Please try again in a few minutes or message us directly on Zalo or Facebook.",

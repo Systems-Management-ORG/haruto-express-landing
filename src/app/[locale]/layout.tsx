@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { AnalyticsEvents } from "@/shared/analytics/analytics-events";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/google-tag-manager";
 import { routing } from "@/i18n/routing";
-import { ContactFab } from "@/shared/components/contact-links";
+import { ContactFab } from "@/shared/components/contact-fab";
 import { BUSINESS, SITE_URL } from "@/shared/seo/business";
 import { JsonLd, PUBLIC_LOCATIONS, localBusiness, organization, website } from "@/shared/seo/json-ld";
 import { fontClassName } from "@/shared/lib/fonts";

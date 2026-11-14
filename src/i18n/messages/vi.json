@@ -1228,7 +1228,11 @@
           "business"
         ]
       }
-    ]
+    ],
+    "support": {
+      "title": "Chưa thấy câu trả lời?",
+      "body": "Gọi hotline hoặc nhắn Zalo, tư vấn viên sẽ trả lời bạn."
+    }
   },
   "contact": {
     "title": "Yêu cầu tư vấn",
@@ -1268,7 +1272,9 @@
       "label": "Liên hệ nhanh",
       "zalo": "Chat Zalo với tư vấn viên",
       "facebook": "Mở Fanpage Facebook",
-      "call": "Gọi hotline"
+      "call": "Gọi hotline",
+      "open": "Mở liên hệ nhanh",
+      "close": "Đóng liên hệ nhanh"
     },
     "sending": "Đang gửi…",
     "error": "Chưa gửi được yêu cầu. Vui lòng thử lại sau ít phút hoặc nhắn trực tiếp qua Zalo/Fanpage.",
