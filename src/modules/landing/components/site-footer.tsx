@@ -7,6 +7,7 @@ import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/conta
 import { HOTLINES, LOCATIONS, mapsUrl, telHref } from "@/shared/seo/business";
 import { NAV } from "@/shared/seo/nav";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
+import { CARRIER_ORDER } from "../partners";
 
 // Link columns mirror the primary navigation groups; top-level links (Liên hệ) join the last one.
 const GROUPS = NAV.filter((item) => item.type === "group");
@@ -17,6 +18,7 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
   const tNav = useTranslations("nav");
   const tPages = useTranslations("pages");
   const tContact = useTranslations("contact");
+  const tCarriers = useTranslations("partners.carriers");
   const locale = useLocale() as Locale;
 
   return (
@@ -118,6 +120,28 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
               </nav>
             );
           })}
+        </div>
+
+        {/* The carriers HARUTO works with inside Japan, named out of respect for them. Names only
+            (their logos are drawn for light grounds); not links. */}
+        <div className="mt-10 border-t border-ivory/15 pt-8">
+          <p className="footer-heading">{tCarriers("title")}</p>
+          <ul aria-label={tCarriers("title")} className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+            {CARRIER_ORDER.map((id) => {
+              const name = tCarriers(`items.${id}.name`);
+              const native = tCarriers(`items.${id}.native`);
+              return (
+                <li key={id} className="text-ivory/85">
+                  <span className="font-medium">{name}</span>
+                  {native !== name && (
+                    <span lang="ja" className="ml-2 text-sm text-ivory/70">
+                      {native}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
 
