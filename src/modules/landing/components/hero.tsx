@@ -1,182 +1,82 @@
-"use client";
-
-import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
-import gsap from "gsap";
-import Image from "next/image";
+import { AirplaneTilt, Gavel, Package, ShoppingCart, Warehouse } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
-import { pagePath } from "@/shared/seo/pages";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { type PageKey, pagePath } from "@/shared/seo/pages";
+import { RouteMap } from "./route-map";
 
-// "position" is the crop on portrait screens; landscape screens keep the right side of the image.
-// One per slide, in order: two-way shipping, buying service (Japanese goods), own warehouse.
-// "page" is where the slide's main button leads (pricing for shipping, the buying-service page).
-const IMAGES: { file: string; position: string; page: "pricing" | "concierge" }[] = [
-  { file: "may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao", position: "76% 50%", page: "pricing" },
-  { file: "thung-hang-va-hang-nhat-nui-phu-si", position: "70% 50%", page: "concierge" },
-  { file: "may-bay-tuyen-viet-nam-nhat-ban", position: "68% 50%", page: "pricing" },
+// Services along the route, shown under the map (labels: `pages.<page>.nav`).
+const TOUCHPOINTS: { page: PageKey; Icon: typeof Package }[] = [
+  { page: "concierge", Icon: ShoppingCart },
+  { page: "auction", Icon: Gavel },
+  { page: "japanWarehouse", Icon: Warehouse },
+  { page: "business", Icon: Package },
 ];
-const AUTOPLAY_MS = 6000;
-const SWIPE_PX = 40;
 
-const prefersCalm = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const STATS = ["twoWay", "warehouses", "rate"] as const;
 
-function playSlideIn(slide: HTMLElement) {
-  gsap.fromTo(slide.querySelector("img"), { scale: 1.1 }, { scale: 1, duration: 6.5, ease: "power1.out", overwrite: "auto" });
-  gsap.fromTo(
-    slide.querySelectorAll("[data-hero-line]"),
-    { opacity: 0, y: 44 },
-    { opacity: 1, y: 0, duration: 0.9, stagger: 0.14, delay: 0.15, ease: "power3.out", overwrite: "auto" },
-  );
-}
-
-type Slide = { title: string; description: string; cta: string };
-
+// Split hero: the page's H1, two actions and three facts on the left (55%); the two-way air
+// route on a deep-green panel on the right (45%), with the services along it. Every fact is from
+// the site's own data: the warehouses (business.ts) and the lowest VN → JP rate (pricing copy).
 export function Hero() {
   const t = useTranslations("hero");
+  const tPages = useTranslations("pages");
+  const tRate = useTranslations("pricing.teaser.vnJp");
   const locale = useLocale() as Locale;
-  const slides = t.raw("slides") as Slide[];
-  const alts = t.raw("carousel.alts") as string[];
-  const slidesRef = useRef<(HTMLDivElement | null)[]>([]);
-  const previousRef = useRef(0);
-  const touchStartRef = useRef<number | null>(null);
-  const [active, setActive] = useState(0);
-  const [held, setHeld] = useState(false);
-
-  const show = (index: number) => setActive((index + IMAGES.length) % IMAGES.length);
-
-  useEffect(() => {
-    const first = slidesRef.current[0];
-    if (first && !prefersCalm()) playSlideIn(first);
-  }, []);
-
-  // Stops while the visitor points at or tabs into the banner, and never runs for reduced motion.
-  useEffect(() => {
-    if (held || prefersCalm()) return;
-    const timer = window.setTimeout(() => setActive((value) => (value + 1) % IMAGES.length), AUTOPLAY_MS);
-    return () => window.clearTimeout(timer);
-  }, [active, held]);
-
-  useEffect(() => {
-    const previous = slidesRef.current[previousRef.current];
-    const next = slidesRef.current[active];
-    if (!next || previousRef.current === active) return;
-    const calm = prefersCalm();
-    const duration = calm ? 0 : 0.9;
-    gsap.set(next, { zIndex: 1 });
-    gsap.set(previous, { zIndex: 0 });
-    gsap.to(previous, { autoAlpha: 0, duration, ease: "power2.inOut", overwrite: "auto" });
-    gsap.to(next, { autoAlpha: 1, duration, ease: "power2.inOut", overwrite: "auto" });
-    if (!calm) playSlideIn(next);
-    previousRef.current = active;
-  }, [active]);
 
   return (
-    <section
-      id="top"
-      aria-roledescription="carousel"
-      aria-label={t("carousel.label")}
-      data-header-over
-      className="hero-stage"
-      onMouseEnter={() => setHeld(true)}
-      onMouseLeave={() => setHeld(false)}
-      onFocus={() => setHeld(true)}
-      onBlur={() => setHeld(false)}
-      onTouchStart={(event) => {
-        touchStartRef.current = event.touches[0].clientX;
-      }}
-      onTouchEnd={(event) => {
-        if (touchStartRef.current === null) return;
-        const distance = event.changedTouches[0].clientX - touchStartRef.current;
-        touchStartRef.current = null;
-        if (Math.abs(distance) >= SWIPE_PX) show(active + (distance < 0 ? 1 : -1));
-      }}
-    >
-      {slides.map((slide, index) => {
-        return (
-          <div
-            key={slide.title}
-            ref={(node) => {
-              slidesRef.current[index] = node;
-            }}
-            role="group"
-            aria-roledescription="slide"
-            aria-label={`${index + 1} / ${slides.length}`}
-            aria-hidden={index !== active}
-            className="hero-slide"
-          >
-            <div className="hero-media">
-              <Image
-                src={`/images/haruto/hero/${IMAGES[index].file}.webp`}
-                alt={alts[index]}
-                fill
-                priority={index === 0}
-                loading={index === 0 ? undefined : "lazy"}
-                sizes="(min-width: 1024px) and (min-aspect-ratio: 1/1) 75vw, 100vw"
-                quality={90}
-                className="hero-image"
-                style={{ "--hero-position": IMAGES[index].position } as CSSProperties}
-              />
-              <div className="hero-overlay" />
-            </div>
-            <div className="hero-content wrap">
-              <div className="hero-text">
-                {/* Each slide carries its own headline; only the first is the page's H1. */}
-                {index === 0 ? (
-                  <h1 data-hero-line className="hero-title">{slide.title}</h1>
-                ) : (
-                  <p data-hero-line className="hero-title">{slide.title}</p>
-                )}
-                <p data-hero-line className="mt-5 max-w-[36rem] text-base leading-[1.6] sm:text-lg">
-                  {slide.description}
-                </p>
-                <div data-hero-line className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href={IMAGES[index].page === "pricing" ? "#pricing" : pagePath(locale, IMAGES[index].page)}
-                    className="btn btn-gold"
-                  >
-                    {slide.cta}
-                  </Link>
-                  <a href="#contact" data-track="cta_contact" className="btn btn-outline">
-                    {t("secondary")}
-                  </a>
-                </div>
-              </div>
-            </div>
+    <section id="top" className="hero-split">
+      <div className="wrap grid items-center gap-10 py-10 lg:grid-cols-[minmax(0,55fr)_minmax(0,45fr)] lg:gap-12 lg:py-16">
+        <div>
+          <p data-reveal className="inline-flex items-center gap-2 rounded-full bg-sage px-3 py-1.5 text-sm font-medium text-forest">
+            <AirplaneTilt size={18} weight="duotone" aria-hidden />
+            {t("badge")}
+          </p>
+          <h1 data-reveal className="hero-title mt-5 text-forest">
+            {t("title")}
+          </h1>
+          <p data-reveal className="mt-5 max-w-[36rem] sm:text-lg">
+            {t("description")}
+          </p>
+          <div data-reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#calculator" data-track="cta_calculator" className="btn btn-gold">
+              {t("ctaCalc")}
+            </a>
+            <Link href={pagePath(locale, "concierge")} className="btn btn-outline">
+              {t("ctaConcierge")}
+            </Link>
           </div>
-        );
-      })}
 
-      <button
-        type="button"
-        onClick={() => show(active - 1)}
-        aria-label={t("carousel.prev")}
-        className="hero-nav hero-nav--prev"
-      >
-        <CaretLeft size={34} weight="bold" aria-hidden />
-      </button>
-      <button
-        type="button"
-        onClick={() => show(active + 1)}
-        aria-label={t("carousel.next")}
-        className="hero-nav hero-nav--next"
-      >
-        <CaretRight size={34} weight="bold" aria-hidden />
-      </button>
-      <div className="hero-dots" role="group" aria-label={t("carousel.controls")}>
-        {slides.map((slide, index) => (
-          <button
-            key={slide.title}
-            type="button"
-            onClick={() => setActive(index)}
-            aria-label={t("carousel.goto", { index: index + 1 })}
-            aria-current={index === active}
-            className={`hero-dot${index === active ? " is-active" : ""}`}
-          >
-            <span aria-hidden />
-          </button>
-        ))}
+          <dl data-reveal-group className="mt-10 grid gap-4 border-t border-line pt-6 sm:grid-cols-3">
+            {STATS.map((id) => (
+              <div key={id}>
+                <dt className="text-sm text-muted">{t(`stats.${id}.label`)}</dt>
+                <dd className="mt-1 font-display font-(--weight-display) text-xl text-forest tabular-nums">
+                  {id === "rate" ? tRate("price") : t(`stats.${id}.value`)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div data-reveal className="hero-map">
+          <div className="hero-map__art">
+            <RouteMap />
+          </div>
+          <div className="hero-map__foot">
+            <p className="text-sm font-medium text-ivory/75">{t("touchpoints")}</p>
+            <ul className="mt-3 grid grid-cols-2 gap-2">
+              {TOUCHPOINTS.map(({ page, Icon }) => (
+                <li key={page}>
+                  <Link href={pagePath(locale, page)} className="hero-map__chip">
+                    <Icon size={20} weight="duotone" aria-hidden className="shrink-0 text-gold" />
+                    {tPages(`${page}.nav`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -148,8 +148,11 @@
     background-color: transparent;
   }
 
+  /* Light glass once content scrolls under it: the ivory ground, slightly see-through and blurred. */
   .site-header[data-scrolled="true"] {
-    box-shadow: var(--shadow-md);
+    background-color: rgb(250 248 234 / 0.85);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(12px);
   }
 
   /* Subpages have no hero to sit over, so the header takes normal flow instead of overlaying. */
@@ -352,225 +355,73 @@
     padding-top: 1.25rem;
   }
 
-  /* The banner fills the whole width and height under the header, with live text on the image. */
-  .hero-stage {
-    position: relative;
-    height: 100svh;
-    min-height: 38rem;
-    overflow: hidden;
-    background-color: var(--color-deep);
+  /* Split hero: the copy on the left, the two-way route on a deep-green panel on the right. */
+  .hero-split {
+    border-bottom: 1px solid var(--color-line);
+    background:
+      radial-gradient(46rem 26rem at 85% 0%, rgb(226 162 64 / 0.12), transparent 65%),
+      var(--color-ivory);
   }
 
-  /* The longest slide needs more room than a very small phone's screen. */
-  @media (max-width: 20.5rem) {
-    .hero-stage {
-      min-height: 47rem;
-    }
-  }
-
-  /* Portrait screens stack the picture over the text; the picture takes the height the text leaves. */
-  .hero-slide {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    background-color: var(--color-ivory);
-    color: var(--color-deep);
-  }
-
-  .hero-media {
-    position: relative;
-    min-height: 13rem;
-    flex: 1 1 0;
-  }
-
-  .hero-slide:not(:first-child) {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .hero-image {
-    object-fit: cover;
-    object-position: var(--hero-position);
-  }
-
-  /* Keeps the header readable where it sits on the picture. */
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgb(250 248 234 / 0.9) 0, rgb(250 248 234 / 0.9) 4.5rem, rgb(250 248 234 / 0) 7.5rem);
-  }
-
-  /* Bottom padding leaves a clear band under the buttons for the slide dots. */
-  .hero-content {
-    position: relative;
-    display: flex;
-    padding-block: 1.75rem 3.5rem;
-  }
-
-  /*
-    Large landscape screens: the banner art is drawn at its own 16:9 shape against the right edge
-    instead of being stretched across the full width. The art has limited real detail, so scaling it
-    up to a 1920px+ screen width made it look soft and blocky; at the stage height it stays close to
-    its native size. Its blank cream left side fades into the ivory background behind the text.
-  */
-  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
-    .hero-stage {
-      height: clamp(36rem, 76svh, 48rem);
-      min-height: 0;
-    }
-
-    .hero-slide {
-      display: block;
-    }
-
-    .hero-media {
-      position: absolute;
-      inset: 0 0 0 auto;
-      height: 100%;
-      max-width: 100%;
-      overflow: hidden;
-      aspect-ratio: 3360 / 1888;
-    }
-
-    .hero-image {
-      object-position: 100% 50%;
-    }
-
-    .hero-overlay {
-      background: linear-gradient(90deg, rgb(250 248 234 / 1) 0%, rgb(250 248 234 / 0.7) 14%, rgb(250 248 234 / 0) 34%),
-        linear-gradient(180deg, rgb(250 248 234 / 0.82) 0, rgb(250 248 234 / 0.82) 3.5rem, rgb(250 248 234 / 0) 7rem);
-    }
-
-    .hero-content {
-      height: 100%;
-      align-items: center;
-      padding-block: 4.5rem 0;
-    }
-
-    .hero-content .hero-text {
-      max-width: min(40vw, 40rem);
-    }
-
-    .hero-dots {
-      bottom: clamp(1rem, 2.5svh, 2rem);
-    }
-  }
-
-  /* The whole banner uses one typeface (the text face): headline, description and buttons.
-     Every slide has a headline but only the first is an <h1>, so the face is set here, not by h1. */
   .hero-title {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
     text-wrap: balance;
-    font-size: clamp(2.25rem, min(4.2vw, 7svh), 4.5rem);
+    font-size: clamp(2.25rem, 4.2vw, 4rem);
     line-height: 1.1;
     letter-spacing: var(--tracking-display);
   }
 
   :lang(ja) .hero-title {
-    font-size: clamp(2rem, min(3.6vw, 6.5svh), 3.75rem);
+    font-size: clamp(1.875rem, 3.4vw, 3.25rem);
     letter-spacing: 0;
     line-height: 1.3;
   }
 
-  .hero-text {
-    max-width: 44rem;
+  .hero-map {
+    overflow: hidden;
+    border-radius: 1.25rem;
+    background-color: var(--color-deep);
+    color: var(--color-ivory);
+    box-shadow: var(--shadow-lg);
   }
 
-  /* Prev/next arrows sit at the left and right edges of the banner, with no button chrome. */
-  .hero-nav {
-    position: absolute;
-    top: 50%;
-    z-index: 3;
-    display: inline-flex;
-    width: 3rem;
-    height: 3rem;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-deep);
-    opacity: 0.85;
-    filter: drop-shadow(0 1px 3px rgb(250 248 234 / 0.8));
-    transition:
-      opacity 140ms var(--ease-ui),
-      transform 140ms var(--ease-ui);
+  /* The map keeps its own shape inside a fixed-height frame (never cropped). */
+  .hero-map__art {
+    height: clamp(17rem, 34vw, 27rem);
+    padding: 0.75rem 0.75rem 0;
   }
 
-  /* On phones the arrows would sit on the headline; swipe and the dots change slides there. */
-  @media (max-width: 47.99rem) {
-    .hero-nav {
-      display: none;
-    }
+  .hero-map__foot {
+    border-top: 1px solid rgb(250 248 234 / 0.15);
+    padding: 1.25rem 1.5rem 1.5rem;
   }
 
-  .hero-nav--prev {
-    left: clamp(0.25rem, 1.5vw, 1.5rem);
-    transform: translateY(-50%);
-  }
-
-  .hero-nav--next {
-    right: clamp(0.25rem, 1.5vw, 1.5rem);
-    transform: translateY(-50%);
-  }
-
-  /* Dot indicators at the bottom centre, also without a background. Stacked layout (phones,
-     portrait tablets): close to the bottom edge, well below the buttons. */
-  .hero-dots {
-    position: absolute;
-    bottom: 0.625rem;
-    left: 50%;
-    z-index: 3;
+  .hero-map__chip {
     display: flex;
+    min-height: 2.75rem;
     align-items: center;
-    gap: 0.125rem;
-    transform: translateX(-50%);
-    filter: drop-shadow(0 1px 2px rgb(23 55 34 / 0.35));
-  }
-
-  .hero-dot {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 0.25rem;
-  }
-
-  .hero-dot span {
-    display: block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 9999px;
-    background-color: rgb(250 248 234 / 0.75);
+    gap: 0.5rem;
+    border: 1px solid rgb(250 248 234 / 0.18);
+    border-radius: 0.625rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
     transition:
-      width 220ms var(--ease-ui),
-      background-color 220ms var(--ease-ui);
-  }
-
-  .hero-dot.is-active span {
-    width: 1.5rem;
-    background-color: var(--color-gold);
+      border-color 160ms var(--ease-ui),
+      background-color 160ms var(--ease-ui);
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .hero-nav--prev:hover {
-      opacity: 1;
-      transform: translateY(-50%) translateX(-3px);
-    }
-
-    .hero-nav--next:hover {
-      opacity: 1;
-      transform: translateY(-50%) translateX(3px);
-    }
-
-    .hero-dot:hover span {
-      background-color: #fff;
+    .hero-map__chip:hover {
+      border-color: var(--color-gold);
+      background-color: rgb(250 248 234 / 0.06);
     }
   }
 
   /*
-    Plane towing the brand banner, under the hero. Phones and portrait tablets: the hero already
-    fills the screen, so the strip is just as tall as the art at the screen's width (the art is
-    width-bound there). Large landscape screens: the strip takes exactly the height the hero
-    (clamp(36rem, 76svh, 48rem), see .hero-stage) leaves, so hero + strip are one screen tall.
+    Plane towing the brand banner, under the hero. Tablets: the strip is just as tall as the art at
+    the screen's width (the art is width-bound there). Large landscape screens: a fixed band.
     The plane + banner art is scaled to the strip's height, or to its width when the strip is
     too narrow for that.
   */
@@ -587,7 +438,7 @@
 
   @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
     .sky-tow {
-      height: max(7rem, calc(100svh - clamp(36rem, 76svh, 48rem)));
+      height: clamp(7rem, 11vw, 12rem);
     }
   }
 
@@ -652,65 +503,10 @@
     }
   }
 
-  /*
-    Warehouse photos as a still backdrop for the routes section: the layer is fixed but clipped to the
-    section, so the content scrolls over the photos like a window (works where
-    background-attachment: fixed does not, such as iOS Safari).
-  */
-  .route-band {
-    position: relative;
-    isolation: isolate;
-    /* the desktop map is wider than its column; clip it at the screen edge (no sideways scroll) */
-    overflow-x: clip;
-    background-color: var(--color-deep);
-  }
-
-  /* Near-square East Asia map; contained (no crop). */
-  .route-map {
-    aspect-ratio: 1008 / 948;
-    overflow: hidden;
-    width: 100%;
-  }
-
   .route-map__svg {
     display: block;
     width: 100%;
     height: 100%;
-  }
-
-  /*
-    Desktop: the map runs the section's full height, through its top and bottom padding (7rem,
-    see .section). It keeps its own shape, so it is wider than its column and spills a little to
-    both sides; its edges fade out, so the spill under the text is barely there. The height is
-    capped by the screen width so Hanoi and Tokyo stay on screen down to 1024px.
-  */
-  @media (min-width: 64rem) {
-    .route-map {
-      position: relative;
-      height: min(52rem, 62vw);
-      margin-block: -7rem;
-      aspect-ratio: auto;
-      overflow: visible;
-    }
-
-    .route-map__svg {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: auto;
-      max-width: none;
-      height: 100%;
-      aspect-ratio: 1008 / 948;
-      transform: translateX(-50%);
-    }
-  }
-
-  /* On mobile the map stacks under the text, so cap and centre it. */
-  @media (max-width: 63.99rem) {
-    .route-map {
-      max-width: 34rem;
-      margin-inline: auto;
-    }
   }
 
   .route-map__label {
@@ -739,7 +535,7 @@
     animation: route-fly 6s linear infinite;
   }
 
-  /* The flight paths themselves are set inline in routes.tsx, next to the map's coordinates. */
+  /* The flight paths themselves are set inline in route-map.tsx, next to the map's coordinates. */
   .route-plane--in {
     animation-delay: 3s;
   }
@@ -770,124 +566,6 @@
     .route-ping { animation: none; opacity: 0; }
     .route-plane { animation: none; offset-distance: 52%; }
   }
-
-  .route-backdrop {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    clip-path: inset(0);
-  }
-
-  .route-backdrop__layer {
-    position: fixed;
-    inset: 0;
-    height: 100vh;
-    /* The largest viewport: the backdrop does not resize as the mobile URL bar shows and hides. */
-    height: 100lvh;
-  }
-
-  .route-backdrop__layer::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgb(15 44 25 / 0.8);
-  }
-
-  /* Five by three on desktop; the tile order packs the feature and wide tiles without gaps. */
-  .route-backdrop__grid {
-    display: grid;
-    height: 100%;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-    grid-auto-flow: dense;
-    gap: 6px;
-    background-color: var(--color-deep);
-  }
-
-  .route-backdrop__tile {
-    position: relative;
-    min-width: 0;
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .route-backdrop__tile--wide {
-    grid-column: span 2;
-  }
-
-  .route-backdrop__tile--feature {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  @media (max-width: 63.99rem) {
-    .route-backdrop__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .route-backdrop__tile--wide {
-      grid-column: span 1;
-    }
-
-    .route-backdrop__tile--feature {
-      grid-column: span 1;
-    }
-  }
-
-  @media (max-width: 47.99rem) {
-    .route-backdrop__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: repeat(4, minmax(0, 1fr));
-      gap: 4px;
-    }
-
-    .route-backdrop__tile--feature {
-      grid-row: span 1;
-    }
-  }
-
-  /* Without the scroll effect the photos simply sit behind the section. */
-  @media (prefers-reduced-motion: reduce) {
-    .route-backdrop {
-      clip-path: none;
-      overflow: hidden;
-    }
-
-    .route-backdrop__layer {
-      position: absolute;
-      height: 100%;
-    }
-  }
-
-  /*
-    Stacked layout (phones, portrait tablets): three layers on top of each other — the warehouse
-    photos at the back (the backdrop above), the map over them right behind the text, and the
-    text on top. The map is toned down there so the white text stays easy to read over it.
-  */
-  @media (max-width: 63.99rem) {
-    .route-map {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      max-width: none;
-      margin: 0;
-      aspect-ratio: auto;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .route-map__svg {
-      /* the svg keeps its shape and is centred behind the text (preserveAspectRatio meet) */
-      max-width: 40rem;
-      margin-inline: auto;
-    }
-
-    .route-copy {
-      position: relative;
-      z-index: 1;
-    }
-  }
-
 
   /* The not-found page sits under the transparent header, like the banner. */
   .not-found-band {

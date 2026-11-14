@@ -770,36 +770,25 @@
     }
   },
   "hero": {
-    "slides": [
-      {
-        "title": "Vận Chuyển 2 Chiều Nhật – Việt",
-        "description": "Cung cấp giải pháp vận chuyển hàng hóa chuyên tuyến Nhật – Việt và ngược lại. Dù bạn là cá nhân cần gửi quà biếu, hay doanh nghiệp cần luân chuyển hàng hóa kinh doanh số lượng lớn, chúng tôi đều đáp ứng trọn gói.",
-        "cta": "Xem bảng giá"
+    "badge": "Vận chuyển hàng không 2 chiều Việt – Nhật",
+    "title": "Gửi hàng đi Nhật & mua hộ hàng Nhật qua đường hàng không",
+    "description": "Gửi quà, hàng kinh doanh sang Nhật với cước đã gồm thuế và ship nội địa Nhật. Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam.",
+    "ctaCalc": "Tính cước ngay",
+    "ctaConcierge": "Xem dịch vụ mua hộ",
+    "stats": {
+      "twoWay": {
+        "value": "2 chiều",
+        "label": "Việt Nam ⇄ Nhật Bản"
       },
-      {
-        "title": "Mua Hộ Hàng Nhật Trọn Gói – Giá Cực Tốt",
-        "description": "Bạn muốn mua hàng chính hãng từ các trang thương mại điện tử hàng đầu Nhật Bản (Amazon JP, Rakuten, Mercari, Yahoo Shopping...) nhưng vướng rào cản ngôn ngữ, thẻ thanh toán quốc tế hay không có địa chỉ nhận hàng tại Nhật? Hãy để chúng tôi lo từ A–Z.",
-        "cta": "Xem dịch vụ mua hộ"
+      "warehouses": {
+        "value": "Tokyo · Hà Nội",
+        "label": "Kho hàng riêng"
       },
-      {
-        "title": "Có kho hàng riêng, có nhân viên tư vấn",
-        "description": "Nhân viên kiểm tra loại hàng, chứng từ và xác nhận cước với bạn trước khi tiếp nhận.",
-        "cta": "Xem bảng giá"
+      "rate": {
+        "label": "Cước Việt Nam → Nhật Bản"
       }
-    ],
-    "secondary": "Liên hệ tư vấn",
-    "carousel": {
-      "label": "Banner dịch vụ HARUTO EXPRESS",
-      "controls": "Điều khiển banner",
-      "prev": "Ảnh trước",
-      "next": "Ảnh tiếp theo",
-      "goto": "Đến ảnh {index}",
-      "alts": [
-        "Máy bay bay trên núi Phú Sĩ, tháp Tokyo và hoa anh đào, phía trước là các thùng hàng",
-        "Thùng hàng và hàng Nhật trước núi Phú Sĩ, chùa Nhật và xe giao hàng",
-        "Máy bay trên tuyến Việt Nam – Nhật Bản, cùng cờ và cảnh đặc trưng của hai nước"
-      ]
-    }
+    },
+    "touchpoints": "Dịch vụ trên tuyến"
   },
   "why": {
     "title": "Vì sao chọn HARUTO?",
@@ -830,23 +819,9 @@
     }
   },
   "routes": {
-    "title": "Tuyến vận chuyển",
-    "intro": "HARUTO nhận vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho riêng tại Nhật và nhân viên xác nhận cước trước khi tiếp nhận.",
-    "outbound": "Việt Nam → Nhật Bản",
-    "inbound": "Nhật Bản → Việt Nam",
     "vietnam": "Việt Nam",
     "japan": "Nhật Bản",
-    "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa",
-    "photoAlts": [
-      "Kiện hàng chờ xử lý tại kho HARUTO Express",
-      "Kiện hàng xếp trên pallet trong kho HARUTO",
-      "Mặt tiền kho HARUTO Express",
-      "Bên trong kho hàng HARUTO Express",
-      "Thùng hàng xếp chồng trong kho HARUTO",
-      "Khu làm việc và kiện hàng tại kho HARUTO",
-      "Kiện hàng được bọc màng bảo vệ tại kho",
-      "Hàng tiêu dùng Nhật Bản tại kho HARUTO"
-    ]
+    "mapLabel": "Bản đồ thế giới với tuyến hàng không hai chiều giữa Việt Nam và Nhật Bản; lãnh thổ Việt Nam gồm quần đảo Hoàng Sa và Trường Sa"
   },
   "pricing": {
     "title": "Bảng giá",

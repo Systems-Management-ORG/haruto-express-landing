@@ -7,7 +7,6 @@ import { Hero } from "./hero";
 import { MotionLayer } from "./motion-layer";
 import { PartnersSection } from "./partners/partners-section";
 import { PricingTeaser } from "./pricing-teaser";
-import { Routes } from "./routes";
 import { ServiceCards } from "./service-cards";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
@@ -20,7 +19,7 @@ import { Why } from "./why";
 export function LandingPage() {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader solid />
       <main id="main">
         <Hero />
         <SkyTow />
@@ -29,7 +28,6 @@ export function LandingPage() {
         <GoodsTiles />
         <Why />
         <AudienceCards />
-        <Routes />
         <PricingTeaser />
         <Guides />
         <Faq />
