@@ -1,3 +1,4 @@
+import { AudienceCards } from "./audience-cards";
 import { Contact } from "./contact";
 import { Faq } from "./faq";
 import { GoodsTiles } from "./goods-tiles";
@@ -27,6 +28,7 @@ export function LandingPage() {
         <ServiceCards />
         <GoodsTiles />
         <Why />
+        <AudienceCards />
         <Routes />
         <PricingTeaser />
         <Guides />
