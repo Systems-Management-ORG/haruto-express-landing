@@ -421,7 +421,8 @@
   @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
     .hero-full {
       display: flex;
-      min-height: clamp(38rem, calc(100svh - 4.5rem), 52rem);
+      /* Fills the screen below the 4.5rem header at any height; 38rem floor keeps the copy whole. */
+      min-height: max(38rem, calc(100svh - 4.5rem));
       align-items: center;
     }
 
