@@ -19,7 +19,7 @@ export type MarketplaceId =
 // yahoo-shopping / rakuma / mandarake: taken from the header of each store's own site (2026-11-13);
 // zozotown / qoo10 / surugaya: SVG files supplied by the owner (their sites block automated access).
 export const MARKETPLACE_LOGOS: Partial<Record<MarketplaceId, string>> = {
-  yahoo: "/logo/yahoo-auction.svg",
+  yahoo: "/logo/yahoo-aution.png", // the Yahoo! Auction app icon, supplied by the owner
   mercari: "/logo/mercari.svg",
   rakuten: "/logo/rakuten.svg",
   amazon: "/logo/amazon-jp.svg",
