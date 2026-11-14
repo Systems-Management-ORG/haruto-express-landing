@@ -211,8 +211,7 @@
         "Nhận hàng, lưu kho và quản lý tồn kho tại Nhật",
         "Soạn, đóng gói và giao hàng toàn nước Nhật",
         "Báo cáo đơn hàng định kỳ"
-      ],
-      "imageAlt": "Kho HARUTO EXPRESS tại Nhật Bản với xe tải giao hàng, núi Phú Sĩ và hoa anh đào"
+      ]
     },
     "steps": {
       "title": "Quy trình FFM tại Nhật Bản cùng HARUTO",
@@ -299,8 +298,7 @@
         "Nhận hàng tại kho Tokyo",
         "Hỗ trợ cả mua hộ và đấu giá hộ"
       ],
-      "marketplacesLabel": "Thanh toán hộ trên",
-      "imageAlt": "Mua hộ hàng Nhật: điện thoại xác nhận thanh toán, thùng hàng HARUTO, kho Tokyo và máy bay về Việt Nam"
+      "marketplacesLabel": "Thanh toán hộ trên"
     },
     "steps": {
       "title": "Quy trình đơn giản",
@@ -358,9 +356,7 @@
         "Phí minh bạch, không chi phí ẩn",
         "Hàng về kho Nhật, ship về Việt Nam"
       ],
-      "marketplacesLabel": "Đấu giá trực tiếp từ các sàn uy tín tại Nhật Bản",
-      "badge": "Hàng ngàn sản phẩm đa dạng",
-      "imageAlt": "Đấu giá hàng Nhật: điện thoại đặt giá máy ảnh, búa đấu giá, thùng hàng, núi Phú Sĩ và hoa anh đào"
+      "marketplacesLabel": "Đấu giá trực tiếp từ các sàn uy tín tại Nhật Bản"
     },
     "features": {
       "title": "Sản phẩm đa dạng",
@@ -447,12 +443,7 @@
         "Miễn phí gom hàng tại kho Nhật",
         "Mua hộ trên mọi website nội địa Nhật"
       ],
-      "marketplacesLabel": "Mua hàng từ các sàn Nhật",
-      "imageAlt": "Máy bay HARUTO chở thùng hàng và túi mua sắm từ Nhật Bản về Việt Nam",
-      "artLabels": {
-        "japan": "Nhật Bản",
-        "vietnam": "Việt Nam"
-      }
+      "marketplacesLabel": "Mua hàng từ các sàn Nhật"
     },
     "features": {
       "title": "Mua hộ & ship Nhật ⇄ Việt",
@@ -535,8 +526,7 @@
         "Đã bao gồm thuế và ship nội địa Nhật",
         "Hàng sạch: miễn phí gom đơn, đóng hàng",
         "Hỗ trợ thủ tục thông quan"
-      ],
-      "imageAlt": "Gửi hàng từ Việt Nam đi Nhật Bản: bản đồ hai nước nối bằng mũi tên, máy bay, quà tặng, thùng hàng HARUTO, thiết bị theo dõi đơn và con dấu thông quan"
+      ]
     },
     "features": {
       "title": "HARUTO hỗ trợ các dịch vụ",
@@ -633,8 +623,7 @@
       "alert": {
         "title": "Đừng để hàng về tới hải quan mới biết không gửi được!",
         "body": "Nhiều mặt hàng tưởng chừng rất phổ biến nhưng khi vận chuyển quốc tế lại có thể bị hải quan kiểm tra hoặc yêu cầu bổ sung giấy tờ."
-      },
-      "imageAlt": "Kiểm tra hải quan: bảng kiểm, kính lúp và thùng hàng HARUTO, máy bay và bản đồ tuyến Việt Nam – Nhật Bản"
+      }
     },
     "groups": {
       "intro": "Một số nhóm hàng thường được kiểm tra kỹ hơn:",

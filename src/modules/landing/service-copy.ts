@@ -13,16 +13,13 @@ type Section = { title: string; intro?: string; items: Record<string, Item> };
 export type ServiceCopy = {
   hero: {
     eyebrow?: string; // small caps line above the H1
-    titleA: string; // H1 part 1 (forest)
-    titleB: string; // H1 part 2 (orange, on its own line)
+    titleA: string; // H1, first part
+    titleB: string; // H1, second part (one line of text with titleA)
     ribbon?: string; // green ribbon under the H1 (poster brand device)
     hook?: string; // one bold line before the lead (the pain point)
     lead: string;
     points?: string[]; // up to three proof bullets
     marketplacesLabel?: string;
-    badge?: string; // round seal on the art (auction)
-    imageAlt: string;
-    artLabels?: { japan: string; vietnam: string }; // map tags on the route art (JP → VN)
     alert?: { title: string; body: string }; // warning callout (accepted & prohibited goods)
   };
   features?: Section & { more?: string };

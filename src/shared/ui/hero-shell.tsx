@@ -1,73 +1,56 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/shared/components/breadcrumbs";
+import { PAGE_IMAGES } from "@/shared/seo/page-media";
 import type { PageKey } from "@/shared/seo/pages";
 
-// The one hero frame of every subpage: breadcrumbs, eyebrow, H1, lead and actions on the left,
-// the page's picture on the right.
-// - `poster` (service pages): two-tone H1, HARUTO's artwork feathered into the page.
-// - `framed` (info pages): one-colour H1, a photo in the white frame.
+// The one banner of every subpage, the design system's page hero (12.4): the page's picture fills
+// the banner with the copy over an ivory fade on the left; on phones and portrait screens the
+// picture sits above the copy. The copy column holds breadcrumbs, eyebrow, H1, lead and actions.
 // Slots, in document order: `children` between the H1 and the lead (ribbon, alert, hook),
 // `afterLead` (proof points), `note` (e.g. the effective-date pill), `actions`, `footer` (store
-// logos), then `after` below the grid, full width (table-of-contents chips, goods chips).
+// logos), then `after` below the banner, full width (table-of-contents chips, goods chips).
 type Props = {
-  page: Exclude<PageKey, "home">; // breadcrumb trail
-  variant: "poster" | "framed";
+  page: Exclude<PageKey, "home">; // breadcrumb trail and the picture (PAGE_IMAGES)
   eyebrow?: string;
-  title: { a: string; b?: string };
+  title: string;
   lead: string;
   children?: ReactNode;
   afterLead?: ReactNode;
   note?: ReactNode;
   actions?: ReactNode;
   footer?: ReactNode;
-  media: ReactNode; // the page's <Image priority …/>
-  artModifier?: "route" | "seal"; // poster art variants (map tags, seal)
   after?: ReactNode;
 };
 
-export function HeroShell({
-  page,
-  variant,
-  eyebrow,
-  title,
-  lead,
-  children,
-  afterLead,
-  note,
-  actions,
-  footer,
-  media,
-  artModifier,
-  after,
-}: Props) {
-  const twoTone = variant === "poster" && title.b;
+export function HeroShell({ page, eyebrow, title, lead, children, afterLead, note, actions, footer, after }: Props) {
+  const image = PAGE_IMAGES[page];
 
   return (
-    <section className="svc-hero">
-      <div className="wrap svc-hero__grid">
-        <div className="svc-hero__copy">
-          <Breadcrumbs page={page} />
-          {eyebrow && <p className="svc-eyebrow">{eyebrow}</p>}
-          {/* The space between the two parts keeps the H1 text (and its schema name) readable. */}
-          <h1 className="svc-title">
-            <span className="svc-title__a">{twoTone ? title.a : [title.a, title.b].filter(Boolean).join(" ")}</span>
-            {twoTone && (
-              <>
-                {" "}
-                <span className="svc-title__b">{title.b}</span>
-              </>
-            )}
-          </h1>
-          {children}
-          <p className="svc-lead">{lead}</p>
-          {afterLead}
-          {note}
-          {actions && <div className="svc-hero__actions">{actions}</div>}
-          {footer}
+    <section className="page-hero">
+      <div className="page-hero__stage">
+        <div className="page-hero__media">
+          <Image
+            src={image.src}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1023px) 100vw, 62vw"
+            style={{ objectPosition: image.position ?? "50% 50%" }}
+          />
         </div>
-
-        <div className={`svc-art${artModifier ? ` svc-art--${artModifier}` : ""}`}>
-          {variant === "framed" ? <div className="page-hero__frame">{media}</div> : media}
+        <div className="wrap page-hero__content">
+          <div className="page-hero__text">
+            <Breadcrumbs page={page} />
+            {eyebrow && <p className="svc-eyebrow">{eyebrow}</p>}
+            <h1 className="hero-title svc-title">{title}</h1>
+            {children}
+            <p className="svc-lead">{lead}</p>
+            {afterLead}
+            {note}
+            {actions && <div className="svc-hero__actions">{actions}</div>}
+            {footer}
+          </div>
         </div>
       </div>
       {after}

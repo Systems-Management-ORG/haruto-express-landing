@@ -1,5 +1,4 @@
 import { CheckCircle, WarningCircle } from "@phosphor-icons/react/dist/ssr";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ContactCta } from "@/shared/ui/contact-cta";
 import { HeroShell } from "@/shared/ui/hero-shell";
@@ -8,24 +7,20 @@ import type { ServicePageConfig } from "../../service-pages";
 import { CustomsChips } from "./customs-sections";
 import { MarketplaceRow } from "./marketplace-row";
 
-// Banner of every service page (the shared hero frame, poster variant): copy and the CTA on the
-// left (within the first screen on a phone), HARUTO's poster artwork on the right with its left
-// edge feathered into the page.
+// Banner of every service page (the shared page hero): eyebrow, H1, lead, proof points and the
+// CTA over the page's picture (within the first screen on a phone).
 export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: ServiceCopy; config: ServicePageConfig }) {
   const tNav = useTranslations("nav.groups");
   const { hero } = copy;
   const navGroup = config.hero.eyebrowFromNav;
-  const { art } = config.hero;
   const primaryLabel = config.hero.primary === "zalo" ? copy.cta.primary : undefined;
 
   return (
     <HeroShell
       page={page}
-      variant="poster"
       eyebrow={hero.eyebrow ?? (navGroup ? tNav(navGroup) : undefined)}
-      title={{ a: hero.titleA, b: hero.titleB }}
+      title={`${hero.titleA} ${hero.titleB}`}
       lead={hero.lead}
-      artModifier={art.variant}
       afterLead={
         hero.points && (
           <ul className="svc-points">
@@ -48,30 +43,6 @@ export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: Se
         config.hero.marketplaces && (
           <MarketplaceRow ids={config.hero.marketplaces} withMore={config.hero.withMore} label={hero.marketplacesLabel} />
         )
-      }
-      media={
-        <>
-          <Image
-            src={art.src}
-            alt={hero.imageAlt}
-            width={art.width}
-            height={art.height}
-            sizes={art.sizes}
-            priority
-            className="svc-art__img"
-          />
-          {art.variant === "route" && hero.artLabels && (
-            <p className="contents">
-              <span className="svc-route-tag svc-route-tag--jp">{hero.artLabels.japan}</span>
-              <span className="svc-route-tag svc-route-tag--vn">{hero.artLabels.vietnam}</span>
-            </p>
-          )}
-          {art.variant === "seal" && hero.badge && (
-            <p className="svc-seal" aria-hidden>
-              {hero.badge}
-            </p>
-          )}
-        </>
       }
       after={config.hero.chips === "customsGroups" ? <CustomsChips /> : undefined}
     >

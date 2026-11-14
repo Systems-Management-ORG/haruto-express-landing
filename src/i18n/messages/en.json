@@ -211,8 +211,7 @@
         "Receiving, storage and inventory in Japan",
         "Picking, packing and delivery across Japan",
         "Regular order reports"
-      ],
-      "imageAlt": "HARUTO EXPRESS warehouse in Japan with a delivery truck, Mount Fuji and cherry blossoms"
+      ]
     },
     "steps": {
       "title": "FFM in Japan with HARUTO",
@@ -299,8 +298,7 @@
         "Received at our Tokyo warehouse",
         "Buying and auction bidding"
       ],
-      "marketplacesLabel": "We pay on your behalf on",
-      "imageAlt": "Japan buying service: phone confirming payment, HARUTO boxes, Tokyo warehouse and a flight to Vietnam"
+      "marketplacesLabel": "We pay on your behalf on"
     },
     "steps": {
       "title": "A simple process",
@@ -358,9 +356,7 @@
         "Transparent fees, no hidden costs",
         "Received in Japan, shipped to Vietnam"
       ],
-      "marketplacesLabel": "Direct bidding on trusted Japanese sites",
-      "badge": "Thousands of products",
-      "imageAlt": "Japan auctions: phone bidding on a camera, gavel, parcels, Mount Fuji and cherry blossoms"
+      "marketplacesLabel": "Direct bidding on trusted Japanese sites"
     },
     "features": {
       "title": "A wide range of products",
@@ -447,12 +443,7 @@
         "Free consolidation at our Japan warehouse",
         "We buy from any Japanese online store"
       ],
-      "marketplacesLabel": "Buy from Japanese stores",
-      "imageAlt": "A HARUTO plane carrying boxes and shopping bags from Japan to Vietnam",
-      "artLabels": {
-        "japan": "Japan",
-        "vietnam": "Vietnam"
-      }
+      "marketplacesLabel": "Buy from Japanese stores"
     },
     "features": {
       "title": "Buying & shipping Japan ⇄ Vietnam",
@@ -535,8 +526,7 @@
         "Tax and Japan domestic delivery included",
         "Clean goods: free consolidation and packing",
         "Customs clearance support"
-      ],
-      "imageAlt": "Shipping from Vietnam to Japan: a map linking both countries, a plane, gifts, HARUTO parcels, tracking devices and a customs stamp"
+      ]
     },
     "features": {
       "title": "What HARUTO handles",
@@ -633,8 +623,7 @@
       "alert": {
         "title": "Don't wait until customs to find out it can't be sent!",
         "body": "Many everyday items can be inspected by customs, or need extra paperwork, once they are shipped internationally."
-      },
-      "imageAlt": "Customs check: checklist, magnifying glass and HARUTO parcels, a plane and the Vietnam – Japan map"
+      }
     },
     "groups": {
       "intro": "Groups that are usually checked more closely:",

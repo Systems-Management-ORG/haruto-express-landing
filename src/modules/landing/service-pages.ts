@@ -32,16 +32,14 @@ import type { Visual } from "@/shared/ui/item-visual";
 import type { MarketplaceId } from "./partners";
 import type { ServiceKey } from "./service-copy";
 
-// Presentation of the six service pages: art, icons/images per item id, which sections render
+// Presentation of the six service pages: icons/images per item id, which sections render
 // and which actions the buttons take. The hero has no Zalo button (the floating Zalo button and
 // the closing CTA band carry it). No copy here; that is in the messages (service-copy.ts).
 // A section renders only when both its copy and (where listed) its config exist.
 
-export type Art = { src: string; width: number; height: number; sizes: string; variant?: "route" | "seal" };
 
 export type ServicePageConfig = {
   hero: {
-    art: Art;
     marketplaces?: MarketplaceId[];
     withMore?: boolean;
     chips?: "customsGroups";
@@ -61,7 +59,6 @@ export type ServicePageConfig = {
   cta: { primary: CtaAction; secondary?: CtaAction };
 };
 
-const ART_SIZES = "(max-width: 1023px) 100vw, 50vw";
 const IMG = "/images/haruto";
 const img = (src: string, width: number, height: number): Visual => ({ src: `${IMG}/${src}.webp`, width, height });
 
@@ -78,7 +75,6 @@ const SHIPPING_STEPS: Record<string, Visual> = {
 export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
   shipToJapan: {
     hero: {
-      art: { src: `${IMG}/ship-ve-vn/gui-hang-viet-nam-nhat-ban.webp`, width: 1192, height: 920, sizes: ART_SIZES },
       primary: "pricing",
     },
     features: {
@@ -116,7 +112,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   shipToVietnam: {
     hero: {
-      art: { src: `${IMG}/ship-ve-vn/duong-bay-nhat-viet.webp`, width: 1201, height: 478, sizes: ART_SIZES, variant: "route" },
       marketplaces: ALL_MARKETPLACES,
       withMore: true,
       primary: "pricing",
@@ -147,7 +142,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   concierge: {
     hero: {
-      art: { src: `${IMG}/mua-ho/mua-ho-hang-nhat.webp`, width: 760, height: 1001, sizes: ART_SIZES },
       marketplaces: ALL_MARKETPLACES,
       primary: "contact",
     },
@@ -175,7 +169,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   auction: {
     hero: {
-      art: { src: `${IMG}/dau-gia/dau-gia-hang-nhat-banner.webp`, width: 937, height: 600, sizes: ART_SIZES, variant: "seal" },
       marketplaces: ["yahoo", "rakuten", "mercari"],
       primary: "call",
     },
@@ -211,7 +204,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   business: {
     hero: {
-      art: { src: `${IMG}/ffm/kho-ffm-nhat-ban.webp`, width: 512, height: 552, sizes: ART_SIZES },
       primary: "contact",
     },
     steps: {
@@ -244,7 +236,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   goods: {
     hero: {
-      art: { src: `${IMG}/hang-cam/canh-kiem-tra-hai-quan.webp`, width: 694, height: 466, sizes: ART_SIZES },
       chips: "customsGroups",
       eyebrowFromNav: "pricing",
       primary: "contact",
