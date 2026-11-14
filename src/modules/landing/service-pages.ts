@@ -160,6 +160,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
         ship: { Icon: AirplaneTilt },
       },
     },
+    partners: ["marketplaces"], // every store, as on the home page (the hero shows only four)
     benefits: {
       visuals: {
         card: { Icon: CreditCard },

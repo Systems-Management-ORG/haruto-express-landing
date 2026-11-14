@@ -10,7 +10,7 @@ import { MarketplaceMarquee } from "./marketplace-marquee";
 type Block = "marketplaces" | "carriers";
 
 // Japanese stores (marquee) and/or carriers inside Japan. With both, one H2 over two H3 blocks
-// (carrier names drop to H4); carriers alone take the H2 themselves. `compact` is the slimmer
+// (carrier names drop to H4); either block alone takes the H2 itself. `compact` is the slimmer
 // padding of a logo strip (home page).
 export function PartnersSection({
   show,
@@ -25,6 +25,21 @@ export function PartnersSection({
   const locale = useLocale() as Locale;
   const both = show.includes("marketplaces") && show.includes("carriers");
   const className = [compact ? "py-12 lg:py-16" : "section", bg === "sage" ? "bg-sage" : ""].filter(Boolean).join(" ");
+
+  // Stores alone (the buying-service page): their own H2, and no link to the buying service, since
+  // that is the page the reader is on.
+  if (!both && show.includes("marketplaces")) {
+    return (
+      <section id="partners" className={className}>
+        <div className="wrap">
+          <SectionHead title={t("marketplaces.title")} />
+          <div className="mt-10 lg:mt-12">
+            <MarketplaceMarquee label={t("marketplaces.title")} />
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   if (!both && show.includes("carriers")) {
     return (
