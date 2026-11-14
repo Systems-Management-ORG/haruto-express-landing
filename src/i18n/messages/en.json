@@ -776,7 +776,8 @@
       "rate": {
         "label": "Vietnam → Japan freight"
       }
-    }
+    },
+    "touchpoints": "Services on the route"
   },
   "why": {
     "title": "Why choose HARUTO?",
@@ -805,6 +806,11 @@
       "title": "Buy and bid for you",
       "body": "We buy, bid and ship goods on your behalf from Japan to Vietnam."
     }
+  },
+  "routes": {
+    "vietnam": "Vietnam",
+    "japan": "Japan",
+    "mapLabel": "World map showing the two-way air route between Vietnam and Japan; Vietnam is shown with the Hoang Sa and Truong Sa archipelagos"
   },
   "pricing": {
     "title": "Pricing",

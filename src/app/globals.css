@@ -370,6 +370,89 @@
     line-height: 1.3;
   }
 
+  /* Home banner at full view: the two-way route map (route-map.tsx, with its flights) fills the
+     deep-green banner; the copy sits over it on the left. Phones and portrait screens: the map
+     above the copy. The map is never cropped (meet), so Hoang Sa and Truong Sa stay in view. */
+  .hero-full {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(60rem 36rem at 70% 45%, rgb(63 116 81 / 0.35), transparent 70%),
+      var(--color-deep);
+    color: var(--color-ivory);
+  }
+
+  .hero-full__map {
+    height: clamp(18rem, 70vw, 30rem);
+    padding: 1rem 0.5rem 0;
+  }
+
+  .hero-full__content {
+    position: relative;
+    padding-block: 0.5rem 3rem;
+  }
+
+  .hero-full__text {
+    max-width: 40rem;
+  }
+
+  .hero-full__chip {
+    display: inline-flex;
+    min-height: 2.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgb(250 248 234 / 0.2);
+    border-radius: 999px;
+    padding: 0.375rem 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition:
+      border-color 160ms var(--ease-ui),
+      background-color 160ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-full__chip:hover {
+      border-color: var(--color-gold);
+      background-color: rgb(250 248 234 / 0.08);
+    }
+  }
+
+  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
+    .hero-full {
+      display: flex;
+      min-height: clamp(38rem, calc(100svh - 4.5rem), 52rem);
+      align-items: center;
+    }
+
+    .hero-full__map {
+      position: absolute;
+      inset: 0 0 0 42%;
+      height: auto;
+      padding: 1.5rem 2rem 1.5rem 0;
+    }
+
+    /* The deep green deepens under the copy so it reads over the map's western edge. */
+    .hero-full::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, var(--color-deep) 0%, rgb(23 60 34 / 0.85) 36%, rgb(23 60 34 / 0) 54%);
+      pointer-events: none;
+    }
+
+    .hero-full__content {
+      z-index: 2;
+      width: 100%;
+      padding-block: 3.5rem;
+    }
+
+    .hero-full__text {
+      max-width: min(42vw, 38rem);
+    }
+  }
+
   /*
     Plane towing the brand banner, under the hero. Tablets: the strip is just as tall as the art at
     the screen's width (the art is width-bound there). Large landscape screens: a fixed band.
@@ -452,6 +535,70 @@
       border-color: #fff;
       background-color: rgb(255 255 255 / 0.12);
     }
+  }
+
+  .route-map__svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .route-map__label {
+    fill: #fff;
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: 20px;
+    paint-order: stroke;
+    stroke: rgb(15 44 25 / 0.85);
+    stroke-width: 2.4px;
+  }
+
+  @media (min-width: 48rem) {
+    .route-map__label {
+      font-size: 15px;
+    }
+  }
+
+  /*
+    Self-running flight animation on the route map (no scroll trigger, no JS): a plane travels each
+    arc on a loop, with pulsing pings at the two cities. Driven by CSS so it
+    animates on its own and can be switched off for reduced motion.
+  */
+  .route-plane {
+    offset-rotate: auto;
+    animation: route-fly 6s linear infinite;
+  }
+
+  /* The flight paths themselves are set inline in route-map.tsx, next to the map's coordinates. */
+  .route-plane--in {
+    animation-delay: 3s;
+  }
+
+  @keyframes route-fly {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+  }
+
+  .route-ping {
+    r: 18px;
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    animation: route-ping 3s ease-out infinite;
+  }
+
+  .route-ping--delay {
+    animation-delay: 1.5s;
+  }
+
+  @keyframes route-ping {
+    0% { transform: scale(0.28); opacity: 0.65; }
+    70%, 100% { transform: scale(1); opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .route-ping { animation: none; opacity: 0; }
+    .route-plane { animation: none; offset-distance: 52%; }
   }
 
   /* The not-found page sits under the transparent header, like the banner. */
@@ -792,23 +939,6 @@
 
     .page-hero__text {
       max-width: min(44vw, 40rem);
-    }
-  }
-
-  /* Home banner (`--full`): the design system's page hero as drawn, the picture across the whole
-     banner on landscape desktops (the home pictures are 3360px wide), the copy over the ivory
-     fade on the left. */
-  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
-    .page-hero--full .page-hero__stage {
-      min-height: clamp(36rem, 76svh, 48rem);
-    }
-
-    .page-hero--full .page-hero__media {
-      width: 100%;
-    }
-
-    .page-hero--full .page-hero__media::after {
-      background: linear-gradient(90deg, rgb(250 248 234 / 1) 0%, rgb(250 248 234 / 0.85) 40%, rgb(250 248 234 / 0) 68%);
     }
   }
 
