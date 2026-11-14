@@ -694,6 +694,42 @@
     text-align: center;
   }
 
+  /* Large screens: a staggered bento of the four service cards (wide, narrow / narrow, wide). The
+     photo fills each card and the text panel floats over its lower part. */
+  @media (min-width: 64rem) {
+    .service-bento {
+      grid-auto-rows: 24rem;
+    }
+
+    .service-bento > li:nth-child(4n + 1),
+    .service-bento > li:nth-child(4n + 4) {
+      grid-column: span 2;
+    }
+
+    .service-bento .service-card {
+      position: relative;
+    }
+
+    .service-bento .service-card__media {
+      position: absolute;
+      inset: 0;
+      aspect-ratio: auto;
+    }
+
+    .service-bento .service-card__panel {
+      position: absolute;
+      inset: auto 1rem 1rem;
+      margin: 0;
+      text-align: left;
+    }
+
+    .service-bento > li:nth-child(4n + 1) .service-card__panel,
+    .service-bento > li:nth-child(4n + 4) .service-card__panel {
+      right: auto;
+      max-width: 30rem;
+    }
+  }
+
   /* Solid brand tiles for the accepted-goods categories. */
   .goods-tile {
     display: flex;

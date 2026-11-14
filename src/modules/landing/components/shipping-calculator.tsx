@@ -83,7 +83,7 @@ export function ShippingCalculator() {
   const result = kg ? quote(route, route === "vnJp" ? goods : "clean", kg, size) : null;
 
   return (
-    <div className="mt-10 grid rounded-(--radius-card) border border-line bg-white gap-8 p-6 sm:p-8 lg:mt-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
+    <div id="calculator" className="grid gap-6 rounded-(--radius-card) border border-line bg-white p-6 sm:p-8">
       <form className="grid content-start gap-5" onSubmit={(event) => event.preventDefault()} aria-labelledby={`${id}-title`}>
         <div className="flex items-center gap-3">
           <span className="icon-chip" aria-hidden>
