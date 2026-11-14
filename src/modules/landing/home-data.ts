@@ -11,12 +11,13 @@ import type { PageKey } from "@/shared/seo/pages";
 // Route pages that carry a title + intro in the messages (home has neither).
 export type ContentPage = Exclude<PageKey, "home">;
 
-// Image service cards. Text: `pages.<page>.title` + `pages.<page>.intro`.
+// Image service cards. Text: `pages.<page>.title` + `pages.<page>.intro`. On large screens the
+// first and last cards are the wide ones of the bento, so they carry the two wide route photos.
 export const SERVICE_CARDS: { page: ContentPage; image: string }[] = [
   { page: "shipToJapan", image: "/images/haruto/hero/may-bay-tuyen-viet-nam-nhat-ban.webp" },
-  { page: "shipToVietnam", image: "/images/haruto/hero/thung-hang-va-hang-nhat-nui-phu-si.webp" },
   { page: "concierge", image: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp" },
   { page: "business", image: "/images/haruto/kho/kho-haruto-kien-hang-tren-pallet.jpg" },
+  { page: "shipToVietnam", image: "/images/haruto/hero/thung-hang-va-hang-nhat-nui-phu-si.webp" },
 ];
 
 // The service flow, one lane per direction (lane = the route key of `pricing.teaser`). Step text:
