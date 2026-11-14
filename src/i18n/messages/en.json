@@ -163,6 +163,41 @@
       "title": "Guides and policies",
       "intro": "Worth reading before you ship: weight calculation, compensation, the Japan warehouse address and the goods list.",
       "more": "Read more"
+    },
+    "flow": {
+      "label": "How it works, both ways",
+      "steps": {
+        "buy": "We buy or bid on Japanese stores for you",
+        "warehouse": "Our Japan warehouse receives and consolidates",
+        "flyToVn": "Air freight to Vietnam",
+        "receive": "Receive your goods in Vietnam",
+        "dropoff": "Drop off at our Vietnam warehouse",
+        "pack": "Free consolidation and packing",
+        "flyToJp": "Air freight to Japan",
+        "deliver": "Delivered to your address in Japan"
+      }
+    },
+    "audience": {
+      "title": "A service for every need",
+      "intro": "Pick the service that fits what you need to do.",
+      "items": {
+        "personal": {
+          "title": "Send gifts to family in Japan",
+          "body": "Send everyday items and gifts from Vietnam to Japan; rates include tax and delivery within Japan."
+        },
+        "shoppers": {
+          "title": "Buy from Japan for yourself",
+          "body": "We buy or bid on Japanese stores for you and ship to Vietnam, no international card needed."
+        },
+        "sellers": {
+          "title": "Source Japanese goods to resell",
+          "body": "Send orders from several shops to our Japan warehouse and fly them to Vietnam together."
+        },
+        "business": {
+          "title": "Businesses selling in Japan",
+          "body": "Storage, packing and order delivery in Japan with our fulfillment service."
+        }
+      }
     }
   },
   "fulfillment": {
@@ -1013,7 +1048,34 @@
       }
     },
     "scrollLabel": "Surcharge table, scrolls horizontally",
-    "bestRate": "Best rate"
+    "bestRate": "Best rate",
+    "calculator": {
+      "title": "Quick freight estimate",
+      "intro": "Enter the parcel weight to see an estimate from the current rate table.",
+      "routeLegend": "Direction",
+      "goodsLegend": "Goods type",
+      "weight": "Weight (kg)",
+      "dimsLegend": "Parcel size (cm), optional",
+      "length": "Length",
+      "width": "Width",
+      "height": "Height",
+      "dimsHint": "Bulky parcels (length + width + height over 140 cm, or over 30 kg) are charged on the greater of the actual weight and the volumetric weight (L × W × H ÷ 6,000).",
+      "resultTitle": "Estimated freight",
+      "empty": "Enter a weight to see the estimate.",
+      "billable": "Chargeable weight",
+      "volumetric": "volumetric weight",
+      "rate": "Rate",
+      "parcelFee": "Per-parcel surcharge",
+      "total": "Estimated total",
+      "negotiated": "Over 500 kg: rate negotiated.",
+      "unpublished": "Mixed goods over 30 kg have no published rate.",
+      "quoteCta": "Get a quote",
+      "note": "This is an estimate for reference; VAT and category surcharges are not included.",
+      "rulesLink": "How weight is calculated",
+      "perKg": "{price} VND/kg",
+      "vnd": "{price} VND",
+      "kg": "{kg} kg"
+    }
   },
   "policy": {
     "title": "Policy & services",

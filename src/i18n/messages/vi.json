@@ -163,6 +163,41 @@
       "title": "Hướng dẫn và chính sách",
       "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
       "more": "Đọc chi tiết"
+    },
+    "flow": {
+      "label": "Quy trình hai chiều",
+      "steps": {
+        "buy": "Mua hộ, đấu giá hộ trên sàn Nhật",
+        "warehouse": "Kho Nhật nhận và gom hàng",
+        "flyToVn": "Bay về Việt Nam",
+        "receive": "Nhận hàng tại Việt Nam",
+        "dropoff": "Gửi hàng tại kho Việt Nam",
+        "pack": "Gom đơn, đóng hàng miễn phí",
+        "flyToJp": "Bay sang Nhật Bản",
+        "deliver": "Giao tận địa chỉ tại Nhật"
+      }
+    },
+    "audience": {
+      "title": "Giải pháp cho từng nhu cầu gửi hàng",
+      "intro": "Chọn dịch vụ theo việc bạn cần làm.",
+      "items": {
+        "personal": {
+          "title": "Gửi quà cho người thân ở Nhật",
+          "body": "Gửi đồ dùng, quà tặng từ Việt Nam sang Nhật; giá đã gồm thuế và ship nội địa Nhật."
+        },
+        "shoppers": {
+          "title": "Mua hàng Nhật về dùng",
+          "body": "Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam, không cần thẻ quốc tế."
+        },
+        "sellers": {
+          "title": "Nhập hàng Nhật để kinh doanh",
+          "body": "Gửi hàng từ nhiều shop về kho Nhật để gom chung một chuyến bay về Việt Nam."
+        },
+        "business": {
+          "title": "Doanh nghiệp bán hàng tại Nhật",
+          "body": "Lưu kho, đóng gói và giao đơn tại Nhật với dịch vụ fulfillment."
+        }
+      }
     }
   },
   "fulfillment": {
@@ -1013,7 +1048,34 @@
       }
     },
     "scrollLabel": "Bảng phụ thu, có thể cuộn ngang",
-    "bestRate": "Giá tốt nhất"
+    "bestRate": "Giá tốt nhất",
+    "calculator": {
+      "title": "Tính cước nhanh",
+      "intro": "Nhập khối lượng kiện hàng để xem cước ước tính theo bảng giá hiện hành.",
+      "routeLegend": "Chiều vận chuyển",
+      "goodsLegend": "Loại hàng",
+      "weight": "Khối lượng (kg)",
+      "dimsLegend": "Kích thước kiện (cm), không bắt buộc",
+      "length": "Dài",
+      "width": "Rộng",
+      "height": "Cao",
+      "dimsHint": "Hàng cồng kềnh (tổng ba chiều trên 140 cm hoặc nặng trên 30 kg) tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000).",
+      "resultTitle": "Cước ước tính",
+      "empty": "Nhập khối lượng để xem cước ước tính.",
+      "billable": "Khối lượng tính cước",
+      "volumetric": "theo cân thể tích",
+      "rate": "Đơn giá",
+      "parcelFee": "Phụ thu kiện",
+      "total": "Tổng ước tính",
+      "negotiated": "Trên 500 kg: giá thương lượng.",
+      "unpublished": "Hàng hỗn hợp trên 30 kg chưa có giá niêm yết.",
+      "quoteCta": "Nhận báo giá",
+      "note": "Kết quả là ước tính để tham khảo, chưa gồm VAT và phụ thu theo danh mục hàng.",
+      "rulesLink": "Cách tính cân",
+      "perKg": "{price} VNĐ/kg",
+      "vnd": "{price} VNĐ",
+      "kg": "{kg} kg"
+    }
   },
   "policy": {
     "title": "Chính sách & dịch vụ",
