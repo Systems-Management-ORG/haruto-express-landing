@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -68,7 +67,6 @@ export function Routes() {
                     className="flex min-h-14 items-center justify-between gap-4 border-t border-white/20 text-lg font-medium transition-colors last:border-b hover:text-gold"
                   >
                     {label}
-                    <ArrowRight size={20} aria-hidden className="m-arrow shrink-0" />
                   </Link>
                 </li>
               ))}

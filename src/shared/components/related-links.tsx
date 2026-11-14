@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { PAGES, type PageKey, pagePath } from "@/shared/seo/pages";
@@ -24,7 +23,6 @@ export function RelatedLinks({ page }: { page: PageKey }) {
                 className="card group flex items-center justify-between gap-4"
               >
                 <span className="font-medium text-forest">{t(`${key}.breadcrumb`)}</span>
-                <ArrowRight size={18} aria-hidden className="m-arrow shrink-0 text-forest" />
               </Link>
             </li>
           ))}

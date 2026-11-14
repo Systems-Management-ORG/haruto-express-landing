@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -40,7 +39,6 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
                 <p className="mt-3 text-muted">{t(`${key}.caption`)}</p>
                 <span className="link-arrow mt-auto pt-4 text-forest">
                   {t("cardCta")}
-                  <ArrowRight size={18} aria-hidden className="m-arrow" />
                 </span>
               </div>
             </Link>

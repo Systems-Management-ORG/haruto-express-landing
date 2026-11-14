@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { CHAT_CHANNELS, ChannelIcon, PhoneIcon, primaryHotline } from "@/shared/components/contact-links";
@@ -57,7 +56,6 @@ export function ContactCta({ action, label, variant = "primary" }: { action: Cta
     >
       {/* A page's own label is written for its Zalo button; the contact fallback keeps the form label. */}
       {(action === "contact" && label) || t(toPricing ? "pricing" : "contact")}
-      <ArrowRight size={18} weight="bold" aria-hidden className="m-arrow" />
     </Link>
   );
 }

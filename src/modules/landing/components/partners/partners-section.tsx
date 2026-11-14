@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -69,7 +68,6 @@ export function PartnersSection({
                 </h3>
                 <Link href={pagePath(locale, "concierge")} className="link-arrow text-forest">
                   {t("marketplaces.cta")}
-                  <ArrowRight size={18} aria-hidden className="m-arrow" />
                 </Link>
               </div>
               <div className="mt-4">

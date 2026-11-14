@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -26,7 +25,6 @@ export function GuideGrid() {
           <p className="mt-2 line-clamp-3">{tPages(`${feature.page}.intro`)}</p>
           <span className="link-arrow mt-1 text-forest">
             {t("more")}
-            <ArrowRight size={18} aria-hidden className="m-arrow" />
           </span>
         </div>
       </Link>

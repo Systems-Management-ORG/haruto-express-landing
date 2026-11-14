@@ -1,4 +1,4 @@
-import { ArrowRight, Buildings, Gift, ShoppingBag, Storefront } from "@phosphor-icons/react/dist/ssr";
+import { Buildings, Gift, ShoppingBag, Storefront } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -34,7 +34,6 @@ export function AudienceCards() {
                     <li key={page}>
                       <Link href={pagePath(locale, page)} className="link-arrow min-h-10 text-forest">
                         {tPages(`${page}.nav`)}
-                        <ArrowRight size={18} aria-hidden className="m-arrow" />
                       </Link>
                     </li>
                   ))}

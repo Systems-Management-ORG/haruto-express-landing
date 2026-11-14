@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
@@ -63,7 +62,6 @@ export function FeatureGrid({ copy, config }: { copy: Features; config: Config }
             {page && (
               <span className="svc-feature__more">
                 {copy.more ?? t("more")}
-                <ArrowRight size={14} aria-hidden className="m-arrow" />
               </span>
             )}
           </>

@@ -1,4 +1,4 @@
-import { ArrowUpRight, CheckCircle, ClipboardText, MapPin } from "@phosphor-icons/react/dist/ssr";
+import { CheckCircle, ClipboardText, MapPin } from "@phosphor-icons/react/dist/ssr";
 import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { CHAT_CHANNELS, ChannelIcon, PhoneIcon } from "@/shared/components/contact-links";
@@ -76,7 +76,6 @@ export function ContactGuide() {
                       className="mt-1 inline-flex items-center gap-1 text-sm underline underline-offset-4"
                     >
                       {location.address}
-                      <ArrowUpRight size={14} aria-hidden />
                     </a>
                   </span>
                 </li>
@@ -121,7 +120,6 @@ export function Contact({ withMap = false }: { withMap?: boolean }) {
                           <span className="block font-medium text-ink">{t(`channels.${id}`)}</span>
                           <span className="block text-sm text-muted">{t(`channelHints.${id}`)}</span>
                         </span>
-                        <ArrowUpRight size={20} aria-hidden className="m-arrow shrink-0 text-forest" />
                       </a>
                     </li>
                   ))}

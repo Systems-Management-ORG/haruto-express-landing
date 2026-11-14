@@ -231,11 +231,7 @@
     color: var(--color-muted);
   }
 
-  .m-arrow {
-    transition: transform 140ms var(--ease-ui);
-  }
-
-  /* The one text link style: an underlined action with an arrow. */
+  /* The one text link style: an underlined action. */
   .link-arrow {
     display: inline-flex;
     min-height: 2.75rem;
@@ -252,10 +248,6 @@
       transform: translateY(-1px);
     }
 
-    .btn:hover .m-arrow,
-    .link-arrow:hover .m-arrow {
-      transform: translateX(3px);
-    }
 
     .btn-primary:hover:not(:disabled) {
       background-color: var(--color-deep);
@@ -978,23 +970,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* Button-in-button: the trailing arrow sits in its own chip and drifts on hover. */
-  .btn-chip {
-    display: inline-flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    align-items: center;
-    justify-content: center;
-    border-radius: 9999px;
-    background-color: rgb(23 60 34 / 0.12);
-    transition: transform 160ms var(--ease-ui);
-  }
-
   @media (hover: hover) and (pointer: fine) {
-    .btn:hover .btn-chip {
-      transform: translate(2px, -1px);
-    }
-
     .card {
       transition:
         box-shadow 220ms var(--ease-ui),
@@ -1923,9 +1899,6 @@
       border-color: var(--color-forest);
     }
 
-    .svc-feature--link:hover .m-arrow {
-      transform: translateX(3px);
-    }
 
     .svc-product:hover .svc-product__media img {
       transform: scale(1.08);
@@ -2259,9 +2232,6 @@
       box-shadow: 0 8px 20px rgb(16 44 33 / 0.08);
     }
 
-    .channel-link:hover .m-arrow {
-      transform: translate(2px, -2px);
-    }
   }
 
   .footer-heading {
@@ -2608,9 +2578,6 @@
       transform: scale(1.05);
     }
 
-    .teaser-card:hover .m-arrow {
-      transform: translateX(3px);
-    }
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -2624,10 +2591,6 @@
       box-shadow: 0 10px 28px rgb(16 44 33 / 0.1);
     }
 
-    .service-card:hover .m-arrow,
-    .guide-card:hover .m-arrow {
-      transform: translateX(3px);
-    }
   }
 }
 
@@ -2641,8 +2604,7 @@
   }
 
   .btn:hover,
-  .btn:active,
-  .m-arrow {
+  .btn:active {
     transform: none !important;
   }
 }

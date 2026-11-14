@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Calculator } from "@phosphor-icons/react/dist/ssr";
+import { Calculator } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
@@ -188,7 +188,6 @@ export function ShippingCalculator() {
           </a>
           <Link href={pagePath(locale, "policy")} className="link-arrow text-forest">
             {t("rulesLink")}
-            <ArrowRight size={18} aria-hidden className="m-arrow" />
           </Link>
         </div>
         <p className="mt-4 text-sm text-muted">{t("note")}</p>

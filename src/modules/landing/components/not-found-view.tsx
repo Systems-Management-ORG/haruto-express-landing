@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useTranslations } from "next-intl";
@@ -61,7 +60,6 @@ export function NotFoundView({ homeHref }: { homeHref: string }) {
         <div data-line className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href={homeHref} className="btn btn-gold">
             {t("home")}
-            <ArrowRight size={18} aria-hidden className="m-arrow" />
           </Link>
           <Link href={`${homeHref}#contact`} className="btn btn-outline-light">
             {t("contact")}

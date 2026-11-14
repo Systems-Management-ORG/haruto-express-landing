@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
@@ -137,9 +137,6 @@ export function Hero() {
                     className="btn btn-gold"
                   >
                     {slide.cta}
-                    <span className="btn-chip" aria-hidden>
-                      <ArrowRight size={14} weight="bold" />
-                    </span>
                   </Link>
                   <a href="#contact" data-track="cta_contact" className="btn btn-outline">
                     {t("secondary")}
