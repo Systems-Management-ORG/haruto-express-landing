@@ -5,9 +5,10 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
 import { SERVICE_CARDS } from "../home-data";
+import { ServiceFlow } from "./service-flow";
 
-// Three image cards (one per service route) with the text panel over the lower part of the
-// photo, followed by the two primary actions.
+// The service flow (both directions), then one image card per service with the text panel over
+// the lower part of the photo, then the two primary actions.
 export function ServiceCards() {
   const t = useTranslations("home.services");
   const tPages = useTranslations("pages");
@@ -21,7 +22,9 @@ export function ServiceCards() {
           <p data-reveal className="mx-auto mt-4 max-w-[44rem] sm:text-lg">{t("intro")}</p>
         </div>
 
-        <ul data-reveal-group className="mt-10 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <ServiceFlow />
+
+        <ul data-reveal-group className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {SERVICE_CARDS.map(({ page, image }) => (
             <li key={page}>
               <Link href={pagePath(locale, page)} className="service-card group">
