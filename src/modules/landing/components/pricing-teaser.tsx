@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { PRICING_IMAGES } from "@/shared/seo/page-media";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
+import { ShippingCalculator } from "./shipping-calculator";
 
 // Each direction links to its own route page, which carries the full pricing + policy.
 const CARDS: { key: "vnJp" | "jpVn"; page: PageKey }[] = [
@@ -47,6 +48,8 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
         </div>
 
         <p data-reveal className="mt-6 text-sm text-muted">{t("note")}</p>
+
+        <ShippingCalculator />
       </div>
     </section>
   );
