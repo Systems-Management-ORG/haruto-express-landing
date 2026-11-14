@@ -17,7 +17,7 @@ const STATS = ["twoWay", "warehouses", "rate"] as const;
 
 // Home banner at full view: the two-way air route over East Asia (with its flights) fills the
 // deep-green banner, the H1, two actions, three facts and the services along the route over it
-// on the left (on phones the map sits above them). Every fact is from the site's own data: the
+// on the left (on phones over the map, as a layer above it). Every fact is from the site's own data: the
 // warehouses (business.ts) and the lowest VN → JP rate (pricing copy).
 export function Hero() {
   const t = useTranslations("hero");

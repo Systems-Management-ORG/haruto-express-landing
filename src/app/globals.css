@@ -371,8 +371,8 @@
   }
 
   /* Home banner at full view: the two-way route map (route-map.tsx, with its flights) fills the
-     deep-green banner; the copy sits over it on the left. Phones and portrait screens: the map
-     above the copy. The map is never cropped (meet), so Hoang Sa and Truong Sa stay in view. */
+     deep-green banner; the copy sits over it on the left. Phones and portrait screens: the copy
+     over the map. The map is never cropped (meet), so Hoang Sa and Truong Sa stay in view. */
   .hero-full {
     position: relative;
     overflow: hidden;
@@ -382,14 +382,28 @@
     color: var(--color-ivory);
   }
 
+  /* Phones and portrait screens: two layers, the map behind and the copy over it. A scrim dims
+     the map and a mask fades its lower edge into the banner so the ivory copy keeps its contrast. */
   .hero-full__map {
-    height: clamp(18rem, 70vw, 30rem);
+    position: absolute;
+    inset: 0 0 auto;
+    height: clamp(22rem, 110vw, 36rem);
     padding: 1rem 0.5rem 0;
+    mask-image: linear-gradient(180deg, #000 55%, transparent);
+  }
+
+  .hero-full__map::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgb(23 60 34 / 0.45);
+    pointer-events: none;
   }
 
   .hero-full__content {
     position: relative;
-    padding-block: 0.5rem 3rem;
+    z-index: 1;
+    padding-block: clamp(6rem, 30vw, 10rem) 3rem;
   }
 
   .hero-full__text {
@@ -433,6 +447,14 @@
       padding: 1.5rem 2rem 1.5rem 0;
     }
 
+    .hero-full__map {
+      mask-image: none;
+    }
+
+    .hero-full__map::after {
+      content: none;
+    }
+
     /* The deep green deepens under the copy so it reads over the map's western edge. */
     .hero-full::before {
       content: "";
@@ -468,7 +490,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: var(--color-ivory);
+    background-color: var(--color-sage); /* one band with the partners section below */
   }
 
   @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
