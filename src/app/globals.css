@@ -1134,21 +1134,6 @@
       linear-gradient(180deg, #fdfaf3, #f8f3e7);
   }
 
-  /* Corner sweep echoing the green/orange curves of the poster artwork. */
-  .svc-hero::before {
-    content: "";
-    position: absolute;
-    top: -13rem;
-    left: -13rem;
-    width: 22rem;
-    height: 16rem;
-    border-radius: 50%;
-    border-right: 14px solid var(--color-forest);
-    border-bottom: 8px solid var(--color-orange);
-    transform: rotate(-12deg);
-    pointer-events: none;
-  }
-
   .svc-hero__grid {
     position: relative;
     display: grid;
