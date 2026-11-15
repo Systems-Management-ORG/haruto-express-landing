@@ -72,7 +72,6 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
   priceVnJp: {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
-    toc: ["ratesVnJp", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
     sections: ["ratesVnJp", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
@@ -80,7 +79,6 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
   priceJpVn: {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
-    toc: ["buyRate", "freightJpVn", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse"],
     sections: ["buyRate", "freightJpVn", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
