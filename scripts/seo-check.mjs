@@ -18,7 +18,9 @@ const TITLE_MAX = 60;
 const TITLE_MIN = 10;
 const DESC_MAX = 160;
 const DESC_MIN = 50;
-const DESC_IDEAL_MIN = 140;
+// Japanese is full-width: ~50–120 characters fill a search snippet; Latin scripts need ~140–160.
+const DESC_IDEAL_MIN = { ja: 50, default: 140 };
+const idealMin = (pathname) => DESC_IDEAL_MIN[pathname.split("/")[1]] ?? DESC_IDEAL_MIN.default;
 
 const errors = [];
 const warnings = [];
@@ -137,8 +139,8 @@ async function crawl() {
     if (!desc) fail(pathname, "missing meta description");
     else if (desc.length > DESC_MAX || desc.length < DESC_MIN)
       fail(pathname, `description length ${desc.length} (want ${DESC_MIN}-${DESC_MAX})`);
-    else if (desc.length < DESC_IDEAL_MIN)
-      warn(pathname, `description length ${desc.length} (ideal ${DESC_IDEAL_MIN}-${DESC_MAX})`);
+    else if (desc.length < idealMin(pathname))
+      warn(pathname, `description length ${desc.length} (ideal ${idealMin(pathname)}-${DESC_MAX})`);
 
     // Canonical self-reference.
     const links = extractAll(/<link[^>]+>/gi, html).map((m) => m[0]);
