@@ -18,14 +18,15 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { CSSProperties } from "react";
 import type { Locale } from "@/shared/constants/locales";
-import { formatVnd } from "@/shared/lib/format";
+import { formatNumber, formatVnd } from "@/shared/lib/format";
 import { rawRecord } from "@/shared/lib/raw-messages";
 import { POLICY_FIGURES, PRICING_IMAGES } from "@/shared/seo/page-media";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
-import { anchorOf, type Tone, VN_JP_BULKY_CASES } from "../../info-pages";
+import { anchorOf, JP_VN_BULKY_EXAMPLE_ICONS, type Tone, VN_JP_BULKY_CASES } from "../../info-pages";
 import {
   COMPENSATION,
   JP_VN,
+  JP_VN_BULKY,
   priceRange,
   VN_JP_BULKY,
   VN_JP_CLEAN,
@@ -148,15 +149,31 @@ export function WeightVnJp() {
   );
 }
 
-// Japan → Vietnam: actual vs. volumetric weight, the rounding rule, bulky goods with the diagram
-// (`policy.weight`), the PDF's note on why, then its infographic (vi only).
+// Japan → Vietnam: the three bulky thresholds (JP_VN_BULKY), actual vs. volumetric weight, the
+// rounding rule, bulky goods with the diagram (`policy.weight`), the PDF's five bulky examples, the
+// PDF's note on why, then its infographic (vi only).
 export function WeightJpVn() {
   const t = useTranslations("policy.weight");
   const tNote = useTranslations("pricePolicy.jpVnWeight");
+  const locale = useLocale() as Locale;
+  const thresholds = [
+    { id: "sum", value: `> ${JP_VN_BULKY.sumCm} cm` },
+    { id: "weight", value: `> ${JP_VN_BULKY.weightKg} kg` },
+    { id: "divisor", value: `÷ ${formatNumber(JP_VN_BULKY.volumetricDivisor, locale)}` },
+  ] as const;
 
   return (
     <div>
-      <div data-reveal-group className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
+      <ul data-reveal-group className="grid gap-4 sm:grid-cols-3">
+        {thresholds.map(({ id, value }) => (
+          <li key={id} className="stat-card">
+            <p className="stat-card__value text-4xl whitespace-nowrap tabular-nums sm:text-3xl lg:text-5xl">{value}</p>
+            <p className="stat-card__label">{tNote(`thresholds.${id}`)}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div data-reveal-group className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
         <div className="grid gap-5">
           {([
             ["standard", Scales],
@@ -182,6 +199,22 @@ export function WeightJpVn() {
           <VolumetricDiagram />
         </article>
       </div>
+
+      <h3 className="mt-10 text-lg font-medium text-forest">{tNote("examples.title")}</h3>
+      <ul data-reveal-group className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        {(Object.keys(JP_VN_BULKY_EXAMPLE_ICONS) as (keyof typeof JP_VN_BULKY_EXAMPLE_ICONS)[]).map((id) => {
+          const Icon = JP_VN_BULKY_EXAMPLE_ICONS[id];
+          return (
+            <li key={id} className="info-card flex flex-col items-center text-center">
+              <span className="icon-chip icon-chip--lg" aria-hidden>
+                <Icon size={28} weight="duotone" />
+              </span>
+              <span className="mt-3 font-medium text-forest">{tNote(`examples.items.${id}`)}</span>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-3 text-sm text-muted">{tNote("examples.note")}</p>
 
       <p data-reveal className="callout mt-6 bg-white">
         <Lightbulb size={22} weight="fill" aria-hidden className="shrink-0 text-gold-deep" />

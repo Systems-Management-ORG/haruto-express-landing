@@ -2,11 +2,14 @@ import {
   AddressBook,
   ArrowsOutLineHorizontal,
   BatteryCharging,
+  Bicycle,
   CalendarCheck,
   Camera,
   ChatCircleDots,
   ClipboardText,
   Clock,
+  CoatHanger,
+  Dress,
   Drop,
   Package,
   Phone,
@@ -14,7 +17,9 @@ import {
   Ruler,
   ShieldWarning,
   Snowflake,
+  SpeakerHifi,
   Star,
+  Suitcase,
   Tree,
   VideoCamera,
 } from "@phosphor-icons/react/dist/ssr";
@@ -161,6 +166,16 @@ export const TIPS: Record<"vnJp" | "jpVn" | "warehouse", string[]> = {
   vnJp: ["photo", "declare", "receipt", "recipient", "customsRisk", "shelfLife", "video", "redelivery"],
   jpVn: ["photo", "declare", "receipt"],
   warehouse: ["photo", "declare", "receipt", "recipient", "video", "shelfLife", "redelivery"],
+};
+
+// The PDF's examples of goods charged as bulky from Japan to Vietnam
+// (`pricePolicy.jpVnWeight.examples.items.<id>`): exactly these five.
+export const JP_VN_BULKY_EXAMPLE_ICONS: Record<"bicycle" | "suitcase" | "speaker" | "weddingDress" | "suit", typeof Package> = {
+  bicycle: Bicycle,
+  suitcase: Suitcase,
+  speaker: SpeakerHifi,
+  weddingDress: Dress,
+  suit: CoatHanger,
 };
 
 // The cases in which a VN→JP parcel is charged as bulky (`pricePolicy.vnJpWeight.cases.<id>`).

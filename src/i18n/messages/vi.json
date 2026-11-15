@@ -1107,7 +1107,23 @@
       "warning": "Hàng vượt {cm} cm hoặc trên {kg} kg cần liên hệ để kiểm tra trước khi gửi."
     },
     "jpVnWeight": {
-      "note": "Quy ước này giúp tính cước công bằng và thống nhất, nhất là với các mặt hàng có kích thước lớn nhưng trọng lượng nhẹ."
+      "note": "Quy ước này giúp tính cước công bằng và thống nhất, nhất là với các mặt hàng có kích thước lớn nhưng trọng lượng nhẹ.",
+      "thresholds": {
+        "sum": "Tổng 3 cạnh (ví dụ 60 + 40 + 40 cm)",
+        "weight": "Trọng lượng kiện",
+        "divisor": "Trọng lượng thể tích = D × R × C (cm)"
+      },
+      "examples": {
+        "title": "Ví dụ hàng thường bị tính cồng kềnh",
+        "items": {
+          "bicycle": "Xe đạp",
+          "suitcase": "Vali",
+          "speaker": "Loa",
+          "weddingDress": "Thùng áo cưới",
+          "suit": "Thùng áo vest"
+        },
+        "note": "Các ví dụ nêu trong chính sách giá tuyến Nhật – Việt."
+      }
     },
     "buyRate": {
       "formula": "Giá mua hộ = Giá trị đơn hàng × Tỷ giá quy đổi",

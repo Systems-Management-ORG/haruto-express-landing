@@ -1107,7 +1107,23 @@
       "warning": "Parcels over {cm} cm or over {kg} kg must be checked with us before sending."
     },
     "jpVnWeight": {
-      "note": "These rules keep charging fair and consistent, especially for large but light items."
+      "note": "These rules keep charging fair and consistent, especially for large but light items.",
+      "thresholds": {
+        "sum": "Length + width + height (e.g. 60 + 40 + 40 cm)",
+        "weight": "Parcel weight",
+        "divisor": "Volumetric weight = L × W × H (cm)"
+      },
+      "examples": {
+        "title": "Items often charged as bulky",
+        "items": {
+          "bicycle": "Bicycle",
+          "suitcase": "Suitcase",
+          "speaker": "Speaker",
+          "weddingDress": "Wedding-dress box",
+          "suit": "Suit box"
+        },
+        "note": "Examples given in the Japan → Vietnam rate policy."
+      }
     },
     "buyRate": {
       "formula": "Purchase price = Order value × Exchange rate",
