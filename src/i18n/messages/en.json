@@ -984,28 +984,22 @@
       },
       "items": {
         "electronics": {
-          "item": "Electronics and items with batteries (Starlink, used laptops, used phones, cameras…)",
-          "fee": "150,000 VND/item"
+          "item": "Electronics and items with batteries (Starlink, used laptops, used phones, cameras…)"
         },
         "perfume": {
-          "item": "Perfume, items containing alcohol…",
-          "fee": "350,000 VND/item"
+          "item": "Perfume, items containing alcohol…"
         },
         "carton": {
-          "item": "Carton repackaging",
-          "fee": "25,000 VND/kg"
+          "item": "Carton repackaging"
         },
         "wooden": {
-          "item": "Wooden crating",
-          "fee": "34,000 VND/kg"
+          "item": "Wooden crating"
         },
         "foam": {
-          "item": "Foam box repackaging (74×46×39cm: ¥3,563/box; 46×33×34cm: ¥2,187/box)",
-          "fee": "50,000 VND/box (domestic delivery)"
+          "item": "Foam box repackaging (74×46×39cm: ¥3,563/box; 46×33×34cm: ¥2,187/box)"
         },
         "special": {
-          "item": "Special-handling packing",
-          "fee": "85,000 VND/kg"
+          "item": "Special-handling packing"
         },
         "other": {
           "item": "Other",

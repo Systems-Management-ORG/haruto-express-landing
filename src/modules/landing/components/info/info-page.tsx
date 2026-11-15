@@ -6,30 +6,41 @@ import { ContactCta } from "@/shared/ui/contact-cta";
 import { CtaBand } from "@/shared/ui/cta-band";
 import { InfoHero } from "@/shared/ui/info-hero";
 import { TocChips } from "@/shared/ui/toc-chips";
-import { INFO_PAGES, type InfoKey, type InfoSectionId, anchorOf } from "../../info-pages";
+import { INFO_PAGES, type InfoKey, type InfoSectionId, TIPS, anchorOf } from "../../info-pages";
 import { Contact, ContactGuide } from "../contact";
 import { Faq, FaqList } from "../faq";
 import { GuideGrid } from "../guides";
+import { ShippingCalculator } from "../shipping-calculator";
 import { useFaqGroups } from "./faq-groups";
 import { InfoSection } from "./info-section";
 import { CarrierList } from "../partners/carrier-list";
-import { Compensation, WarehouseInfo, WarehouseTips, WeightRules } from "./policy-sections";
+import { Compensation, ConciergeTerms, WarehouseInfo, WarehouseTips } from "./policy-sections";
+import { BuyRate, RouteCards, WeightJpVn, WeightVnJp } from "./price-policy";
 import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 
-// The info pages (pricing, policy, Japan warehouse, FAQ, guides, contact), one rhythm with the
+// The info pages (pricing hub, price policy per route, policy, Japan warehouse, FAQ, guides,
+// contact), one rhythm with the
 // service pages: hero (+ "on this page" chips) → sections → FAQ → closing CTA → related links.
 // Section backgrounds alternate ivory / sage by position.
 
 type FramedId = Exclude<InfoSectionId, "faqGroups" | "contact">;
 const BODIES: Record<FramedId, () => ReactNode> = {
+  routes: RouteCards,
+  calculator: () => <ShippingCalculator withTitle={false} />,
   ratesVnJp: RatesVnJp,
-  ratesJpVn: RatesJpVn,
+  ratesJpVn: () => <RatesJpVn />,
   surcharges: Surcharges,
-  weight: WeightRules,
+  weightVnJp: WeightVnJp,
+  weightJpVn: WeightJpVn,
+  buyRate: BuyRate,
+  freightJpVn: () => <RatesJpVn variant="policy" />,
+  conciergeTerms: ConciergeTerms,
+  tipsVnJp: () => <WarehouseTips ids={TIPS.vnJp} />,
+  tipsJpVn: () => <WarehouseTips ids={TIPS.jpVn} />,
   compensation: Compensation,
   warehouse: WarehouseInfo,
   carriers: () => <CarrierList />,
-  warehouseTips: WarehouseTips,
+  warehouseTips: () => <WarehouseTips ids={TIPS.warehouse} />,
   guideGrid: GuideGrid,
 };
 
@@ -39,10 +50,19 @@ export function InfoPage({ page }: { page: InfoKey }) {
   const faqGroups = useFaqGroups();
 
   const titles: Record<FramedId, string> = {
-    ratesVnJp: t("pricing.teaser.vnJp.label"),
+    routes: t("pricePolicy.sections.routes"),
+    calculator: t("pricing.calculator.title"),
+    // The VN→JP price-policy page is all about that route, so its rate section names the goods.
+    ratesVnJp: page === "priceVnJp" ? t("pricePolicy.sections.goodsRates") : t("pricing.teaser.vnJp.label"),
     ratesJpVn: t("pricing.teaser.jpVn.label"),
     surcharges: t("pricing.surcharge.title"),
-    weight: t("policy.weight.title"),
+    weightVnJp: t("pricePolicy.sections.weightVnJp"),
+    weightJpVn: t("pricePolicy.sections.weightJpVn"),
+    buyRate: t("pricePolicy.sections.buyRate"),
+    freightJpVn: t("pricePolicy.sections.freightJpVn"),
+    conciergeTerms: t("policy.concierge.title"),
+    tipsVnJp: t("policy.tips.title"),
+    tipsJpVn: t("policy.tips.title"),
     compensation: t("policy.compensation.title"),
     warehouse: t("policy.warehouse.title"),
     carriers: t("partners.carriers.title"),
@@ -51,7 +71,10 @@ export function InfoPage({ page }: { page: InfoKey }) {
   };
 
   // Every section the page renders, flattened (the FAQ page renders one section per group).
-  const intros: Partial<Record<FramedId, string>> = { carriers: t("partners.carriers.intro") };
+  const intros: Partial<Record<FramedId, string>> = {
+    carriers: t("partners.carriers.intro"),
+    weightVnJp: t("pricePolicy.vnJpWeight.intro"),
+  };
   const blocks: { id: string; title: string; intro?: string; body: ReactNode }[] = [];
   let raw: ReactNode = null;
   for (const id of config.sections) {
@@ -92,10 +115,10 @@ export function InfoPage({ page }: { page: InfoKey }) {
       <InfoHero
         page={page}
         note={
-          config.heroNote === "effectiveDate" && (
+          config.heroNote && (
             <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-muted">
               <CalendarCheck size={18} weight="duotone" aria-hidden className="shrink-0 text-forest" />
-              {t("pricing.intro")}
+              {config.heroNote === "effectiveDate" ? t("pricing.intro") : t("pricePolicy.effective")}
             </p>
           )
         }

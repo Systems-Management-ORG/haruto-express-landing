@@ -1,5 +1,6 @@
 import {
   AddressBook,
+  ArrowsOutLineHorizontal,
   BatteryCharging,
   CalendarCheck,
   Camera,
@@ -8,7 +9,10 @@ import {
   Clock,
   Drop,
   Package,
+  Phone,
   Receipt,
+  Ruler,
+  ShieldWarning,
   Snowflake,
   Star,
   Tree,
@@ -17,16 +21,25 @@ import {
 import type { PageKey } from "@/shared/seo/pages";
 import type { CtaAction } from "@/shared/ui/contact-cta";
 
-// Presentation of the info pages (pricing, policy, Japan warehouse, FAQ, guides, contact): which
+// Presentation of the info pages (pricing hub, the two price-policy pages, policy, Japan
+// warehouse, FAQ, guides, contact): which
 // sections each renders, in order, and which actions the buttons take. Copy stays in the messages;
 // icons and tones attach to item ids, never to array positions.
 
-export type InfoKey = "pricing" | "policy" | "japanWarehouse" | "faq" | "guides" | "contact";
+export type InfoKey = "pricing" | "priceVnJp" | "priceJpVn" | "policy" | "japanWarehouse" | "faq" | "guides" | "contact";
 export type InfoSectionId =
+  | "routes"
+  | "calculator"
   | "ratesVnJp"
   | "ratesJpVn"
   | "surcharges"
-  | "weight"
+  | "weightVnJp"
+  | "weightJpVn"
+  | "buyRate"
+  | "freightJpVn"
+  | "conciergeTerms"
+  | "tipsVnJp"
+  | "tipsJpVn"
   | "compensation"
   | "warehouse"
   | "carriers"
@@ -37,7 +50,9 @@ export type InfoSectionId =
 
 export type InfoPageConfig = {
   heroActions?: { primary: CtaAction; secondary?: CtaAction };
-  heroNote?: "effectiveDate"; // pricing: `pricing.intro` as a pill with a calendar icon
+  // A pill with a calendar icon under the lead: `pricing.intro` (the hub) or `pricePolicy.effective`
+  // (the two price-policy pages).
+  heroNote?: "effectiveDate" | "effectiveRoute";
   toc?: InfoSectionId[]; // the FAQ page lists its question groups instead
   sections: InfoSectionId[]; // render order; backgrounds alternate ivory / sage by position
   faq: boolean; // the questions tagged for this page (the FAQ page uses faqGroups)
@@ -45,18 +60,35 @@ export type InfoPageConfig = {
 };
 
 export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
+  // Hub: one card per route (to its price-policy page) and the freight calculator.
   pricing: {
     heroActions: { primary: "contact", secondary: "call" },
     heroNote: "effectiveDate",
-    toc: ["ratesVnJp", "ratesJpVn", "surcharges", "weight"],
-    sections: ["ratesVnJp", "ratesJpVn", "surcharges", "weight"],
+    toc: ["routes", "calculator"],
+    sections: ["routes", "calculator"],
+    faq: true,
+    cta: { primary: "zalo", secondary: "call" },
+  },
+  priceVnJp: {
+    heroActions: { primary: "zalo", secondary: "call" },
+    heroNote: "effectiveRoute",
+    toc: ["ratesVnJp", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
+    sections: ["ratesVnJp", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
+    faq: true,
+    cta: { primary: "zalo", secondary: "call" },
+  },
+  priceJpVn: {
+    heroActions: { primary: "zalo", secondary: "call" },
+    heroNote: "effectiveRoute",
+    toc: ["buyRate", "freightJpVn", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse"],
+    sections: ["buyRate", "freightJpVn", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },
   policy: {
     heroActions: { primary: "contact" },
-    toc: ["weight", "compensation"],
-    sections: ["weight", "compensation"],
+    toc: ["weightVnJp", "weightJpVn", "compensation"],
+    sections: ["weightVnJp", "weightJpVn", "compensation"],
     faq: true,
     cta: { primary: "zalo", secondary: "contact" },
   },
@@ -116,6 +148,22 @@ export const TIP_ICONS: Record<string, typeof Package> = {
   video: VideoCamera,
   shelfLife: Clock,
   redelivery: CalendarCheck,
+  customsRisk: ShieldWarning,
+};
+
+// Which tips each page lists, in order (`policy.tips.items.<id>`): the VN→JP and JP→VN PDFs list
+// different ones.
+export const TIPS: Record<"vnJp" | "jpVn" | "warehouse", string[]> = {
+  vnJp: ["photo", "declare", "receipt", "recipient", "customsRisk", "shelfLife", "video", "redelivery"],
+  jpVn: ["photo", "declare", "receipt"],
+  warehouse: ["photo", "declare", "receipt", "recipient", "video", "shelfLife", "redelivery"],
+};
+
+// The cases in which a VN→JP parcel is charged as bulky (`pricePolicy.vnJpWeight.cases.<id>`).
+export const VN_JP_BULKY_CASES: Record<"oversize" | "longSide" | "contact", { Icon: typeof Package; tone: Tone }> = {
+  oversize: { Icon: Ruler, tone: "warn" },
+  longSide: { Icon: ArrowsOutLineHorizontal, tone: "warn" },
+  contact: { Icon: Phone, tone: "info" },
 };
 
 // Question groups of the FAQ page. A question belongs to the group of its first tag (ignoring

@@ -1,22 +1,26 @@
 import {
   CheckCircle,
+  ClipboardText,
   CurrencyCircleDollar,
   Info,
   Package,
   Prohibit,
   Receipt,
-  Scales,
+  Storefront,
   Truck,
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import type { Locale } from "@/shared/constants/locales";
+import { formatVnd } from "@/shared/lib/format";
 import { rawRecord } from "@/shared/lib/raw-messages";
 import { PRICING_IMAGES } from "@/shared/seo/page-media";
 import { PRICING_FEATURE_TONES, SURCHARGE_ICONS, type Tone } from "../../info-pages";
+import { SURCHARGES } from "../../pricing-data";
 
-// Bodies of the /bang-gia sections (the InfoPage frame adds the anchor, background and H2):
-// VN→JP rate tables per goods type, the JP→VN flat rate and the surcharge grid.
+// Bodies of the rate sections of the price-policy pages (the InfoPage frame adds the anchor,
+// background and H2): VN→JP rate tables per goods type, the JP→VN flat rate and the surcharge grid.
 
 type Rate = { weight: string; price: string; note?: string };
 const VN_JP_GOODS = ["clean", "mixed"] as const;
@@ -134,11 +138,21 @@ export function RatesVnJp() {
   );
 }
 
-// Japan → Vietnam: one flat rate for every weight, with the buying rate, domestic delivery and VAT notes.
-export function RatesJpVn() {
-  const t = useTranslations("pricing");
+const DOMESTIC = [
+  ["payer", Truck],
+  ["choose", Storefront],
+  ["booking", ClipboardText],
+  ["cost", Receipt],
+] as const;
 
-  return (
+// Japan → Vietnam: one flat rate for every weight. "teaser": with the buying rate, domestic
+// delivery and VAT as three notes. "policy" (the JP→VN price-policy page, where the buying rate has
+// its own section): domestic delivery as the PDF's four lines, VAT as a callout under the card.
+export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy" }) {
+  const t = useTranslations("pricing");
+  const tDomestic = useTranslations("pricePolicy.domestic");
+
+  const card = (
     <div data-reveal className="rate-card lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
       <div className="rate-card__media lg:aspect-auto lg:min-h-full">
         <Image src={PRICING_IMAGES.jpVn} alt="" fill sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover object-[78%_50%]" />
@@ -147,33 +161,66 @@ export function RatesJpVn() {
         <p className="text-sm font-medium tracking-[0.14em] text-muted uppercase">{t("teaser.jpVn.label")}</p>
         <p className="mt-3 font-display font-(--weight-display) text-5xl text-forest lg:text-6xl">{t("freight.price")}</p>
         <p className="mt-2 text-muted">{t("freight.weight")}</p>
-        <ul className="mt-8 grid gap-4 border-t border-line pt-6">
-          {([
-            ["buyRate", CurrencyCircleDollar],
-            ["domestic", Truck],
-            ["vat", Receipt],
-          ] as const).map(([key, Icon]) => (
-            <li key={key} className="flex gap-3">
-              <span className="icon-chip" aria-hidden>
-                <Icon size={20} weight="duotone" />
-              </span>
-              <span className="pt-1.5">{t(`freight.${key}`)}</span>
-            </li>
-          ))}
-        </ul>
+        {variant === "teaser" ? (
+          <ul className="mt-8 grid gap-4 border-t border-line pt-6">
+            {([
+              ["buyRate", CurrencyCircleDollar],
+              ["domestic", Truck],
+              ["vat", Receipt],
+            ] as const).map(([key, Icon]) => (
+              <li key={key} className="flex gap-3">
+                <span className="icon-chip" aria-hidden>
+                  <Icon size={20} weight="duotone" />
+                </span>
+                <span className="pt-1.5">{t(`freight.${key}`)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="mt-8 border-t border-line pt-6">
+            <h3 className="text-lg font-medium text-forest">{tDomestic("title")}</h3>
+            <ul className="mt-4 grid gap-4">
+              {DOMESTIC.map(([key, Icon]) => (
+                <li key={key} className="flex gap-3">
+                  <span className="icon-chip" aria-hidden>
+                    <Icon size={20} weight="duotone" />
+                  </span>
+                  <span className="pt-1.5">{tDomestic(`items.${key}`)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
+
+  if (variant === "teaser") return card;
+  return (
+    <>
+      {card}
+      <p data-reveal className="callout mt-6 bg-white">
+        <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
+        <span>{t("freight.vat")}</span>
+      </p>
+    </>
+  );
 }
 
-// Surcharges as icon cards: the item on top, the fee as a tag underneath.
+// Surcharges as icon cards: the item on top, the fee as a tag underneath. The amount and its unit
+// come from SURCHARGES (pricing-data.ts); only "other" (on request) keeps its words in the messages.
 export function Surcharges() {
   const t = useTranslations("pricing.surcharge");
-  const items = rawRecord<{ item: string; fee: string }>(t, "items");
+  const tUnit = useTranslations("pricePolicy.surchargeUnit");
+  const locale = useLocale() as Locale;
+  const items = rawRecord<{ item: string }>(t, "items");
 
   return (
     <ul data-reveal-group className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-      {Object.entries(items).map(([id, row]) => {
+      {(Object.keys(SURCHARGES) as (keyof typeof SURCHARGES)[]).map((id) => {
+        const row = items[id];
+        const { vnd, per } = SURCHARGES[id];
+        const fee = vnd == null ? t("items.other.fee") : `${formatVnd(vnd, locale)} ${tUnit(per)}`;
         const Icon = SURCHARGE_ICONS[id] ?? Package;
         return (
           <li key={id} className="surcharge-card">
@@ -181,7 +228,7 @@ export function Surcharges() {
               <Icon size={22} weight="duotone" />
             </span>
             <p className="mt-4 flex-1 leading-snug font-medium">{row.item}</p>
-            <p className="surcharge-card__fee">{row.fee}</p>
+            <p className="surcharge-card__fee">{fee}</p>
           </li>
         );
       })}

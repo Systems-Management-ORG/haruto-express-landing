@@ -1,13 +1,10 @@
 import {
-  ArrowsDownUp,
   ClipboardText,
-  Cube,
   Envelope,
   Gavel,
   IdentificationCard,
   MapPin,
   Phone,
-  Scales,
   ShieldCheck,
   ShieldWarning,
   ShoppingCart,
@@ -18,45 +15,12 @@ import { MapEmbed } from "@/shared/components/map-embed";
 import { rawRecord } from "@/shared/lib/raw-messages";
 import { locationById } from "@/shared/seo/business";
 import { TIP_ICONS } from "../../info-pages";
-import { VolumetricDiagram } from "../volumetric-diagram";
 
-// Bodies of the policy sections (weight rules, compensation, Japan warehouse, shipping tips) and
+// Bodies of the policy sections (compensation, Japan warehouse, shipping tips) and
 // the buying/auction/shipping-only terms. The frame around them (anchor, background, H2) comes
 // from InfoPage, or from ServicePage for the terms; card titles are H3.
 
-// How weight is charged: actual vs. volumetric, the rounding rule, bulky goods with the diagram.
-export function WeightRules() {
-  const t = useTranslations("policy.weight");
-
-  return (
-    <div data-reveal-group className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
-      <div className="grid gap-5">
-        {([
-          ["standard", Scales],
-          ["rounding", ArrowsDownUp],
-        ] as const).map(([key, Icon]) => (
-          <article key={key} className="info-card">
-            <span className="icon-chip" aria-hidden>
-              <Icon size={22} weight="duotone" />
-            </span>
-            <h3 className="mt-4 text-lg font-medium text-forest">{t(`${key}.title`)}</h3>
-            <p className="mt-1.5 text-muted">{t(`${key}.body`)}</p>
-          </article>
-        ))}
-      </div>
-      <article className="info-card grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-        <div>
-          <span className="icon-chip" aria-hidden>
-            <Cube size={22} weight="duotone" />
-          </span>
-          <h3 className="mt-4 text-lg font-medium text-forest">{t("bulky.title")}</h3>
-          <p className="mt-1.5 text-muted">{t("bulky.body")}</p>
-        </div>
-        <VolumetricDiagram />
-      </article>
-    </div>
-  );
-}
+// The weight rules of each direction are in price-policy.tsx (WeightVnJp, WeightJpVn).
 
 // Compensation with and without insurance.
 export function Compensation() {
@@ -142,14 +106,16 @@ export function WarehouseInfo() {
   );
 }
 
-// What to do before sending to the warehouse and when receiving.
-export function WarehouseTips() {
+// What to do before sending to the warehouse and when receiving: the tips `ids` lists, in that
+// order (TIPS in info-pages.ts; each price-policy PDF lists its own).
+export function WarehouseTips({ ids }: { ids: string[] }) {
   const t = useTranslations("policy.tips");
   const tips = rawRecord<string>(t, "items");
 
   return (
     <ul data-reveal-group className="grid gap-3 lg:grid-cols-2">
-      {Object.entries(tips).map(([id, tip]) => {
+      {ids.map((id) => {
+        const tip = tips[id];
         const Icon = TIP_ICONS[id] ?? ClipboardText;
         return (
           <li key={id} className="flex gap-3 rounded-card border border-line bg-white p-4">

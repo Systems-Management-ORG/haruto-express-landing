@@ -1,7 +1,8 @@
 import { Info } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
-import { JP_VN, type Tier, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
+import { NUMBER_LOCALE } from "@/shared/lib/format";
+import { JP_VN, priceRange, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
 import { ContactCta } from "@/shared/ui/contact-cta";
 import { SectionHead } from "@/shared/ui/section-head";
 
@@ -9,14 +10,7 @@ import { SectionHead } from "@/shared/ui/section-head";
 // /bang-gia. Amounts come from pricing-data.ts (never from price strings), as a min – max range
 // per goods type rather than a "from" anchor price.
 
-const NUMBER_LOCALE: Record<Locale, string> = { vi: "vi-VN", ja: "ja-JP", en: "en-US" };
-
 type Row = { weight: string; price: string; note?: string };
-
-function range(tiers: Tier[]): [number, number] {
-  const priced = tiers.map((tier) => tier.vndPerKg).filter((value): value is number => value != null);
-  return [Math.min(...priced), Math.max(...priced)];
-}
 
 export function PriceSummary({ direction }: { direction: "vnJp" | "jpVn" }) {
   const t = useTranslations("pricing");
@@ -36,7 +30,7 @@ export function PriceSummary({ direction }: { direction: "vnJp" | "jpVn" }) {
               ["clean", VN_JP_CLEAN],
               ["mixed", VN_JP_MIXED],
             ] as const).map(([kind, tiers]) => {
-              const [min, max] = range(tiers);
+              const [min, max] = priceRange(tiers);
               const first = (t.raw(`vnJp.${kind}.rows`) as Row[])[0];
               return (
                 <li key={kind} className="svc-price">

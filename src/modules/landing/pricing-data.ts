@@ -52,6 +52,12 @@ export function lowestRate(tiers: Tier[]): Tier {
   return priced.reduce((low, tier) => ((tier.vndPerKg ?? Infinity) < (low.vndPerKg ?? Infinity) ? tier : low));
 }
 
+// Lowest and highest published per-kg rate of a set of tiers, for "min – max" summaries.
+export function priceRange(tiers: Tier[]): [number, number] {
+  const priced = tiers.map((tier) => tier.vndPerKg).filter((value): value is number => value != null);
+  return [Math.min(...priced), Math.max(...priced)];
+}
+
 // Effective date of both price-policy PDFs (VN-JP and JAPAN-VN).
 export const PRICE_POLICY_EFFECTIVE = "2026-10-01";
 

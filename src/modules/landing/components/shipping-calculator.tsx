@@ -62,7 +62,8 @@ function Choice<T extends string>({
 
 // Freight estimate from the published rates (shipping-quote.ts). The result updates as the reader
 // types and is announced politely; prices beyond the published tiers send the reader to contact.
-export function ShippingCalculator() {
+// `withTitle={false}` where the section around it already has the heading (the /bang-gia hub).
+export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }) {
   const t = useTranslations("pricing.calculator");
   const tTeaser = useTranslations("pricing.teaser");
   const tVnJp = useTranslations("pricing.vnJp");
@@ -83,19 +84,27 @@ export function ShippingCalculator() {
   const result = kg ? quote(route, route === "vnJp" ? goods : "clean", kg, size) : null;
 
   return (
-    <div id="calculator" className="grid gap-6 rounded-(--radius-card) border border-line bg-white p-6 sm:p-8">
-      <form className="grid content-start gap-5" onSubmit={(event) => event.preventDefault()} aria-labelledby={`${id}-title`}>
-        <div className="flex items-center gap-3">
-          <span className="icon-chip" aria-hidden>
-            <Calculator size={22} weight="duotone" />
-          </span>
-          <div>
-            <h3 id={`${id}-title`} className="text-xl text-forest">
-              {t("title")}
-            </h3>
-            <p className="text-sm text-muted">{t("intro")}</p>
+    <div id={withTitle ? "calculator" : undefined} className="grid gap-6 rounded-(--radius-card) border border-line bg-white p-6 sm:p-8">
+      <form
+        className="grid content-start gap-5"
+        onSubmit={(event) => event.preventDefault()}
+        {...(withTitle ? { "aria-labelledby": `${id}-title` } : { "aria-label": t("title") })}
+      >
+        {withTitle ? (
+          <div className="flex items-center gap-3">
+            <span className="icon-chip" aria-hidden>
+              <Calculator size={22} weight="duotone" />
+            </span>
+            <div>
+              <h3 id={`${id}-title`} className="text-xl text-forest">
+                {t("title")}
+              </h3>
+              <p className="text-sm text-muted">{t("intro")}</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <p className="text-muted">{t("intro")}</p>
+        )}
 
         <Choice
           legend={t("routeLegend")}
