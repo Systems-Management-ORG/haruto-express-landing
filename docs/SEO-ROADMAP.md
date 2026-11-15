@@ -216,3 +216,4 @@ Chi tiết tiêu chí hoàn thành:
 - 2026-11-13 — service template — 6 trang dịch vụ dùng ServicePage; H1 từ khóa; FAQ +6 (chờ duyệt)
 - 2026-11-13 — info template — pricing/policy/warehouse/faq/guides/contact dùng InfoPage; FAQ chia nhóm; hết nhảy bậc heading; hub /huong-dan trong menu (noindex)
 - 2026-11-15 — price policy — 2 trang chính sách giá VN→JP / JP→VN theo PDF 01/10/2026; /bang-gia thành hub; sửa phụ thu carton, làm tròn VN→JP, calculator
+- 2026-11-15 — price policy v2 — route switch, cost breakdown, route-locked calculator, JP→VN bulky examples; FAQ cước tách theo chiều; seo-check ngưỡng JA
