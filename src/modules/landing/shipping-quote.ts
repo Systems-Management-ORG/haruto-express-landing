@@ -1,4 +1,4 @@
-import { JP_VN, type Tier, VN_JP_CLEAN, VN_JP_MIXED } from "./pricing-data";
+import { JP_VN, JP_VN_BULKY, type Tier, VN_JP_CLEAN, VN_JP_MIXED } from "./pricing-data";
 
 // Freight estimate for the home/pricing calculator. Every rule here is a published one:
 // - rounding: `pricing.vnJp.roundingRules` (clean: up to the next 0.5 kg; mixed: a remainder of
@@ -13,10 +13,6 @@ import { JP_VN, type Tier, VN_JP_CLEAN, VN_JP_MIXED } from "./pricing-data";
 export type Route = "vnJp" | "jpVn";
 export type GoodsKind = "clean" | "mixed";
 export type Dimensions = { lengthCm: number; widthCm: number; heightCm: number };
-
-export const VOLUMETRIC_DIVISOR = 6000;
-export const BULKY_DIMENSION_SUM_CM = 140;
-export const BULKY_WEIGHT_KG = 30;
 
 const EPS = 1e-9;
 
@@ -35,8 +31,8 @@ export type Quote =
 function chargedWeight(actualKg: number, dims?: Dimensions): { kg: number; volumetric: boolean } {
   if (!dims) return { kg: actualKg, volumetric: false };
   const { lengthCm: l, widthCm: w, heightCm: h } = dims;
-  const bulky = l + w + h > BULKY_DIMENSION_SUM_CM || actualKg > BULKY_WEIGHT_KG;
-  const volumetricKg = (l * w * h) / VOLUMETRIC_DIVISOR;
+  const bulky = l + w + h > JP_VN_BULKY.sumCm || actualKg > JP_VN_BULKY.weightKg;
+  const volumetricKg = (l * w * h) / JP_VN_BULKY.volumetricDivisor;
   return bulky && volumetricKg > actualKg ? { kg: volumetricKg, volumetric: true } : { kg: actualKg, volumetric: false };
 }
 

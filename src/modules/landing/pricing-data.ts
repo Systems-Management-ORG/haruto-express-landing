@@ -51,3 +51,39 @@ export function lowestRate(tiers: Tier[]): Tier {
   const priced = tiers.filter((tier) => tier.vndPerKg != null);
   return priced.reduce((low, tier) => ((tier.vndPerKg ?? Infinity) < (low.vndPerKg ?? Infinity) ? tier : low));
 }
+
+// Effective date of both price-policy PDFs (VN-JP and JAPAN-VN).
+export const PRICE_POLICY_EFFECTIVE = "2026-10-01";
+
+// Surcharges, identical on both routes (PDF §III). `vnd` null = on request.
+export type Surcharge = { vnd: number | null; per: "item" | "kg" | "box" | "quote"; yenPerBox?: { large: number; small: number } };
+export const SURCHARGES: Record<"electronics" | "perfume" | "carton" | "wooden" | "foam" | "special" | "other", Surcharge> = {
+  electronics: { vnd: 150_000, per: "item" },
+  perfume: { vnd: 350_000, per: "item" },
+  carton: { vnd: 25_000, per: "kg" },
+  wooden: { vnd: 34_000, per: "kg" },
+  foam: { vnd: 50_000, per: "box", yenPerBox: { large: 3_563, small: 2_187 } }, // 74×46×39 cm / 46×33×34 cm
+  special: { vnd: 85_000, per: "kg" },
+  other: { vnd: null, per: "quote" },
+};
+
+// Vietnam → Japan bulky goods (PDF VN-JP §IV + infographic). maxSumCm: [low, high] of L + W + H.
+export type SizeStandard = { minKg: number; maxKg: number; maxSumCm: [number, number] };
+export const VN_JP_SIZE_STANDARD: SizeStandard[] = [
+  { minKg: 0, maxKg: 10, maxSumCm: [120, 120] }, // "Dưới 10 kg"
+  { minKg: 10, maxKg: 20, maxSumCm: [140, 150] },
+  { minKg: 20, maxKg: 30, maxSumCm: [160, 180] },
+];
+export const VN_JP_BULKY = {
+  anySideCm: 100, // any side from 100 cm → may be charged as bulky
+  contactSumCm: 260, // over 260 cm L + W + H → contact before sending
+  contactKg: 50, // over 50 kg → contact before sending
+  surchargeVnd: [220_000, 800_000] as [number, number], // by size and parcel (infographic only)
+  roundingStepKg: 0.5,
+};
+
+// Japan → Vietnam bulky goods (PDF JAPAN-VN §IV).
+export const JP_VN_BULKY = { sumCm: 140, weightKg: 30, volumetricDivisor: 6000 };
+
+// Compensation for lost goods (both routes, §V).
+export const COMPENSATION = { insuranceRatePct: 8, uninsuredCapVnd: 3_000_000 };
