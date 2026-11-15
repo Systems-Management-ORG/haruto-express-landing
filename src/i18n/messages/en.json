@@ -29,7 +29,7 @@
       "title": "Vietnam – Japan shipping rates",
       "intro": "Two-way air-freight rates from 1 October 2026: Vietnam → Japan is priced by weight band for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. Pick a route for its full rate policy, or estimate your freight.",
       "metaTitle": "Vietnam – Japan shipping rates | HARUTO",
-      "metaDescription": "Two-way Vietnam – Japan shipping rates: clean and mixed goods by weight band, Japan to Vietnam at 155,000 VND/kg, plus surcharges and weight rules."
+      "metaDescription": "Two-way Vietnam – Japan freight from 1 Oct 2026: clean and mixed goods by weight band, Japan to Vietnam at 155,000 VND/kg. Pick a route or estimate freight."
     },
     "priceVnJp": {
       "nav": "Rate policy: Vietnam → Japan",
@@ -835,7 +835,7 @@
     "intro": "Two-way air-freight rate policy, effective from 1 October 2026.",
     "teaser": {
       "title": "Clear rates for both directions",
-      "intro": "Rates depend on weight and goods type, and include tax and Japan domestic delivery. See the full weight bands and surcharges on the pricing page.",
+      "intro": "Rates depend on weight and goods type; Vietnam → Japan includes tax and Japan domestic delivery. See each direction's rate policy for the full weight bands, surcharges and weight rules.",
       "vnJp": {
         "label": "Vietnam → Japan",
         "price": "From 85,000 VND/kg",
@@ -1251,7 +1251,7 @@
       },
       {
         "question": "How are shipping rates calculated?",
-        "answer": "Rates use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. See the Pricing section for the full tables and surcharges.",
+        "answer": "It depends on the direction. Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods (tax and Japan domestic delivery included); weight is rounded up to the next 0.5 kg and parcels over the size standard add a bulky-goods surcharge. Japan → Vietnam is 155,000 VND/kg for any weight; bulky goods use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). See each direction's rate policy for details and surcharges.",
         "pages": [
           "pricing",
           "shipToJapan",

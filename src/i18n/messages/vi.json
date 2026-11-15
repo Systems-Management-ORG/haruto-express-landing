@@ -29,7 +29,7 @@
       "title": "Bảng giá vận chuyển Việt Nam – Nhật Bản",
       "intro": "Bảng giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam 155.000 VNĐ/kg. Chọn tuyến để xem chính sách giá đầy đủ hoặc tính cước nhanh.",
       "metaTitle": "Bảng giá gửi hàng Việt – Nhật | HARUTO",
-      "metaDescription": "Bảng giá vận chuyển hai chiều Việt Nam – Nhật Bản: hàng sạch và hỗn hợp theo mốc cân, chiều Nhật về 155.000 VNĐ/kg, kèm phụ thu và cách tính cân."
+      "metaDescription": "Bảng giá hàng không hai chiều Việt – Nhật từ 01/10/2026: hàng sạch, hỗn hợp theo mốc cân; chiều Nhật về 155.000 VNĐ/kg. Chọn tuyến hoặc tính cước nhanh."
     },
     "priceVnJp": {
       "nav": "Chính sách giá Việt – Nhật",
@@ -835,7 +835,7 @@
     "intro": "Chính sách giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026.",
     "teaser": {
       "title": "Bảng giá rõ ràng cho cả hai chiều",
-      "intro": "Cước tính theo trọng lượng và loại hàng; đã bao gồm thuế và giao nội địa Nhật. Xem đầy đủ các mốc cân và phụ thu ở trang bảng giá.",
+      "intro": "Cước tính theo trọng lượng và loại hàng. Chiều Việt → Nhật đã gồm thuế và giao nội địa Nhật. Xem đầy đủ mốc cân, phụ thu và cách tính cân ở trang chính sách giá của từng chiều.",
       "vnJp": {
         "label": "Việt Nam → Nhật Bản",
         "price": "Từ 85.000 VNĐ/kg",
@@ -1251,7 +1251,7 @@
       },
       {
         "question": "Giá cước được tính như thế nào?",
-        "answer": "Cước tính theo trọng lượng lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg. Xem mục Bảng giá để biết chi tiết và phụ thu.",
+        "answer": "Hai chiều tính khác nhau. Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp (đã gồm thuế và ship nội địa Nhật); cân được làm tròn lên mốc 0,5 kg, kiện vượt tiêu chuẩn kích thước tính thêm phụ thu cồng kềnh. Chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg cho mọi cân nặng; hàng cồng kềnh tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Xem chính sách giá của từng chiều để biết chi tiết và phụ thu.",
         "pages": [
           "pricing",
           "shipToJapan",
