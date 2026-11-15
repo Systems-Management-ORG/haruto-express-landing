@@ -1,15 +1,17 @@
 "use client";
 
-import { Calculator } from "@phosphor-icons/react/dist/ssr";
+import { Calculator, Warning } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useId, useState } from "react";
 import type { Locale } from "@/shared/constants/locales";
+import { formatVnd, NUMBER_LOCALE } from "@/shared/lib/format";
 import { pagePath } from "@/shared/seo/pages";
+import { VN_JP_BULKY } from "../pricing-data";
 import { type Dimensions, type GoodsKind, quote, type Route } from "../shipping-quote";
-
-const NUMBER_LOCALE: Record<Locale, string> = { vi: "vi-VN", ja: "ja-JP", en: "en-US" };
 const ROUTES: Route[] = ["vnJp", "jpVn"];
+// The weight-rules section of each direction on /chinh-sach-van-chuyen (anchorOf in info-pages.ts).
+const RULES_ANCHOR: Record<Route, string> = { vnJp: "weight-vn-jp", jpVn: "weight-jp-vn" };
 const GOODS: GoodsKind[] = ["clean", "mixed"];
 const DIMS = ["length", "width", "height"] as const;
 
@@ -154,7 +156,7 @@ export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }
               />
             ))}
           </div>
-          <p className="mt-2 text-sm text-muted">{t("dimsHint.jpVn")}</p>
+          <p className="mt-2 text-sm text-muted">{t(`dimsHint.${route}`)}</p>
         </fieldset>
       </form>
 
@@ -172,7 +174,7 @@ export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }
                 <dt className="text-muted">{t("billable")}</dt>
                 <dd className="text-right font-medium">
                   {t("kg", { kg: nf.format(result.billableKg) })}
-                  {result.volumetric && <span className="block text-muted">{t("volumetric")}</span>}
+                  {route === "jpVn" && result.volumetric && <span className="block text-muted">{t("volumetric")}</span>}
                 </dd>
                 <dt className="text-muted">{t("rate")}</dt>
                 <dd className="text-right font-medium">{t("perKg", { price: vnd(result.vndPerKg) })}</dd>
@@ -190,12 +192,25 @@ export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }
             <span className="block text-lg font-medium text-forest">{t(result.status)}</span>
           )}
         </div>
+        {result?.bulky && (
+          <p role="status" className="mt-4 flex gap-2.5 text-sm">
+            <Warning size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold-deep" />
+            <span>
+              {t(`bulky.${result.bulky}`, {
+                min: formatVnd(VN_JP_BULKY.surchargeVnd[0], locale),
+                max: formatVnd(VN_JP_BULKY.surchargeVnd[1], locale),
+                cm: result.bulky === "review" ? VN_JP_BULKY.anySideCm : VN_JP_BULKY.contactSumCm,
+                kg: VN_JP_BULKY.contactKg,
+              })}
+            </span>
+          </p>
+        )}
 
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a href="#contact" data-track="cta_calculator_quote" className="btn btn-primary">
             {t("quoteCta")}
           </a>
-          <Link href={pagePath(locale, "policy")} className="link-arrow text-forest">
+          <Link href={`${pagePath(locale, "policy")}#${RULES_ANCHOR[route]}`} className="link-arrow text-forest">
             {t("rulesLink")}
           </Link>
         </div>
