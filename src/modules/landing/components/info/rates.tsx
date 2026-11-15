@@ -114,39 +114,8 @@ function GoodsRates({ kind }: { kind: (typeof VN_JP_GOODS)[number] }) {
   );
 }
 
-// Rounding rule per goods type as a short rule plus worked examples, instead of a paragraph.
-function RoundingRules() {
-  const t = useTranslations("pricing.vnJp");
-
-  return (
-    <div className="mt-8">
-      <h3 className="text-xl text-forest">{t("roundingRules.title")}</h3>
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        {VN_JP_GOODS.map((kind) => {
-          const examples = t.raw(`roundingRules.${kind}.examples`) as string[];
-          return (
-            <div key={kind} className="info-card flex flex-col gap-3">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <span className="rate-weight">{t(`${kind}.title`)}</span>
-                <span className="font-medium">{t(`roundingRules.${kind}.rule`)}</span>
-              </div>
-              <ul className="flex flex-wrap gap-2" aria-label={t("roundingRules.title")}>
-                {examples.map((example) => (
-                  <li key={example} className="rounding-example">
-                    <Scales size={16} weight="duotone" aria-hidden />
-                    {example}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-// Vietnam → Japan: the shared intro line, one rate card per goods type, the rounding rules.
+// Vietnam → Japan: the shared intro line and one rate card per goods type (the 0.5 kg rounding
+// rule lives with the bulky-goods rules, `pricePolicy.vnJpWeight`).
 export function RatesVnJp() {
   const t = useTranslations("pricing");
 
@@ -161,7 +130,6 @@ export function RatesVnJp() {
           <GoodsRates key={kind} kind={kind} />
         ))}
       </div>
-      <RoundingRules />
     </div>
   );
 }

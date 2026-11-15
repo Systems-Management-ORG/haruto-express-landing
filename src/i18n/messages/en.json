@@ -27,9 +27,25 @@
       "nav": "Pricing",
       "breadcrumb": "Pricing",
       "title": "Vietnam – Japan shipping rates",
-      "intro": "Rates for both directions: Vietnam → Japan is priced by weight band for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. Includes surcharges and how weight is calculated.",
+      "intro": "Two-way air-freight rates from 1 October 2026: Vietnam → Japan is priced by weight band for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. Pick a route for its full rate policy, or estimate your freight.",
       "metaTitle": "Vietnam – Japan shipping rates | HARUTO",
       "metaDescription": "Two-way Vietnam – Japan shipping rates: clean and mixed goods by weight band, Japan to Vietnam at 155,000 VND/kg, plus surcharges and weight rules."
+    },
+    "priceVnJp": {
+      "nav": "Rate policy: Vietnam → Japan",
+      "breadcrumb": "Rate policy: Vietnam → Japan",
+      "title": "Vietnam to Japan air freight rate policy",
+      "intro": "Rate policy for air freight from Vietnam to Japan: clean and mixed goods priced by weight band (tax and Japan domestic delivery included), surcharges, bulky-goods rules and compensation.",
+      "metaTitle": "Vietnam → Japan air freight rate policy | HARUTO",
+      "metaDescription": "Vietnam to Japan air freight rates from 1 Oct 2026: clean and mixed goods by weight band, tax and Japan domestic delivery included, plus surcharges, bulky goods and compensation."
+    },
+    "priceJpVn": {
+      "nav": "Rate policy: Japan → Vietnam",
+      "breadcrumb": "Rate policy: Japan → Vietnam",
+      "title": "Japan to Vietnam air freight rate policy",
+      "intro": "Rate policy for air freight from Japan to Vietnam: buy-for-you rate VCB + 5 with no surcharge, 155,000 VND/kg for any weight, surcharges, weight rules, compensation and our buying, bidding and ship-for-you terms.",
+      "metaTitle": "Japan → Vietnam air freight rate policy | HARUTO",
+      "metaDescription": "Ship from Japan to Vietnam by air at 155,000 VND/kg for any weight; buy-for-you rate VCB + 5, no surcharge. Surcharges, weight rules, compensation and our Japan warehouse address."
     },
     "goods": {
       "nav": "Accepted & prohibited",
@@ -679,7 +695,9 @@
     },
     "price": {
       "title": "Shipping rates",
-      "unit": "VND/kg"
+      "unit": "VND/kg",
+      "detail": "See the full rate policy",
+      "unitVnd": "VND"
     },
     "ctaDefault": {
       "title": "Need a quote for your shipment?",
@@ -830,7 +848,7 @@
       },
       "cta": "See full pricing",
       "note": "Prices exclude VAT; surcharges apply by category.",
-      "cardCta": "View this route"
+      "cardCta": "See the rate policy"
     },
     "tabsLabel": "Choose shipping direction",
     "tabs": {
@@ -949,22 +967,6 @@
           }
         ],
         "note": "Price includes Japan domestic delivery."
-      },
-      "roundingRules": {
-        "title": "How weight is rounded",
-        "clean": {
-          "rule": "Rounded up to the next 0.5 kg",
-          "examples": [
-            "3.2 kg → 3.5 kg"
-          ]
-        },
-        "mixed": {
-          "rule": "Less than 0.1 kg over a whole kilo is dropped; 0.1 kg or more counts as a full kilo",
-          "examples": [
-            "3.09 kg → 3 kg",
-            "3.1 kg → 4 kg"
-          ]
-        }
       }
     },
     "freight": {
@@ -991,7 +993,7 @@
         },
         "carton": {
           "item": "Carton repackaging",
-          "fee": "25,500 VND/kg"
+          "fee": "25,000 VND/kg"
         },
         "wooden": {
           "item": "Wooden crating",
@@ -1023,7 +1025,15 @@
       "length": "Length",
       "width": "Width",
       "height": "Height",
-      "dimsHint": "Bulky parcels (length + width + height over 140 cm, or over 30 kg) are charged on the greater of the actual weight and the volumetric weight (L × W × H ÷ 6,000).",
+      "dimsHint": {
+        "vnJp": "Vietnam → Japan: parcels over the size standard for their weight, or with any side of 100 cm or more, may be charged a bulky-goods surcharge (not included in the estimate).",
+        "jpVn": "Bulky parcels (length + width + height over 140 cm, or over 30 kg) are charged on the greater of the actual weight and the volumetric weight (L × W × H ÷ 6,000)."
+      },
+      "bulky": {
+        "oversize": "Over the size standard for its weight: a bulky-goods surcharge of {min} – {max} VND applies, depending on size and parcel; not included in the total.",
+        "review": "May be charged a bulky-goods surcharge of {min} – {max} VND (a side of {cm} cm or more, or near the size limit); not included in the total.",
+        "contact": "Over {cm} cm in total or over {kg} kg: please contact us to check the freight before sending."
+      },
       "resultTitle": "Estimated freight",
       "empty": "Enter a weight to see the estimate.",
       "billable": "Chargeable weight",
@@ -1039,6 +1049,101 @@
       "perKg": "{price} VND/kg",
       "vnd": "{price} VND",
       "kg": "{kg} kg"
+    }
+  },
+  "pricePolicy": {
+    "effective": "Effective from 1 October 2026",
+    "sections": {
+      "routes": "Pick a route to see its rate policy",
+      "goodsRates": "Goods types and freight rates",
+      "weightVnJp": "How weight is charged: Vietnam → Japan",
+      "weightJpVn": "How weight is charged: Japan → Vietnam",
+      "buyRate": "Buy-for-you exchange rate",
+      "freightJpVn": "Japan → Vietnam freight"
+    },
+    "routes": {
+      "vnJp": {
+        "points": {
+          "tax": "Tax and Japan domestic delivery included",
+          "goods": "Clean and mixed goods, priced by weight band",
+          "packing": "Clean goods: free consolidation and packing"
+        },
+        "cta": "See the Vietnam → Japan rate policy"
+      },
+      "jpVn": {
+        "points": {
+          "flat": "One rate for every weight",
+          "buyRate": "Buy-for-you rate VCB + 5, no surcharge",
+          "vat": "Service prices exclude VAT"
+        },
+        "cta": "See the Japan → Vietnam rate policy"
+      }
+    },
+    "surchargeUnit": {
+      "item": "VND/item",
+      "kg": "VND/kg",
+      "box": "VND/box (domestic delivery)",
+      "quote": ""
+    },
+    "vnJpWeight": {
+      "intro": "Bulky-goods rules, for parcels over the standard size.",
+      "sizeTitle": "Size standard by weight",
+      "columns": {
+        "weight": "Weight",
+        "maxSum": "Max. length + width + height"
+      },
+      "under": "Under {kg} kg",
+      "casesTitle": "When a surcharge applies",
+      "cases": {
+        "oversize": "Parcels over the size standard for their weight: a bulky-goods surcharge applies.",
+        "longSide": "Parcels with any side of {cm} cm or more: may be charged the bulky-goods surcharge.",
+        "contact": "Parcels over {cm} cm in total or over {kg} kg: please contact us to check the extra charge."
+      },
+      "surchargeLabel": "Bulky-goods surcharge",
+      "surchargeNote": "Depends on the parcel's size and characteristics.",
+      "roundingTitle": "Weight rounded to 0.5 kg",
+      "roundingBody": "The actual weight is rounded up to the next 0.5 kg for charging.",
+      "roundingExamples": [
+        "3.2 kg → charged 3.5 kg",
+        "3.6 kg → charged 4 kg"
+      ],
+      "warning": "Parcels over {cm} cm or over {kg} kg must be checked with us before sending."
+    },
+    "jpVnWeight": {
+      "note": "These rules keep charging fair and consistent, especially for large but light items."
+    },
+    "buyRate": {
+      "formula": "Purchase price = Order value × Exchange rate",
+      "columns": {
+        "value": "Order value",
+        "rate": "Exchange rate",
+        "surcharge": "Surcharge"
+      },
+      "row": {
+        "value": "Any order value",
+        "rate": "VCB + 5",
+        "surcharge": "No surcharge"
+      }
+    },
+    "domestic": {
+      "title": "Domestic delivery in Vietnam",
+      "items": {
+        "payer": "Domestic delivery within Vietnam is paid by the customer.",
+        "choose": "You are free to choose any delivery company.",
+        "booking": "Book the delivery yourself or ask our warehouse staff to book it for you.",
+        "cost": "The actual cost follows the rate card of the delivery company you choose."
+      }
+    },
+    "figure": {
+      "open": "View full size",
+      "vnJp": {
+        "alt": "Infographic of the Vietnam → Japan bulky-goods rules",
+        "caption": "Vietnam → Japan bulky-goods rules (infographic)"
+      },
+      "jpVn": {
+        "alt": "Infographic of how weight is charged from Japan to Vietnam",
+        "caption": "Japan → Vietnam weight rules (infographic)"
+      }
     }
   },
   "policy": {
@@ -1112,7 +1217,7 @@
       },
       "recipient": {
         "label": "Recipient name",
-        "value": "HRT - staff code - customer code (e.g. HRT-T09-Nguyen Van A)"
+        "value": "HRT - staff code - customer code or customer name (e.g. HRT-T09-Nguyen Van A)"
       },
       "mapTitle": "HARUTO EXPRESS Japan warehouse map",
       "mapOpen": "Open in Google Maps"
@@ -1124,6 +1229,7 @@
         "declare": "Declare the value, quantity, and item details accurately.",
         "receipt": "If bought at a supermarket, keep the receipt (bill) and include it inside the package.",
         "recipient": "Goods sent to the warehouse must include the recipient's full details: name, phone number, and address.",
+        "customsRisk": "Read the shipping guide, agreement and cargo-insurance policy our staff send you carefully: some goods may face risks in Japanese customs and are not insured for customs clearance.",
         "video": "When receiving goods, record one continuous video of the unboxing as evidence for any claim. Claims without a video, or raised more than 24 hours after receipt, cannot be resolved.",
         "shelfLife": "We do not cover goods with a shelf life of under 10 days.",
         "redelivery": "If you are not home, HARUTO will reschedule the delivery. Delivery times may change due to weather, natural disasters, or customs clearance in either country."
@@ -1157,7 +1263,9 @@
           "shipToJapan",
           "shipToVietnam",
           "policy",
-          "home"
+          "home",
+          "priceVnJp",
+          "priceJpVn"
         ]
       },
       {
@@ -1215,6 +1323,32 @@
         "answer": "Vietnamese exporters to Japan, retailers selling on Japanese marketplaces, cross-border e-commerce businesses needing a transit warehouse, and Vietnamese brands growing in Japan.",
         "pages": [
           "business"
+        ]
+      },
+      {
+        "question": "How are bulky parcels to Japan surcharged?",
+        "answer": "From Vietnam to Japan, the maximum length + width + height is 120 cm under 10 kg, 140–150 cm for 10–20 kg and 160–180 cm for 20–30 kg. Parcels over the standard, or with any side of 100 cm or more, may be charged a bulky-goods surcharge of 220,000–800,000 VND depending on size and parcel. Parcels over 260 cm or over 50 kg must be checked with us before sending.",
+        "pages": [
+          "priceVnJp",
+          "shipToJapan",
+          "policy"
+        ]
+      },
+      {
+        "question": "Who pays for delivery within Vietnam?",
+        "answer": "The customer pays for domestic delivery in Vietnam and can choose any delivery company. Book it yourself or ask HARUTO's warehouse staff to book it; the cost follows the chosen company's rate card.",
+        "pages": [
+          "priceJpVn",
+          "shipToVietnam"
+        ]
+      },
+      {
+        "question": "How is the buy-for-you exchange rate calculated?",
+        "answer": "Purchase price = order value × exchange rate. HARUTO applies VCB + 5 to every order value, with no surcharge.",
+        "pages": [
+          "priceJpVn",
+          "concierge",
+          "auction"
         ]
       }
     ],

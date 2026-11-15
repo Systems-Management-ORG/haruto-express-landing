@@ -145,7 +145,7 @@ export function ShippingCalculator() {
               />
             ))}
           </div>
-          <p className="mt-2 text-sm text-muted">{t("dimsHint")}</p>
+          <p className="mt-2 text-sm text-muted">{t("dimsHint.jpVn")}</p>
         </fieldset>
       </form>
 

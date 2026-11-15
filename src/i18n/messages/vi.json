@@ -27,9 +27,25 @@
       "nav": "Bảng giá",
       "breadcrumb": "Bảng giá",
       "title": "Bảng giá vận chuyển Việt Nam – Nhật Bản",
-      "intro": "Bảng giá hai chiều: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg. Kèm biểu phụ thu và cách tính cân.",
+      "intro": "Bảng giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam 155.000 VNĐ/kg. Chọn tuyến để xem chính sách giá đầy đủ hoặc tính cước nhanh.",
       "metaTitle": "Bảng giá gửi hàng Việt – Nhật | HARUTO",
       "metaDescription": "Bảng giá vận chuyển hai chiều Việt Nam – Nhật Bản: hàng sạch và hỗn hợp theo mốc cân, chiều Nhật về 155.000 VNĐ/kg, kèm phụ thu và cách tính cân."
+    },
+    "priceVnJp": {
+      "nav": "Chính sách giá Việt – Nhật",
+      "breadcrumb": "Chính sách giá Việt – Nhật",
+      "title": "Chính sách giá gửi hàng đi Nhật đường hàng không",
+      "intro": "Chính sách giá tuyến Việt Nam → Nhật Bản: cước hàng sạch và hàng hỗn hợp theo mốc cân (đã gồm thuế và ship nội địa Nhật), phụ thu, quy định hàng cồng kềnh và chính sách đền bù.",
+      "metaTitle": "Chính sách giá gửi hàng đi Nhật (Air VN–JP) | HARUTO",
+      "metaDescription": "Giá gửi hàng Việt – Nhật đường Air từ 01/10/2026: hàng sạch, hàng hỗn hợp theo mốc cân, đã gồm thuế và ship nội địa Nhật. Kèm phụ thu, hàng cồng kềnh, đền bù."
+    },
+    "priceJpVn": {
+      "nav": "Chính sách giá Nhật – Việt",
+      "breadcrumb": "Chính sách giá Nhật – Việt",
+      "title": "Chính sách giá ship hàng Nhật về Việt Nam",
+      "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam đường hàng không: tỷ giá mua hộ VCB + 5 không phụ thu, cước 155.000 VNĐ/kg cho mọi cân nặng, phụ thu, cách tính cân, đền bù và chính sách mua hộ, đấu giá hộ, vận chuyển hộ.",
+      "metaTitle": "Chính sách giá ship hàng Nhật về Việt Nam | HARUTO",
+      "metaDescription": "Ship hàng Nhật về Việt Nam đường Air 155.000 VNĐ/kg mọi cân nặng, tỷ giá mua hộ VCB + 5 không phụ thu. Xem phụ thu, cách tính cân, đền bù và địa chỉ kho Nhật."
     },
     "goods": {
       "nav": "Hàng nhận & cấm",
@@ -679,7 +695,9 @@
     },
     "price": {
       "title": "Cước vận chuyển",
-      "unit": "VNĐ/kg"
+      "unit": "VNĐ/kg",
+      "detail": "Xem chính sách giá chi tiết",
+      "unitVnd": "VNĐ"
     },
     "ctaDefault": {
       "title": "Cần báo giá cho kiện hàng của bạn?",
@@ -830,7 +848,7 @@
       },
       "cta": "Xem bảng giá đầy đủ",
       "note": "Giá chưa bao gồm VAT; phụ thu theo danh mục hàng.",
-      "cardCta": "Xem chi tiết tuyến"
+      "cardCta": "Xem chính sách giá"
     },
     "tabsLabel": "Chọn chiều vận chuyển",
     "tabs": {
@@ -949,22 +967,6 @@
           }
         ],
         "note": "Giá đã gồm ship nội địa Nhật."
-      },
-      "roundingRules": {
-        "title": "Cách làm tròn cân",
-        "clean": {
-          "rule": "Làm tròn lên mốc 0,5 kg gần nhất",
-          "examples": [
-            "3,2 kg → 3,5 kg"
-          ]
-        },
-        "mixed": {
-          "rule": "Phần lẻ dưới 0,1 kg được bỏ; từ 0,1 kg trở lên tính thêm 1 kg",
-          "examples": [
-            "3,09 kg → 3 kg",
-            "3,1 kg → 4 kg"
-          ]
-        }
       }
     },
     "freight": {
@@ -991,7 +993,7 @@
         },
         "carton": {
           "item": "Đóng lại kiện carton",
-          "fee": "25.500 VNĐ/kg"
+          "fee": "25.000 VNĐ/kg"
         },
         "wooden": {
           "item": "Đóng gỗ",
@@ -1023,7 +1025,15 @@
       "length": "Dài",
       "width": "Rộng",
       "height": "Cao",
-      "dimsHint": "Hàng cồng kềnh (tổng ba chiều trên 140 cm hoặc nặng trên 30 kg) tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000).",
+      "dimsHint": {
+        "vnJp": "Chiều Việt → Nhật: kiện vượt tiêu chuẩn tổng 3 cạnh theo cân nặng, hoặc có cạnh từ 100 cm trở lên, có thể bị phụ thu cồng kềnh (không cộng vào ước tính).",
+        "jpVn": "Hàng cồng kềnh (tổng ba chiều trên 140 cm hoặc nặng trên 30 kg) tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000)."
+      },
+      "bulky": {
+        "oversize": "Kiện vượt tiêu chuẩn kích thước theo cân nặng: phát sinh phụ thu cồng kềnh {min} – {max} VNĐ tùy kích thước và đặc điểm kiện, chưa cộng vào tổng.",
+        "review": "Kiện có thể bị tính phụ thu cồng kềnh {min} – {max} VNĐ (cạnh từ {cm} cm trở lên hoặc sát mốc kích thước), chưa cộng vào tổng.",
+        "contact": "Kiện trên {cm} cm tổng 3 cạnh hoặc trên {kg} kg: vui lòng liên hệ để kiểm tra cước trước khi gửi."
+      },
       "resultTitle": "Cước ước tính",
       "empty": "Nhập khối lượng để xem cước ước tính.",
       "billable": "Khối lượng tính cước",
@@ -1039,6 +1049,101 @@
       "perKg": "{price} VNĐ/kg",
       "vnd": "{price} VNĐ",
       "kg": "{kg} kg"
+    }
+  },
+  "pricePolicy": {
+    "effective": "Áp dụng từ ngày 01/10/2026",
+    "sections": {
+      "routes": "Chọn tuyến để xem chính sách giá",
+      "goodsRates": "Loại hàng và cước vận chuyển",
+      "weightVnJp": "Cách tính khối lượng chiều Việt → Nhật",
+      "weightJpVn": "Cách tính khối lượng chiều Nhật → Việt",
+      "buyRate": "Tỷ giá mua hộ",
+      "freightJpVn": "Cước vận chuyển Nhật → Việt"
+    },
+    "routes": {
+      "vnJp": {
+        "points": {
+          "tax": "Đã gồm thuế và ship nội địa Nhật",
+          "goods": "Hàng sạch và hàng hỗn hợp, giá theo mốc cân",
+          "packing": "Hàng sạch: miễn phí gom đơn, đóng hàng"
+        },
+        "cta": "Xem chính sách giá Việt – Nhật"
+      },
+      "jpVn": {
+        "points": {
+          "flat": "Một giá cho mọi cân nặng",
+          "buyRate": "Tỷ giá mua hộ VCB + 5, không phụ thu",
+          "vat": "Giá dịch vụ chưa bao gồm VAT"
+        },
+        "cta": "Xem chính sách giá Nhật – Việt"
+      }
+    },
+    "surchargeUnit": {
+      "item": "VNĐ/sản phẩm",
+      "kg": "VNĐ/kg",
+      "box": "VNĐ/thùng (giao nội địa)",
+      "quote": ""
+    },
+    "vnJpWeight": {
+      "intro": "Quy định hàng cồng kềnh, áp dụng với hàng hóa vượt tiêu chuẩn kích thước.",
+      "sizeTitle": "Tiêu chuẩn kích thước theo cân nặng",
+      "columns": {
+        "weight": "Cân nặng",
+        "maxSum": "Tổng 3 cạnh tối đa (Dài + Rộng + Cao)"
+      },
+      "under": "Dưới {kg} kg",
+      "casesTitle": "Các trường hợp phụ thu",
+      "cases": {
+        "oversize": "Kiện hàng vượt kích thước tiêu chuẩn theo mức cân nặng: phát sinh phụ thu hàng cồng kềnh.",
+        "longSide": "Kiện hàng có bất kỳ một cạnh nào từ {cm} cm trở lên: được xem xét tính phụ thu cồng kềnh.",
+        "contact": "Kiện hàng có tổng 3 cạnh trên {cm} cm hoặc nặng trên {kg} kg: vui lòng liên hệ để kiểm tra cước phí phát sinh."
+      },
+      "surchargeLabel": "Mức phụ thu hàng cồng kềnh",
+      "surchargeNote": "Tùy thuộc vào kích thước và đặc điểm kiện hàng.",
+      "roundingTitle": "Làm tròn trọng lượng theo mốc 0,5 kg",
+      "roundingBody": "Cân nặng thực tế được làm tròn lên mốc 0,5 kg để tính cước.",
+      "roundingExamples": [
+        "3,2 kg → tính 3,5 kg",
+        "3,6 kg → tính 4 kg"
+      ],
+      "warning": "Hàng vượt {cm} cm hoặc trên {kg} kg cần liên hệ để kiểm tra trước khi gửi."
+    },
+    "jpVnWeight": {
+      "note": "Quy ước này giúp tính cước công bằng và thống nhất, nhất là với các mặt hàng có kích thước lớn nhưng trọng lượng nhẹ."
+    },
+    "buyRate": {
+      "formula": "Giá mua hộ = Giá trị đơn hàng × Tỷ giá quy đổi",
+      "columns": {
+        "value": "Giá trị đơn hàng",
+        "rate": "Tỷ giá quy đổi",
+        "surcharge": "Phụ thu"
+      },
+      "row": {
+        "value": "Với mọi giá trị đơn hàng",
+        "rate": "VCB + 5",
+        "surcharge": "Không phụ thu"
+      }
+    },
+    "domestic": {
+      "title": "Cước vận chuyển nội địa Việt Nam",
+      "items": {
+        "payer": "Cước vận chuyển nội địa Việt Nam do khách hàng tự chi trả.",
+        "choose": "Khách hàng được tự do lựa chọn đơn vị vận chuyển theo nhu cầu.",
+        "booking": "Khách hàng có thể tự đặt đơn giao hàng hoặc nhờ nhân viên kho hỗ trợ book đơn.",
+        "cost": "Chi phí thực tế áp dụng theo biểu phí của đơn vị vận chuyển mà khách hàng lựa chọn."
+      }
+    },
+    "figure": {
+      "open": "Xem ảnh khổ lớn",
+      "vnJp": {
+        "alt": "Infographic quy định hàng cồng kềnh chiều Việt – Nhật: tổng 3 cạnh tối đa theo cân nặng (dưới 10 kg 120 cm; 10–20 kg 140–150 cm; 20–30 kg 160–180 cm), các trường hợp phụ thu, làm tròn theo mốc 0,5 kg và mức phụ thu 220.000 – 800.000đ.",
+        "caption": "Quy định hàng cồng kềnh tuyến Việt – Nhật (infographic)"
+      },
+      "jpVn": {
+        "alt": "Infographic quy ước tính trọng lượng chiều Nhật – Việt: hàng thường tính theo cân thực tế, hàng cồng kềnh tính trọng lượng thể tích (Dài × Rộng × Cao ÷ 6.000), làm tròn dưới 1 kg thành 1 kg và trên 1 kg đến một chữ số thập phân.",
+        "caption": "Quy ước tính trọng lượng tuyến Nhật – Việt (infographic)"
+      }
     }
   },
   "policy": {
@@ -1112,7 +1217,7 @@
       },
       "recipient": {
         "label": "Tên người nhận",
-        "value": "HRT - mã nhân viên - mã khách hàng (ví dụ: HRT-T09-Nguyễn Văn A)"
+        "value": "HRT - mã nhân viên - mã khách hàng hoặc tên khách hàng (ví dụ: HRT-T09-Nguyễn Văn A)"
       },
       "mapTitle": "Bản đồ kho Nhật của HARUTO EXPRESS",
       "mapOpen": "Mở trên Google Maps"
@@ -1124,6 +1229,7 @@
         "declare": "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
         "receipt": "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng.",
         "recipient": "Hàng gửi đến kho phải đủ thông tin người nhận: tên, số điện thoại, địa chỉ.",
+        "customsRisk": "Đọc kỹ hướng dẫn gửi hàng, thỏa thuận và chính sách bảo hiểm hàng hóa do nhân viên tư vấn gửi: một số nhóm hàng có thể gặp rủi ro khi thông quan Nhật Bản và không được bảo hiểm thông quan.",
         "video": "Khi nhận hàng, quay video liền mạch quá trình kiểm đếm để làm căn cứ khiếu nại. Không có video hoặc quá 24 giờ kể từ khi nhận sẽ không được giải quyết.",
         "shelfLife": "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
         "redelivery": "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
@@ -1157,7 +1263,9 @@
           "shipToJapan",
           "shipToVietnam",
           "policy",
-          "home"
+          "home",
+          "priceVnJp",
+          "priceJpVn"
         ]
       },
       {
@@ -1215,6 +1323,32 @@
         "answer": "Doanh nghiệp Việt xuất khẩu sang Nhật, nhà bán lẻ bán trên các sàn thương mại điện tử Nhật, doanh nghiệp thương mại điện tử xuyên biên giới cần kho trung chuyển và thương hiệu Việt mở rộng kinh doanh tại Nhật.",
         "pages": [
           "business"
+        ]
+      },
+      {
+        "question": "Gửi hàng cồng kềnh đi Nhật bị tính phụ thu thế nào?",
+        "answer": "Chiều Việt → Nhật, tổng 3 cạnh tối đa theo cân nặng là 120 cm (dưới 10 kg), 140 – 150 cm (10 – 20 kg) và 160 – 180 cm (20 – 30 kg). Kiện vượt tiêu chuẩn, hoặc có một cạnh từ 100 cm trở lên, sẽ được xem xét phụ thu cồng kềnh, mức 220.000 – 800.000 VNĐ tùy kích thước và đặc điểm kiện. Kiện trên 260 cm hoặc trên 50 kg cần liên hệ kiểm tra trước khi gửi.",
+        "pages": [
+          "priceVnJp",
+          "shipToJapan",
+          "policy"
+        ]
+      },
+      {
+        "question": "Phí giao hàng nội địa Việt Nam do ai trả?",
+        "answer": "Khách hàng tự chi trả cước nội địa Việt Nam và được tự chọn đơn vị vận chuyển. Bạn có thể tự đặt đơn giao hàng hoặc nhờ nhân viên kho HARUTO book đơn; chi phí theo biểu phí của đơn vị vận chuyển bạn chọn.",
+        "pages": [
+          "priceJpVn",
+          "shipToVietnam"
+        ]
+      },
+      {
+        "question": "Tỷ giá mua hộ hàng Nhật tính như thế nào?",
+        "answer": "Giá mua hộ = giá trị đơn hàng × tỷ giá quy đổi. HARUTO áp dụng tỷ giá VCB + 5 cho mọi giá trị đơn hàng, không phụ thu.",
+        "pages": [
+          "priceJpVn",
+          "concierge",
+          "auction"
         ]
       }
     ],
