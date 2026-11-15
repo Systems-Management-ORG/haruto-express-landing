@@ -7,3 +7,8 @@ export const NUMBER_LOCALE: Record<Locale, string> = { vi: "vi-VN", ja: "ja-JP",
 export function formatVnd(amount: number, locale: Locale): string {
   return new Intl.NumberFormat(NUMBER_LOCALE[locale]).format(amount);
 }
+
+// A number that is not an amount of money (the volumetric divisor 6.000 / 6,000).
+export function formatNumber(n: number, locale: Locale): string {
+  return new Intl.NumberFormat(NUMBER_LOCALE[locale]).format(n);
+}

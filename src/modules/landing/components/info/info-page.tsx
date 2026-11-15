@@ -16,7 +16,7 @@ import { useFaqGroups } from "./faq-groups";
 import { InfoSection } from "./info-section";
 import { CarrierList } from "../partners/carrier-list";
 import { Compensation, ConciergeTerms, WarehouseInfo, WarehouseTips } from "./policy-sections";
-import { BuyRate, RouteCards, WeightJpVn, WeightVnJp } from "./price-policy";
+import { BuyRate, CostBreakdown, RouteCards, WeightJpVn, WeightVnJp } from "./price-policy";
 import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 
 // The info pages (pricing hub, price policy per route, policy, Japan warehouse, FAQ, guides,
@@ -36,6 +36,8 @@ const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn" }) => ReactNode
   weightJpVn: WeightJpVn,
   buyRate: BuyRate,
   freightJpVn: () => <RatesJpVn variant="policy" />,
+  costVnJp: () => <CostBreakdown route="vnJp" />,
+  costJpVn: () => <CostBreakdown route="jpVn" />,
   conciergeTerms: ConciergeTerms,
   tipsVnJp: () => <WarehouseTips ids={TIPS.vnJp} />,
   tipsJpVn: () => <WarehouseTips ids={TIPS.jpVn} />,
@@ -62,6 +64,8 @@ export function InfoPage({ page }: { page: InfoKey }) {
     weightJpVn: t("pricePolicy.sections.weightJpVn"),
     buyRate: t("pricePolicy.sections.buyRate"),
     freightJpVn: t("pricePolicy.sections.freightJpVn"),
+    costVnJp: t("pricePolicy.sections.costVnJp"),
+    costJpVn: t("pricePolicy.sections.costJpVn"),
     conciergeTerms: t("policy.concierge.title"),
     tipsVnJp: t("policy.tips.title"),
     tipsJpVn: t("policy.tips.title"),
@@ -79,6 +83,8 @@ export function InfoPage({ page }: { page: InfoKey }) {
     // The effective date right under the rate tables' heading.
     ...(page === "priceVnJp" && { ratesVnJp: t("pricePolicy.effective") }),
     freightJpVn: t("pricePolicy.effective"),
+    costVnJp: t("pricePolicy.cost.intro"),
+    costJpVn: t("pricePolicy.cost.intro"),
   };
   const blocks: { id: string; title: string; intro?: string; body: ReactNode }[] = [];
   let raw: ReactNode = null;

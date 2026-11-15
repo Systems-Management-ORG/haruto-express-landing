@@ -1,28 +1,44 @@
 import {
+  AirplaneTilt,
   ArrowsDownUp,
+  BatteryCharging,
   CheckCircle,
   Coins,
   Cube,
+  CurrencyJpy,
+  Info,
   Lightbulb,
+  Package,
   Scales,
+  ShieldCheck,
   Warning,
 } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import type { CSSProperties } from "react";
 import type { Locale } from "@/shared/constants/locales";
 import { formatVnd } from "@/shared/lib/format";
 import { rawRecord } from "@/shared/lib/raw-messages";
 import { POLICY_FIGURES, PRICING_IMAGES } from "@/shared/seo/page-media";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
-import { type Tone, VN_JP_BULKY_CASES } from "../../info-pages";
-import { JP_VN, priceRange, VN_JP_BULKY, VN_JP_CLEAN, VN_JP_MIXED, VN_JP_SIZE_STANDARD } from "../../pricing-data";
+import { anchorOf, type Tone, VN_JP_BULKY_CASES } from "../../info-pages";
+import {
+  COMPENSATION,
+  JP_VN,
+  priceRange,
+  VN_JP_BULKY,
+  VN_JP_CLEAN,
+  VN_JP_MIXED,
+  VN_JP_SIZE_STANDARD,
+} from "../../pricing-data";
 import { VolumetricDiagram } from "../volumetric-diagram";
 
 // Bodies of the price-policy sections (the InfoPage frame adds the anchor, background and H2):
 // the weight rules of each direction (they differ: VN→JP has a size standard by weight and a
 // bulky surcharge, JP→VN charges the volumetric weight), the buy-for-you rate, the route cards of
-// the /bang-gia hub and the PDF infographics. Every number comes from pricing-data.ts.
+// the /bang-gia hub, the cost breakdown and the PDF infographics. Every number comes from
+// pricing-data.ts.
 
 const TONE_CLASS: Record<Tone, string> = {
   info: "text-forest",
@@ -289,6 +305,127 @@ export function RouteCards() {
           </div>
         </Link>
       ))}
+    </div>
+  );
+}
+
+type Route = "vnJp" | "jpVn";
+type CostId = "freight" | "parcelFee" | "goods" | "category" | "bulky" | "insurance";
+type FactorId = "goodsType" | "buyRate" | "size" | "rounding" | "packing";
+
+// What adds up to an order's total, per direction, in this order (the PDFs' own items).
+const COST_ITEMS: Record<Route, { id: CostId; Icon: typeof Package }[]> = {
+  vnJp: [
+    { id: "freight", Icon: AirplaneTilt },
+    { id: "parcelFee", Icon: Package },
+    { id: "category", Icon: BatteryCharging },
+    { id: "bulky", Icon: Cube },
+    { id: "insurance", Icon: ShieldCheck },
+  ],
+  jpVn: [
+    { id: "goods", Icon: CurrencyJpy },
+    { id: "freight", Icon: AirplaneTilt },
+    { id: "category", Icon: BatteryCharging },
+    { id: "insurance", Icon: ShieldCheck },
+  ],
+};
+
+// What changes the cost, each card linking to the section of the page that explains it; the link
+// line names that section (its H2, `heading`).
+type Factor = { id: FactorId; section: string; heading: string };
+const COST_FACTORS: Record<Route, Factor[]> = {
+  vnJp: [
+    { id: "goodsType", section: "ratesVnJp", heading: "pricePolicy.sections.goodsRates" },
+    { id: "size", section: "weightVnJp", heading: "pricePolicy.sections.weightVnJp" },
+    { id: "rounding", section: "weightVnJp", heading: "pricePolicy.sections.weightVnJp" },
+    { id: "packing", section: "surcharges", heading: "pricing.surcharge.title" },
+  ],
+  jpVn: [
+    { id: "buyRate", section: "buyRate", heading: "pricePolicy.sections.buyRate" },
+    { id: "size", section: "weightJpVn", heading: "pricePolicy.sections.weightJpVn" },
+    { id: "rounding", section: "weightJpVn", heading: "pricePolicy.sections.weightJpVn" },
+    { id: "packing", section: "surcharges", heading: "pricing.surcharge.title" },
+  ],
+};
+
+// "What does it cost in total?": the items that add up (a "+" between cards), the total, what is
+// not in it (JP→VN: domestic delivery, VAT), then the factors that change the cost.
+export function CostBreakdown({ route }: { route: Route }) {
+  const t = useTranslations("pricePolicy.cost");
+  const tAll = useTranslations();
+  const locale = useLocale() as Locale;
+  const items = COST_ITEMS[route];
+  const firstTier = VN_JP_CLEAN[0];
+  const params: Record<CostId, Record<string, string | number>> = {
+    freight: { price: formatVnd(JP_VN[0].vndPerKg ?? 0, locale) },
+    parcelFee: { kg: `${firstTier.minKg} – ${firstTier.maxKg}`, fee: formatVnd(firstTier.perParcelFee ?? 0, locale) },
+    goods: {},
+    category: {},
+    bulky: { min: formatVnd(VN_JP_BULKY.surchargeVnd[0], locale), max: formatVnd(VN_JP_BULKY.surchargeVnd[1], locale) },
+    insurance: { pct: COMPENSATION.insuranceRatePct },
+  };
+  // Freight and some factors have a text per direction (`<id>.<route>`); the others one `body`.
+  const costText = (id: CostId) => (id === "freight" ? t(`items.freight.${route}`, params.freight) : t(`items.${id}.body`, params[id]));
+  const factors = rawRecord<Record<string, string>>(t, "factors");
+
+  return (
+    <div>
+      <ol
+        data-reveal-group
+        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(var(--n),minmax(0,1fr))]"
+        style={{ "--n": items.length } as CSSProperties}
+      >
+        {items.map(({ id, Icon }, index) => (
+          <li key={id} className="info-card relative">
+            {index > 0 && (
+              <span aria-hidden className="absolute -top-4 -left-3 font-display text-3xl text-gold">
+                +
+              </span>
+            )}
+            <span className="icon-chip" aria-hidden>
+              <Icon size={22} weight="duotone" />
+            </span>
+            <h3 className="mt-4 text-lg font-medium text-forest">{t(`items.${id}.title`)}</h3>
+            <p className="mt-1.5 text-muted">{costText(id)}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div data-reveal className="stat-card stat-card--featured mt-4">
+        <h3 className="text-lg font-medium">{t("total.title")}</h3>
+        <p className="stat-card__body">{t("total.body")}</p>
+      </div>
+
+      {route === "jpVn" && (
+        <div data-reveal className="callout mt-4">
+          <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
+          <div>
+            <strong className="font-semibold text-forest">{t("outside.title")}</strong>
+            <ul className="mt-1 grid gap-1">
+              <li>{t("outside.items.domestic")}</li>
+              <li>{t("outside.items.vat")}</li>
+            </ul>
+          </div>
+        </div>
+      )}
+
+      <h3 className="mt-10 text-lg font-medium text-forest">{t("factors.title")}</h3>
+      <ul data-reveal-group className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
+        {COST_FACTORS[route].map(({ id, section, heading }) => {
+          const factor = factors[id];
+          return (
+            <li key={id}>
+              <Link href={`#${anchorOf(section)}`} className="info-card group flex h-full flex-col">
+                <span className="font-medium text-forest">{factor.title}</span>
+                <span className="mt-1.5 flex-1 text-sm text-muted">{factor[route] ?? factor.body}</span>
+                <span className="link-arrow mt-3 self-start text-sm text-forest">
+                  {tAll(heading as Parameters<typeof tAll>[0])}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

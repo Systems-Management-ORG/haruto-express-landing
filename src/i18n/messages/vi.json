@@ -1054,7 +1054,9 @@
       "weightVnJp": "Cách tính khối lượng chiều Việt → Nhật",
       "weightJpVn": "Cách tính khối lượng chiều Nhật → Việt",
       "buyRate": "Tỷ giá mua hộ",
-      "freightJpVn": "Cước vận chuyển Nhật → Việt"
+      "freightJpVn": "Cước vận chuyển Nhật → Việt",
+      "costVnJp": "Tổng chi phí gửi hàng đi Nhật gồm những gì?",
+      "costJpVn": "Tổng chi phí ship hàng Nhật về gồm những gì?"
     },
     "routes": {
       "vnJp": {
@@ -1138,6 +1140,72 @@
       "jpVn": {
         "alt": "Infographic quy ước tính trọng lượng chiều Nhật – Việt: hàng thường tính theo cân thực tế, hàng cồng kềnh tính trọng lượng thể tích (Dài × Rộng × Cao ÷ 6.000), làm tròn dưới 1 kg thành 1 kg và trên 1 kg đến một chữ số thập phân.",
         "caption": "Quy ước tính trọng lượng tuyến Nhật – Việt (infographic)"
+      }
+    },
+    "cost": {
+      "intro": "Các khoản cộng lại thành tổng chi phí một đơn hàng. Khoản nào chỉ áp dụng khi có thì được ghi rõ.",
+      "items": {
+        "freight": {
+          "title": "Cước vận chuyển",
+          "vnJp": "Đơn giá theo mốc cân × số kg tính cước. Đã gồm thuế và ship nội địa Nhật.",
+          "jpVn": "{price} VNĐ/kg × số kg tính cước, cho mọi cân nặng."
+        },
+        "parcelFee": {
+          "title": "Phụ thu kiện",
+          "body": "Hàng sạch từ {kg} kg: {fee} VNĐ/kiện."
+        },
+        "goods": {
+          "title": "Tiền hàng (khi mua hộ)",
+          "body": "Giá trị đơn hàng × tỷ giá VCB + 5, không phụ thu."
+        },
+        "category": {
+          "title": "Phụ thu danh mục và đóng gói",
+          "body": "Đồ điện tử, đồ có pin, nước hoa, đồ có cồn; đóng gỗ, đóng lại kiện, đóng hàng đặc biệt… nếu có."
+        },
+        "bulky": {
+          "title": "Phụ thu cồng kềnh",
+          "body": "{min} – {max} VNĐ nếu kiện vượt tiêu chuẩn kích thước."
+        },
+        "insurance": {
+          "title": "Bảo hiểm hàng hóa (tùy chọn)",
+          "body": "{pct}% giá trị khai báo; đền bù 100% giá trị hàng khai báo nếu thất lạc."
+        }
+      },
+      "total": {
+        "title": "= Tổng chi phí",
+        "body": "Tổng thực tế tùy cân nặng tính cước và các phụ thu áp dụng cho kiện hàng."
+      },
+      "outside": {
+        "title": "Không nằm trong tổng",
+        "items": {
+          "domestic": "Cước giao nội địa Việt Nam: khách trả theo biểu phí của đơn vị vận chuyển mình chọn.",
+          "vat": "Giá dịch vụ chưa bao gồm VAT."
+        }
+      },
+      "factors": {
+        "title": "Yếu tố làm thay đổi chi phí",
+        "goodsType": {
+          "title": "Loại hàng",
+          "body": "Hàng sạch và hàng hỗn hợp có bảng giá riêng."
+        },
+        "buyRate": {
+          "title": "Tỷ giá mua hộ",
+          "body": "VCB + 5 cho mọi giá trị đơn hàng."
+        },
+        "size": {
+          "title": "Kích thước kiện",
+          "vnJp": "Vượt tiêu chuẩn tổng 3 cạnh theo cân nặng thì phát sinh phụ thu cồng kềnh.",
+          "jpVn": "Hàng cồng kềnh tính theo trọng lượng thể tích nếu lớn hơn cân thực tế."
+        },
+        "rounding": {
+          "title": "Làm tròn cân",
+          "vnJp": "Làm tròn lên mốc 0,5 kg.",
+          "jpVn": "Dưới 1 kg tính 1 kg; trên 1 kg làm tròn đến 0,1 kg."
+        },
+        "packing": {
+          "title": "Danh mục và đóng gói",
+          "body": "Đồ điện tử, nước hoa, đóng gỗ, đóng lại kiện… tính phụ thu riêng."
+        }
       }
     }
   },

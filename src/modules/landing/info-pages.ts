@@ -37,6 +37,8 @@ export type InfoSectionId =
   | "weightJpVn"
   | "buyRate"
   | "freightJpVn"
+  | "costVnJp"
+  | "costJpVn"
   | "conciergeTerms"
   | "tipsVnJp"
   | "tipsJpVn"
@@ -75,7 +77,7 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
     route: "vnJp",
-    sections: ["ratesVnJp", "calculator", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
+    sections: ["ratesVnJp", "costVnJp", "calculator", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },
@@ -83,7 +85,7 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
     route: "jpVn",
-    sections: ["buyRate", "freightJpVn", "calculator", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
+    sections: ["buyRate", "freightJpVn", "costJpVn", "calculator", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },

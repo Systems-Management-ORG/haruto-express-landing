@@ -1054,7 +1054,9 @@
       "weightVnJp": "How weight is charged: Vietnam → Japan",
       "weightJpVn": "How weight is charged: Japan → Vietnam",
       "buyRate": "Buy-for-you exchange rate",
-      "freightJpVn": "Japan → Vietnam freight"
+      "freightJpVn": "Japan → Vietnam freight",
+      "costVnJp": "What does shipping to Japan cost in total?",
+      "costJpVn": "What does shipping from Japan cost in total?"
     },
     "routes": {
       "vnJp": {
@@ -1138,6 +1140,72 @@
       "jpVn": {
         "alt": "Infographic of how weight is charged from Japan to Vietnam",
         "caption": "Japan → Vietnam weight rules (infographic)"
+      }
+    },
+    "cost": {
+      "intro": "The items that add up to an order's total. Items that only apply in some cases say so.",
+      "items": {
+        "freight": {
+          "title": "Freight",
+          "vnJp": "Weight-band rate × chargeable weight. Tax and Japan domestic delivery included.",
+          "jpVn": "{price} VND/kg × chargeable weight, for any weight."
+        },
+        "parcelFee": {
+          "title": "Per-parcel fee",
+          "body": "Clean goods of {kg} kg: {fee} VND per parcel."
+        },
+        "goods": {
+          "title": "Goods (when we buy for you)",
+          "body": "Order value × VCB + 5 rate, no surcharge."
+        },
+        "category": {
+          "title": "Category and packing surcharges",
+          "body": "Electronics, battery items, perfume, alcohol; wooden crating, repacking, special packing… where they apply."
+        },
+        "bulky": {
+          "title": "Bulky-goods surcharge",
+          "body": "{min} – {max} VND when a parcel is over the size standard."
+        },
+        "insurance": {
+          "title": "Cargo insurance (optional)",
+          "body": "{pct}% of the declared value; 100% of the declared value refunded if lost."
+        }
+      },
+      "total": {
+        "title": "= Total cost",
+        "body": "The actual total depends on the chargeable weight and the surcharges that apply to the parcel."
+      },
+      "outside": {
+        "title": "Not in the total",
+        "items": {
+          "domestic": "Delivery within Vietnam: paid by you at the rates of the delivery company you choose.",
+          "vat": "Service prices exclude VAT."
+        }
+      },
+      "factors": {
+        "title": "What changes the cost",
+        "goodsType": {
+          "title": "Goods type",
+          "body": "Clean and mixed goods have separate rate tables."
+        },
+        "buyRate": {
+          "title": "Buy-for-you rate",
+          "body": "VCB + 5 for every order value."
+        },
+        "size": {
+          "title": "Parcel size",
+          "vnJp": "Over the size standard for its weight adds a bulky-goods surcharge.",
+          "jpVn": "Bulky goods are charged on volumetric weight when it is higher than the actual weight."
+        },
+        "rounding": {
+          "title": "Weight rounding",
+          "vnJp": "Rounded up to the next 0.5 kg.",
+          "jpVn": "Under 1 kg counts as 1 kg; above, rounded to 0.1 kg."
+        },
+        "packing": {
+          "title": "Category and packing",
+          "body": "Electronics, perfume, wooden crating, repacking… are charged separately."
+        }
       }
     }
   },
