@@ -1,11 +1,20 @@
-// Checks that the numeric rate tiers in src/modules/landing/pricing-data.ts match the rate
-// tables shown on the site (the `pricing.*` strings in every locale's messages), so structured
-// data never states a price the page does not show.
+// Checks that the numbers in src/modules/landing/pricing-data.ts match the copy shown on the site
+// (every locale's messages): the rate tables, the prose that quotes a rate, the surcharge, bulky-
+// goods and compensation amounts. Structured data and components read pricing-data.ts, so the
+// page never states a price the data does not, and vice versa.
 //
 // Usage: node scripts/check-pricing-data.mjs   (Node ≥ 22.18 strips the TypeScript types)
 
 import { readFileSync } from "node:fs";
-import { JP_VN, VN_JP_CLEAN, VN_JP_MIXED, lowestRate } from "../src/modules/landing/pricing-data.ts";
+import {
+  COMPENSATION,
+  JP_VN,
+  SURCHARGES,
+  VN_JP_BULKY,
+  VN_JP_CLEAN,
+  VN_JP_MIXED,
+  lowestRate,
+} from "../src/modules/landing/pricing-data.ts";
 
 const LOCALES = ["vi", "ja", "en"];
 const errors = [];
@@ -15,6 +24,9 @@ const amount = (text) => {
   const digits = String(text ?? "").replace(/[^\d]/g, "");
   return digits ? Number(digits) : null;
 };
+
+// 3563 → /3[.,]563/; 3000000 → /3[.,]000[.,]000/ (either thousands separator).
+const amountPattern = (n) => new RegExp(`(?<!\\d)${n.toLocaleString("en-US").replace(/,/g, "[.,]")}(?!\\d)`);
 
 // "1 – 5 kg" → [1, 5]; "1 kg" → [1, 1]; "Trên 500 kg" (unpriced, open-ended) → [500, null].
 function weightRange(text, priced) {
@@ -43,7 +55,8 @@ function compare(locale, label, rows, tiers) {
 }
 
 for (const locale of LOCALES) {
-  const messages = JSON.parse(readFileSync(new URL(`../src/i18n/messages/${locale}.json`, import.meta.url), "utf8"));
+  const raw = readFileSync(new URL(`../src/i18n/messages/${locale}.json`, import.meta.url), "utf8");
+  const messages = JSON.parse(raw);
   const pricing = messages.pricing;
   compare(locale, "vnJp.clean", pricing.vnJp.clean.rows, VN_JP_CLEAN);
   compare(locale, "vnJp.mixed", pricing.vnJp.mixed.rows, VN_JP_MIXED);
@@ -67,6 +80,8 @@ for (const locale of LOCALES) {
     "pages.shipToVietnam.metaDescription": messages.pages.shipToVietnam.metaDescription,
     "pages.pricing.intro": messages.pages.pricing.intro,
     "pages.pricing.metaDescription": messages.pages.pricing.metaDescription,
+    "pages.priceJpVn.intro": messages.pages.priceJpVn.intro,
+    "pages.priceJpVn.metaDescription": messages.pages.priceJpVn.metaDescription,
   };
   messages.faq.items.forEach((item, index) => {
     if (item.pages?.includes("pricing")) prose[`faq.items[${index}].answer`] = item.answer;
@@ -78,6 +93,43 @@ for (const locale of LOCALES) {
       if (amount(match) !== JP_VN[0].vndPerKg) errors.push(`${locale} ${key}: ${match} ≠ ${JP_VN[0].vndPerKg}`);
     }
   }
+
+  // Surcharges: the amounts render from SURCHARGES, so the rows carry no `fee` (except "other",
+  // on request), and the rows are exactly SURCHARGES' ids. The foam row's yen prices stay in its
+  // text and must match.
+  const surcharges = pricing.surcharge.items;
+  const shown = Object.keys(surcharges).sort().join(",");
+  const data = Object.keys(SURCHARGES).sort().join(",");
+  if (shown !== data) errors.push(`${locale} pricing.surcharge.items ids [${shown}] ≠ SURCHARGES [${data}]`);
+  for (const [id, row] of Object.entries(surcharges)) {
+    if (id !== "other" && "fee" in row) errors.push(`${locale} pricing.surcharge.items.${id}.fee: amount belongs in SURCHARGES`);
+  }
+  for (const yen of Object.values(SURCHARGES.foam.yenPerBox)) {
+    if (!amountPattern(yen).test(surcharges.foam?.item ?? ""))
+      errors.push(`${locale} pricing.surcharge.items.foam.item: missing ¥${yen} ("${surcharges.foam?.item}")`);
+  }
+
+  // Compensation: the insurance rate and the uninsured cap.
+  const compensation = messages.policy.compensation;
+  if (!String(compensation.insured.body).includes(`${COMPENSATION.insuranceRatePct}%`))
+    errors.push(`${locale} policy.compensation.insured.body: missing ${COMPENSATION.insuranceRatePct}%`);
+  for (const key of ["body", "statLabel"]) {
+    if (!amountPattern(COMPENSATION.uninsuredCapVnd).test(compensation.uninsured[key]))
+      errors.push(`${locale} policy.compensation.uninsured.${key}: missing ${COMPENSATION.uninsuredCapVnd}`);
+  }
+
+  // FAQ answers on the VN→JP price-policy page that describe the bulky rule (they quote the
+  // any-side limit) must quote the surcharge range from VN_JP_BULKY.
+  messages.faq.items.forEach((item, index) => {
+    if (!item.pages?.includes("priceVnJp")) return;
+    if (!new RegExp(`(?<!\\d)${VN_JP_BULKY.anySideCm}\\s?cm`).test(item.answer)) return;
+    for (const vnd of VN_JP_BULKY.surchargeVnd) {
+      if (!amountPattern(vnd).test(item.answer)) errors.push(`${locale} faq.items[${index}].answer: missing ${vnd}`);
+    }
+  });
+
+  // The old carton fee (25.500) must not come back anywhere.
+  if (/25[.,]500/.test(raw)) errors.push(`${locale}: the old carton fee 25.500 is back`);
 }
 
 if (errors.length) {
