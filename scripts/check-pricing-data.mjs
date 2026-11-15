@@ -17,6 +17,12 @@ import {
 } from "../src/modules/landing/pricing-data.ts";
 
 const LOCALES = ["vi", "ja", "en"];
+// The FAQ question on how rates are calculated, per locale (found by its text, not its index).
+const RATE_QUESTION = {
+  vi: "Giá cước được tính như thế nào?",
+  ja: "運賃はどのように計算されますか？",
+  en: "How are shipping rates calculated?",
+};
 const errors = [];
 
 // "130.000 VNĐ/kg", "130,000 VND/kg" → 130000; "Thương lượng" / "応相談" → null.
@@ -127,6 +133,20 @@ for (const locale of LOCALES) {
       if (!amountPattern(vnd).test(item.answer)) errors.push(`${locale} faq.items[${index}].answer: missing ${vnd}`);
     }
   });
+
+  // The FAQ answer on how rates are calculated tells the two directions apart: the JP→VN flat rate
+  // and the VN→JP 0.5 kg rounding (it shows on the VN→JP page, where there is no volumetric weight).
+  const rateQuestion = messages.faq.items.find((item) => item.question === RATE_QUESTION[locale]);
+  if (!rateQuestion) errors.push(`${locale} faq: no "${RATE_QUESTION[locale]}"`);
+  else {
+    if (!/155[.,]000/.test(rateQuestion.answer)) errors.push(`${locale} faq "${RATE_QUESTION[locale]}": missing 155.000`);
+    if (!new RegExp(`0[.,]${String(VN_JP_BULKY.roundingStepKg).split(".")[1]}\\s?kg`).test(rateQuestion.answer))
+      errors.push(`${locale} faq "${RATE_QUESTION[locale]}": missing the VN→JP ${VN_JP_BULKY.roundingStepKg} kg rounding`);
+  }
+
+  // The /bang-gia hub no longer carries the weight rules, so its meta must not promise them.
+  if (/cách tính cân|容積重量|weight rules/i.test(messages.pages.pricing.metaDescription))
+    errors.push(`${locale} pages.pricing.metaDescription mentions weight rules the hub no longer has`);
 
   // The old carton fee (25.500) must not come back anywhere.
   if (/25[.,]500/.test(raw)) errors.push(`${locale}: the old carton fee 25.500 is back`);
