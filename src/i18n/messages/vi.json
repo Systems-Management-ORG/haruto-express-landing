@@ -1042,7 +1042,8 @@
       "rulesLink": "Cách tính cân",
       "perKg": "{price} VNĐ/kg",
       "vnd": "{price} VNĐ",
-      "kg": "{kg} kg"
+      "kg": "{kg} kg",
+      "routeFixed": "Tuyến: {route}"
     }
   },
   "pricePolicy": {

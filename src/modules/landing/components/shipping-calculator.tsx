@@ -64,15 +64,26 @@ function Choice<T extends string>({
 
 // Freight estimate from the published rates (shipping-quote.ts). The result updates as the reader
 // types and is announced politely; prices beyond the published tiers send the reader to contact.
-// `withTitle={false}` where the section around it already has the heading (the /bang-gia hub).
-export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }) {
+// `withTitle={false}` where the section around it already has the heading (the /bang-gia hub and
+// the price-policy pages). `route` sets the starting direction; `lockRoute` (the price-policy page
+// of that direction) drops the route choice and names the route instead. The goods-type choice is
+// VN→JP only, so a locked JP→VN calculator has neither.
+export function ShippingCalculator({
+  withTitle = true,
+  route: initialRoute = "vnJp",
+  lockRoute = false,
+}: {
+  withTitle?: boolean;
+  route?: Route;
+  lockRoute?: boolean;
+}) {
   const t = useTranslations("pricing.calculator");
   const tTeaser = useTranslations("pricing.teaser");
   const tVnJp = useTranslations("pricing.vnJp");
   const locale = useLocale() as Locale;
   const id = useId();
 
-  const [route, setRoute] = useState<Route>("vnJp");
+  const [route, setRoute] = useState<Route>(initialRoute);
   const [goods, setGoods] = useState<GoodsKind>("clean");
   const [weight, setWeight] = useState("");
   const [dims, setDims] = useState<Record<(typeof DIMS)[number], string>>({ length: "", width: "", height: "" });
@@ -108,13 +119,17 @@ export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }
           <p className="text-muted">{t("intro")}</p>
         )}
 
-        <Choice
-          legend={t("routeLegend")}
-          name={`${id}-route`}
-          options={ROUTES.map((value) => ({ value, label: tTeaser(`${value}.label`) }))}
-          value={route}
-          onChange={setRoute}
-        />
+        {lockRoute ? (
+          <p className="text-sm font-medium text-forest">{t("routeFixed", { route: tTeaser(`${route}.label`) })}</p>
+        ) : (
+          <Choice
+            legend={t("routeLegend")}
+            name={`${id}-route`}
+            options={ROUTES.map((value) => ({ value, label: tTeaser(`${value}.label`) }))}
+            value={route}
+            onChange={setRoute}
+          />
+        )}
 
         {route === "vnJp" && (
           <Choice
@@ -207,7 +222,7 @@ export function ShippingCalculator({ withTitle = true }: { withTitle?: boolean }
         )}
 
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <a href="#contact" data-track="cta_calculator_quote" className="btn btn-primary">
+          <a href="#contact" data-track="cta_calculator_quote" data-route={route} className="btn btn-primary">
             {t("quoteCta")}
           </a>
           <Link href={`${pagePath(locale, "policy")}#${RULES_ANCHOR[route]}`} className="link-arrow text-forest">

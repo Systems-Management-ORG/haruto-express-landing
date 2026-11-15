@@ -57,6 +57,8 @@ export type InfoPageConfig = {
   sections: InfoSectionId[]; // render order; backgrounds alternate ivory / sage by position
   faq: boolean; // the questions tagged for this page (the FAQ page uses faqGroups)
   cta?: { primary: CtaAction; secondary?: CtaAction }; // none → no closing CTA band
+  // The price-policy pages: the route switch under the hero, and the calculator locked to it.
+  route?: "vnJp" | "jpVn";
 };
 
 export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
@@ -72,14 +74,16 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
   priceVnJp: {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
-    sections: ["ratesVnJp", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
+    route: "vnJp",
+    sections: ["ratesVnJp", "calculator", "surcharges", "weightVnJp", "compensation", "tipsVnJp"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },
   priceJpVn: {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
-    sections: ["buyRate", "freightJpVn", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
+    route: "jpVn",
+    sections: ["buyRate", "freightJpVn", "calculator", "surcharges", "weightJpVn", "compensation", "conciergeTerms", "warehouse", "tipsJpVn"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },

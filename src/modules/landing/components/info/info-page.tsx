@@ -5,6 +5,7 @@ import { RelatedLinks } from "@/shared/components/related-links";
 import { ContactCta } from "@/shared/ui/contact-cta";
 import { CtaBand } from "@/shared/ui/cta-band";
 import { InfoHero } from "@/shared/ui/info-hero";
+import { RouteSwitch } from "@/shared/ui/route-switch";
 import { TocChips } from "@/shared/ui/toc-chips";
 import { INFO_PAGES, type InfoKey, type InfoSectionId, TIPS, anchorOf } from "../../info-pages";
 import { Contact, ContactGuide } from "../contact";
@@ -24,9 +25,10 @@ import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 // Section backgrounds alternate ivory / sage by position.
 
 type FramedId = Exclude<InfoSectionId, "faqGroups" | "contact">;
-const BODIES: Record<FramedId, () => ReactNode> = {
+// `route`: the price-policy page's direction (INFO_PAGES[page].route), for the bodies that need it.
+const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn" }) => ReactNode> = {
   routes: RouteCards,
-  calculator: () => <ShippingCalculator withTitle={false} />,
+  calculator: ({ route }) => <ShippingCalculator withTitle={false} route={route} lockRoute={!!route} />,
   ratesVnJp: RatesVnJp,
   ratesJpVn: () => <RatesJpVn />,
   surcharges: Surcharges,
@@ -74,6 +76,9 @@ export function InfoPage({ page }: { page: InfoKey }) {
   const intros: Partial<Record<FramedId, string>> = {
     carriers: t("partners.carriers.intro"),
     weightVnJp: t("pricePolicy.vnJpWeight.intro"),
+    // The effective date right under the rate tables' heading.
+    ...(page === "priceVnJp" && { ratesVnJp: t("pricePolicy.effective") }),
+    freightJpVn: t("pricePolicy.effective"),
   };
   const blocks: { id: string; title: string; intro?: string; body: ReactNode }[] = [];
   let raw: ReactNode = null;
@@ -99,7 +104,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
       }
     } else {
       const Body = BODIES[id];
-      blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body /> });
+      blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body route={config.route} /> });
     }
   }
 
@@ -130,7 +135,18 @@ export function InfoPage({ page }: { page: InfoKey }) {
             </>
           )
         }
-        after={toc.length > 0 ? <TocChips items={toc} /> : undefined}
+        after={
+          config.route || toc.length > 0 ? (
+            <>
+              {config.route && (
+                <div className={toc.length > 0 ? "wrap" : "wrap pb-8 lg:pb-10"}>
+                  <RouteSwitch current={config.route} />
+                </div>
+              )}
+              {toc.length > 0 && <TocChips items={toc} />}
+            </>
+          ) : undefined
+        }
       />
 
       {blocks.map(({ id, title, intro, body }, index) => (
