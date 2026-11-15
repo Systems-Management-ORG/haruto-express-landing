@@ -12,6 +12,8 @@ export type PageKey =
   | "shipToJapan"
   | "shipToVietnam"
   | "pricing"
+  | "priceVnJp"
+  | "priceJpVn"
   | "goods"
   | "policy"
   | "concierge"
@@ -41,15 +43,18 @@ export type PageDef = {
 const s = (vi: string, en: string): Record<Locale, string> => ({ vi, en, ja: en });
 
 export const PAGES: Record<PageKey, PageDef> = {
-  home: { key: "home", slugs: s("", ""), indexable: true, updatedAt: "2026-11-13", priority: 1, changeFrequency: "weekly", related: ["pricing", "shipToJapan", "shipToVietnam"] },
-  shipToJapan: { key: "shipToJapan", slugs: s("gui-hang-di-nhat", "ship-to-japan"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["pricing", "policy", "goods", "japanWarehouse"] },
-  shipToVietnam: { key: "shipToVietnam", slugs: s("ship-hang-nhat-ve-viet-nam", "ship-to-vietnam"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["pricing", "policy", "concierge", "japanWarehouse"] },
-  pricing: { key: "pricing", slugs: s("bang-gia", "pricing"), indexable: true, updatedAt: "2026-11-13", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["goods", "policy", "shipToJapan"] },
+  home: { key: "home", slugs: s("", ""), indexable: true, updatedAt: "2026-11-15", priority: 1, changeFrequency: "weekly", related: ["pricing", "shipToJapan", "shipToVietnam"] },
+  shipToJapan: { key: "shipToJapan", slugs: s("gui-hang-di-nhat", "ship-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceVnJp", "policy", "goods", "japanWarehouse"] },
+  shipToVietnam: { key: "shipToVietnam", slugs: s("ship-hang-nhat-ve-viet-nam", "ship-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceJpVn", "concierge", "japanWarehouse", "policy"] },
+  pricing: { key: "pricing", slugs: s("bang-gia", "pricing"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceVnJp", "priceJpVn", "goods", "policy"] },
+  // Rate policy per route (PDFs effective 2026-10-01), under the /bang-gia hub.
+  priceVnJp: { key: "priceVnJp", slugs: s("chinh-sach-gia-viet-nhat", "pricing-vietnam-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "pricing", related: ["shipToJapan", "goods", "policy", "priceJpVn"] },
+  priceJpVn: { key: "priceJpVn", slugs: s("chinh-sach-gia-nhat-viet", "pricing-japan-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "pricing", related: ["shipToVietnam", "concierge", "japanWarehouse", "priceVnJp"] },
   goods: { key: "goods", slugs: s("hang-nhan-va-hang-cam", "accepted-and-prohibited-items"), indexable: true, updatedAt: "2026-11-13", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "shipToJapan"] },
-  policy: { key: "policy", slugs: s("chinh-sach-van-chuyen", "shipping-policy"), indexable: true, updatedAt: "2026-11-13", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods", "japanWarehouse"] },
+  policy: { key: "policy", slugs: s("chinh-sach-van-chuyen", "shipping-policy"), indexable: true, updatedAt: "2026-11-15", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["pricing", "goods", "japanWarehouse"] },
   concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, updatedAt: "2026-11-13", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "shipToVietnam", "japanWarehouse"] },
   auction: { key: "auction", slugs: s("dau-gia-ho-hang-nhat", "japan-auction-service"), indexable: true, updatedAt: "2026-11-13", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["concierge", "shipToVietnam", "japanWarehouse"] },
-  japanWarehouse: { key: "japanWarehouse", slugs: s("dia-chi-kho-nhat", "japan-warehouse"), indexable: true, updatedAt: "2026-11-13", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "policy", "pricing"] },
+  japanWarehouse: { key: "japanWarehouse", slugs: s("dia-chi-kho-nhat", "japan-warehouse"), indexable: true, updatedAt: "2026-11-15", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "policy", "pricing"] },
   faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, updatedAt: "2026-11-13", priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["pricing", "policy", "contact"] },
   // Fulfillment (FFM) in Japan for businesses. Key and slug kept from the former "business" page.
   business: { key: "business", slugs: s("doanh-nghiep", "business"), indexable: true, updatedAt: "2026-11-13", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["japanWarehouse", "shipToVietnam", "shipToJapan"] },

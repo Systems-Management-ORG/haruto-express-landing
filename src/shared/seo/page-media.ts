@@ -23,6 +23,8 @@ export const PAGE_IMAGES: Record<Exclude<PageKey, "home">, PageImage> = {
     og: "/images/haruto/ship-ve-vn/duong-bay-nhat-viet.webp",
   },
   pricing: { src: `${HERO}/may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao.webp`, position: "80% 50%" },
+  priceVnJp: { src: `${HERO}/may-bay-tuyen-viet-nam-nhat-ban.webp`, position: "72% 50%" },
+  priceJpVn: { src: `${HERO}/thung-hang-va-hang-nhat-nui-phu-si.webp`, position: "78% 50%" },
   concierge: { src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", position: "50% 45%" },
   auction: { src: "/images/haruto/dau-gia/dau-gia-hang-nhat-banner.webp", position: "60% 50%" },
   japanWarehouse: { src: `${KHO}/mat-tien-kho-haruto-express.jpg` },
@@ -41,6 +43,12 @@ export const DEFAULT_OG_IMAGE = "/og/haruto-og.png";
 export function ogImagePath(key: PageKey): string {
   return key === "home" ? DEFAULT_OG_IMAGE : `/og/${key}.jpg`;
 }
+
+// Infographics from the price-policy PDFs: Vietnamese text baked in, so shown in `vi` only.
+export const POLICY_FIGURES = {
+  vnJp: { src: "/images/haruto/chinh-sach-gia/quy-dinh-hang-cong-kenh-viet-nhat.webp", width: 1536, height: 1024 },
+  jpVn: { src: "/images/haruto/chinh-sach-gia/quy-uoc-tinh-trong-luong-nhat-viet.webp", width: 1536, height: 1024 },
+} as const;
 
 // Section photos inside the pricing blocks.
 export const PRICING_IMAGES = {

@@ -121,7 +121,7 @@ export const TIP_ICONS: Record<string, typeof Package> = {
 // Question groups of the FAQ page. A question belongs to the group of its first tag (ignoring
 // "home"); one that matches no group goes to "shipping". Empty groups are not rendered.
 export const FAQ_GROUPS: { id: "shipping" | "buying" | "warehouse" | "business"; tags: PageKey[] }[] = [
-  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "pricing", "policy", "goods"] },
+  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "pricing", "priceVnJp", "priceJpVn", "policy", "goods"] },
   { id: "buying", tags: ["concierge", "auction"] },
   { id: "warehouse", tags: ["japanWarehouse"] },
   { id: "business", tags: ["business"] },
