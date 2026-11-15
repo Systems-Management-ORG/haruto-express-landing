@@ -6,10 +6,10 @@ import { PRICING_IMAGES } from "@/shared/seo/page-media";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
 import { ShippingCalculator } from "./shipping-calculator";
 
-// Each direction links to its own route page, which carries the full pricing + policy.
+// Each direction links to its own price-policy page (full rate tables, surcharges, weight rules).
 const CARDS: { key: "vnJp" | "jpVn"; page: PageKey }[] = [
-  { key: "vnJp", page: "shipToJapan" },
-  { key: "jpVn", page: "shipToVietnam" },
+  { key: "vnJp", page: "priceVnJp" },
+  { key: "jpVn", page: "priceJpVn" },
 ];
 
 // Rate overview of the home hub, beside the freight calculator; the detailed tables live per route.

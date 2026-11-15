@@ -1,14 +1,16 @@
 import { Info } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { NUMBER_LOCALE } from "@/shared/lib/format";
 import { JP_VN, priceRange, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
-import { ContactCta } from "@/shared/ui/contact-cta";
+import { pagePath } from "@/shared/seo/pages";
 import { SectionHead } from "@/shared/ui/section-head";
 
-// A short rate summary for a route page; the full tables, surcharges and weight rules live on
-// /bang-gia. Amounts come from pricing-data.ts (never from price strings), as a min – max range
-// per goods type rather than a "from" anchor price.
+// A short rate summary for a route page; the full tables, surcharges and weight rules live on the
+// price-policy page of that direction (priceVnJp / priceJpVn), which the closing button opens.
+// Amounts come from pricing-data.ts (never from price strings), as a min – max range per goods
+// type rather than a "from" anchor price.
 
 type Row = { weight: string; price: string; note?: string };
 
@@ -70,7 +72,13 @@ export function PriceSummary({ direction }: { direction: "vnJp" | "jpVn" }) {
 
         <div data-reveal className="mt-8 flex flex-col items-center gap-4 text-center">
           {direction === "vnJp" && <p className="text-sm text-muted">{t("teaser.note")}</p>}
-          <ContactCta action="pricing" variant="outline" />
+          <Link
+            href={pagePath(locale, direction === "vnJp" ? "priceVnJp" : "priceJpVn")}
+            data-track={`cta_price_policy_${direction}`}
+            className="btn btn-outline bg-white/70"
+          >
+            {tPrice("detail")}
+          </Link>
         </div>
       </div>
     </section>
