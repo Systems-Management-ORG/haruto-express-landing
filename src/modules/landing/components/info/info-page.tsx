@@ -8,7 +8,8 @@ import { InfoHero } from "@/shared/ui/info-hero";
 import { RouteSwitch } from "@/shared/ui/route-switch";
 import { TocChips } from "@/shared/ui/toc-chips";
 import { INFO_PAGES, type InfoKey, type InfoSectionId, TIPS, anchorOf } from "../../info-pages";
-import { Contact, ContactGuide } from "../contact";
+import { Contact, ContactQuickActions } from "../contact";
+import { ContactLocations } from "../contact-locations";
 import { Faq, FaqList } from "../faq";
 import { GuideGrid } from "../guides";
 import { ShippingCalculator } from "../shipping-calculator";
@@ -92,8 +93,8 @@ export function InfoPage({ page }: { page: InfoKey }) {
     if (id === "contact") {
       raw = (
         <>
-          <Contact withMap />
-          <ContactGuide />
+          <Contact variant="page" />
+          <ContactLocations />
         </>
       );
     } else if (id === "faqGroups") {
@@ -125,6 +126,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
     <>
       <InfoHero
         page={page}
+        compact={page === "contact"}
         note={
           config.heroNote && (
             <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-muted">
@@ -134,11 +136,15 @@ export function InfoPage({ page }: { page: InfoKey }) {
           )
         }
         actions={
-          config.heroActions && (
+          page === "contact" ? (
+            <ContactQuickActions />
+          ) : (
+            config.heroActions && (
             <>
               <ContactCta action={config.heroActions.primary} variant="primary" />
               {config.heroActions.secondary && <ContactCta action={config.heroActions.secondary} variant="outline" />}
             </>
+            )
           )
         }
         after={
@@ -162,7 +168,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
       ))}
       {raw}
 
-      {config.faq && <Faq page={page} className={lastIvory ? "border-t border-line" : undefined} />}
+      {config.faq && <Faq page={page} className={lastIvory || page === "contact" ? "border-t border-line" : undefined} />}
       {config.cta && (
         <CtaBand
           title={t("service.ctaDefault.title")}

@@ -32,7 +32,8 @@ export const PAGE_IMAGES: Record<Exclude<PageKey, "home">, PageImage> = {
   policy: { src: `${KHO}/kho-haruto-kien-hang-tren-pallet.jpg` },
   business: { src: `${KHO}/ben-trong-kho-haruto-express.jpg`, og: "/images/haruto/ffm/kho-ffm-nhat-ban.webp" },
   faq: { src: `${KHO}/khu-lam-viec-va-kien-hang-kho-haruto.jpg` },
-  contact: { src: `${KHO}/kho-haruto-kien-hang-cho-xu-ly.jpg` },
+  // The shopfront (a real place to visit) rather than parcels; the share image keeps its art.
+  contact: { src: `${KHO}/mat-tien-kho-haruto-express.jpg`, position: "62% 55%", og: `${KHO}/kho-haruto-kien-hang-cho-xu-ly.jpg` },
   guides: { src: `${KHO}/kho-haruto-kien-hang-boc-mang.webp` },
 };
 

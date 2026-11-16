@@ -21,13 +21,15 @@ type Props = {
   actions?: ReactNode;
   footer?: ReactNode;
   after?: ReactNode;
+  // A shorter banner (not a full screen) for pages whose content is the point (contact).
+  compact?: boolean;
 };
 
-export function HeroShell({ page, eyebrow, title, lead, children, afterLead, note, actions, footer, after }: Props) {
+export function HeroShell({ page, eyebrow, title, lead, children, afterLead, note, actions, footer, after, compact }: Props) {
   const image = PAGE_IMAGES[page];
 
   return (
-    <section className="page-hero">
+    <section className={compact ? "page-hero page-hero--compact" : "page-hero"}>
       <div className="page-hero__stage">
         <div className="page-hero__media">
           <Image

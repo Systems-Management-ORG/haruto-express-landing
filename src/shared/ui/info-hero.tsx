@@ -11,8 +11,10 @@ export function InfoHero({
   note,
   actions,
   after,
+  compact,
 }: {
   page: Exclude<PageKey, "home">;
+  compact?: boolean;
   note?: ReactNode;
   actions?: ReactNode;
   after?: ReactNode;
@@ -30,6 +32,7 @@ export function InfoHero({
       note={note}
       actions={actions}
       after={after}
+      compact={compact}
     />
   );
 }

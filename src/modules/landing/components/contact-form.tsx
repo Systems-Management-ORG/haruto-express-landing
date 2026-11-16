@@ -90,7 +90,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="card lg:p-10" onSubmit={onSubmit}>
+    <form className="card lg:p-10" data-fab-away onSubmit={onSubmit}>
       {/* Honeypot: hidden from people and assistive tech; bots tend to fill every field. */}
       <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
         <label>
@@ -101,14 +101,9 @@ export function ContactForm() {
 
       <fieldset>
         <legend className="field-label">{t("kindLegend")}</legend>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="segmented">
           {kinds.map((item) => (
-            <label
-              key={item.value}
-              className={`flex min-h-11 cursor-pointer items-center justify-center rounded-lg border px-3 py-2 text-center font-medium has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold ${
-                kind === item.value ? "border-forest bg-forest text-white" : "border-forest text-forest"
-              }`}
-            >
+            <label key={item.value} className="segmented__option" data-checked={kind === item.value || undefined}>
               <input
                 type="radio"
                 name="kind"

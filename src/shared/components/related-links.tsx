@@ -1,3 +1,4 @@
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -15,14 +16,15 @@ export function RelatedLinks({ page }: { page: PageKey }) {
     <section className="section bg-sage">
       <div className="wrap">
         <SectionHead title={t("relatedTitle")} align="start" />
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className={`mt-8 grid gap-4 sm:grid-cols-2 ${related.length === 2 ? "" : "lg:grid-cols-3"}`}>
           {related.map((key) => (
             <li key={key}>
-              <Link
-                href={pagePath(locale, key)}
-                className="card group flex items-center justify-between gap-4"
-              >
-                <span className="font-medium text-forest">{t(`${key}.breadcrumb`)}</span>
+              <Link href={pagePath(locale, key)} className="related-card group">
+                <span className="min-w-0">
+                  <span className="block text-lg font-medium text-forest">{t(`${key}.breadcrumb`)}</span>
+                  <span className="mt-1.5 line-clamp-2 block text-sm text-muted">{t(`${key}.metaDescription`)}</span>
+                </span>
+                <ArrowRight size={20} aria-hidden className="related-card__arrow" />
               </Link>
             </li>
           ))}

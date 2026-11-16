@@ -119,7 +119,7 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
   },
   contact: {
     sections: ["contact"],
-    faq: false,
+    faq: true,
   },
 };
 

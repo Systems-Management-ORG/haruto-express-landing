@@ -1427,6 +1427,13 @@
           "concierge",
           "auction"
         ]
+      },
+      {
+        "question": "Liên hệ HARUTO qua kênh nào?",
+        "answer": "HARUTO EXPRESS nhận tư vấn qua Zalo, Fanpage Facebook, hotline tại Việt Nam và Nhật Bản, hoặc qua form yêu cầu tư vấn trên trang này. Bạn chọn kênh thuận tiện nhất, nhân viên HARUTO sẽ hỗ trợ tuyến gửi, loại hàng và cước phí cho kiện hàng của bạn.",
+        "pages": [
+          "contact"
+        ]
       }
     ],
     "support": {
@@ -1438,8 +1445,6 @@
   "contact": {
     "title": "Yêu cầu tư vấn",
     "intro": "Cho HARUTO biết tuyến và loại hàng bạn cần gửi.",
-    "officeTitle": "Văn phòng HARUTO EXPRESS",
-    "mapTitle": "Bản đồ văn phòng HARUTO EXPRESS",
     "mapOpen": "Mở trên Google Maps",
     "channelsTitle": "Kênh liên hệ",
     "channels": {
@@ -1490,20 +1495,6 @@
       "vietnam": "Hotline Việt Nam"
     },
     "guide": {
-      "title": "Liên hệ HARUTO qua kênh nào?",
-      "intro": "HARUTO EXPRESS nhận tư vấn qua Zalo, Fanpage Facebook, hotline tại Việt Nam và Nhật Bản, hoặc qua form yêu cầu tư vấn trên trang này. Bạn chọn kênh thuận tiện nhất, nhân viên HARUTO sẽ hỗ trợ tuyến gửi, loại hàng và cước phí cho kiện hàng của bạn.",
-      "items": {
-        "zalo": "Nhắn tin trực tiếp với tư vấn viên. Gửi kèm hình ảnh, link sản phẩm hoặc thông tin hàng hóa để được tư vấn nhanh về tuyến, loại hàng và cước phí.",
-        "facebook": "Nhắn tin cho HARUTO qua Fanpage và theo dõi cập nhật về dịch vụ vận chuyển hai chiều Việt Nam – Nhật Bản.",
-        "hotline": "Gọi hotline Việt Nam khi bạn ở Việt Nam, hotline Nhật Bản khi bạn ở Nhật để trao đổi trực tiếp với nhân viên HARUTO.",
-        "form": "Để lại họ tên, số điện thoại, tuyến và mô tả hàng. Nhân viên HARUTO sẽ liên hệ lại qua số điện thoại bạn đã để lại."
-      },
-      "itemTitles": {
-        "zalo": "Zalo",
-        "facebook": "Fanpage Facebook",
-        "hotline": "Hotline Việt Nam & Nhật Bản",
-        "form": "Form yêu cầu tư vấn"
-      },
       "prepareTitle": "Thông tin nên chuẩn bị trước khi liên hệ",
       "prepare": [
         "Tuyến gửi: Việt Nam → Nhật Bản hoặc Nhật Bản → Việt Nam.",

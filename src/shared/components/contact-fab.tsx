@@ -16,6 +16,7 @@ export function ContactFab() {
   const hotline = primaryHotline(locale);
   const id = useId();
   const [open, setOpen] = useState(false);
+  const [away, setAway] = useState(false);
   const rootRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -37,10 +38,27 @@ export function ContactFab() {
     };
   }, [open]);
 
+  // While a form marked `data-fab-away` is on screen the button steps aside, so it never covers
+  // the form's fields or its submit button (the form is itself the way to get in touch).
+  useEffect(() => {
+    const forms = document.querySelectorAll("[data-fab-away]");
+    if (forms.length === 0 || !("IntersectionObserver" in window)) return;
+    const visible = new Set<Element>();
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      }
+      setAway(visible.size > 0);
+    });
+    forms.forEach((form) => observer.observe(form));
+    return () => observer.disconnect();
+  }, []);
+
   if (CHAT_CHANNELS.length === 0 && !hotline) return null;
 
   return (
-    <nav ref={rootRef} aria-label={t("fab.label")} className="contact-fab">
+    <nav ref={rootRef} aria-label={t("fab.label")} className="contact-fab" data-away={(away && !open) || undefined}>
       <ul id={`${id}-list`} hidden={!open} className="contact-fab__list">
         {hotline && (
           <li className="lg:hidden">
