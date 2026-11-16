@@ -21,7 +21,10 @@ export function CtaBand({
   return (
     <section className="section svc-cta text-ivory">
       <div className="wrap text-center">
-        <Image src="/logo/haruto-mark.png" alt="" width={92} height={80} className="mx-auto h-14 w-auto" />
+        {/* The mark's green bird would vanish on the deep green band: an ivory badge keeps its colours. */}
+        <span className="mx-auto grid size-20 place-items-center rounded-full bg-ivory shadow-md ring-4 ring-gold/40">
+          <Image src="/logo/haruto-mark.png" alt="" width={92} height={80} className="h-11 w-auto" />
+        </span>
         <h2 data-reveal className="heading-2 mx-auto mt-6 max-w-[40rem] text-white">
           {title}
         </h2>

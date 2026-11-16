@@ -232,6 +232,13 @@
     color: var(--color-gold);
   }
 
+  /* On the deep green hero and CTA bands the button is the same green as the band: a gold
+     border draws its edge. */
+  .hero-full .btn-gold,
+  .svc-cta .btn-gold {
+    border-color: var(--color-gold);
+  }
+
   .btn-outline {
     border-color: var(--color-forest);
     color: var(--color-forest);
