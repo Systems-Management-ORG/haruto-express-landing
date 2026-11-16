@@ -43,7 +43,7 @@
       "nav": "Chính sách giá Nhật – Việt",
       "breadcrumb": "Chính sách giá Nhật – Việt",
       "title": "Chính sách giá vận chuyển hàng Nhật Bản về Việt Nam",
-      "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam đường hàng không: tỷ giá mua hộ VCB + 5 không phụ thu, cước 155.000 VNĐ/kg cho mọi cân nặng, phụ thu, cách tính cân, đền bù và chính sách mua hộ, đấu giá hộ, vận chuyển hộ.",
+      "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam đường hàng không: tỷ giá mua hộ VCB + 5 không phụ thu, cước 155.000 VNĐ/kg cho mọi cân nặng, phụ thu, cách tính cân, đền bù và chính sách mua hộ, đấu giá hộ, vận chuyển.",
       "metaTitle": "Chính sách giá vận chuyển hàng Nhật Bản về Việt Nam | HARUTO",
       "metaDescription": "Vận chuyển hàng Nhật Bản về Việt Nam đường Air 155.000 VNĐ/kg mọi cân nặng, tỷ giá mua hộ VCB + 5 không phụ thu. Xem phụ thu, cách tính cân, đền bù, kho Nhật."
     },
@@ -825,7 +825,7 @@
     },
     "concierge": {
       "title": "Mua hộ, đấu giá hộ",
-      "body": "Nhận mua hộ, đấu giá hộ và vận chuyển hộ hàng từ Nhật Bản về Việt Nam."
+      "body": "Nhận mua hộ, đấu giá hộ và vận chuyển hàng từ Nhật Bản về Việt Nam."
     }
   },
   "routes": {
@@ -1227,7 +1227,7 @@
   },
   "policy": {
     "title": "Chính sách & dịch vụ",
-    "intro": "Các quy định về cách tính khối lượng, đền bù và dịch vụ mua hộ – đấu giá hộ – vận chuyển hộ của HARUTO Express.",
+    "intro": "Các quy định về cách tính khối lượng, đền bù và dịch vụ mua hộ – đấu giá hộ – vận chuyển của HARUTO Express.",
     "weight": {
       "title": "Cách tính khối lượng",
       "standard": {
@@ -1264,7 +1264,7 @@
       }
     },
     "concierge": {
-      "title": "Mua hộ · Đấu giá hộ · Vận chuyển hộ",
+      "title": "Mua hộ · Đấu giá hộ · Vận chuyển",
       "buy": {
         "title": "Mua hộ",
         "body": "Khách hàng thanh toán 100% giá trị sản phẩm."
@@ -1274,7 +1274,7 @@
         "body": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công: thanh toán phần còn lại để HARUTO chi trả. Đấu không thành công: HARUTO hoàn 100% tiền cọc."
       },
       "ship": {
-        "title": "Vận chuyển hộ",
+        "title": "Vận chuyển",
         "body": "Khách tự mua và gửi hàng về kho Nhật của HARUTO theo thông tin bên dưới."
       }
     },
@@ -1381,7 +1381,7 @@
       },
       {
         "question": "Tự mua hàng rồi gửi về kho Nhật của HARUTO được không?",
-        "answer": "Được. Với dịch vụ vận chuyển hộ, bạn tự mua và gửi hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
+        "answer": "Được. Với dịch vụ vận chuyển, bạn tự mua và gửi hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
         "pages": [
           "concierge",
           "shipToVietnam",

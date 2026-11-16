@@ -1264,7 +1264,7 @@
       }
     },
     "concierge": {
-      "title": "Buy · Bid · Ship for you",
+      "title": "Buy for you · Bid for you · Shipping",
       "buy": {
         "title": "Buy for you",
         "body": "The customer pays 100% of the product value."
@@ -1274,7 +1274,7 @@
         "body": "A 50% deposit is placed before bidding. If the bid wins, the customer pays the balance for HARUTO to settle. If it loses, HARUTO refunds 100% of the deposit."
       },
       "ship": {
-        "title": "Ship for you",
+        "title": "Shipping",
         "body": "The customer buys and sends goods to HARUTO's Japan warehouse using the details below."
       }
     },
