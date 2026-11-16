@@ -1,4 +1,4 @@
-import { ArrowsLeftRight, Headset, Receipt, Scales, ShoppingCart, Warehouse } from "@phosphor-icons/react/dist/ssr";
+import { ArrowsLeftRight, Headset, Scales, ShoppingCart, Truck, Warehouse } from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 import { WHY_KEYS } from "../home-data";
 
@@ -6,7 +6,7 @@ const ICONS = {
   warehouse: Warehouse,
   consultant: Headset,
   twoWay: ArrowsLeftRight,
-  taxIncluded: Receipt,
+  japanDelivery: Truck,
   weightBands: Scales,
   concierge: ShoppingCart,
 } as const;

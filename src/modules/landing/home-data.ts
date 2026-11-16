@@ -58,7 +58,7 @@ export const AUDIENCE_CARDS: { id: keyof (typeof Messages)["home"]["audience"]["
 export const GOODS_TILE_ICONS = ["clothing", "household", "books", "food"] as const;
 
 // Reasons grid; text under `why.<key>.title|body`.
-export const WHY_KEYS = ["warehouse", "consultant", "twoWay", "taxIncluded", "weightBands", "concierge"] as const;
+export const WHY_KEYS = ["warehouse", "consultant", "twoWay", "japanDelivery", "weightBands", "concierge"] as const;
 
 // Guide cards: the first one is the large feature card. Text: `pages.<page>.title|intro`.
 export const GUIDE_CARDS: { page: ContentPage; image: string }[] = [

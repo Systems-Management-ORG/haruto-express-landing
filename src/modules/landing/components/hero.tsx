@@ -13,16 +13,16 @@ const TOUCHPOINTS: { page: PageKey; Icon: typeof Package }[] = [
   { page: "business", Icon: Package },
 ];
 
-const STATS = ["twoWay", "warehouses", "rate"] as const;
+const STATS = ["twoWay", "warehouses", "rate", "rateJpVn"] as const;
 
 // Home banner at full view: the two-way air route over East Asia (with its flights) fills the
-// deep-green banner, the H1, two actions, three facts and the services along the route over it
+// deep-green banner, the H1, two actions, four facts and the services along the route over it
 // on the left (on phones the map sits above them). Every fact is from the site's own data: the
-// warehouses (business.ts) and the lowest VN → JP rate (pricing copy).
+// warehouses (business.ts), the lowest VN → JP rate and the flat JP → VN rate (pricing copy).
 export function Hero() {
   const t = useTranslations("hero");
   const tPages = useTranslations("pages");
-  const tRate = useTranslations("pricing.teaser.vnJp");
+  const tTeaser = useTranslations("pricing.teaser");
   const locale = useLocale() as Locale;
 
   return (
@@ -51,12 +51,16 @@ export function Hero() {
             </Link>
           </div>
 
-          <dl data-reveal-group className="mt-10 grid gap-4 border-t border-ivory/15 pt-6 sm:grid-cols-3">
+          <dl data-reveal-group className="mt-10 grid gap-4 border-t border-ivory/15 pt-6 sm:grid-cols-2">
             {STATS.map((id) => (
               <div key={id}>
                 <dt className="text-sm text-ivory/70">{t(`stats.${id}.label`)}</dt>
                 <dd className="mt-1 font-display font-(--weight-display) text-xl text-gold tabular-nums">
-                  {id === "rate" ? tRate("price") : t(`stats.${id}.value`)}
+                  {id === "rate"
+                    ? tTeaser("vnJp.price")
+                    : id === "rateJpVn"
+                      ? tTeaser("jpVn.price")
+                      : t(`stats.${id}.value`)}
                 </dd>
               </div>
             ))}

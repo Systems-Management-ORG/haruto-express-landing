@@ -793,6 +793,9 @@
       },
       "rate": {
         "label": "Vietnam → Japan freight"
+      },
+      "rateJpVn": {
+        "label": "Japan → Vietnam freight"
       }
     },
     "touchpoints": "Services on the route"
@@ -812,9 +815,9 @@
       "body": "We ship by air from Vietnam to Japan and from Japan to Vietnam."
     },
     "intro": "HARUTO EXPRESS runs two-way air freight between Vietnam and Japan, with its own warehouse and consultants who stay with you from checking the goods to delivery.",
-    "taxIncluded": {
-      "title": "Tax included",
-      "body": "Vietnam → Japan rates include tax and Japan domestic delivery."
+    "japanDelivery": {
+      "title": "Japan delivery included",
+      "body": "Vietnam → Japan rates include delivery within Japan."
     },
     "weightBands": {
       "title": "Clear weight bands",

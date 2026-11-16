@@ -18,8 +18,8 @@
     "shipToVietnam": {
       "nav": "Vận chuyển Nhật – Việt",
       "breadcrumb": "Vận chuyển Nhật – Việt",
-      "title": "Mua hàng Nhật – ship về Việt Nam cùng HARUTO EXPRESS",
-      "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và ship về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
+      "title": "Mua hàng Nhật – vận chuyển về Việt Nam cùng HARUTO EXPRESS",
+      "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và vận chuyển về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
       "metaTitle": "Ship hàng Nhật về Việt Nam từ 155.000 VNĐ/kg | HARUTO",
       "metaDescription": "Mua hộ, đấu giá Yahoo Auction và ship hàng Nhật về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật."
     },
@@ -793,6 +793,9 @@
       },
       "rate": {
         "label": "Cước Việt Nam → Nhật Bản"
+      },
+      "rateJpVn": {
+        "label": "Cước Nhật Bản → Việt Nam"
       }
     },
     "touchpoints": "Dịch vụ trên tuyến"
@@ -812,9 +815,9 @@
       "body": "Nhận vận chuyển bằng đường hàng không từ Việt Nam đi Nhật Bản và từ Nhật Bản về Việt Nam."
     },
     "intro": "HARUTO EXPRESS vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho hàng riêng và nhân viên tư vấn đồng hành từ bước kiểm tra hàng đến khi giao.",
-    "taxIncluded": {
-      "title": "Cước đã gồm thuế",
-      "body": "Cước chiều Việt Nam → Nhật Bản đã bao gồm thuế và giao nội địa Nhật."
+    "japanDelivery": {
+      "title": "Cước đã gồm ship nội địa Nhật",
+      "body": "Cước chiều Việt Nam → Nhật Bản đã bao gồm cước vận chuyển nội địa Nhật."
     },
     "weightBands": {
       "title": "Bảng giá theo mốc cân",
