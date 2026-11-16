@@ -748,11 +748,11 @@
     overflow: hidden;
     border: 1px solid rgb(255 255 255 / 0.5);
     border-radius: calc(var(--radius-card) - 0.25rem);
-    /* Frosted glass over the photo. The white stays at 55% (not a thin 5% tint) so the green
-       text keeps its contrast over busy photos. */
-    background-color: rgb(255 255 255 / 0.55);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
+    /* Frosted glass over the photo: a light white tint, the photo still showing through; the
+       blur keeps the green text readable over busy photos. */
+    background-color: rgb(255 255 255 / 0.4);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(10px) saturate(140%);
     padding: 1.125rem 1.25rem 0.5rem;
     box-shadow:
       0 8px 32px rgb(16 44 33 / 0.12),
@@ -807,15 +807,16 @@
 
     .service-bento .service-card__panel {
       position: absolute;
-      inset: auto 1rem 1rem;
+      inset: auto 2.5rem 1rem 1rem;
       margin: 0;
+      padding: 0.875rem 1rem 0.25rem;
       text-align: left;
     }
 
     .service-bento > li:nth-child(4n + 1) .service-card__panel,
     .service-bento > li:nth-child(4n + 4) .service-card__panel {
       right: auto;
-      max-width: 30rem;
+      max-width: 25rem;
     }
   }
 
