@@ -722,13 +722,16 @@
   /* ---- Home hub blocks (layout data in modules/landing/home-data.ts) ---- */
 
   /* Image card with its text panel overlapping the lower part of the photo. */
+  /* A photo card: the photo shows in full at the top and fades into the brand's deep green at the
+     bottom, where the ivory text sits. Light text on the deep green reads the same over any photo. */
   .service-card {
     display: flex;
     height: 100%;
     flex-direction: column;
     overflow: hidden;
     border-radius: var(--radius-card);
-    background-color: var(--color-sage);
+    background-color: var(--color-deep);
+    color: var(--color-ivory);
   }
 
   .service-card__media {
@@ -741,53 +744,25 @@
     transition: transform 600ms var(--ease-ui);
   }
 
-  .service-card__panel {
-    position: relative;
-    flex: 1;
-    margin: -3.5rem 0.875rem 0.875rem;
-    overflow: hidden;
-    border: 1px solid rgb(255 255 255 / 0.5);
-    border-radius: calc(var(--radius-card) - 0.25rem);
-    /* Clear glass over the photo: a thin white tint and a slight blur, so the photo stays
-       recognisable behind the text; a soft white halo around the letters keeps them readable. */
-    background-color: rgb(255 255 255 / 0.25);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    text-shadow:
-      0 0 2px rgb(255 255 255 / 0.95),
-      0 0 8px rgb(255 255 255 / 0.9);
-    padding: 1.125rem 1.25rem 0.5rem;
-    box-shadow:
-      0 8px 32px rgb(16 44 33 / 0.12),
-      inset 0 1px 0 rgb(255 255 255 / 0.6),
-      inset 0 -1px 0 rgb(255 255 255 / 0.15);
-    text-align: center;
-  }
-
-  /* Light catching the top and left edges of the glass. */
-  .service-card__panel::before,
-  .service-card__panel::after {
+  /* Phones and tablets: the photo's lower edge fades into the green the text sits on. */
+  .service-card__media::after {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 40% 0 0;
+    background: linear-gradient(180deg, rgb(23 60 34 / 0), var(--color-deep));
     pointer-events: none;
   }
 
-  .service-card__panel::before {
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.9), transparent);
-  }
-
-  .service-card__panel::after {
-    width: 1px;
-    height: 100%;
-    background: linear-gradient(180deg, rgb(255 255 255 / 0.9), transparent, rgb(255 255 255 / 0.3));
+  .service-card__panel {
+    position: relative;
+    flex: 1;
+    margin-top: -3.5rem;
+    padding: 0 1.25rem 0.75rem;
+    text-align: center;
   }
 
   /* Large screens: a staggered bento of the four service cards (wide, narrow / narrow, wide). The
-     photo fills each card and the text panel floats over its lower part. */
+     photo fills each card; the text sits on a deep-green fade over its lower part. */
   @media (min-width: 64rem) {
     .service-bento {
       grid-auto-rows: 24rem;
@@ -808,18 +783,32 @@
       aspect-ratio: auto;
     }
 
+    .service-bento .service-card__media::after {
+      content: none;
+    }
+
+    /* The fade is solid (92%) behind the text and clears in the top padding, so the text never
+       sits on bare photo. */
     .service-bento .service-card__panel {
       position: absolute;
-      inset: auto 2.5rem 1rem 1rem;
+      inset: auto 0 0;
       margin: 0;
-      padding: 0.875rem 1rem 0.25rem;
+      background: linear-gradient(0deg, rgb(23 60 34 / 0.92) 0%, rgb(23 60 34 / 0.92) 68%, rgb(23 60 34 / 0) 100%);
+      padding: 4.5rem 1.5rem 0.75rem;
       text-align: left;
     }
 
+    /* Wide cards: the text keeps to the left half and the fade runs left to right, so the right
+       half of the photo (flags, parcels) stays clear down to the card's edge. */
     .service-bento > li:nth-child(4n + 1) .service-card__panel,
     .service-bento > li:nth-child(4n + 4) .service-card__panel {
-      right: auto;
-      max-width: 25rem;
+      inset: 0 auto 0 0;
+      display: flex;
+      width: 62%;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(90deg, rgb(23 60 34 / 0.92) 0%, rgb(23 60 34 / 0.92) 62%, rgb(23 60 34 / 0) 100%);
+      padding: 1.5rem 6rem 0.75rem 1.5rem;
     }
   }
 

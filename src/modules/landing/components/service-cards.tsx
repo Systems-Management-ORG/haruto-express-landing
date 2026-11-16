@@ -31,9 +31,9 @@ export function ServiceCards() {
                   <Image src={image} alt="" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 66vw" className="object-cover" />
                 </div>
                 <div className="service-card__panel">
-                  <h3 className="text-xl leading-snug text-forest lg:text-lg">{tPages(`${page}.title`)}</h3>
-                  <p className="mt-2 line-clamp-3 text-[0.95rem] leading-relaxed">{tPages(`${page}.intro`)}</p>
-                  <span className="link-arrow mt-1 text-forest">
+                  <h3 className="text-xl leading-snug text-white">{tPages(`${page}.title`)}</h3>
+                  <p className="mt-2 line-clamp-3 text-[0.95rem] leading-relaxed text-ivory/85">{tPages(`${page}.intro`)}</p>
+                  <span className="link-arrow mt-1 text-gold">
                     {t("more")}
                   </span>
                 </div>
