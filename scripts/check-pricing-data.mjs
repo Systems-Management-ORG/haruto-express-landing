@@ -119,7 +119,7 @@ for (const locale of LOCALES) {
   const compensation = messages.policy.compensation;
   if (!String(compensation.insured.body).includes(`${COMPENSATION.insuranceRatePct}%`))
     errors.push(`${locale} policy.compensation.insured.body: missing ${COMPENSATION.insuranceRatePct}%`);
-  for (const key of ["body", "statLabel"]) {
+  for (const key of ["body"]) {
     if (!amountPattern(COMPENSATION.uninsuredCapVnd).test(compensation.uninsured[key]))
       errors.push(`${locale} policy.compensation.uninsured.${key}: missing ${COMPENSATION.uninsuredCapVnd}`);
   }

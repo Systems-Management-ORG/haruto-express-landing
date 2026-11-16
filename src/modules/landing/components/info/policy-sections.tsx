@@ -37,9 +37,16 @@ export function Compensation() {
             <Icon size={28} weight="duotone" aria-hidden />
             <h3 className="text-lg font-medium">{t(`${key}.title`)}</h3>
           </div>
-          <p className="stat-card__value">{t(`${key}.stat`)}</p>
-          <p className="stat-card__label">{t(`${key}.statLabel`)}</p>
-          <p className="stat-card__body">{t(`${key}.body`)}</p>
+          {key === "insured" ? (
+            <>
+              <p className="stat-card__value">{t("insured.stat")}</p>
+              <p className="stat-card__label">{t("insured.statLabel")}</p>
+              <p className="stat-card__body">{t(`${key}.body`)}</p>
+            </>
+          ) : (
+            // Without insurance: the rule itself is the headline (no percentage figure).
+            <p className="stat-card__label mt-5 text-lg text-forest">{t(`${key}.body`)}</p>
+          )}
         </article>
       ))}
     </div>

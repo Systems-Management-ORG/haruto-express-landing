@@ -16,8 +16,8 @@
       "metaDescription": "Gửi hàng đi Nhật: hàng cá nhân, quà tặng, hàng kinh doanh từ Việt Nam sang Nhật Bản. Tư vấn quy định hàng hóa, hỗ trợ thông quan, theo dõi vận chuyển."
     },
     "shipToVietnam": {
-      "nav": "Vận chuyển Nhật Việt",
-      "breadcrumb": "Ship hàng Nhật về Việt Nam",
+      "nav": "Vận chuyển Nhật – Việt",
+      "breadcrumb": "Vận chuyển Nhật – Việt",
       "title": "Mua hàng Nhật – ship về Việt Nam cùng HARUTO EXPRESS",
       "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và ship về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
       "metaTitle": "Ship hàng Nhật về Việt Nam từ 155.000 VNĐ/kg | HARUTO",
@@ -370,7 +370,7 @@
       "points": [
         "Đặt cọc 50%, không thắng hoàn 100% cọc",
         "Phí minh bạch, không chi phí ẩn",
-        "Hàng về kho Nhật, ship về Việt Nam"
+        "Hàng về kho Nhật, vận chuyển Nhật – Việt"
       ],
       "marketplacesLabel": "Đấu giá trực tiếp từ các sàn uy tín tại Nhật Bản"
     },
@@ -1151,11 +1151,11 @@
       "open": "Xem ảnh khổ lớn",
       "vnJp": {
         "alt": "Infographic quy định hàng cồng kềnh chiều Việt – Nhật: tổng 3 cạnh tối đa theo cân nặng (dưới 10 kg 120 cm; 10–20 kg 140–150 cm; 20–30 kg 160–180 cm), các trường hợp phụ thu, làm tròn theo mốc 0,5 kg và mức phụ thu 220.000 – 800.000đ.",
-        "caption": "Quy định hàng cồng kềnh tuyến Việt – Nhật (infographic)"
+        "caption": "Quy định hàng cồng kềnh tuyến Việt – Nhật"
       },
       "jpVn": {
         "alt": "Infographic quy ước tính trọng lượng chiều Nhật – Việt: hàng thường tính theo cân thực tế, hàng cồng kềnh tính trọng lượng thể tích (Dài × Rộng × Cao ÷ 6.000), làm tròn dưới 1 kg thành 1 kg và trên 1 kg đến một chữ số thập phân.",
-        "caption": "Quy ước tính trọng lượng tuyến Nhật – Việt (infographic)"
+        "caption": "Quy ước tính trọng lượng tuyến Nhật – Việt"
       }
     },
     "cost": {
@@ -1260,9 +1260,7 @@
       },
       "uninsured": {
         "title": "Không mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 VNĐ/đơn hàng.",
-        "stat": "100%",
-        "statLabel": "cước vận chuyển, tối đa 3.000.000 VNĐ/đơn"
+        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 VNĐ/đơn hàng."
       }
     },
     "concierge": {
@@ -1535,7 +1533,7 @@
     },
     "logoAlt": "Logo HARUTO EXPRESS",
     "tagline": "Gửi trọn niềm tin. Kết nối hai quốc gia.",
-    "bottomNote": "Vận chuyển hàng không Việt Nam – Nhật Bản"
+    "bottomNote": "Vận chuyển hàng không 2 chiều Việt Nam ⇄ Nhật Bản"
   },
   "notFound": {
     "title": "Không tìm thấy trang",

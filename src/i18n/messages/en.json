@@ -1151,11 +1151,11 @@
       "open": "View full size",
       "vnJp": {
         "alt": "Infographic of the Vietnam → Japan bulky-goods rules",
-        "caption": "Vietnam → Japan bulky-goods rules (infographic)"
+        "caption": "Vietnam → Japan bulky-goods rules"
       },
       "jpVn": {
         "alt": "Infographic of how weight is charged from Japan to Vietnam",
-        "caption": "Japan → Vietnam weight rules (infographic)"
+        "caption": "Japan → Vietnam weight rules"
       }
     },
     "cost": {
@@ -1260,9 +1260,7 @@
       },
       "uninsured": {
         "title": "Without cargo insurance",
-        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order.",
-        "stat": "100%",
-        "statLabel": "of the shipping value, up to 3,000,000 VND/order"
+        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order."
       }
     },
     "concierge": {
@@ -1535,7 +1533,7 @@
     },
     "logoAlt": "HARUTO EXPRESS logo",
     "tagline": "Send with full trust. Connect two countries.",
-    "bottomNote": "Air freight between Vietnam and Japan"
+    "bottomNote": "Two-way air freight Vietnam ⇄ Japan"
   },
   "notFound": {
     "title": "Page not found",
