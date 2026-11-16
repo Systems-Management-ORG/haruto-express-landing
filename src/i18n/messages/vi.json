@@ -779,7 +779,7 @@
   "hero": {
     "badge": "Vận chuyển hàng không 2 chiều Việt – Nhật",
     "title": "Gửi hàng đi Nhật & mua hộ hàng Nhật qua đường hàng không",
-    "description": "Gửi quà, hàng kinh doanh sang Nhật với cước đã gồm thuế và ship nội địa Nhật. Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam.",
+    "description": "<hl>Chiều Việt Nam → Nhật Bản:</hl> gửi quà, hàng kinh doanh sang Nhật, cước đã bao gồm cước vận chuyển nội địa Nhật. Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam.",
     "ctaCalc": "Tính cước ngay",
     "ctaConcierge": "Xem dịch vụ mua hộ",
     "stats": {

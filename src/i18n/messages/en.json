@@ -779,7 +779,7 @@
   "hero": {
     "badge": "Two-way air freight, Vietnam ⇄ Japan",
     "title": "Ship to Japan & buy from Japan by air freight",
-    "description": "Send gifts and business goods to Japan with tax and delivery within Japan included. We buy or bid on Japanese stores for you and ship to Vietnam.",
+    "description": "<hl>Vietnam → Japan:</hl> send gifts and business goods to Japan, with delivery within Japan included in the rate. We buy or bid on Japanese stores for you and ship to Vietnam.",
     "ctaCalc": "Estimate freight",
     "ctaConcierge": "See the buying service",
     "stats": {

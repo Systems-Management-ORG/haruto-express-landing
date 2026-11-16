@@ -40,7 +40,7 @@ export function Hero() {
             {t("title")}
           </h1>
           <p data-reveal className="mt-5 max-w-[36rem] text-ivory/85 sm:text-lg">
-            {t("description")}
+            {t.rich("description", { hl: (chunk) => <strong className="font-semibold text-gold">{chunk}</strong> })}
           </p>
           <div data-reveal className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#calculator" data-track="cta_calculator" className="btn btn-gold">
