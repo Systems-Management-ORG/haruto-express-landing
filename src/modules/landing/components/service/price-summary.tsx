@@ -1,10 +1,10 @@
-import { Info } from "@phosphor-icons/react/dist/ssr";
+import { CurrencyCircleDollar, Truck } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
-import { NUMBER_LOCALE } from "@/shared/lib/format";
-import { JP_VN, priceRange, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
+import { formatNumber, NUMBER_LOCALE } from "@/shared/lib/format";
+import { JP_VN, JP_VN_BULKY, priceRange, VN_JP_CLEAN, VN_JP_MIXED } from "../../pricing-data";
 import { PRICING_IMAGES } from "@/shared/seo/page-media";
 import { pagePath } from "@/shared/seo/pages";
 import { SectionHead } from "@/shared/ui/section-head";
@@ -19,6 +19,7 @@ type Row = { weight: string; price: string; note?: string };
 export function PriceSummary({ direction }: { direction: "vnJp" | "jpVn" }) {
   const t = useTranslations("pricing");
   const tPrice = useTranslations("service.price");
+  const tPolicy = useTranslations("pricePolicy");
   const locale = useLocale() as Locale;
   const nf = new Intl.NumberFormat(NUMBER_LOCALE[locale]);
   const unit = tPrice("unit");
@@ -73,22 +74,47 @@ export function PriceSummary({ direction }: { direction: "vnJp" | "jpVn" }) {
             })}
           </ul>
         ) : (
-          <div data-reveal-group className="mx-auto mt-10 grid max-w-[56rem] items-center gap-6 sm:grid-cols-2 lg:mt-12">
-            <div className="svc-price">
+          // JP → VN: one card, the photo beside the flat rate, the weight thresholds that make a
+          // parcel bulky (JP_VN_BULKY) and the two notes on buying rate and delivery in Vietnam.
+          <div data-reveal className="svc-price svc-price--table svc-price--wide mx-auto mt-10 max-w-[64rem] lg:mt-12">
+            <div className="svc-price__media">
+              <Image src={PRICING_IMAGES.jpVn} alt="" fill sizes="(max-width: 1023px) 100vw, 26rem" className="object-cover object-[78%_50%]" />
+            </div>
+            <div className="svc-price__inner">
               <h3 className="svc-price__label">{t("teaser.jpVn.label")}</h3>
               <p className="svc-price__value">
                 {nf.format(JP_VN[0].vndPerKg ?? 0)} <span className="svc-price__unit">{unit}</span>
               </p>
-              <p className="mt-3 text-sm text-muted">{t("freight.weight")}</p>
+              <p className="mt-2 text-sm text-muted">{t("freight.weight")}</p>
+
+              <h4 className="mt-6 text-sm font-semibold text-forest">{tPolicy("sections.weightJpVn")}</h4>
+              <dl className="svc-price__bands svc-price__bands--one">
+                {([
+                  ["sum", `> ${JP_VN_BULKY.sumCm} cm`],
+                  ["weight", `> ${JP_VN_BULKY.weightKg} kg`],
+                  ["divisor", `÷ ${formatNumber(JP_VN_BULKY.volumetricDivisor, locale)}`],
+                ] as const).map(([id, value]) => (
+                  <div key={id}>
+                    <dt>{tPolicy(`jpVnWeight.thresholds.${id}`)}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <ul className="mt-5 grid gap-3 text-left">
+                {([
+                  ["buyRate", CurrencyCircleDollar],
+                  ["domestic", Truck],
+                ] as const).map(([key, Icon]) => (
+                  <li key={key} className="flex gap-3 text-sm sm:text-base">
+                    <span className="icon-chip" aria-hidden>
+                      <Icon size={20} weight="duotone" />
+                    </span>
+                    <span className="pt-1.5">{t(`freight.${key}`)}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="grid gap-3">
-              {(["buyRate", "domestic"] as const).map((key) => (
-                <li key={key} className="flex gap-2.5 text-sm sm:text-base">
-                  <Info size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold" />
-                  <span>{t(`freight.${key}`)}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         )}
 

@@ -1617,8 +1617,24 @@
   }
 
   @media (min-width: 64rem) {
-    .svc-price__bands {
+    .svc-price__bands:not(.svc-price__bands--one) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* JP → VN: one wide card, the photo on the left, the content on the right. */
+    .svc-price--wide {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+      text-align: left;
+    }
+
+    .svc-price--wide .svc-price__media {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+
+    .svc-price--wide .svc-price__inner {
+      padding: 2rem 2.25rem;
     }
   }
 
