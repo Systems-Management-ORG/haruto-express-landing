@@ -42,7 +42,6 @@ export type ServicePageConfig = {
   hero: {
     marketplaces?: MarketplaceId[];
     withMore?: boolean;
-    chips?: "customsGroups";
     eyebrowFromNav?: "pricing"; // no eyebrow in the copy → the menu group label (nav.groups.<id>)
     primary: CtaAction;
     secondary?: CtaAction;
@@ -236,7 +235,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
 
   goods: {
     hero: {
-      chips: "customsGroups",
       primary: "contact",
     },
     custom: "customs",

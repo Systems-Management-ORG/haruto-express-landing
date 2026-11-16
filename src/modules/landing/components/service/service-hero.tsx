@@ -4,7 +4,6 @@ import { ContactCta } from "@/shared/ui/contact-cta";
 import { HeroShell } from "@/shared/ui/hero-shell";
 import type { ServiceCopy, ServiceKey } from "../../service-copy";
 import type { ServicePageConfig } from "../../service-pages";
-import { CustomsChips } from "./customs-sections";
 import { MarketplaceRow } from "./marketplace-row";
 
 // Banner of every service page (the shared page hero): eyebrow, H1, lead, proof points and the
@@ -44,7 +43,6 @@ export function ServiceHero({ page, copy, config }: { page: ServiceKey; copy: Se
           <MarketplaceRow ids={config.hero.marketplaces} withMore={config.hero.withMore} label={hero.marketplacesLabel} />
         )
       }
-      after={config.hero.chips === "customsGroups" ? <CustomsChips /> : undefined}
     >
       {hero.ribbon && <p className="svc-ribbon">{hero.ribbon}</p>}
       {hero.alert && (

@@ -4,9 +4,9 @@ import { rawRecord } from "@/shared/lib/raw-messages";
 import { SectionHead } from "@/shared/ui/section-head";
 import { Goods } from "../goods";
 
-// Sections only the accepted & prohibited goods page has: the five customs-check groups (a row of
-// numbered links under the hero that jump to their cards, then one grid of cards, the first three
-// tagged "extra care") and the colour-coded accepted / not-guaranteed / prohibited lists.
+// Sections only the accepted & prohibited goods page has: the five customs-check groups (one grid
+// of cards, the first three tagged "extra care") and the colour-coded accepted / not-guaranteed /
+// prohibited lists.
 
 // Art cut from HARUTO's text-free "5 groups customs check" poster (public/images/haruto/hang-cam).
 const ART = "/images/haruto/hang-cam";
@@ -30,27 +30,6 @@ function useGroups(): Entry[] {
 }
 
 const no = (index: number) => String(index + 1).padStart(2, "0");
-
-// Under the hero: the five groups as numbered links to their cards.
-export function CustomsChips() {
-  const t = useTranslations("customs.groups");
-  const groups = useGroups();
-
-  return (
-    <nav aria-label={t("navLabel")} className="wrap pb-10 lg:pb-12">
-      <ul className="customs-chips">
-        {groups.map(([id, group], index) => (
-          <li key={id}>
-            <a href={`#nhom-${index + 1}`} className="customs-chip">
-              <span className="customs-chip__no">{no(index)}</span>
-              {group.short}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-}
 
 function GroupCard({ id, group, index, special }: { id: string; group: Group; index: number; special: boolean }) {
   const t = useTranslations("customs.groups");

@@ -1689,42 +1689,6 @@
     box-shadow: 0 12px 28px rgb(16 44 33 / 0.18);
   }
 
-  /* The five groups as numbered pills under the goods-page hero, each jumping to its card. */
-  .customs-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .customs-chip {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    gap: 0.5rem;
-    border: 1px solid var(--color-line);
-    border-radius: 999px;
-    background-color: #fff;
-    padding: 0.375rem 1rem 0.375rem 0.375rem;
-    color: var(--color-forest);
-    font-weight: 500;
-    transition:
-      border-color 140ms var(--ease-ui),
-      background-color 140ms var(--ease-ui);
-  }
-
-  .customs-chip__no {
-    display: inline-grid;
-    width: 2rem;
-    height: 2rem;
-    place-items: center;
-    border-radius: 999px;
-    background-color: var(--color-forest);
-    color: var(--color-gold);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-  }
-
   /* One card per group: the photo on a soft tile with the group number, then tag, title, body. */
   .customs-card {
     display: flex;
@@ -1820,11 +1784,6 @@
   .goods-list--ban .goods-list__mark { color: #b91c1c; }
 
   @media (hover: hover) and (pointer: fine) {
-    .customs-chip:hover {
-      border-color: var(--color-forest);
-      background-color: var(--color-sage);
-    }
-
     .customs-card:hover {
       translate: 0 -4px;
       box-shadow: 0 16px 30px rgb(16 44 33 / 0.14);
