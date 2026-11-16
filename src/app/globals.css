@@ -271,6 +271,17 @@
     }
   }
 
+  /* The header's call to action, on the nav's scale: the nav's 15px type and a 40px height, so
+     it reads as part of the bar rather than a block dropped onto it. Same deep green and gold as
+     every main button. */
+  .btn-nav {
+    min-height: 2.5rem;
+    gap: 0.5rem;
+    padding: 0.4375rem 1rem 0.4375rem 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
   .nav-link {
     position: relative;
     display: inline-flex;

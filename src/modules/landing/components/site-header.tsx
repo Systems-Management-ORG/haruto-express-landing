@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
+import { CaretDown, ChatCircleDots, List, X } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -251,7 +251,8 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           <div className="hidden lg:block">
             <LanguageMenu />
           </div>
-          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold hidden whitespace-nowrap sm:inline-flex">
+          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold btn-nav hidden whitespace-nowrap sm:inline-flex">
+            <ChatCircleDots size={18} weight="duotone" aria-hidden />
             {nav("cta")}
           </Link>
           <button
