@@ -632,6 +632,7 @@
   },
   "customs": {
     "hero": {
+      "eyebrow": "Hàng hóa & hải quan",
       "titleA": "Hàng nhận & hàng cấm",
       "titleB": "gửi đi Nhật Bản",
       "ribbon": "Khi gửi Nhật ⇄ Việt",
@@ -642,11 +643,11 @@
       }
     },
     "groups": {
-      "intro": "Một số nhóm hàng thường được kiểm tra kỹ hơn:",
-      "specialCount": "3 nhóm hàng",
-      "specialTitle": "cần lưu ý đặc biệt",
-      "restCount": "2 nhóm hàng",
-      "restTitle": "còn lại bạn cũng cần chú ý",
+      "title": "5 nhóm hàng thường được hải quan kiểm tra kỹ",
+      "intro": "Chuẩn bị đúng thông tin cho các nhóm hàng dưới đây giúp kiện hàng thông quan nhanh hơn.",
+      "tagSpecial": "Lưu ý đặc biệt",
+      "tagRest": "Cũng cần chú ý",
+      "navLabel": "Đi tới nhóm hàng",
       "items": {
         "cosmetics": {
           "short": "Mỹ phẩm",

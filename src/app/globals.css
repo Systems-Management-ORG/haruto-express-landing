@@ -1689,115 +1689,109 @@
     box-shadow: 0 12px 28px rgb(16 44 33 / 0.18);
   }
 
+  /* The five groups as numbered pills under the goods-page hero, each jumping to its card. */
   .customs-chips {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
   .customs-chip {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    min-height: 2.75rem;
     align-items: center;
     gap: 0.5rem;
-    text-align: center;
-  }
-
-  .customs-chip__img {
-    display: block;
-    width: clamp(3.75rem, 14vw, 7rem);
-    aspect-ratio: 1;
-    overflow: hidden;
-    border: 2px solid var(--color-forest);
+    border: 1px solid var(--color-line);
     border-radius: 999px;
-    background-color: #fffaf0;
-    box-shadow: 0 8px 18px rgb(16 44 33 / 0.1);
-    transition:
-      translate 220ms var(--ease-ui),
-      box-shadow 220ms var(--ease-ui);
-  }
-
-  .customs-chip__label {
+    background-color: #fff;
+    padding: 0.375rem 1rem 0.375rem 0.375rem;
     color: var(--color-forest);
-    font-size: clamp(0.6875rem, 1.6vw, 0.875rem);
-    font-weight: 700;
-    line-height: 1.25;
-    text-transform: uppercase;
+    font-weight: 500;
+    transition:
+      border-color 140ms var(--ease-ui),
+      background-color 140ms var(--ease-ui);
   }
 
-  :lang(ja) .customs-chip__label {
-    text-transform: none;
-  }
-
-  .customs-panel {
-    border-radius: 1.5rem;
-    background:
-      radial-gradient(28rem 14rem at 100% 0%, rgb(219 234 254 / 0.75), transparent 70%),
-      #f4f8fb;
-    padding: 1.5rem;
-  }
-
-  .customs-panel__title {
-    font-family: var(--font-display);
-    font-size: clamp(1.375rem, 2.6vw, 1.875rem);
-    font-weight: var(--weight-display);
-    line-height: 1.15;
-    text-transform: uppercase;
-  }
-
-  :lang(ja) .customs-panel__title {
-    text-transform: none;
-  }
-
-  .customs-panel__count {
-    display: inline-block;
-    margin-bottom: 0.25rem;
-    border-radius: 0.375rem;
+  .customs-chip__no {
+    display: inline-grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border-radius: 999px;
     background-color: var(--color-forest);
-    padding: 0.125rem 0.625rem;
-    color: #fff;
+    color: var(--color-gold);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
   }
 
+  /* One card per group: the photo on a soft tile with the group number, then tag, title, body. */
   .customs-card {
+    display: flex;
     scroll-margin-top: 6rem;
-    border-radius: 1rem;
-    background-color: #fffaf0;
-    padding: 1rem 0.75rem;
-    text-align: center;
-    box-shadow: 0 6px 16px rgb(16 44 33 / 0.06);
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    background-color: #fff;
     transition:
       translate 220ms var(--ease-ui),
       box-shadow 220ms var(--ease-ui);
-  }
-
-  .customs-card__no {
-    color: var(--color-forest);
-    font-family: var(--font-sans);
-    font-size: 1.75rem;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  .customs-card__title {
-    margin-top: 0.25rem;
-    color: var(--color-orange-deep);
-    font-weight: 800;
-    text-transform: uppercase;
-  }
-
-  :lang(ja) .customs-card__title {
-    text-transform: none;
   }
 
   .customs-card__media {
-    height: 7rem;
-    margin-top: 0.5rem;
+    position: relative;
+    height: 10rem;
+    background-color: #fffaf0;
+    padding: 1rem;
   }
 
-  @media (min-width: 64rem) {
-    .customs-card__media {
-      height: 9.5rem;
+  .customs-card__no {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    border-radius: 999px;
+    background-color: var(--color-forest);
+    color: var(--color-gold);
+    font-size: 0.875rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 39.99rem) {
+    .customs-card {
+      flex-direction: row;
     }
+
+    .customs-card__media {
+      width: 7.5rem;
+      height: auto;
+      flex-shrink: 0;
+      padding: 2.75rem 0.5rem 0.5rem;
+    }
+
+    .customs-card__media + div {
+      padding: 1rem;
+    }
+  }
+
+  .customs-tag {
+    display: inline-block;
+    border-radius: 999px;
+    background-color: var(--color-sage);
+    padding: 0.125rem 0.625rem;
+    color: var(--color-forest);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .customs-tag--special {
+    background-color: var(--color-orange-soft);
+    color: var(--color-orange-deep);
   }
 
   /* Colour-coded goods lists: green accepted, amber not guaranteed, red prohibited. */
@@ -1820,13 +1814,17 @@
 
   .goods-list--ok .goods-list__head { background-color: var(--color-forest); }
   .goods-list--ok .goods-list__mark { color: var(--color-forest); }
-  .goods-list--warn .goods-list__head { background-color: #d97706; }
-  .goods-list--warn .goods-list__mark { color: #d97706; }
+  .goods-list--warn .goods-list__head { background-color: var(--color-orange-deep); }
+  .goods-list--warn .goods-list__mark { color: var(--color-orange-deep); }
   .goods-list--ban .goods-list__head { background-color: #b91c1c; }
   .goods-list--ban .goods-list__mark { color: #b91c1c; }
 
   @media (hover: hover) and (pointer: fine) {
-    .customs-chip:hover .customs-chip__img,
+    .customs-chip:hover {
+      border-color: var(--color-forest);
+      background-color: var(--color-sage);
+    }
+
     .customs-card:hover {
       translate: 0 -4px;
       box-shadow: 0 16px 30px rgb(16 44 33 / 0.14);

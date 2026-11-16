@@ -632,6 +632,7 @@
   },
   "customs": {
     "hero": {
+      "eyebrow": "貨物と通関",
       "titleA": "日本向けの",
       "titleB": "取扱品目と禁制品",
       "ribbon": "日本 ⇄ ベトナムへの発送時",
@@ -642,11 +643,11 @@
       }
     },
     "groups": {
-      "intro": "特に入念に検査されやすい品目：",
-      "specialCount": "3つの品目",
-      "specialTitle": "特に注意が必要",
-      "restCount": "残りの2品目",
-      "restTitle": "こちらもご注意ください",
+      "title": "税関で入念に検査されやすい5つの品目",
+      "intro": "以下の品目は正しい情報を準備しておくと、通関がスムーズになります。",
+      "tagSpecial": "特に注意",
+      "tagRest": "こちらも注意",
+      "navLabel": "品目へ移動",
       "items": {
         "cosmetics": {
           "short": "化粧品",

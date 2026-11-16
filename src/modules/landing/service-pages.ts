@@ -237,7 +237,6 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
   goods: {
     hero: {
       chips: "customsGroups",
-      eyebrowFromNav: "pricing",
       primary: "contact",
     },
     custom: "customs",

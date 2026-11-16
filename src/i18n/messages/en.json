@@ -632,6 +632,7 @@
   },
   "customs": {
     "hero": {
+      "eyebrow": "Goods & customs",
       "titleA": "Accepted & prohibited items",
       "titleB": "for shipping to Japan",
       "ribbon": "When shipping Japan ⇄ Vietnam",
@@ -642,11 +643,11 @@
       }
     },
     "groups": {
-      "intro": "Groups that are usually checked more closely:",
-      "specialCount": "3 groups",
-      "specialTitle": "that need special care",
-      "restCount": "2 more groups",
-      "restTitle": "to keep an eye on",
+      "title": "5 groups customs check more closely",
+      "intro": "Having the right details ready for these groups helps a parcel clear customs faster.",
+      "tagSpecial": "Extra care",
+      "tagRest": "Also check",
+      "navLabel": "Jump to a group",
       "items": {
         "cosmetics": {
           "short": "Cosmetics",

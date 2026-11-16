@@ -13,7 +13,7 @@ export function Goods() {
   const t = useTranslations("pages.goods");
 
   return (
-    <section className="section">
+    <div className="pt-10 pb-16 lg:pt-12 lg:pb-24">
       <ul data-reveal-group className="wrap grid gap-5 md:grid-cols-3">
         {GROUPS.map(({ key, Icon, tone }) => {
           const items = t.raw(`${key}.items`) as string[];
@@ -35,6 +35,6 @@ export function Goods() {
           );
         })}
       </ul>
-    </section>
+    </div>
   );
 }
