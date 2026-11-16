@@ -748,11 +748,14 @@
     overflow: hidden;
     border: 1px solid rgb(255 255 255 / 0.5);
     border-radius: calc(var(--radius-card) - 0.25rem);
-    /* Frosted glass over the photo: a light white tint, the photo still showing through; the
-       blur keeps the green text readable over busy photos. */
-    background-color: rgb(255 255 255 / 0.4);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
-    backdrop-filter: blur(10px) saturate(140%);
+    /* Clear glass over the photo: a thin white tint and a slight blur, so the photo stays
+       recognisable behind the text; a soft white halo around the letters keeps them readable. */
+    background-color: rgb(255 255 255 / 0.25);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    text-shadow:
+      0 0 2px rgb(255 255 255 / 0.95),
+      0 0 8px rgb(255 255 255 / 0.9);
     padding: 1.125rem 1.25rem 0.5rem;
     box-shadow:
       0 8px 32px rgb(16 44 33 / 0.12),
