@@ -145,9 +145,9 @@ const DOMESTIC = [
   ["cost", Receipt],
 ] as const;
 
-// Japan → Vietnam: one flat rate for every weight. "teaser": with the buying rate, domestic
-// delivery and VAT as three notes. "policy" (the JP→VN price-policy page, where the buying rate has
-// its own section): domestic delivery as the PDF's four lines, VAT as a callout under the card.
+// Japan → Vietnam: one flat rate for every weight. "teaser": with the buying rate and domestic
+// delivery as two notes. "policy" (the JP→VN price-policy page, where the buying rate has its own
+// section): domestic delivery as the PDF's four lines.
 export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy" }) {
   const t = useTranslations("pricing");
   const tDomestic = useTranslations("pricePolicy.domestic");
@@ -166,7 +166,6 @@ export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy
             {([
               ["buyRate", CurrencyCircleDollar],
               ["domestic", Truck],
-              ["vat", Receipt],
             ] as const).map(([key, Icon]) => (
               <li key={key} className="flex gap-3">
                 <span className="icon-chip" aria-hidden>
@@ -195,16 +194,7 @@ export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy
     </div>
   );
 
-  if (variant === "teaser") return card;
-  return (
-    <>
-      {card}
-      <p data-reveal className="callout mt-6 bg-white">
-        <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
-        <span>{t("freight.vat")}</span>
-      </p>
-    </>
-  );
+  return card;
 }
 
 // Surcharges as icon cards: the item on top, the fee as a tag underneath. The amount and its unit

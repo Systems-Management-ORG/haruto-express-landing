@@ -850,7 +850,7 @@
         "caption": "Any weight · buy-for-you rate VCB + 5."
       },
       "cta": "See full pricing",
-      "note": "Prices exclude VAT; surcharges apply by category.",
+      "note": "Surcharges apply by category.",
       "cardCta": "See the rate policy"
     },
     "tabsLabel": "Choose shipping direction",
@@ -976,8 +976,7 @@
       "weight": "Air freight, any weight",
       "price": "155,000 VND/kg",
       "buyRate": "Buy-for-you exchange rate: VCB + 5, no surcharge.",
-      "domestic": "Domestic Vietnam delivery is paid by the customer, who chooses the carrier (our warehouse staff can help book it).",
-      "vat": "Service prices exclude VAT."
+      "domestic": "Domestic Vietnam delivery is paid by the customer, who chooses the carrier (our warehouse staff can help book it)."
     },
     "surcharge": {
       "title": "Surcharges",
@@ -1041,7 +1040,7 @@
       "negotiated": "Over 500 kg: rate negotiated.",
       "unpublished": "Mixed goods over 30 kg have no published rate.",
       "quoteCta": "Get a quote",
-      "note": "This is an estimate for reference; VAT and category surcharges are not included.",
+      "note": "This is an estimate for reference; category surcharges are not included.",
       "rulesLink": "How weight is calculated",
       "perKg": "{price} VND/kg",
       "vnd": "{price} VND",
@@ -1073,8 +1072,7 @@
       "jpVn": {
         "points": {
           "flat": "One rate for every weight",
-          "buyRate": "Buy-for-you rate VCB + 5, no surcharge",
-          "vat": "Service prices exclude VAT"
+          "buyRate": "Buy-for-you rate VCB + 5, no surcharge"
         },
         "cta": "See the Japan → Vietnam rate policy"
       }
@@ -1191,14 +1189,13 @@
         }
       },
       "total": {
-        "title": "= Total cost",
+        "title": "Total cost",
         "body": "The actual total depends on the chargeable weight and the surcharges that apply to the parcel."
       },
       "outside": {
         "title": "Not in the total",
         "items": {
-          "domestic": "Delivery within Vietnam: paid by you at the rates of the delivery company you choose.",
-          "vat": "Service prices exclude VAT."
+          "domestic": "Delivery within Vietnam: paid by you at the rates of the delivery company you choose."
         }
       },
       "factors": {

@@ -382,7 +382,7 @@ const COST_FACTORS: Record<Route, Factor[]> = {
 };
 
 // "What does it cost in total?": the items that add up (a "+" between cards), the total, what is
-// not in it (JP→VN: domestic delivery, VAT), then the factors that change the cost.
+// not in it (JP→VN: domestic delivery), then the factors that change the cost.
 export function CostBreakdown({ route }: { route: Route }) {
   const t = useTranslations("pricePolicy.cost");
   const tAll = useTranslations();
@@ -410,8 +410,12 @@ export function CostBreakdown({ route }: { route: Route }) {
       >
         {items.map(({ id, Icon }, index) => (
           <li key={id} className="info-card relative">
+            {/* On one row (lg), a "+" badge sits in the gap before every card but the first. */}
             {index > 0 && (
-              <span aria-hidden className="absolute -top-4 -left-3 font-display text-3xl text-gold">
+              <span
+                aria-hidden
+                className="absolute top-1/2 -left-2 z-10 hidden size-7 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gold font-semibold text-deep shadow-sm lg:grid"
+              >
                 +
               </span>
             )}
@@ -424,21 +428,32 @@ export function CostBreakdown({ route }: { route: Route }) {
         ))}
       </ol>
 
+      {/* The total as the sum of the cards above: "Total cost = A + B + …". */}
       <div data-reveal className="stat-card stat-card--featured mt-4">
         <h3 className="text-lg font-medium">{t("total.title")}</h3>
+        <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-white">
+          <span aria-hidden className="font-display text-2xl text-gold">=</span>
+          {items.map(({ id }, index) => (
+            <span key={id} className="flex items-center gap-2">
+              {index > 0 && (
+                <span aria-hidden className="font-semibold text-gold">
+                  +
+                </span>
+              )}
+              <span>{t(`items.${id}.title`)}</span>
+            </span>
+          ))}
+        </p>
         <p className="stat-card__body">{t("total.body")}</p>
       </div>
 
       {route === "jpVn" && (
         <div data-reveal className="callout mt-4">
           <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
-          <div>
-            <strong className="font-semibold text-forest">{t("outside.title")}</strong>
-            <ul className="mt-1 grid gap-1">
-              <li>{t("outside.items.domestic")}</li>
-              <li>{t("outside.items.vat")}</li>
-            </ul>
-          </div>
+          <p>
+            <strong className="font-semibold text-forest">{t("outside.title")}: </strong>
+            {t("outside.items.domestic")}
+          </p>
         </div>
       )}
 

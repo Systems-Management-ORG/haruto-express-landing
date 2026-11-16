@@ -4,7 +4,7 @@
     "home": {
       "nav": "Trang chủ",
       "breadcrumb": "Trang chủ",
-      "metaTitle": "Gửi hàng đi Nhật, ship hàng Nhật về Việt Nam | HARUTO",
+      "metaTitle": "Gửi hàng đi Nhật, vận chuyển hàng Nhật Bản về Việt Nam",
       "metaDescription": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
     },
     "shipToJapan": {
@@ -20,8 +20,8 @@
       "breadcrumb": "Vận chuyển Nhật – Việt",
       "title": "Mua hàng Nhật – vận chuyển về Việt Nam cùng HARUTO EXPRESS",
       "intro": "Mua hàng từ Yahoo Japan, Mercari, Rakuten, Amazon JP và vận chuyển về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật.",
-      "metaTitle": "Ship hàng Nhật về Việt Nam từ 155.000 VNĐ/kg | HARUTO",
-      "metaDescription": "Mua hộ, đấu giá Yahoo Auction và ship hàng Nhật về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí tại kho Nhật."
+      "metaTitle": "Vận chuyển hàng Nhật Bản về Việt Nam 155.000 VNĐ/kg | HARUTO",
+      "metaDescription": "Mua hộ, đấu giá Yahoo Auction và vận chuyển hàng Nhật Bản về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí."
     },
     "pricing": {
       "nav": "Bảng giá",
@@ -42,10 +42,10 @@
     "priceJpVn": {
       "nav": "Chính sách giá Nhật – Việt",
       "breadcrumb": "Chính sách giá Nhật – Việt",
-      "title": "Chính sách giá ship hàng Nhật về Việt Nam",
+      "title": "Chính sách giá vận chuyển hàng Nhật Bản về Việt Nam",
       "intro": "Chính sách giá tuyến Nhật Bản → Việt Nam đường hàng không: tỷ giá mua hộ VCB + 5 không phụ thu, cước 155.000 VNĐ/kg cho mọi cân nặng, phụ thu, cách tính cân, đền bù và chính sách mua hộ, đấu giá hộ, vận chuyển hộ.",
-      "metaTitle": "Chính sách giá ship hàng Nhật về Việt Nam | HARUTO",
-      "metaDescription": "Ship hàng Nhật về Việt Nam đường Air 155.000 VNĐ/kg mọi cân nặng, tỷ giá mua hộ VCB + 5 không phụ thu. Xem phụ thu, cách tính cân, đền bù và địa chỉ kho Nhật."
+      "metaTitle": "Chính sách giá vận chuyển hàng Nhật Bản về Việt Nam | HARUTO",
+      "metaDescription": "Vận chuyển hàng Nhật Bản về Việt Nam đường Air 155.000 VNĐ/kg mọi cân nặng, tỷ giá mua hộ VCB + 5 không phụ thu. Xem phụ thu, cách tính cân, đền bù, kho Nhật."
     },
     "goods": {
       "nav": "Hàng nhận & cấm",
@@ -450,7 +450,7 @@
   },
   "shipVn": {
     "hero": {
-      "titleA": "Ship hàng Nhật",
+      "titleA": "Vận chuyển hàng Nhật Bản",
       "titleB": "về Việt Nam",
       "ribbon": "Đa dạng website – săn hàng dễ dàng – giá tốt mỗi ngày!",
       "lead": "Bạn muốn mua hàng từ Yahoo Japan, Mercari, Rakuten hay Amazon JP nhưng gặp khó khăn về thanh toán và vận chuyển? HARUTO EXPRESS hỗ trợ trọn gói.",
@@ -850,7 +850,7 @@
         "caption": "Mọi trọng lượng · tỷ giá mua hộ VCB + 5."
       },
       "cta": "Xem bảng giá đầy đủ",
-      "note": "Giá chưa bao gồm VAT; phụ thu theo danh mục hàng.",
+      "note": "Phụ thu theo danh mục hàng.",
       "cardCta": "Xem chính sách giá"
     },
     "tabsLabel": "Chọn chiều vận chuyển",
@@ -976,8 +976,7 @@
       "weight": "Cước hàng không, với mọi trọng lượng",
       "price": "155.000 VNĐ/kg",
       "buyRate": "Tỷ giá mua hộ: VCB + 5, không phụ thu.",
-      "domestic": "Cước nội địa Việt Nam do khách tự chi trả và tự chọn đơn vị vận chuyển (có thể nhờ nhân viên kho hỗ trợ book đơn).",
-      "vat": "Giá dịch vụ chưa bao gồm VAT."
+      "domestic": "Cước nội địa Việt Nam do khách tự chi trả và tự chọn đơn vị vận chuyển (có thể nhờ nhân viên kho hỗ trợ book đơn)."
     },
     "surcharge": {
       "title": "Phụ thu",
@@ -1041,7 +1040,7 @@
       "negotiated": "Trên 500 kg: giá thương lượng.",
       "unpublished": "Hàng hỗn hợp trên 30 kg chưa có giá niêm yết.",
       "quoteCta": "Nhận báo giá",
-      "note": "Kết quả là ước tính để tham khảo, chưa gồm VAT và phụ thu theo danh mục hàng.",
+      "note": "Kết quả là ước tính để tham khảo, chưa gồm phụ thu theo danh mục hàng.",
       "rulesLink": "Cách tính cân",
       "perKg": "{price} VNĐ/kg",
       "vnd": "{price} VNĐ",
@@ -1059,7 +1058,7 @@
       "buyRate": "Tỷ giá mua hộ",
       "freightJpVn": "Cước vận chuyển Nhật → Việt",
       "costVnJp": "Tổng chi phí gửi hàng đi Nhật gồm những gì?",
-      "costJpVn": "Tổng chi phí ship hàng Nhật về gồm những gì?"
+      "costJpVn": "Tổng chi phí vận chuyển hàng Nhật Bản về Việt Nam gồm những gì?"
     },
     "routes": {
       "vnJp": {
@@ -1073,8 +1072,7 @@
       "jpVn": {
         "points": {
           "flat": "Một giá cho mọi cân nặng",
-          "buyRate": "Tỷ giá mua hộ VCB + 5, không phụ thu",
-          "vat": "Giá dịch vụ chưa bao gồm VAT"
+          "buyRate": "Tỷ giá mua hộ VCB + 5, không phụ thu"
         },
         "cta": "Xem chính sách giá Nhật – Việt"
       }
@@ -1191,14 +1189,13 @@
         }
       },
       "total": {
-        "title": "= Tổng chi phí",
+        "title": "Tổng chi phí",
         "body": "Tổng thực tế tùy cân nặng tính cước và các phụ thu áp dụng cho kiện hàng."
       },
       "outside": {
         "title": "Không nằm trong tổng",
         "items": {
-          "domestic": "Cước giao nội địa Việt Nam: khách trả theo biểu phí của đơn vị vận chuyển mình chọn.",
-          "vat": "Giá dịch vụ chưa bao gồm VAT."
+          "domestic": "Cước giao nội địa Việt Nam: khách trả theo biểu phí của đơn vị vận chuyển mình chọn."
         }
       },
       "factors": {
