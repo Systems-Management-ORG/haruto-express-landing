@@ -128,17 +128,6 @@
     }
   }
 
-  /* On a landscape desktop each section fills one screen below the 4.5rem header, its content
-     centred, so a screen shows one section at a time. Taller sections keep their height. */
-  @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
-    .section {
-      display: flex;
-      min-height: calc(100svh - 4.5rem);
-      flex-direction: column;
-      justify-content: center;
-    }
-  }
-
   /* Transparent over the banner, solid once the banner has scrolled away. */
   .site-header {
     position: sticky;
