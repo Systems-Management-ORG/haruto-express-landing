@@ -27,3 +27,6 @@ pnpm-debug.log*
 .claude/skills/
 .DS_Store
 Thumbs.db
+
+# graphify knowledge graph (local)
+graphify-out/
