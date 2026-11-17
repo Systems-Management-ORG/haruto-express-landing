@@ -481,7 +481,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: var(--color-ivory);
+    /* Sage, like the partners section right below it, so the plane flies over one band. */
+    background-color: var(--color-sage);
   }
 
   @media (min-width: 64rem) and (min-aspect-ratio: 1/1) {
