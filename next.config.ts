@@ -7,16 +7,33 @@ const isDev = process.env.NODE_ENV === "development";
 
 // Statically generated pages cannot carry a per-request nonce, so Next's inline scripts need
 // 'unsafe-inline'. Everything else stays limited to this origin.
-// Google Tag Manager loads the container and GA4 beacons from these hosts.
+// Google Tag Manager loads the container; GA4 (with Google signals) and the Google Ads conversion
+// tag send beacons to the hosts below. `*.analytics.google.com` does not cover the apex
+// analytics.google.com, so both are listed. Google Ads audience pings go to the visitor's
+// country Google domain (google.com.vn, google.co.jp).
+const GOOGLE_TAG_HOSTS = [
+  "https://*.googletagmanager.com",
+  "https://*.google-analytics.com",
+  "https://analytics.google.com",
+  "https://*.analytics.google.com",
+  "https://www.google.com",
+  "https://www.google.com.vn",
+  "https://www.google.co.jp",
+  "https://www.googleadservices.com",
+  "https://googleads.g.doubleclick.net",
+  "https://*.g.doubleclick.net",
+].join(" ");
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com",
+  `img-src 'self' data: ${GOOGLE_TAG_HOSTS}`,
   "font-src 'self'",
-  `connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com${isDev ? " ws:" : ""}`,
-  // Google Maps embeds (warehouse location) render in an iframe from these hosts.
-  "frame-src https://www.googletagmanager.com https://www.google.com https://maps.google.com",
+  `connect-src 'self' ${GOOGLE_TAG_HOSTS}${isDev ? " ws:" : ""}`,
+  // Google Maps embeds (warehouse location) render in an iframe from these hosts; the Ads tag
+  // also opens hidden doubleclick frames for conversion measurement.
+  "frame-src https://www.googletagmanager.com https://www.google.com https://maps.google.com https://td.doubleclick.net https://bid.g.doubleclick.net",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
