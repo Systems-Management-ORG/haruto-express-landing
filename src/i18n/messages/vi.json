@@ -4,16 +4,16 @@
     "home": {
       "nav": "Trang chủ",
       "breadcrumb": "Trang chủ",
-      "metaTitle": "Gửi hàng đi Nhật, vận chuyển hàng Nhật Bản về Việt Nam",
-      "metaDescription": "Gửi hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
+      "metaTitle": "Vận chuyển hàng đi Nhật và từ Nhật Bản về Việt Nam",
+      "metaDescription": "Vận chuyển hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
     },
     "shipToJapan": {
       "nav": "Vận chuyển Việt Nhật",
-      "breadcrumb": "Gửi hàng đi Nhật",
-      "title": "Gửi hàng đi Nhật Bản – vận chuyển hàng từ Việt Nam đi Nhật",
-      "intro": "Gửi hàng cá nhân, quà tặng và hàng kinh doanh từ Việt Nam sang Nhật Bản: HARUTO tư vấn quy định hàng hóa, hỗ trợ thông quan và cập nhật tình trạng vận chuyển.",
-      "metaTitle": "Gửi hàng đi Nhật Bản từ Việt Nam | HARUTO",
-      "metaDescription": "Gửi hàng đi Nhật: hàng cá nhân, quà tặng, hàng kinh doanh từ Việt Nam sang Nhật Bản. Tư vấn quy định hàng hóa, hỗ trợ thông quan, theo dõi vận chuyển."
+      "breadcrumb": "Vận chuyển hàng đi Nhật",
+      "title": "Vận chuyển hàng đi Nhật Bản từ Việt Nam",
+      "intro": "Vận chuyển hàng cá nhân, quà tặng và hàng kinh doanh từ Việt Nam sang Nhật Bản: HARUTO tư vấn quy định hàng hóa, hỗ trợ thông quan và cập nhật tình trạng vận chuyển.",
+      "metaTitle": "Vận chuyển hàng đi Nhật Bản từ Việt Nam | HARUTO",
+      "metaDescription": "Vận chuyển hàng đi Nhật: hàng cá nhân, quà tặng, hàng kinh doanh từ Việt Nam sang Nhật Bản. Tư vấn quy định hàng hóa, hỗ trợ thông quan, theo dõi vận chuyển."
     },
     "shipToVietnam": {
       "nav": "Vận chuyển Nhật – Việt",
@@ -23,21 +23,13 @@
       "metaTitle": "Vận chuyển hàng Nhật Bản về Việt Nam 155.000 VNĐ/kg | HARUTO",
       "metaDescription": "Mua hộ, đấu giá Yahoo Auction và vận chuyển hàng Nhật Bản về Việt Nam bằng đường hàng không: cước từ 155.000 VNĐ/kg, tỷ giá VCB + 5, gom hàng miễn phí."
     },
-    "pricing": {
-      "nav": "Bảng giá",
-      "breadcrumb": "Bảng giá",
-      "title": "Bảng giá vận chuyển Việt Nam – Nhật Bản",
-      "intro": "Bảng giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026: chiều Việt Nam → Nhật Bản tính theo mốc cân cho hàng sạch và hàng hỗn hợp; chiều Nhật Bản → Việt Nam 155.000 VNĐ/kg. Chọn tuyến để xem chính sách giá đầy đủ hoặc tính cước nhanh.",
-      "metaTitle": "Bảng giá gửi hàng Việt – Nhật | HARUTO",
-      "metaDescription": "Bảng giá hàng không hai chiều Việt – Nhật từ 01/10/2026: hàng sạch, hỗn hợp theo mốc cân; chiều Nhật về 155.000 VNĐ/kg. Chọn tuyến hoặc tính cước nhanh."
-    },
     "priceVnJp": {
       "nav": "Chính sách giá Việt – Nhật",
       "breadcrumb": "Chính sách giá Việt – Nhật",
-      "title": "Chính sách giá gửi hàng đi Nhật đường hàng không",
-      "intro": "Chính sách giá tuyến Việt Nam → Nhật Bản: cước hàng sạch và hàng hỗn hợp theo mốc cân (đã gồm thuế và ship nội địa Nhật), phụ thu, quy định hàng cồng kềnh và chính sách đền bù.",
-      "metaTitle": "Chính sách giá gửi hàng đi Nhật (Air VN–JP) | HARUTO",
-      "metaDescription": "Giá gửi hàng Việt – Nhật đường Air từ 01/10/2026: hàng sạch, hàng hỗn hợp theo mốc cân, đã gồm thuế và ship nội địa Nhật. Kèm phụ thu, hàng cồng kềnh, đền bù."
+      "title": "Chính sách giá vận chuyển hàng đi Nhật đường hàng không",
+      "intro": "Chính sách giá tuyến Việt Nam → Nhật Bản: cước hàng sạch và hàng hỗn hợp theo mốc cân (đã gồm vận chuyển nội địa Nhật), phụ thu, quy định hàng cồng kềnh và chính sách đền bù.",
+      "metaTitle": "Chính sách giá vận chuyển hàng đi Nhật | HARUTO",
+      "metaDescription": "Giá vận chuyển hàng Việt – Nhật đường Air từ 01/10/2026: hàng sạch, hàng hỗn hợp theo mốc cân, đã gồm vận chuyển nội địa Nhật. Phụ thu, hàng cồng kềnh, đền bù."
     },
     "priceJpVn": {
       "nav": "Chính sách giá Nhật – Việt",
@@ -94,7 +86,7 @@
       "title": "Mua hộ, thanh toán hộ hàng Nhật – không cần thẻ quốc tế",
       "intro": "Gửi link sản phẩm từ Yahoo Auction, Mercari, Rakuten hay Amazon Nhật: HARUTO báo giá, thanh toán hộ, nhận hàng tại kho Tokyo và vận chuyển về Việt Nam.",
       "metaTitle": "Mua hộ, thanh toán hộ hàng Nhật | HARUTO",
-      "metaDescription": "Thanh toán hộ Yahoo Auction, Mercari, Rakuten, Amazon Nhật không cần thẻ quốc tế. Gửi link sản phẩm, HARUTO báo giá, mua hộ, đấu giá hộ và ship về Việt Nam."
+      "metaDescription": "Thanh toán hộ Yahoo Auction, Mercari, Rakuten, Amazon Nhật không cần thẻ quốc tế. Gửi link, HARUTO báo giá, mua hộ, đấu giá hộ và vận chuyển về Việt Nam."
     },
     "auction": {
       "nav": "Đấu giá hộ",
@@ -102,15 +94,15 @@
       "title": "Đấu giá hộ hàng Nhật Bản – săn hàng chất, giá tốt",
       "intro": "HARUTO EXPRESS hỗ trợ đấu giá trực tiếp trên các sàn đấu giá Nhật Bản, giúp bạn tiếp cận hàng ngàn sản phẩm độc đáo mỗi ngày và nhận hàng ngay tại Việt Nam.",
       "metaTitle": "Đấu giá hộ hàng Nhật, Yahoo! Auction | HARUTO",
-      "metaDescription": "Đấu giá hộ hàng Nhật trên Yahoo! Auction, Mercari, Rakuten: điện tử, máy ảnh, đồng hồ, figure, túi hàng hiệu. Phí minh bạch, theo dõi đơn, ship về Việt Nam."
+      "metaDescription": "Đấu giá hộ hàng Nhật trên Yahoo! Auction, Mercari, Rakuten: điện tử, máy ảnh, đồng hồ, figure, túi hiệu. Phí minh bạch, theo dõi đơn, vận chuyển về Việt Nam."
     },
     "japanWarehouse": {
       "nav": "Kho Nhật",
       "breadcrumb": "Địa chỉ kho Nhật",
-      "title": "Địa chỉ kho Nhật và cách gửi hàng về kho",
-      "intro": "Thông tin kho nhận hàng tại Nhật Bản: mã bưu điện, địa chỉ, số điện thoại người nhận và quy ước ghi tên người nhận, cùng lưu ý quan trọng khi gửi hàng về kho.",
+      "title": "Địa chỉ kho Nhật và cách vận chuyển hàng về kho",
+      "intro": "Thông tin kho nhận hàng tại Nhật Bản: mã bưu điện, địa chỉ, số điện thoại người nhận và quy ước ghi tên người nhận, cùng lưu ý quan trọng khi vận chuyển hàng về kho.",
       "metaTitle": "Địa chỉ kho Nhật của HARUTO EXPRESS",
-      "metaDescription": "Địa chỉ kho nhận hàng tại Nhật của HARUTO: mã bưu điện, địa chỉ, số điện thoại người nhận, quy ước ghi tên người nhận và lưu ý khi gửi hàng về kho."
+      "metaDescription": "Địa chỉ kho nhận hàng tại Nhật của HARUTO: mã bưu điện, địa chỉ, số điện thoại người nhận, quy ước ghi tên người nhận và lưu ý khi vận chuyển hàng về kho."
     },
     "faq": {
       "nav": "Hỏi đáp",
@@ -139,10 +131,10 @@
     "guides": {
       "nav": "Hướng dẫn",
       "breadcrumb": "Hướng dẫn",
-      "title": "Hướng dẫn gửi hàng",
-      "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
-      "metaTitle": "Hướng dẫn gửi hàng | HARUTO EXPRESS",
-      "metaDescription": "Hướng dẫn đóng gói, khai báo và gửi hàng giữa Việt Nam và Nhật Bản của HARUTO EXPRESS. Nội dung đang được biên soạn và sẽ sớm cập nhật."
+      "title": "Hướng dẫn vận chuyển hàng",
+      "intro": "Những điều nên đọc trước khi vận chuyển hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
+      "metaTitle": "Hướng dẫn vận chuyển hàng | HARUTO EXPRESS",
+      "metaDescription": "Hướng dẫn đóng gói, khai báo và vận chuyển hàng giữa Việt Nam và Nhật Bản của HARUTO EXPRESS. Nội dung đang được biên soạn và sẽ sớm cập nhật."
     }
   },
   "nav": {
@@ -177,7 +169,7 @@
     },
     "guides": {
       "title": "Hướng dẫn và chính sách",
-      "intro": "Những điều nên đọc trước khi gửi hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
+      "intro": "Những điều nên đọc trước khi vận chuyển hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
       "more": "Đọc chi tiết"
     },
     "flow": {
@@ -187,27 +179,27 @@
         "warehouse": "Kho Nhật nhận và gom hàng",
         "flyToVn": "Bay về Việt Nam",
         "receive": "Nhận hàng tại Việt Nam",
-        "dropoff": "Gửi hàng tại kho Việt Nam",
+        "dropoff": "Vận chuyển hàng tới kho Việt Nam",
         "pack": "Gom đơn, đóng hàng miễn phí",
         "flyToJp": "Bay sang Nhật Bản",
         "deliver": "Giao tận địa chỉ tại Nhật"
       }
     },
     "audience": {
-      "title": "Giải pháp cho từng nhu cầu gửi hàng",
+      "title": "Giải pháp cho từng nhu cầu vận chuyển hàng",
       "intro": "Chọn dịch vụ theo việc bạn cần làm.",
       "items": {
         "personal": {
           "title": "Gửi quà cho người thân ở Nhật",
-          "body": "Gửi đồ dùng, quà tặng từ Việt Nam sang Nhật; giá đã gồm thuế và ship nội địa Nhật."
+          "body": "Vận chuyển đồ dùng, quà tặng từ Việt Nam sang Nhật; giá đã gồm vận chuyển nội địa Nhật."
         },
         "shoppers": {
           "title": "Mua hàng Nhật về dùng",
-          "body": "Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam, không cần thẻ quốc tế."
+          "body": "Mua hộ, đấu giá hộ trên các sàn Nhật rồi vận chuyển về Việt Nam, không cần thẻ quốc tế."
         },
         "sellers": {
           "title": "Nhập hàng Nhật để kinh doanh",
-          "body": "Gửi hàng từ nhiều shop về kho Nhật để gom chung một chuyến bay về Việt Nam."
+          "body": "Vận chuyển hàng từ nhiều shop về kho Nhật để gom chung một chuyến bay về Việt Nam."
         },
         "business": {
           "title": "Doanh nghiệp bán hàng tại Nhật",
@@ -462,7 +454,7 @@
       "marketplacesLabel": "Mua hàng từ các sàn Nhật"
     },
     "features": {
-      "title": "Mua hộ & ship Nhật ⇄ Việt",
+      "title": "Mua hộ & vận chuyển Nhật ⇄ Việt",
       "more": "Xem chi tiết",
       "items": {
         "buy": {
@@ -478,7 +470,7 @@
           "body": "Miễn phí gom hàng tại kho Nhật"
         },
         "fast": {
-          "title": "Ship nhanh",
+          "title": "Vận chuyển nhanh",
           "body": "Hàng không Nhật ⇄ Việt, về nhanh, ổn định"
         },
         "trust": {
@@ -528,18 +520,18 @@
       }
     },
     "cta": {
-      "title": "Cần mua hàng Nhật hoặc ship hàng về Việt Nam?",
-      "body": "Gửi link sản phẩm hoặc thông tin kiện hàng qua Zalo, HARUTO báo giá và hướng dẫn gửi hàng về kho Nhật."
+      "title": "Cần mua hàng Nhật hoặc vận chuyển hàng về Việt Nam?",
+      "body": "Gửi link sản phẩm hoặc thông tin kiện hàng qua Zalo, HARUTO báo giá và hướng dẫn vận chuyển hàng về kho Nhật."
     }
   },
   "shipJp": {
     "hero": {
-      "titleA": "Gửi hàng đi Nhật Bản",
+      "titleA": "Vận chuyển hàng đi Nhật Bản",
       "titleB": "từ Việt Nam",
       "ribbon": "Dịch vụ vận chuyển hàng hóa từ Việt Nam đi Nhật Bản",
-      "lead": "Bạn đang muốn gửi hàng hóa, quà tặng hoặc sản phẩm kinh doanh từ Việt Nam sang Nhật Bản? Bạn đang tìm kiếm một đơn vị vận chuyển hỗ trợ xuyên suốt quá trình gửi hàng quốc tế?",
+      "lead": "Bạn đang muốn vận chuyển hàng hóa, quà tặng hoặc sản phẩm kinh doanh từ Việt Nam sang Nhật Bản? Bạn đang tìm kiếm một đơn vị vận chuyển hỗ trợ xuyên suốt quá trình vận chuyển hàng quốc tế?",
       "points": [
-        "Đã bao gồm thuế và ship nội địa Nhật",
+        "Đã bao gồm vận chuyển nội địa Nhật",
         "Hàng sạch: miễn phí gom đơn, đóng hàng",
         "Hỗ trợ thủ tục thông quan"
       ]
@@ -552,7 +544,7 @@
           "title": "Tiếp nhận và vận chuyển hàng hóa từ Việt Nam đi Nhật Bản"
         },
         "gifts": {
-          "title": "Hỗ trợ gửi hàng cá nhân, quà tặng và hàng hóa kinh doanh"
+          "title": "Hỗ trợ vận chuyển hàng cá nhân, quà tặng và hàng hóa kinh doanh"
         },
         "rules": {
           "title": "Tư vấn quy định đối với từng loại hàng hóa trước khi gửi"
@@ -600,7 +592,7 @@
           "title": "Nhà bán hàng muốn mở rộng thị trường và phân phối sản phẩm tại Nhật Bản"
         },
         "regular": {
-          "title": "Khách hàng có nhu cầu gửi hàng thường xuyên từ Việt Nam sang Nhật Bản"
+          "title": "Khách hàng có nhu cầu vận chuyển hàng thường xuyên từ Việt Nam sang Nhật Bản"
         }
       }
     },
@@ -613,7 +605,7 @@
         },
         "support": {
           "title": "Hỗ trợ từng khâu",
-          "body": "Đồng hành cùng khách hàng trong từng khâu của quá trình gửi hàng."
+          "body": "Đồng hành cùng khách hàng trong từng khâu của quá trình vận chuyển hàng."
         },
         "flexible": {
           "title": "Giải pháp linh hoạt",
@@ -626,7 +618,7 @@
       }
     },
     "cta": {
-      "title": "Nhận tư vấn và báo giá gửi hàng đi Nhật",
+      "title": "Nhận tư vấn và báo giá vận chuyển hàng đi Nhật",
       "body": "Liên hệ HARUTO EXPRESS ngay hôm nay để được tư vấn tuyến vận chuyển và báo giá chi tiết!"
     }
   },
@@ -778,8 +770,8 @@
   },
   "hero": {
     "badge": "Vận chuyển hàng không 2 chiều Việt – Nhật",
-    "title": "Gửi hàng đi Nhật & mua hộ hàng Nhật qua đường hàng không",
-    "description": "<hl>Chiều Việt Nam → Nhật Bản:</hl> gửi quà, hàng kinh doanh sang Nhật, cước đã bao gồm cước vận chuyển nội địa Nhật. Mua hộ, đấu giá hộ trên các sàn Nhật rồi ship về Việt Nam.",
+    "title": "Vận chuyển hàng đi Nhật & mua hộ hàng Nhật qua đường hàng không",
+    "description": "<hl>Chiều Việt Nam → Nhật Bản:</hl> vận chuyển quà, hàng kinh doanh sang Nhật, cước đã bao gồm cước vận chuyển nội địa Nhật. Mua hộ, đấu giá hộ trên các sàn Nhật rồi vận chuyển về Việt Nam.",
     "ctaCalc": "Tính cước ngay",
     "ctaConcierge": "Xem dịch vụ mua hộ",
     "stats": {
@@ -816,7 +808,7 @@
     },
     "intro": "HARUTO EXPRESS vận chuyển hàng không hai chiều giữa Việt Nam và Nhật Bản, có kho hàng riêng và nhân viên tư vấn đồng hành từ bước kiểm tra hàng đến khi giao.",
     "japanDelivery": {
-      "title": "Cước đã gồm ship nội địa Nhật",
+      "title": "Cước đã gồm vận chuyển nội địa Nhật",
       "body": "Cước chiều Việt Nam → Nhật Bản đã bao gồm cước vận chuyển nội địa Nhật."
     },
     "weightBands": {
@@ -838,7 +830,7 @@
     "intro": "Chính sách giá vận chuyển hàng không hai chiều, áp dụng từ 01/10/2026.",
     "teaser": {
       "title": "Bảng giá rõ ràng cho cả hai chiều",
-      "intro": "Cước tính theo trọng lượng và loại hàng. Chiều Việt → Nhật đã gồm thuế và giao nội địa Nhật. Xem đầy đủ mốc cân, phụ thu và cách tính cân ở trang chính sách giá của từng chiều.",
+      "intro": "Cước tính theo trọng lượng và loại hàng. Chiều Việt → Nhật đã gồm vận chuyển nội địa Nhật. Xem đầy đủ mốc cân, phụ thu và cách tính cân ở trang chính sách giá của từng chiều.",
       "vnJp": {
         "label": "Việt Nam → Nhật Bản",
         "price": "Từ 85.000 VNĐ/kg",
@@ -859,7 +851,7 @@
       "jpVn": "JP → VN"
     },
     "vnJp": {
-      "intro": "Giá đã bao gồm thuế và ship nội địa Nhật — khách chỉ việc nhận hàng tại địa chỉ. Miễn phí gom đơn và đóng hàng.",
+      "intro": "Giá đã bao gồm vận chuyển nội địa Nhật — khách chỉ việc nhận hàng tại địa chỉ. Miễn phí gom đơn và đóng hàng.",
       "scrollLabel": "Bảng giá, có thể cuộn ngang",
       "columns": {
         "weight": "Khối lượng",
@@ -870,7 +862,7 @@
         "features": {
           "goods": "Hàng thời trang, đồ dùng, nội thất, máy móc, phụ kiện, sách vở… Không nhận thực phẩm, mỹ phẩm, thuốc thang (không nhận hàng fake).",
           "guarantee": "Đảm bảo hàng hóa 100%.",
-          "taxIncluded": "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
+          "japanDelivery": "Đã bao gồm vận chuyển nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
           "freePacking": "Miễn phí gom đơn, đóng hàng.",
           "wholesale": "Ưu đãi khách buôn: sản lượng tháng này là mốc tính cước cho tháng tiếp theo."
         },
@@ -909,12 +901,12 @@
             "price": "Thương lượng"
           }
         ],
-        "note": "Giá đã gồm ship nội địa Nhật."
+        "note": "Giá đã gồm vận chuyển nội địa Nhật."
       },
       "mixed": {
         "title": "Hàng hỗn hợp",
         "features": {
-          "taxIncluded": "Đã bao gồm thuế và ship nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
+          "japanDelivery": "Đã bao gồm vận chuyển nội địa Nhật, khách chỉ việc nhận hàng tại địa chỉ.",
           "accepted": "Nhận đa dạng các loại mặt hàng: quần áo, giày dép, thực phẩm…",
           "notGuaranteed": "Hàng hóa không đảm bảo: chế phẩm thịt, hàng fake, hạt giống, hoa quả, mỹ phẩm, thuốc thang.",
           "prohibited": "Hàng hóa cấm gửi theo quy định pháp luật: chất gây nghiện, chất kích thích, vũ khí, đạn dược…"
@@ -969,7 +961,7 @@
             "price": "105.000 VNĐ/kg"
           }
         ],
-        "note": "Giá đã gồm ship nội địa Nhật."
+        "note": "Giá đã gồm vận chuyển nội địa Nhật."
       }
     },
     "freight": {
@@ -1051,31 +1043,13 @@
   "pricePolicy": {
     "effective": "Áp dụng từ ngày 01/10/2026",
     "sections": {
-      "routes": "Chọn tuyến để xem chính sách giá",
       "goodsRates": "Loại hàng và cước vận chuyển",
       "weightVnJp": "Cách tính khối lượng chiều Việt → Nhật",
       "weightJpVn": "Cách tính khối lượng chiều Nhật → Việt",
       "buyRate": "Tỷ giá mua hộ",
       "freightJpVn": "Cước vận chuyển Nhật → Việt",
-      "costVnJp": "Tổng chi phí gửi hàng đi Nhật gồm những gì?",
+      "costVnJp": "Tổng chi phí vận chuyển hàng đi Nhật gồm những gì?",
       "costJpVn": "Tổng chi phí vận chuyển hàng Nhật Bản về Việt Nam gồm những gì?"
-    },
-    "routes": {
-      "vnJp": {
-        "points": {
-          "tax": "Đã gồm thuế và ship nội địa Nhật",
-          "goods": "Hàng sạch và hàng hỗn hợp, giá theo mốc cân",
-          "packing": "Hàng sạch: miễn phí gom đơn, đóng hàng"
-        },
-        "cta": "Xem chính sách giá Việt – Nhật"
-      },
-      "jpVn": {
-        "points": {
-          "flat": "Một giá cho mọi cân nặng",
-          "buyRate": "Tỷ giá mua hộ VCB + 5, không phụ thu"
-        },
-        "cta": "Xem chính sách giá Nhật – Việt"
-      }
     },
     "surchargeUnit": {
       "item": "VNĐ/sản phẩm",
@@ -1164,7 +1138,7 @@
       "items": {
         "freight": {
           "title": "Cước vận chuyển",
-          "vnJp": "Đơn giá theo mốc cân × số kg tính cước. Đã gồm thuế và ship nội địa Nhật.",
+          "vnJp": "Đơn giá theo mốc cân × số kg tính cước. Đã gồm vận chuyển nội địa Nhật.",
           "jpVn": "{price} VNĐ/kg × số kg tính cước, cho mọi cân nặng."
         },
         "parcelFee": {
@@ -1275,11 +1249,11 @@
       },
       "ship": {
         "title": "Vận chuyển",
-        "body": "Khách tự mua và gửi hàng về kho Nhật của HARUTO theo thông tin bên dưới."
+        "body": "Khách tự mua và vận chuyển hàng về kho Nhật của HARUTO theo thông tin bên dưới."
       }
     },
     "warehouse": {
-      "title": "Thông tin gửi hàng kho Nhật",
+      "title": "Thông tin vận chuyển hàng về kho Nhật",
       "postal": {
         "label": "Mã bưu điện",
         "value": "133-0056"
@@ -1300,13 +1274,13 @@
       "mapOpen": "Mở trên Google Maps"
     },
     "tips": {
-      "title": "Lưu ý quan trọng khi gửi hàng",
+      "title": "Lưu ý quan trọng khi vận chuyển hàng",
       "items": {
         "photo": "Chụp ảnh kiện hàng trước khi gửi.",
         "declare": "Khai báo chính xác giá trị, số lượng và thông tin hàng hóa.",
         "receipt": "Nếu mua hàng tại siêu thị, giữ lại hóa đơn (bill) và gửi kèm bên trong kiện hàng.",
         "recipient": "Hàng gửi đến kho phải đủ thông tin người nhận: tên, số điện thoại, địa chỉ.",
-        "customsRisk": "Đọc kỹ hướng dẫn gửi hàng, thỏa thuận và chính sách bảo hiểm hàng hóa do nhân viên tư vấn gửi: một số nhóm hàng có thể gặp rủi ro khi thông quan Nhật Bản và không được bảo hiểm thông quan.",
+        "customsRisk": "Đọc kỹ hướng dẫn vận chuyển hàng, thỏa thuận và chính sách bảo hiểm hàng hóa do nhân viên tư vấn gửi: một số nhóm hàng có thể gặp rủi ro khi thông quan Nhật Bản và không được bảo hiểm thông quan.",
         "video": "Khi nhận hàng, quay video liền mạch quá trình kiểm đếm để làm căn cứ khiếu nại. Không có video hoặc quá 24 giờ kể từ khi nhận sẽ không được giải quyết.",
         "shelfLife": "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
         "redelivery": "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
@@ -1334,9 +1308,8 @@
       },
       {
         "question": "Giá cước được tính như thế nào?",
-        "answer": "Hai chiều tính khác nhau. Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp (đã gồm thuế và ship nội địa Nhật); cân được làm tròn lên mốc 0,5 kg, kiện vượt tiêu chuẩn kích thước tính thêm phụ thu cồng kềnh. Chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg cho mọi cân nặng; hàng cồng kềnh tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Xem chính sách giá của từng chiều để biết chi tiết và phụ thu.",
+        "answer": "Hai chiều tính khác nhau. Chiều Việt Nam → Nhật Bản tính theo mốc cân, có bảng riêng cho hàng sạch và hàng hỗn hợp (đã gồm vận chuyển nội địa Nhật); cân được làm tròn lên mốc 0,5 kg, kiện vượt tiêu chuẩn kích thước tính thêm phụ thu cồng kềnh. Chiều Nhật Bản → Việt Nam là 155.000 VNĐ/kg cho mọi cân nặng; hàng cồng kềnh tính theo số lớn hơn giữa cân thực tế và cân thể tích (Dài × Rộng × Cao ÷ 6.000). Xem chính sách giá của từng chiều để biết chi tiết và phụ thu.",
         "pages": [
-          "pricing",
           "shipToJapan",
           "shipToVietnam",
           "policy",
@@ -1381,7 +1354,7 @@
       },
       {
         "question": "Tự mua hàng rồi gửi về kho Nhật của HARUTO được không?",
-        "answer": "Được. Với dịch vụ vận chuyển, bạn tự mua và gửi hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
+        "answer": "Được. Với dịch vụ vận chuyển, bạn tự mua và vận chuyển hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
         "pages": [
           "concierge",
           "shipToVietnam",
@@ -1403,7 +1376,7 @@
         ]
       },
       {
-        "question": "Gửi hàng cồng kềnh đi Nhật bị tính phụ thu thế nào?",
+        "question": "Vận chuyển hàng cồng kềnh đi Nhật bị tính phụ thu thế nào?",
         "answer": "Chiều Việt → Nhật, tổng 3 cạnh tối đa theo cân nặng là 120 cm (dưới 10 kg), 140 – 150 cm (10 – 20 kg) và 160 – 180 cm (20 – 30 kg). Kiện vượt tiêu chuẩn, hoặc có một cạnh từ 100 cm trở lên, sẽ được xem xét phụ thu cồng kềnh, mức 220.000 – 800.000 VNĐ tùy kích thước và đặc điểm kiện. Kiện trên 260 cm hoặc trên 50 kg cần liên hệ kiểm tra trước khi gửi.",
         "pages": [
           "priceVnJp",

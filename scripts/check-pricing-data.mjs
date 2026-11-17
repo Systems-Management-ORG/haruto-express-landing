@@ -84,14 +84,9 @@ for (const locale of LOCALES) {
     "pages.shipToVietnam.intro": messages.pages.shipToVietnam.intro,
     "pages.shipToVietnam.metaTitle": messages.pages.shipToVietnam.metaTitle,
     "pages.shipToVietnam.metaDescription": messages.pages.shipToVietnam.metaDescription,
-    "pages.pricing.intro": messages.pages.pricing.intro,
-    "pages.pricing.metaDescription": messages.pages.pricing.metaDescription,
     "pages.priceJpVn.intro": messages.pages.priceJpVn.intro,
     "pages.priceJpVn.metaDescription": messages.pages.priceJpVn.metaDescription,
   };
-  messages.faq.items.forEach((item, index) => {
-    if (item.pages?.includes("pricing")) prose[`faq.items[${index}].answer`] = item.answer;
-  });
   for (const [key, text] of Object.entries(prose)) {
     const found = String(text ?? "").match(/\b\d{2,3}[.,]000\b/g) ?? [];
     if (found.length === 0) errors.push(`${locale} ${key}: no JP→VN amount found ("${text}")`);
@@ -144,9 +139,8 @@ for (const locale of LOCALES) {
       errors.push(`${locale} faq "${RATE_QUESTION[locale]}": missing the VN→JP ${VN_JP_BULKY.roundingStepKg} kg rounding`);
   }
 
-  // The /bang-gia hub no longer carries the weight rules, so its meta must not promise them.
-  if (/cách tính cân|容積重量|weight rules/i.test(messages.pages.pricing.metaDescription))
-    errors.push(`${locale} pages.pricing.metaDescription mentions weight rules the hub no longer has`);
+  // No tax or VAT wording anywhere in the copy (removed at the owner's request, 2026-11-17).
+  if (/thuế|VAT|税金|\btax\b/i.test(raw)) errors.push(`${locale}: tax/VAT wording is back in the messages`);
 
   // The old carton fee (25.500) must not come back anywhere.
   if (/25[.,]500/.test(raw)) errors.push(`${locale}: the old carton fee 25.500 is back`);

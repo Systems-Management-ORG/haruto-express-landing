@@ -64,7 +64,7 @@ function Choice<T extends string>({
 
 // Freight estimate from the published rates (shipping-quote.ts). The result updates as the reader
 // types and is announced politely; prices beyond the published tiers send the reader to contact.
-// `withTitle={false}` where the section around it already has the heading (the /bang-gia hub and
+// `withTitle={false}` where the section around it already has the heading (the price-policy pages and
 // the price-policy pages). `route` sets the starting direction; `lockRoute` (the price-policy page
 // of that direction) drops the route choice and names the route instead. The goods-type choice is
 // VN→JP only, so a locked JP→VN calculator has neither.

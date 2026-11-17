@@ -23,21 +23,13 @@
       "metaTitle": "Ship from Japan to Vietnam from 155,000 VND/kg | HARUTO",
       "metaDescription": "Buying service, Yahoo Auction bidding and air shipping from Japan to Vietnam: from 155,000 VND/kg, payment rate VCB + 5, free consolidation in Japan."
     },
-    "pricing": {
-      "nav": "Pricing",
-      "breadcrumb": "Pricing",
-      "title": "Vietnam – Japan shipping rates",
-      "intro": "Two-way air-freight rates from 1 October 2026: Vietnam → Japan is priced by weight band for clean and mixed goods; Japan → Vietnam is 155,000 VND/kg. Pick a route for its full rate policy, or estimate your freight.",
-      "metaTitle": "Vietnam – Japan shipping rates | HARUTO",
-      "metaDescription": "Two-way Vietnam – Japan freight from 1 Oct 2026: clean and mixed goods by weight band, Japan to Vietnam at 155,000 VND/kg. Pick a route or estimate freight."
-    },
     "priceVnJp": {
       "nav": "Rate policy: Vietnam → Japan",
       "breadcrumb": "Rate policy: Vietnam → Japan",
       "title": "Vietnam to Japan air freight rate policy",
-      "intro": "Rate policy for air freight from Vietnam to Japan: clean and mixed goods priced by weight band (tax and Japan domestic delivery included), surcharges, bulky-goods rules and compensation.",
+      "intro": "Rate policy for air freight from Vietnam to Japan: clean and mixed goods priced by weight band (Japan domestic delivery included), surcharges, bulky-goods rules and compensation.",
       "metaTitle": "Vietnam → Japan air freight rate policy | HARUTO",
-      "metaDescription": "Vietnam to Japan air freight from 1 Oct 2026: clean and mixed goods by weight band, tax and Japan delivery included. Surcharges, bulky goods, compensation."
+      "metaDescription": "Vietnam to Japan air freight from 1 Oct 2026: clean and mixed goods by weight band, Japan delivery included. Surcharges, bulky goods, compensation."
     },
     "priceJpVn": {
       "nav": "Rate policy: Japan → Vietnam",
@@ -199,7 +191,7 @@
       "items": {
         "personal": {
           "title": "Send gifts to family in Japan",
-          "body": "Send everyday items and gifts from Vietnam to Japan; rates include tax and delivery within Japan."
+          "body": "Send everyday items and gifts from Vietnam to Japan; rates include delivery within Japan."
         },
         "shoppers": {
           "title": "Buy from Japan for yourself",
@@ -539,7 +531,7 @@
       "ribbon": "Freight service from Vietnam to Japan",
       "lead": "Want to send goods, gifts or products for your business from Vietnam to Japan? Looking for a carrier that supports you through the whole international shipment?",
       "points": [
-        "Tax and Japan domestic delivery included",
+        "Japan domestic delivery included",
         "Clean goods: free consolidation and packing",
         "Customs clearance support"
       ]
@@ -838,7 +830,7 @@
     "intro": "Two-way air-freight rate policy, effective from 1 October 2026.",
     "teaser": {
       "title": "Clear rates for both directions",
-      "intro": "Rates depend on weight and goods type; Vietnam → Japan includes tax and Japan domestic delivery. See each direction's rate policy for the full weight bands, surcharges and weight rules.",
+      "intro": "Rates depend on weight and goods type; Vietnam → Japan includes Japan domestic delivery. See each direction's rate policy for the full weight bands, surcharges and weight rules.",
       "vnJp": {
         "label": "Vietnam → Japan",
         "price": "From 85,000 VND/kg",
@@ -859,7 +851,7 @@
       "jpVn": "JP → VN"
     },
     "vnJp": {
-      "intro": "Prices include tax and Japan domestic delivery — the customer simply receives the goods at the address. Consolidation and packing are free.",
+      "intro": "Prices include Japan domestic delivery — the customer simply receives the goods at the address. Consolidation and packing are free.",
       "scrollLabel": "Rate table, scrolls horizontally",
       "columns": {
         "weight": "Weight",
@@ -870,7 +862,7 @@
         "features": {
           "goods": "Fashion, household items, furniture, machinery, accessories, books… We do not accept food, cosmetics, medicine (no counterfeit goods).",
           "guarantee": "Goods are 100% guaranteed.",
-          "taxIncluded": "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
+          "japanDelivery": "Japan domestic delivery included — the customer simply receives the goods at the address.",
           "freePacking": "Free consolidation and packing.",
           "wholesale": "Wholesale perk: this month's volume sets next month's rate."
         },
@@ -914,7 +906,7 @@
       "mixed": {
         "title": "Mixed goods",
         "features": {
-          "taxIncluded": "Tax and Japan domestic delivery included — the customer simply receives the goods at the address.",
+          "japanDelivery": "Japan domestic delivery included — the customer simply receives the goods at the address.",
           "accepted": "A wide range accepted: clothing, footwear, food…",
           "notGuaranteed": "Not guaranteed: meat products, counterfeits, seeds, fruit, cosmetics, medicine.",
           "prohibited": "Prohibited by law: narcotics, stimulants, weapons, ammunition…"
@@ -1051,7 +1043,6 @@
   "pricePolicy": {
     "effective": "Effective from 1 October 2026",
     "sections": {
-      "routes": "Pick a route to see its rate policy",
       "goodsRates": "Goods types and freight rates",
       "weightVnJp": "How weight is charged: Vietnam → Japan",
       "weightJpVn": "How weight is charged: Japan → Vietnam",
@@ -1059,23 +1050,6 @@
       "freightJpVn": "Japan → Vietnam freight",
       "costVnJp": "What does shipping to Japan cost in total?",
       "costJpVn": "What does shipping from Japan cost in total?"
-    },
-    "routes": {
-      "vnJp": {
-        "points": {
-          "tax": "Tax and Japan domestic delivery included",
-          "goods": "Clean and mixed goods, priced by weight band",
-          "packing": "Clean goods: free consolidation and packing"
-        },
-        "cta": "See the Vietnam → Japan rate policy"
-      },
-      "jpVn": {
-        "points": {
-          "flat": "One rate for every weight",
-          "buyRate": "Buy-for-you rate VCB + 5, no surcharge"
-        },
-        "cta": "See the Japan → Vietnam rate policy"
-      }
     },
     "surchargeUnit": {
       "item": "VND/item",
@@ -1164,7 +1138,7 @@
       "items": {
         "freight": {
           "title": "Freight",
-          "vnJp": "Weight-band rate × chargeable weight. Tax and Japan domestic delivery included.",
+          "vnJp": "Weight-band rate × chargeable weight. Japan domestic delivery included.",
           "jpVn": "{price} VND/kg × chargeable weight, for any weight."
         },
         "parcelFee": {
@@ -1227,7 +1201,7 @@
   },
   "policy": {
     "title": "Policy & services",
-    "intro": "How HARUTO Express calculates weight, handles compensation, and runs its buy-for-you, bid-for-you, and ship-for-you services.",
+    "intro": "How HARUTO Express calculates weight, handles compensation, and runs its buy-for-you, bid-for-you and shipping services.",
     "weight": {
       "title": "How weight is calculated",
       "standard": {
@@ -1334,9 +1308,8 @@
       },
       {
         "question": "How are shipping rates calculated?",
-        "answer": "It depends on the direction. Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods (tax and Japan domestic delivery included); weight is rounded up to the next 0.5 kg and parcels over the size standard add a bulky-goods surcharge. Japan → Vietnam is 155,000 VND/kg for any weight; bulky goods use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). See each direction's rate policy for details and surcharges.",
+        "answer": "It depends on the direction. Vietnam → Japan is priced by weight band, with separate tables for clean and mixed goods (Japan domestic delivery included); weight is rounded up to the next 0.5 kg and parcels over the size standard add a bulky-goods surcharge. Japan → Vietnam is 155,000 VND/kg for any weight; bulky goods use the greater of actual and volumetric weight (Length × Width × Height ÷ 6,000). See each direction's rate policy for details and surcharges.",
         "pages": [
-          "pricing",
           "shipToJapan",
           "shipToVietnam",
           "policy",

@@ -74,7 +74,7 @@ const SHIPPING_STEPS: Record<string, Visual> = {
 export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
   shipToJapan: {
     hero: {
-      primary: "pricing",
+      primary: "priceVnJp",
     },
     features: {
       visuals: {
@@ -113,7 +113,7 @@ export const SERVICE_PAGES: Record<ServiceKey, ServicePageConfig> = {
     hero: {
       marketplaces: ALL_MARKETPLACES,
       withMore: true,
-      primary: "pricing",
+      primary: "priceJpVn",
     },
     features: {
       visuals: {

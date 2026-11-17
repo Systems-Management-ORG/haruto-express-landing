@@ -20,17 +20,14 @@ import type { CSSProperties } from "react";
 import type { Locale } from "@/shared/constants/locales";
 import { formatNumber, formatVnd } from "@/shared/lib/format";
 import { rawRecord } from "@/shared/lib/raw-messages";
-import { POLICY_FIGURES, PRICING_IMAGES } from "@/shared/seo/page-media";
-import { type PageKey, pagePath } from "@/shared/seo/pages";
+import { POLICY_FIGURES } from "@/shared/seo/page-media";
 import { anchorOf, JP_VN_BULKY_EXAMPLE_ICONS, type Tone, VN_JP_BULKY_CASES } from "../../info-pages";
 import {
   COMPENSATION,
   JP_VN,
   JP_VN_BULKY,
-  priceRange,
   VN_JP_BULKY,
   VN_JP_CLEAN,
-  VN_JP_MIXED,
   VN_JP_SIZE_STANDARD,
 } from "../../pricing-data";
 import { VolumetricDiagram } from "../volumetric-diagram";
@@ -38,7 +35,7 @@ import { VolumetricDiagram } from "../volumetric-diagram";
 // Bodies of the price-policy sections (the InfoPage frame adds the anchor, background and H2):
 // the weight rules of each direction (they differ: VN→JP has a size standard by weight and a
 // bulky surcharge, JP→VN charges the volumetric weight), the buy-for-you rate, the route cards of
-// the /bang-gia hub, the cost breakdown and the PDF infographics. Every number comes from
+// the cost breakdown and the PDF infographics. Every number comes from
 // pricing-data.ts.
 
 const TONE_CLASS: Record<Tone, string> = {
@@ -277,67 +274,6 @@ export function BuyRate() {
           </tbody>
         </table>
       </div>
-    </div>
-  );
-}
-
-const ROUTE_CARDS: { key: "vnJp" | "jpVn"; page: PageKey }[] = [
-  { key: "vnJp", page: "priceVnJp" },
-  { key: "jpVn", page: "priceJpVn" },
-];
-
-// The /bang-gia hub: one card per route (the teaser-card of the home pricing block) with its rates
-// as numbers and three points, linking to that route's price-policy page.
-export function RouteCards() {
-  const t = useTranslations("pricePolicy.routes");
-  const tPricing = useTranslations("pricing");
-  const tPrice = useTranslations("service.price");
-  const locale = useLocale() as Locale;
-  const unit = tPrice("unit");
-
-  return (
-    <div data-reveal-group className="grid gap-5 sm:grid-cols-2">
-      {ROUTE_CARDS.map(({ key, page }) => (
-        <Link key={key} href={pagePath(locale, page)} data-track={`cta_price_policy_${key}`} className="teaser-card group">
-          <div className="teaser-card__media aspect-[21/9]">
-            <Image src={PRICING_IMAGES[key]} alt="" fill sizes="(max-width: 639px) 100vw, 50vw" className="object-cover object-[75%_50%]" />
-            <span className="teaser-card__label">{tPricing(`teaser.${key}.label`)}</span>
-          </div>
-          <div className="flex flex-1 flex-col p-6">
-            {key === "vnJp" ? (
-              <ul className="grid gap-2">
-                {([
-                  ["clean", VN_JP_CLEAN],
-                  ["mixed", VN_JP_MIXED],
-                ] as const).map(([kind, tiers]) => {
-                  const [min, max] = priceRange(tiers);
-                  return (
-                    <li key={kind}>
-                      <span className="text-muted">{tPricing(`vnJp.${kind}.title`)}:</span>{" "}
-                      <span className="font-semibold whitespace-nowrap text-forest tabular-nums">
-                        {formatVnd(min, locale)} – {formatVnd(max, locale)} {unit}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p className="font-display font-(--weight-display) text-3xl text-forest tabular-nums">
-                {formatVnd(JP_VN[0].vndPerKg ?? 0, locale)} <span className="text-base">{unit}</span>
-              </p>
-            )}
-            <ul className="mt-5 grid gap-2.5 border-t border-line pt-5">
-              {Object.entries(rawRecord<string>(t, `${key}.points`)).map(([id, point]) => (
-                <li key={id} className="flex gap-2.5">
-                  <CheckCircle size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-forest" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-            <span className="link-arrow mt-auto pt-5 text-forest">{t(`${key}.cta`)}</span>
-          </div>
-        </Link>
-      ))}
     </div>
   );
 }

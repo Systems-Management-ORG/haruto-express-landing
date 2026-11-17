@@ -46,9 +46,9 @@ export function ServiceCards() {
           <a href="#contact" data-track="cta_contact" className="btn btn-primary">
             {t("ctaContact")}
           </a>
-          <Link href={pagePath(locale, "pricing")} className="btn btn-outline">
+          <a href="#pricing" className="btn btn-outline">
             {t("ctaPricing")}
-          </Link>
+          </a>
         </div>
       </div>
     </section>

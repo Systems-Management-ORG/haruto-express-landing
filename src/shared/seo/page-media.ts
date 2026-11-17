@@ -22,7 +22,6 @@ export const PAGE_IMAGES: Record<Exclude<PageKey, "home">, PageImage> = {
     position: "78% 50%",
     og: "/images/haruto/ship-ve-vn/duong-bay-nhat-viet.webp",
   },
-  pricing: { src: `${HERO}/may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao.webp`, position: "80% 50%" },
   priceVnJp: { src: `${HERO}/may-bay-tuyen-viet-nam-nhat-ban.webp`, position: "72% 50%" },
   priceJpVn: { src: `${HERO}/thung-hang-va-hang-nhat-nui-phu-si.webp`, position: "78% 50%" },
   concierge: { src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", position: "50% 45%" },

@@ -49,7 +49,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const SERVICE_TYPES: Partial<Record<PageKey, string>> = {
   shipToJapan: "Air freight Vietnam to Japan",
   shipToVietnam: "Air freight Japan to Vietnam",
-  pricing: "Air freight between Vietnam and Japan",
   priceVnJp: "Air freight Vietnam to Japan",
   priceJpVn: "Air freight Japan to Vietnam",
   concierge: "Japan buying service",
@@ -64,7 +63,6 @@ const OFFER_JP_VN = perKgOffer("Japan → Vietnam, any weight", JP_VN[0]);
 const OFFERS: Partial<Record<PageKey, ReturnType<typeof perKgOffer>[]>> = {
   shipToJapan: [OFFER_VN_JP],
   shipToVietnam: [OFFER_JP_VN],
-  pricing: [OFFER_VN_JP, OFFER_JP_VN],
   priceVnJp: [OFFER_VN_JP],
   priceJpVn: [OFFER_JP_VN],
 };

@@ -13,7 +13,7 @@ import { rememberReadingSpot, restoreReadingSpot } from "@/shared/lib/reading-sp
 import { pageByLocaleSlug, pagePath } from "@/shared/seo/pages";
 
 // The same page's URL in another language, resolved through the registry so localized slugs
-// map correctly (e.g. /vi/bang-gia → /en/pricing), not by reusing the current path.
+// map correctly (e.g. /vi/lien-he → /en/contact), not by reusing the current path.
 function localeHref(pathname: string, target: Locale): string {
   const parts = pathname.split("/").filter(Boolean);
   const current = parts[0];

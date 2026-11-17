@@ -33,6 +33,14 @@ const nextConfig: NextConfig = {
     // Serves paths the locale routing does not handle, such as a missing file.
     globalNotFound: true,
   },
+  // The /bang-gia hub was removed (2026-11-17): its URLs go to the pricing block on the home page.
+  async redirects() {
+    return [
+      { source: "/vi/bang-gia", destination: "/vi#pricing", permanent: true },
+      { source: "/ja/pricing", destination: "/ja#pricing", permanent: true },
+      { source: "/en/pricing", destination: "/en#pricing", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

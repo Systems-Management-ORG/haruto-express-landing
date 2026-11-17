@@ -31,9 +31,8 @@ import type { CtaAction } from "@/shared/ui/contact-cta";
 // sections each renders, in order, and which actions the buttons take. Copy stays in the messages;
 // icons and tones attach to item ids, never to array positions.
 
-export type InfoKey = "pricing" | "priceVnJp" | "priceJpVn" | "policy" | "japanWarehouse" | "faq" | "guides" | "contact";
+export type InfoKey = "priceVnJp" | "priceJpVn" | "policy" | "japanWarehouse" | "faq" | "guides" | "contact";
 export type InfoSectionId =
-  | "routes"
   | "calculator"
   | "ratesVnJp"
   | "ratesJpVn"
@@ -70,14 +69,6 @@ export type InfoPageConfig = {
 
 export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
   // Hub: one card per route (to its price-policy page) and the freight calculator.
-  pricing: {
-    heroActions: { primary: "contact", secondary: "call" },
-    heroNote: "effectiveDate",
-    toc: ["routes", "calculator"],
-    sections: ["routes", "calculator"],
-    faq: true,
-    cta: { primary: "zalo", secondary: "call" },
-  },
   priceVnJp: {
     heroActions: { primary: "zalo", secondary: "call" },
     heroNote: "effectiveRoute",
@@ -133,8 +124,8 @@ export const anchorOf = (id: string) => id.replace(/[A-Z]/g, (c) => `-${c.toLowe
 // Feature lines of the VN→JP rate cards (`pricing.vnJp.<kind>.features.<id>`).
 export type Tone = "info" | "ok" | "warn" | "ban";
 export const PRICING_FEATURE_TONES: Record<"clean" | "mixed", Record<string, Tone>> = {
-  clean: { goods: "info", guarantee: "ok", taxIncluded: "ok", freePacking: "ok", wholesale: "ok" },
-  mixed: { taxIncluded: "ok", accepted: "ok", notGuaranteed: "warn", prohibited: "ban" },
+  clean: { goods: "info", guarantee: "ok", japanDelivery: "ok", freePacking: "ok", wholesale: "ok" },
+  mixed: { japanDelivery: "ok", accepted: "ok", notGuaranteed: "warn", prohibited: "ban" },
 };
 
 // Surcharge rows (`pricing.surcharge.items.<id>`).
@@ -188,7 +179,7 @@ export const VN_JP_BULKY_CASES: Record<"oversize" | "longSide" | "contact", { Ic
 // Question groups of the FAQ page. A question belongs to the group of its first tag (ignoring
 // "home"); one that matches no group goes to "shipping". Empty groups are not rendered.
 export const FAQ_GROUPS: { id: "shipping" | "buying" | "warehouse" | "business"; tags: PageKey[] }[] = [
-  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "pricing", "priceVnJp", "priceJpVn", "policy", "goods"] },
+  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "priceVnJp", "priceJpVn", "policy", "goods"] },
   { id: "buying", tags: ["concierge", "auction"] },
   { id: "warehouse", tags: ["japanWarehouse"] },
   { id: "business", tags: ["business"] },

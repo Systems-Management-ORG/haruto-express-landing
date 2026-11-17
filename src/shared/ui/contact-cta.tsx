@@ -5,7 +5,7 @@ import type { Locale } from "@/shared/constants/locales";
 import { telHref } from "@/shared/seo/business";
 import { pagePath } from "@/shared/seo/pages";
 
-export type CtaAction = "zalo" | "contact" | "call" | "pricing";
+export type CtaAction = "zalo" | "contact" | "call" | "priceVnJp" | "priceJpVn";
 
 const zalo = CHAT_CHANNELS.find((channel) => channel.id === "zalo");
 
@@ -47,10 +47,10 @@ export function ContactCta({ action, label, variant = "primary" }: { action: Cta
     );
   }
 
-  const toPricing = action === "pricing";
+  const toPricing = action === "priceVnJp" || action === "priceJpVn";
   return (
     <Link
-      href={toPricing ? pagePath(locale, "pricing") : `${pagePath(locale, "contact")}#contact`}
+      href={toPricing ? pagePath(locale, action) : `${pagePath(locale, "contact")}#contact`}
       data-track={toPricing ? "cta_pricing" : "cta_contact"}
       className={className}
     >

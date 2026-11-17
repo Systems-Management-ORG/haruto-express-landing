@@ -17,7 +17,7 @@ import { useFaqGroups } from "./faq-groups";
 import { InfoSection } from "./info-section";
 import { CarrierList } from "../partners/carrier-list";
 import { Compensation, ConciergeTerms, WarehouseInfo, WarehouseTips } from "./policy-sections";
-import { BuyRate, CostBreakdown, RouteCards, WeightJpVn, WeightVnJp } from "./price-policy";
+import { BuyRate, CostBreakdown, WeightJpVn, WeightVnJp } from "./price-policy";
 import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 
 // The info pages (pricing hub, price policy per route, policy, Japan warehouse, FAQ, guides,
@@ -28,7 +28,6 @@ import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 type FramedId = Exclude<InfoSectionId, "faqGroups" | "contact">;
 // `route`: the price-policy page's direction (INFO_PAGES[page].route), for the bodies that need it.
 const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn" }) => ReactNode> = {
-  routes: RouteCards,
   calculator: ({ route }) => <ShippingCalculator withTitle={false} route={route} lockRoute={!!route} />,
   ratesVnJp: RatesVnJp,
   ratesJpVn: () => <RatesJpVn />,
@@ -55,7 +54,6 @@ export function InfoPage({ page }: { page: InfoKey }) {
   const faqGroups = useFaqGroups();
 
   const titles: Record<FramedId, string> = {
-    routes: t("pricePolicy.sections.routes"),
     calculator: t("pricing.calculator.title"),
     // The VN→JP price-policy page is all about that route, so its rate section names the goods.
     ratesVnJp: page === "priceVnJp" ? t("pricePolicy.sections.goodsRates") : t("pricing.teaser.vnJp.label"),
