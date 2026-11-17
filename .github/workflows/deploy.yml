@@ -1,0 +1,119 @@
+# CI/CD for the landing page, entirely on the server's self-hosted runner; images never leave its Docker.
+#
+#   Pull request          → test
+#   Tag STG-DDMMYYYY-N    → test, deploy to staging     (e.g. STG-16112026-1: first staging deploy of 16 Nov 2026)
+#   Tag PRO-DDMMYYYY-N    → test, deploy to production
+#
+#   test   builds the Dockerfile `test` stage: typecheck, pricing check
+#   deploy builds the image with that environment's build-time settings, restarts the container, then
+#          keeps only that environment's two newest images (the running one and the one before)
+#
+# Image: harutoexpress/landing:<release tag>, plus `latest` (production) or `staging` (staging).
+# Cache: BuildKit layer cache plus the Next.js build cache in the server's Docker.
+
+name: Landing CI/CD
+
+on:
+  pull_request:
+  push:
+    tags: ["STG-*", "PRO-*"]
+
+permissions:
+  contents: read
+
+env:
+  IMAGE_NAME: harutoexpress/landing
+  KEEP_IMAGES: 2
+  # Read at build time by Next.js; copied from the server .env into .env.production when present there.
+  BUILD_KEYS: ALLOW_INDEXING SITE_URL NEXT_PUBLIC_GTM_ID
+
+jobs:
+  test:
+    runs-on: [self-hosted, haruto]
+    concurrency:
+      group: landing-test-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Typecheck and pricing check
+        run: docker build --target test .
+
+  deploy:
+    if: github.ref_type == 'tag'
+    needs: test
+    runs-on: [self-hosted, haruto]
+    # Approval rules and the DEPLOY_ROOT variable live in the GitHub environment of the same name.
+    environment: ${{ startsWith(github.ref_name, 'PRO-') && 'production' || 'staging' }}
+    concurrency:
+      group: landing-deploy-${{ startsWith(github.ref_name, 'PRO-') && 'production' || 'staging' }}
+      cancel-in-progress: false
+    steps:
+      - name: Check the release tag and the server directory
+        shell: bash
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          if ! [[ "$tag" =~ ^(STG|PRO)-([0-9]{2})([0-9]{2})([0-9]{4})-[1-9][0-9]*$ ]] \
+            || ! date -d "${BASH_REMATCH[4]}-${BASH_REMATCH[3]}-${BASH_REMATCH[2]}" >/dev/null 2>&1; then
+            echo "::error::Release tags look like STG-16112026-1 or PRO-16112026-1 (DDMMYYYY, then the deploy number of that day)."
+            exit 1
+          fi
+          prefix="${BASH_REMATCH[1]}"
+          environment=$([ "$prefix" = PRO ] && echo production || echo staging)
+          deploy_dir="${{ vars.DEPLOY_ROOT || '/opt/haruto' }}/${environment}/landing"
+          if [ ! -f "$deploy_dir/.env" ]; then
+            echo "::error::$deploy_dir/.env is missing. Create it on the server first (see the backend docs/04-runbooks/DEPLOYMENT.md)."
+            exit 1
+          fi
+          env_in_file="$(grep -E '^DEPLOY_ENV=' "$deploy_dir/.env" | tail -n1 | cut -d= -f2- | tr -d '\r')"
+          if [ "$env_in_file" != "$environment" ]; then
+            echo "::error::DEPLOY_ENV in $deploy_dir/.env must be $environment (found '${env_in_file}')."
+            exit 1
+          fi
+          {
+            echo "DEPLOY_ENV=${environment}"
+            echo "DEPLOY_DIR=${deploy_dir}"
+            echo "TAG_PREFIX=${prefix}-"
+            echo "IMAGE=${IMAGE_NAME}:${tag}"
+            echo "CHANNEL_IMAGE=${IMAGE_NAME}:$([ "$prefix" = PRO ] && echo latest || echo staging)"
+          } >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@v4
+
+      - name: Write the build-time settings
+        shell: bash
+        run: |
+          # Only keys present in the server .env are copied, so an unset key keeps the code's default
+          # and an empty one stays empty (an empty NEXT_PUBLIC_GTM_ID disables analytics).
+          : > .env.production
+          for key in $BUILD_KEYS; do
+            grep -E "^${key}=" "$DEPLOY_DIR/.env" | tail -n1 | tr -d '\r' >> .env.production || true
+          done
+          echo "Build-time keys:"; cut -d= -f1 .env.production
+
+      - name: Build the image
+        run: docker build --tag "$IMAGE" --tag "$CHANNEL_IMAGE" .
+
+      - name: Prepare the server directory
+        shell: bash
+        run: |
+          cp docker-compose.yml "$DEPLOY_DIR/docker-compose.yml"
+          # Compose reads this file automatically, so manual commands on the server run this version too.
+          cat > "$DEPLOY_DIR/docker-compose.override.yml" <<EOF
+          services:
+            haruto-landing:
+              image: ${IMAGE}
+          EOF
+
+      - name: Start the new version
+        working-directory: ${{ env.DEPLOY_DIR }}
+        run: docker compose up -d --no-build --remove-orphans --wait --wait-timeout 120
+
+      # Runs only after a successful deploy, so the running image is always one of the images kept.
+      - name: Keep only the newest images of this environment
+        shell: bash
+        run: |
+          docker image ls "$IMAGE_NAME" --format '{{.CreatedAt}}|{{.Tag}}' \
+            | grep -F "|${TAG_PREFIX}" | sort -r | tail -n +"$((KEEP_IMAGES + 1))" | cut -d'|' -f2 \
+            | while read -r tag; do docker image rm "${IMAGE_NAME}:${tag}" || echo "::warning::Could not remove ${IMAGE_NAME}:${tag}"; done
+          docker image prune -f
+          docker builder prune -f --filter until=168h

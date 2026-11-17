@@ -1,0 +1,26 @@
+# Server deployment, one stack per environment. DEPLOY_ENV in .env (staging or production) names the
+# stack and its container, haruto-<DEPLOY_ENV>-landing. No host port: Nginx Proxy Manager forwards to
+# haruto-<DEPLOY_ENV>-landing:3000 on the proxy network. The container reads .env at runtime
+# (LEADS_WEBHOOK_URL, LEADS_WEBHOOK_SECRET); build-time values are baked in by the deploy.
+
+name: haruto-${DEPLOY_ENV:?set DEPLOY_ENV in .env}-landing
+
+services:
+  haruto-landing:
+    build:
+      context: .
+    image: ${LANDING_IMAGE:-harutoexpress/landing}:${IMAGE_TAG:-local}
+    container_name: haruto-${DEPLOY_ENV}-landing
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+    expose:
+      - "3000"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    name: ${NGINX_PROXY_NETWORK:-nginx-proxy}
+    external: true

@@ -1,0 +1,17 @@
+.git
+.github
+.next
+node_modules
+.env
+.env.local
+.env.*.local
+.claude
+.taste-skill
+design
+docs
+shots
+coverage
+*.log
+*.tsbuildinfo
+Dockerfile
+docker-compose.yml

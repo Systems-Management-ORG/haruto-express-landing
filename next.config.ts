@@ -24,6 +24,9 @@ const contentSecurityPolicy = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  // The Docker build sets NEXT_OUTPUT=standalone and runs the self-contained server from .next/standalone;
+  // local `npm run build` / `npm run start` stay unchanged.
+  output: process.env.NEXT_OUTPUT === "standalone" ? "standalone" : undefined,
   poweredByHeader: false,
   images: {
     // Allow the higher-quality encode the hero banners request; default optimization softens them.
