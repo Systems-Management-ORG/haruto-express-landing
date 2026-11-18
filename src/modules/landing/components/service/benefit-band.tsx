@@ -31,6 +31,7 @@ export function BenefitBand({ copy, config }: { copy: Benefits; config: Config }
                 imageClass="svc-benefit__img"
                 iconSize={40}
                 sizes="3.5rem"
+                alt={item.title}
               />
               <div>
                 <h3 className="svc-benefit__title">{item.title}</h3>

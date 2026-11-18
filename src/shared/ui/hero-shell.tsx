@@ -34,7 +34,7 @@ export function HeroShell({ page, eyebrow, title, lead, children, afterLead, not
         <div className="page-hero__media">
           <Image
             src={image.src}
-            alt=""
+            alt={title}
             fill
             priority
             sizes="(max-width: 1023px) 100vw, 62vw"

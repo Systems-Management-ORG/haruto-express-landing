@@ -34,7 +34,7 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
               {CARDS.map(({ key, page }) => (
                 <Link key={key} href={pagePath(locale, page)} className="teaser-card group">
                   <div className="teaser-card__media aspect-[21/9]">
-                    <Image src={PRICING_IMAGES[key]} alt="" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 40vw" className="object-cover object-[75%_50%]" />
+                    <Image src={PRICING_IMAGES[key]} alt={t(`${key}.label`)} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 40vw" className="object-cover object-[75%_50%]" />
                     <span className="teaser-card__label">{t(`${key}.label`)}</span>
                   </div>
                   <div className="flex flex-1 flex-col p-6">

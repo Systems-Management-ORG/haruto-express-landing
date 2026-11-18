@@ -10,6 +10,6 @@ export type NavItem =
 export const NAV: NavItem[] = [
   { type: "group", id: "services", children: ["shipToJapan", "shipToVietnam", "concierge", "auction", "business"] },
   { type: "group", id: "pricing", children: ["priceVnJp", "priceJpVn", "goods"] },
-  { type: "group", id: "guides", children: ["guides", "policy", "japanWarehouse", "faq"] },
+  { type: "group", id: "guides", children: ["guides", "policy", "insurancePolicy", "auctionPolicy", "japanWarehouse", "faq"] },
   { type: "link", key: "contact" },
 ];

@@ -21,7 +21,7 @@ function parse(value: string): number | null {
   return value.trim() && Number.isFinite(n) && n > 0 ? n : null;
 }
 
-// Radio group drawn as two buttons, the same pattern as the contact form's "kind" choice.
+// Radio group drawn as a sunken segmented switch (.segmented in globals.css).
 function Choice<T extends string>({
   legend,
   name,
@@ -38,13 +38,12 @@ function Choice<T extends string>({
   return (
     <fieldset>
       <legend className="field-label">{legend}</legend>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="segmented">
         {options.map((option) => (
           <label
             key={option.value}
-            className={`flex min-h-11 cursor-pointer items-center justify-center rounded-lg border px-3 py-2 text-center font-medium has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-gold ${
-              value === option.value ? "border-forest bg-forest text-white" : "border-forest text-forest"
-            }`}
+            data-checked={value === option.value ? "" : undefined}
+            className="segmented__option px-3 py-2"
           >
             <input
               type="radio"
@@ -97,30 +96,35 @@ export function ShippingCalculator({
   const result = kg ? quote(route, route === "vnJp" ? goods : "clean", kg, size) : null;
 
   return (
-    <div id={withTitle ? "calculator" : undefined} className="grid gap-6 rounded-(--radius-card) border border-line bg-white p-6 sm:p-8">
+    <div id={withTitle ? "calculator" : undefined} className="grid gap-6 lg:grid-cols-2 lg:items-stretch">
       <form
-        className="grid content-start gap-5"
+        className="info-card grid content-start gap-5 p-6 sm:p-8"
         onSubmit={(event) => event.preventDefault()}
         {...(withTitle ? { "aria-labelledby": `${id}-title` } : { "aria-label": t("title") })}
       >
         {withTitle ? (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 border-l-4 border-l-gold pl-3.5">
             <span className="icon-chip" aria-hidden>
               <Calculator size={22} weight="duotone" />
             </span>
             <div>
-              <h3 id={`${id}-title`} className="text-xl text-forest">
+              <h3 id={`${id}-title`} className="text-xl font-semibold text-forest">
                 {t("title")}
               </h3>
               <p className="text-sm text-muted">{t("intro")}</p>
             </div>
           </div>
         ) : (
-          <p className="text-muted">{t("intro")}</p>
+          <div className="border-l-4 border-l-gold pl-3.5">
+            <p className="font-semibold text-forest">{t("routeLegend")}</p>
+            <p className="mt-0.5 text-sm text-muted">{t("intro")}</p>
+          </div>
         )}
 
         {lockRoute ? (
-          <p className="text-sm font-medium text-forest">{t("routeFixed", { route: tTeaser(`${route}.label`) })}</p>
+          <p className="inline-flex items-center gap-2 self-start rounded-xl bg-sage px-3.5 py-2 text-sm font-semibold text-forest">
+            {t("routeFixed", { route: tTeaser(`${route}.label`) })}
+          </p>
         ) : (
           <Choice
             legend={t("routeLegend")}
@@ -175,61 +179,91 @@ export function ShippingCalculator({
         </fieldset>
       </form>
 
-      <div className="flex flex-col rounded-2xl bg-sage p-6">
-        <p className="font-semibold text-forest">{t("resultTitle")}</p>
-        <div role="status" className="mt-3 flex-1">
-          {!result && <span className="text-muted">{t("empty")}</span>}
+      <div className="info-card flex flex-col justify-between p-6 sm:p-8">
+        <div>
+          <div className="border-l-4 border-l-gold pl-3.5">
+            <p className="text-lg font-semibold text-forest">{t("resultTitle")}</p>
+            <p className="mt-0.5 text-sm text-muted">{tTeaser(`${route}.label`)}</p>
+          </div>
 
-          {result?.status === "priced" && (
-            <>
-              <span className="block font-display font-(--weight-display) text-4xl text-forest tabular-nums">
-                {t("vnd", { price: vnd(result.total) })}
+          <div role="status" className="mt-5">
+            {!result && (
+              <div className="rounded-2xl border border-dashed border-line bg-sage/50 px-5 py-6 text-center text-muted">
+                {t("empty")}
+              </div>
+            )}
+
+            {result?.status === "priced" && (
+              <>
+                <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-forest px-5 py-4 text-white shadow-sm">
+                  <span className="text-sm font-semibold tracking-wider text-gold uppercase">{t("resultTitle")}</span>
+                  <span className="font-display font-(--weight-display) text-3xl text-white tabular-nums sm:text-4xl">
+                    {t("vnd", { price: vnd(result.total) })}
+                  </span>
+                </div>
+
+                <dl className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-line bg-sage/45 px-4 py-3">
+                    <dt className="text-xs font-medium text-muted uppercase">{t("billable")}</dt>
+                    <dd className="mt-1 text-base font-semibold text-forest tabular-nums">
+                      {t("kg", { kg: nf.format(result.billableKg) })}
+                      {route === "jpVn" && result.volumetric && (
+                        <span className="ml-1.5 text-xs font-normal text-muted">({t("volumetric")})</span>
+                      )}
+                    </dd>
+                  </div>
+                  <div className="rounded-xl border border-line bg-sage/45 px-4 py-3">
+                    <dt className="text-xs font-medium text-muted uppercase">{t("rate")}</dt>
+                    <dd className="mt-1 text-base font-semibold text-forest tabular-nums">
+                      {t("perKg", { price: vnd(result.vndPerKg) })}
+                    </dd>
+                  </div>
+                  {result.parcelFee > 0 && (
+                    <div className="rounded-xl border border-line bg-sage/45 px-4 py-3 sm:col-span-2">
+                      <dt className="text-xs font-medium text-muted uppercase">{t("parcelFee")}</dt>
+                      <dd className="mt-1 text-base font-semibold text-forest tabular-nums">
+                        {t("vnd", { price: vnd(result.parcelFee) })}
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+              </>
+            )}
+
+            {result && result.status !== "priced" && (
+              <div className="rounded-2xl border border-gold/40 bg-gold/10 px-5 py-4 text-base font-medium text-forest">
+                {t(result.status)}
+              </div>
+            )}
+          </div>
+
+          {result?.bulky && (
+            <p role="status" className="mt-4 flex gap-2.5 rounded-xl border border-gold/40 bg-gold/10 p-3.5 text-sm text-ink">
+              <Warning size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold-deep" />
+              <span>
+                {t(`bulky.${result.bulky}`, {
+                  min: formatVnd(VN_JP_BULKY.surchargeVnd[0], locale),
+                  max: formatVnd(VN_JP_BULKY.surchargeVnd[1], locale),
+                  cm: result.bulky === "review" ? VN_JP_BULKY.anySideCm : VN_JP_BULKY.contactSumCm,
+                  kg: VN_JP_BULKY.contactKg,
+                })}
               </span>
-              <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-sm tabular-nums">
-                <dt className="text-muted">{t("billable")}</dt>
-                <dd className="text-right font-medium">
-                  {t("kg", { kg: nf.format(result.billableKg) })}
-                  {route === "jpVn" && result.volumetric && <span className="block text-muted">{t("volumetric")}</span>}
-                </dd>
-                <dt className="text-muted">{t("rate")}</dt>
-                <dd className="text-right font-medium">{t("perKg", { price: vnd(result.vndPerKg) })}</dd>
-                {result.parcelFee > 0 && (
-                  <>
-                    <dt className="text-muted">{t("parcelFee")}</dt>
-                    <dd className="text-right font-medium">{t("vnd", { price: vnd(result.parcelFee) })}</dd>
-                  </>
-                )}
-              </dl>
-            </>
+            </p>
           )}
 
-          {result && result.status !== "priced" && (
-            <span className="block text-lg font-medium text-forest">{t(result.status)}</span>
-          )}
-        </div>
-        {result?.bulky && (
-          <p role="status" className="mt-4 flex gap-2.5 text-sm">
-            <Warning size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold-deep" />
-            <span>
-              {t(`bulky.${result.bulky}`, {
-                min: formatVnd(VN_JP_BULKY.surchargeVnd[0], locale),
-                max: formatVnd(VN_JP_BULKY.surchargeVnd[1], locale),
-                cm: result.bulky === "review" ? VN_JP_BULKY.anySideCm : VN_JP_BULKY.contactSumCm,
-                kg: VN_JP_BULKY.contactKg,
-              })}
-            </span>
+          <p className="mt-4 rounded-xl border border-line bg-ivory px-4 py-3 text-xs leading-relaxed text-muted sm:text-sm">
+            {t("note")}
           </p>
-        )}
+        </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <a href="#contact" data-track="cta_calculator_quote" data-route={route} className="btn btn-primary">
-            {t("quoteCta")}
-          </a>
-          <Link href={`${pagePath(locale, "policy")}#${RULES_ANCHOR[route]}`} className="link-arrow text-forest">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-5">
+          <Link href={`${pagePath(locale, "policy")}#${RULES_ANCHOR[route]}`} className="link-arrow text-sm text-forest">
             {t("rulesLink")}
           </Link>
+          <a href="#contact" data-track="cta_calculator_quote" data-route={route} className="btn btn-gold">
+            {t("quoteCta")}
+          </a>
         </div>
-        <p className="mt-4 text-sm text-muted">{t("note")}</p>
       </div>
     </div>
   );

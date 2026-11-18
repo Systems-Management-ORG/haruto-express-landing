@@ -67,8 +67,8 @@ export function WeightVnJp() {
   return (
     <div>
       <div data-reveal-group className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-        <article className="info-card">
-          <h3 className="text-lg font-medium text-forest">{t("sizeTitle")}</h3>
+        <article className="info-card p-6 sm:p-8">
+          <h3 className="border-l-4 border-l-gold pl-3.5 text-lg font-semibold text-forest">{t("sizeTitle")}</h3>
           <div tabIndex={0} role="group" aria-label={t("sizeTitle")} className="rate-table-wrap mt-4">
             <table className="rate-table">
               <thead>
@@ -92,12 +92,12 @@ export function WeightVnJp() {
             </table>
           </div>
 
-          <h3 className="mt-8 text-lg font-medium text-forest">{t("casesTitle")}</h3>
+          <h3 className="mt-8 border-l-4 border-l-gold pl-3.5 text-lg font-semibold text-forest">{t("casesTitle")}</h3>
           <ul className="mt-4 grid gap-3">
             {(Object.keys(VN_JP_BULKY_CASES) as (keyof typeof VN_JP_BULKY_CASES)[]).map((id) => {
               const { Icon, tone } = VN_JP_BULKY_CASES[id];
               return (
-                <li key={id} className="flex gap-3">
+                <li key={id} className="flex items-start gap-3 rounded-xl border border-line bg-ivory/60 px-4 py-3">
                   <Icon size={22} weight="duotone" aria-hidden className={`mt-0.5 shrink-0 ${TONE_CLASS[tone]}`} />
                   <span>{t(`cases.${id}`, caseParams[id])}</span>
                 </li>
@@ -119,12 +119,14 @@ export function WeightVnJp() {
             <p className="stat-card__body">{t("surchargeNote")}</p>
           </article>
 
-          <article className="info-card">
-            <span className="icon-chip" aria-hidden>
-              <ArrowsDownUp size={22} weight="duotone" />
-            </span>
-            <h3 className="mt-4 text-lg font-medium text-forest">{t("roundingTitle")}</h3>
-            <p className="mt-1.5 text-muted">{t("roundingBody")}</p>
+          <article className="info-card p-6 sm:p-8">
+            <div className="flex items-center gap-3 border-l-4 border-l-gold pl-3.5">
+              <span className="icon-chip" aria-hidden>
+                <ArrowsDownUp size={20} weight="duotone" />
+              </span>
+              <h3 className="text-lg font-semibold text-forest">{t("roundingTitle")}</h3>
+            </div>
+            <p className="mt-3 text-muted">{t("roundingBody")}</p>
             <ul className="mt-4 flex flex-wrap gap-2" aria-label={t("roundingTitle")}>
               {examples.map((example) => (
                 <li key={example} className="rounding-example">
@@ -146,9 +148,9 @@ export function WeightVnJp() {
   );
 }
 
-// Japan → Vietnam: the three bulky thresholds (JP_VN_BULKY), actual vs. volumetric weight, the
-// rounding rule, bulky goods with the diagram (`policy.weight`), the PDF's five bulky examples, the
-// PDF's note on why, then its infographic (vi only).
+// Japan → Vietnam: Tiximax-inspired 2-column DIM layout (formula highlight card + green/amber status
+// strips on the left; bulky threshold metric boxes + rounding rules + 3D parcel diagram on the
+// right), followed by the 5 bulky-goods icon cards.
 export function WeightJpVn() {
   const t = useTranslations("policy.weight");
   const tNote = useTranslations("pricePolicy.jpVnWeight");
@@ -156,74 +158,103 @@ export function WeightJpVn() {
   const thresholds = [
     { id: "sum", value: `> ${JP_VN_BULKY.sumCm} cm` },
     { id: "weight", value: `> ${JP_VN_BULKY.weightKg} kg` },
-    { id: "divisor", value: `÷ ${formatNumber(JP_VN_BULKY.volumetricDivisor, locale)}` },
   ] as const;
 
   return (
     <div>
-      <ul data-reveal-group className="grid gap-4 sm:grid-cols-3">
-        {thresholds.map(({ id, value }) => (
-          <li key={id} className="stat-card">
-            <p className="stat-card__value text-4xl whitespace-nowrap tabular-nums sm:text-3xl lg:text-5xl">{value}</p>
-            <p className="stat-card__label">{tNote(`thresholds.${id}`)}</p>
-          </li>
-        ))}
-      </ul>
-
-      <div data-reveal-group className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
-        <div className="grid gap-5">
-          {([
-            ["standard", Scales],
-            ["rounding", ArrowsDownUp],
-          ] as const).map(([key, Icon]) => (
-            <article key={key} className="info-card">
-              <span className="icon-chip" aria-hidden>
-                <Icon size={22} weight="duotone" />
-              </span>
-              <h3 className="mt-4 text-lg font-medium text-forest">{t(`${key}.title`)}</h3>
-              <p className="mt-1.5 text-muted">{t(`${key}.body`)}</p>
-            </article>
-          ))}
-        </div>
-        <article className="info-card grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+      <div data-reveal-group className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
+        <article className="info-card flex flex-col justify-between p-6 sm:p-8">
           <div>
-            <span className="icon-chip" aria-hidden>
-              <Cube size={22} weight="duotone" />
-            </span>
-            <h3 className="mt-4 text-lg font-medium text-forest">{t("bulky.title")}</h3>
-            <p className="mt-1.5 text-muted">{t("bulky.body")}</p>
+            <h3 className="border-l-4 border-l-gold pl-3.5 text-lg font-semibold text-forest">{t("bulky.title")}</h3>
+            <div className="mt-4 rounded-2xl border border-gold/40 bg-ivory px-5 py-6 text-center">
+              <p className="text-xs font-semibold tracking-wider text-muted uppercase">
+                {tNote("thresholds.divisor")}
+              </p>
+              <p className="mt-2 font-display font-(--weight-display) text-3xl text-forest tabular-nums sm:text-4xl">
+                (D × R × C) <span className="text-gold-deep">÷ {formatNumber(JP_VN_BULKY.volumetricDivisor, locale)}</span>
+              </p>
+              <div className="mx-auto mt-4 max-w-[16rem]">
+                <VolumetricDiagram />
+              </div>
+            </div>
           </div>
-          <VolumetricDiagram />
+
+          <div className="mt-5 grid gap-3">
+            <div className="flex items-start gap-3 rounded-xl border border-forest/25 bg-sage/70 p-4">
+              <CheckCircle size={22} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-forest" />
+              <div>
+                <p className="font-semibold text-forest">{t("standard.title")}</p>
+                <p className="mt-0.5 text-sm text-ink">{t("standard.body")}</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3 rounded-xl border border-gold/45 bg-gold/10 p-4">
+              <Warning size={22} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold-deep" />
+              <div>
+                <p className="font-semibold text-forest">{t("bulky.title")}</p>
+                <p className="mt-0.5 text-sm text-ink">{t("bulky.body")}</p>
+              </div>
+            </div>
+          </div>
         </article>
+
+        <div className="grid content-start gap-5">
+          <article className="info-card p-6 sm:p-8">
+            <h3 className="border-l-4 border-l-gold pl-3.5 text-lg font-semibold text-forest">
+              {tNote("examples.title")}
+            </h3>
+            <ul className="mt-4 grid gap-3.5 sm:grid-cols-2">
+              {thresholds.map(({ id, value }) => (
+                <li key={id} className="rounded-2xl border border-gold/35 bg-ivory px-5 py-5 text-center">
+                  <p className="text-xs font-semibold tracking-wider text-muted uppercase">
+                    {tNote(`thresholds.${id}`)}
+                  </p>
+                  <p className="mt-2 font-display font-(--weight-display) text-3xl text-forest tabular-nums sm:text-4xl">
+                    {value}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-sm text-muted">{tNote("examples.note")}</p>
+          </article>
+
+          <article className="info-card p-6 sm:p-8">
+            <div className="flex items-center gap-3 border-l-4 border-l-gold pl-3.5">
+              <span className="icon-chip" aria-hidden>
+                <ArrowsDownUp size={20} weight="duotone" />
+              </span>
+              <h3 className="text-lg font-semibold text-forest">{t("rounding.title")}</h3>
+            </div>
+            <p className="mt-3 text-muted">{t("rounding.body")}</p>
+            <div className="mt-4 flex items-start gap-2.5 rounded-xl border border-line bg-ivory px-4 py-3 text-sm text-ink">
+              <Lightbulb size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold-deep" />
+              <span>{tNote("note")}</span>
+            </div>
+          </article>
+        </div>
       </div>
 
-      <h3 className="mt-10 text-lg font-medium text-forest">{tNote("examples.title")}</h3>
-      <ul data-reveal-group className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      <h3 className="mt-10 text-center text-xl font-semibold text-forest">{tNote("examples.title")}</h3>
+      <ul data-reveal-group className="mt-5 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-5">
         {(Object.keys(JP_VN_BULKY_EXAMPLE_ICONS) as (keyof typeof JP_VN_BULKY_EXAMPLE_ICONS)[]).map((id) => {
           const Icon = JP_VN_BULKY_EXAMPLE_ICONS[id];
           return (
-            <li key={id} className="info-card flex flex-col items-center text-center">
-              <span className="icon-chip icon-chip--lg" aria-hidden>
-                <Icon size={28} weight="duotone" />
+            <li key={id} className="info-card flex flex-col items-center p-5 text-center">
+              <span className="inline-flex size-13 items-center justify-center rounded-full border border-gold/35 bg-gold/15 text-forest" aria-hidden>
+                <Icon size={26} weight="duotone" />
               </span>
-              <span className="mt-3 font-medium text-forest">{tNote(`examples.items.${id}`)}</span>
+              <span className="mt-3.5 font-semibold text-forest">{tNote(`examples.items.${id}`)}</span>
             </li>
           );
         })}
       </ul>
-      <p className="mt-3 text-sm text-muted">{tNote("examples.note")}</p>
 
-      <p data-reveal className="callout mt-6 bg-white">
-        <Lightbulb size={22} weight="fill" aria-hidden className="shrink-0 text-gold-deep" />
-        <span>{tNote("note")}</span>
-      </p>
       <PolicyFigure id="jpVn" />
     </div>
   );
 }
 
-// An infographic from the price-policy PDFs. Its text is Vietnamese and baked into the image, so
-// it shows in `vi` only; the other locales have the same content as HTML above it.
+// An infographic from the price-policy PDFs, presented as a compact preview card with a lightbox
+// link so it complements the HTML tables above without dominating a full screen.
 export function PolicyFigure({ id }: { id: keyof typeof POLICY_FIGURES }) {
   const t = useTranslations("pricePolicy.figure");
   const locale = useLocale();
@@ -231,11 +262,33 @@ export function PolicyFigure({ id }: { id: keyof typeof POLICY_FIGURES }) {
   const { src, width, height } = POLICY_FIGURES[id];
 
   return (
-    <figure data-reveal className="info-card mt-8 overflow-hidden p-0">
-      <Image src={src} width={width} height={height} alt={t(`${id}.alt`)} sizes="(max-width: 1023px) 100vw, 64rem" className="h-auto w-full" />
-      <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-line p-4 text-sm text-muted">
-        <span>{t(`${id}.caption`)}</span>
-        <a href={src} target="_blank" rel="noopener" className="link-arrow text-forest">
+    <figure
+      data-reveal
+      className="info-card mt-6 flex flex-col justify-between gap-5 border-forest/25 bg-sage/40 p-4 sm:flex-row sm:items-center sm:p-5"
+    >
+      <a
+        href={src}
+        target="_blank"
+        rel="noopener"
+        className="group relative block shrink-0 overflow-hidden rounded-lg border border-line bg-white sm:w-64"
+      >
+        <Image
+          src={src}
+          width={width}
+          height={height}
+          alt={t(`${id}.alt`)}
+          sizes="(max-width: 639px) 100vw, 16rem"
+          className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-103"
+        />
+      </a>
+      <figcaption className="flex flex-1 flex-col justify-between gap-4 sm:flex-row sm:items-center">
+        <div>
+          <span className="inline-block rounded-full bg-forest/10 px-2.5 py-0.5 text-xs font-semibold text-forest">
+            Infographic
+          </span>
+          <p className="mt-1.5 text-base font-medium text-forest">{t(`${id}.caption`)}</p>
+        </div>
+        <a href={src} target="_blank" rel="noopener" className="btn btn-outline shrink-0 bg-white text-sm">
           {t("open")}
         </a>
       </figcaption>
@@ -317,8 +370,16 @@ const COST_FACTORS: Record<Route, Factor[]> = {
   ],
 };
 
-// "What does it cost in total?": the items that add up (a "+" between cards), the total, what is
-// not in it (JP→VN: domestic delivery), then the factors that change the cost.
+const FACTOR_ICONS: Record<FactorId, typeof Package> = {
+  goodsType: Package,
+  buyRate: CurrencyJpy,
+  size: Cube,
+  rounding: Scales,
+  packing: ShieldCheck,
+};
+
+// "What does it cost in total?": Tiximax-inspired container card with "+" equation cards, a bottom
+// formula summary banner, and a 2x2 grid of horizontal factor cards.
 export function CostBreakdown({ route }: { route: Route }) {
   const t = useTranslations("pricePolicy.cost");
   const tAll = useTranslations();
@@ -338,78 +399,99 @@ export function CostBreakdown({ route }: { route: Route }) {
   const factors = rawRecord<Record<string, string>>(t, "factors");
 
   return (
-    <div>
-      <ol
-        data-reveal-group
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(var(--n),minmax(0,1fr))]"
-        style={{ "--n": items.length } as CSSProperties}
-      >
-        {items.map(({ id, Icon }, index) => (
-          <li key={id} className="info-card relative">
-            {/* On one row (lg), a "+" badge sits in the gap before every card but the first. */}
-            {index > 0 && (
-              <span
-                aria-hidden
-                className="absolute top-1/2 -left-2 z-10 hidden size-7 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-gold font-semibold text-deep shadow-sm lg:grid"
-              >
-                +
-              </span>
-            )}
-            <span className="icon-chip" aria-hidden>
-              <Icon size={22} weight="duotone" />
-            </span>
-            <h3 className="mt-4 text-lg font-medium text-forest">{t(`items.${id}.title`)}</h3>
-            <p className="mt-1.5 text-muted">{costText(id)}</p>
-          </li>
-        ))}
-      </ol>
-
-      {/* The total as the sum of the cards above: "Total cost = A + B + …". */}
-      <div data-reveal className="stat-card stat-card--featured mt-4">
-        <h3 className="text-lg font-medium">{t("total.title")}</h3>
-        <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-white">
-          <span aria-hidden className="font-display text-2xl text-gold">=</span>
-          {items.map(({ id }, index) => (
-            <span key={id} className="flex items-center gap-2">
+    <div className="grid gap-6">
+      <div className="info-card p-6 sm:p-8">
+        <ol
+          data-reveal-group
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-[repeat(var(--n),minmax(0,1fr))]"
+          style={{ "--n": items.length } as CSSProperties}
+        >
+          {items.map(({ id, Icon }, index) => (
+            <li key={id} className="relative flex flex-col items-center rounded-2xl border border-line bg-ivory/60 p-5 text-center">
               {index > 0 && (
-                <span aria-hidden className="font-semibold text-gold">
+                <span
+                  aria-hidden
+                  className="absolute top-1/2 -left-2 z-10 hidden size-7 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-line bg-white font-semibold text-forest shadow-2xs lg:grid"
+                >
                   +
                 </span>
               )}
-              <span>{t(`items.${id}.title`)}</span>
-            </span>
+              <span className="inline-flex size-12 items-center justify-center rounded-full bg-sage text-forest" aria-hidden>
+                <Icon size={24} weight="duotone" />
+              </span>
+              <h3 className="mt-3.5 text-base font-semibold text-forest">{t(`items.${id}.title`)}</h3>
+              <p className="mt-1.5 text-sm text-muted">{costText(id)}</p>
+            </li>
           ))}
-        </p>
-        <p className="stat-card__body">{t("total.body")}</p>
+        </ol>
+
+        <div
+          data-reveal
+          className="mt-6 flex flex-col justify-between gap-4 rounded-2xl border border-gold/40 bg-ivory px-5 py-4 lg:flex-row lg:items-center"
+        >
+          <div className="flex items-start gap-3.5">
+            <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-gold/25 font-display text-lg font-bold text-forest" aria-hidden>
+              Σ
+            </span>
+            <div>
+              <p className="font-semibold text-forest">{t("total.body")}</p>
+              <p className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-muted">
+                {items.map(({ id }, index) => (
+                  <span key={id} className="inline-flex items-center gap-1.5">
+                    {index > 0 && <span aria-hidden className="font-semibold text-gold-deep">+</span>}
+                    <span>{t(`items.${id}.title`)}</span>
+                  </span>
+                ))}
+              </p>
+            </div>
+          </div>
+          <span className="self-start rounded-xl bg-gold/25 px-4 py-2 text-xs font-bold tracking-wider text-forest uppercase whitespace-nowrap lg:self-center">
+            = {t("total.title")}
+          </span>
+        </div>
+
+        {route === "jpVn" && (
+          <div data-reveal className="callout mt-4">
+            <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
+            <p>
+              <strong className="font-semibold text-forest">{t("outside.title")}: </strong>
+              {t("outside.items.domestic")}
+            </p>
+          </div>
+        )}
       </div>
 
-      {route === "jpVn" && (
-        <div data-reveal className="callout mt-4">
-          <Info size={22} weight="fill" aria-hidden className="shrink-0 text-forest" />
-          <p>
-            <strong className="font-semibold text-forest">{t("outside.title")}: </strong>
-            {t("outside.items.domestic")}
-          </p>
-        </div>
-      )}
-
-      <h3 className="mt-10 text-lg font-medium text-forest">{t("factors.title")}</h3>
-      <ul data-reveal-group className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-4">
-        {COST_FACTORS[route].map(({ id, section, heading }) => {
-          const factor = factors[id];
-          return (
-            <li key={id}>
-              <Link href={`#${anchorOf(section)}`} className="info-card group flex h-full flex-col">
-                <span className="font-medium text-forest">{factor.title}</span>
-                <span className="mt-1.5 flex-1 text-sm text-muted">{factor[route] ?? factor.body}</span>
-                <span className="link-arrow mt-3 self-start text-sm text-forest">
-                  {tAll(heading as Parameters<typeof tAll>[0])}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="info-card p-6 sm:p-8">
+        <h3 className="border-l-4 border-l-gold pl-3.5 text-xl font-semibold text-forest">{t("factors.title")}</h3>
+        <ul data-reveal-group className="mt-5 grid gap-4 md:grid-cols-2">
+          {COST_FACTORS[route].map(({ id, section, heading }) => {
+            const factor = factors[id];
+            const Icon = FACTOR_ICONS[id];
+            return (
+              <li key={id}>
+                <Link
+                  href={`#${anchorOf(section)}`}
+                  className="group flex h-full items-start gap-4 rounded-2xl border border-line bg-ivory/50 p-5 transition-colors hover:border-forest/40 hover:bg-sage/40"
+                >
+                  <span
+                    className="inline-flex size-12 shrink-0 items-center justify-center rounded-full border border-gold/35 bg-gold/15 text-forest"
+                    aria-hidden
+                  >
+                    <Icon size={22} weight="duotone" />
+                  </span>
+                  <div className="flex flex-1 flex-col">
+                    <span className="font-semibold text-forest">{factor.title}</span>
+                    <span className="mt-1 flex-1 text-sm text-muted">{factor[route] ?? factor.body}</span>
+                    <span className="link-arrow mt-3 self-start text-xs font-semibold text-forest">
+                      {tAll(heading as Parameters<typeof tAll>[0])}
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

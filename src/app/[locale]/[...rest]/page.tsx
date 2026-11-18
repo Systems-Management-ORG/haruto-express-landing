@@ -12,7 +12,7 @@ import { JsonLd } from "@/shared/seo/json-ld";
 import { buildPageMetadata } from "@/shared/seo/metadata";
 import { LOCALES, PAGES, SUBPAGE_KEYS, type PageKey, pageByLocaleSlug, pagePath } from "@/shared/seo/pages";
 import { SITE_URL } from "@/shared/seo/business";
-import { breadcrumb, contactPage, faqPage, perKgOffer, service } from "@/shared/seo/schema";
+import { breadcrumb, contactPage, faqPage, perKgOffer, service, webPage } from "@/shared/seo/schema";
 import { JP_VN, VN_JP_CLEAN, lowestRate } from "@/modules/landing/pricing-data";
 import { getServiceCopy, isServiceKey } from "@/modules/landing/service-copy";
 
@@ -106,6 +106,16 @@ export default async function SubRoute({ params }: Props) {
         description: tp("metaDescription"),
         url: `${SITE_URL}${pagePath(locale as Locale, key)}`,
         inLanguage: locale,
+      }),
+    );
+  } else if (!serviceType && key !== "faq") {
+    graphs.push(
+      webPage({
+        name: tp("title"),
+        description: tp("metaDescription"),
+        url: `${SITE_URL}${pagePath(locale as Locale, key)}`,
+        inLanguage: locale,
+        dateModified: PAGES[key].updatedAt,
       }),
     );
   }

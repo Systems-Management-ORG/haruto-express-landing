@@ -9,10 +9,10 @@ export function TocChips({ items }: { items: { id: string; label: string }[] }) 
 
   return (
     <nav aria-label={t("toc")} className="wrap pb-8 lg:pb-10">
-      <ul className="-my-1 flex gap-2 overflow-x-auto py-1">
+      <ul className="-my-1 flex gap-2 overflow-x-auto py-1 lg:flex-wrap lg:overflow-visible">
         {items.map(({ id, label }) => (
           <li key={id} className="shrink-0">
-            <a href={`#${id}`} className="btn btn-outline min-h-9 bg-white/70 px-3 py-1 text-sm whitespace-nowrap">
+            <a href={`#${id}`} className="btn btn-outline min-h-9 bg-white/75 px-3.5 py-1 text-sm whitespace-nowrap shadow-2xs">
               {label}
             </a>
           </li>

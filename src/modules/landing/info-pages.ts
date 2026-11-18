@@ -31,7 +31,16 @@ import type { CtaAction } from "@/shared/ui/contact-cta";
 // sections each renders, in order, and which actions the buttons take. Copy stays in the messages;
 // icons and tones attach to item ids, never to array positions.
 
-export type InfoKey = "priceVnJp" | "priceJpVn" | "policy" | "japanWarehouse" | "faq" | "guides" | "contact";
+export type InfoKey =
+  | "priceVnJp"
+  | "priceJpVn"
+  | "policy"
+  | "insurancePolicy"
+  | "auctionPolicy"
+  | "japanWarehouse"
+  | "faq"
+  | "guides"
+  | "contact";
 export type InfoSectionId =
   | "calculator"
   | "ratesVnJp"
@@ -46,7 +55,11 @@ export type InfoSectionId =
   | "conciergeTerms"
   | "tipsVnJp"
   | "tipsJpVn"
+  | "buyingPrinciples"
   | "compensation"
+  | "outsideControl"
+  | "insuranceLedger"
+  | "auctionLedger"
   | "warehouse"
   | "carriers"
   | "warehouseTips"
@@ -86,26 +99,42 @@ export const INFO_PAGES: Record<InfoKey, InfoPageConfig> = {
     cta: { primary: "zalo", secondary: "call" },
   },
   policy: {
-    heroActions: { primary: "contact" },
+    heroActions: { primary: "zalo", secondary: "contact" },
     toc: ["weightVnJp", "weightJpVn", "compensation"],
     sections: ["weightVnJp", "weightJpVn", "compensation"],
     faq: true,
     cta: { primary: "zalo", secondary: "contact" },
   },
+  insurancePolicy: {
+    heroActions: { primary: "zalo", secondary: "contact" },
+    sections: ["insuranceLedger"],
+    faq: true,
+    cta: { primary: "zalo", secondary: "contact" },
+  },
+  auctionPolicy: {
+    heroActions: { primary: "zalo", secondary: "call" },
+    sections: ["auctionLedger"],
+    faq: true,
+    cta: { primary: "zalo", secondary: "call" },
+  },
   japanWarehouse: {
+    heroActions: { primary: "zalo", secondary: "call" },
+    toc: ["warehouse", "carriers", "warehouseTips"],
     sections: ["warehouse", "carriers", "warehouseTips"],
     faq: true,
     cta: { primary: "zalo", secondary: "call" },
   },
   faq: {
-    heroActions: { primary: "contact" },
+    heroActions: { primary: "zalo", secondary: "contact" },
     sections: ["faqGroups"],
     faq: false,
     cta: { primary: "zalo", secondary: "contact" },
   },
   guides: {
-    sections: ["guideGrid"],
-    faq: false,
+    heroActions: { primary: "zalo", secondary: "contact" },
+    toc: ["guideGrid", "warehouseTips"],
+    sections: ["guideGrid", "warehouseTips"],
+    faq: true,
     cta: { primary: "zalo", secondary: "contact" },
   },
   contact: {
@@ -179,8 +208,8 @@ export const VN_JP_BULKY_CASES: Record<"oversize" | "longSide" | "contact", { Ic
 // Question groups of the FAQ page. A question belongs to the group of its first tag (ignoring
 // "home"); one that matches no group goes to "shipping". Empty groups are not rendered.
 export const FAQ_GROUPS: { id: "shipping" | "buying" | "warehouse" | "business"; tags: PageKey[] }[] = [
-  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "priceVnJp", "priceJpVn", "policy", "goods"] },
-  { id: "buying", tags: ["concierge", "auction"] },
+  { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "priceVnJp", "priceJpVn", "policy", "insurancePolicy", "goods"] },
+  { id: "buying", tags: ["concierge", "auction", "auctionPolicy"] },
   { id: "warehouse", tags: ["japanWarehouse"] },
   { id: "business", tags: ["business"] },
 ];

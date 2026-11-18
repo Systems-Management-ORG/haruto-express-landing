@@ -73,12 +73,28 @@
       }
     },
     "policy": {
-      "nav": "Policy",
+      "nav": "Shipping policy",
       "breadcrumb": "Shipping policy",
       "title": "Shipping and compensation policy",
       "intro": "How weight is calculated for standard and bulky goods, the rounding rules, and the compensation policy for lost goods with and without insurance.",
       "metaTitle": "Shipping & compensation policy | HARUTO",
       "metaDescription": "HARUTO shipping policy: volumetric weight for bulky goods, weight rounding rules, and compensation for lost goods with or without cargo insurance."
+    },
+    "insurancePolicy": {
+      "nav": "Insurance policy",
+      "breadcrumb": "Cargo insurance policy",
+      "title": "Compensation policy for cargo insurance",
+      "intro": "Principles of our buying service, compensation rules with and without cargo insurance (8% insurance fee, 100% of item value covered), and risks outside our control in international shipping.",
+      "metaTitle": "Cargo insurance & compensation policy | HARUTO EXPRESS",
+      "metaDescription": "HARUTO EXPRESS cargo insurance policy: buying service principles, 8% insurance covering 100% of declared value, uninsured compensation cap and claim rules."
+    },
+    "auctionPolicy": {
+      "nav": "Auction policy",
+      "breadcrumb": "Auction policy & rules",
+      "title": "Auction policy and bidding service regulations",
+      "intro": "Applies to Japan–Vietnam auction bidding and shipping: bidding rules, winning price and service fees, deposit and immediate payment when winning (WIN), cancellations, product claims and shipping.",
+      "metaTitle": "Japan auction policy & bidding rules | HARUTO EXPRESS",
+      "metaDescription": "HARUTO EXPRESS Japan auction policy: bidding rules, auction fees, deposit and immediate payment when winning (WIN), refunds, product claims and shipping."
     },
     "concierge": {
       "nav": "Buying service",
@@ -129,7 +145,7 @@
       "metaDescription": "Contact HARUTO EXPRESS on Zalo, Facebook, the Vietnam and Japan hotlines or the request form for help with two-way shipping and a quote for your parcel."
     },
     "guides": {
-      "nav": "Guides",
+      "nav": "Shipping handbook",
       "breadcrumb": "Guides",
       "title": "Shipping guides",
       "intro": "Worth reading before you ship: weight calculation, compensation, the Japan warehouse address and the goods list.",
@@ -360,7 +376,7 @@
       "ribbon": "Quality finds, great prices, every day",
       "lead": "Want quality products from Japan at attractive prices? HARUTO EXPRESS bids for you directly on Japanese auction sites, giving you easy access to thousands of unique items every day.",
       "points": [
-        "50% deposit, fully refunded if you don't win",
+        "Deposit per order confirmation, 100% refunded if not won",
         "Transparent fees, no hidden costs",
         "Received in Japan, shipped to Vietnam"
       ],
@@ -432,7 +448,7 @@
     },
     "terms": {
       "title": "Auction bidding terms",
-      "body": "A 50% deposit is placed before bidding. If the bid wins, the customer pays the balance for HARUTO to settle. If it loses, HARUTO refunds 100% of the deposit."
+      "body": "Place a deposit at the rate or amount HARUTO confirms before bidding. Upon winning (WIN): pay the full remaining balance immediately after deducting the deposit. If the bid does not win: the unused deposit is refunded or transferred to another order on request."
     },
     "cta": {
       "title": "Contact HARUTO EXPRESS today",
@@ -1227,15 +1243,21 @@
     "compensation": {
       "title": "Compensation for lost goods",
       "insured": {
-        "title": "With cargo insurance",
-        "body": "100% of the declared value is compensated. Insurance fee: 8% of the declared value.",
+        "title": "When the customer buys cargo insurance",
+        "body": "Insurance fee: 8% of the declared goods value. Compensation: 100% of the declared goods value.",
         "stat": "100%",
-        "statLabel": "of the declared value"
+        "statLabel": "of the declared value",
+        "conditionsTitle": "Conditions that apply:",
+        "conditions": [
+          "The customer declares the value of the goods when sending, with full supporting documents and purchase invoices.",
+          "The loss is confirmed to have been caused by HARUTO, with full delivery records at HARUTO's warehouse."
+        ]
       },
       "uninsured": {
-        "title": "Without cargo insurance",
-        "body": "100% of the shipping value is compensated, capped at 3,000,000 VND per order."
-      }
+        "title": "When the customer does not buy cargo insurance",
+        "body": "When the customer does not buy cargo insurance, compensation applies only when the goods are lost due to our fault. Maximum compensation is 100% of the shipping fee, capped at 3,000,000 VND per order."
+      },
+      "policyLink": "Read the full cargo insurance and compensation policy"
     },
     "concierge": {
       "title": "Buy for you · Bid for you · Shipping",
@@ -1245,7 +1267,7 @@
       },
       "auction": {
         "title": "Bid for you",
-        "body": "A 50% deposit is placed before bidding. If the bid wins, the customer pays the balance for HARUTO to settle. If it loses, HARUTO refunds 100% of the deposit."
+        "body": "Place a deposit at the rate or amount HARUTO confirms before bidding. Upon winning (WIN): pay the full remaining balance immediately after deducting the deposit. If the bid does not win: the unused deposit is refunded or transferred to another order on request."
       },
       "ship": {
         "title": "Shipping",
@@ -1285,6 +1307,128 @@
         "shelfLife": "We do not cover goods with a shelf life of under 10 days.",
         "redelivery": "If you are not home, HARUTO will reschedule the delivery. Delivery times may change due to weather, natural disasters, or customs clearance in either country."
       }
+    },
+    "insurance": {
+      "principles": {
+        "title": "I. Buying-service principles",
+        "items": {
+          "scope": {
+            "title": "Purchased strictly from customer-provided details",
+            "body": "Haruto Express provides its buying service based on the information supplied by the customer, including but not limited to product links, quantity, model, colour, size and other requested attributes. Beyond those details, Haruto Express makes no other commitment or warranty regarding the goods purchased on your behalf."
+          },
+          "condition": {
+            "title": "Received and shipped as delivered by the seller",
+            "body": "Haruto Express is not responsible for and makes no warranty as to the quality, origin, actual condition, finish, technical or manufacturing defects, accuracy of the seller's listing or the store's packing. Goods are received and shipped to Vietnam in the exact condition delivered by the store to Haruto Express's warehouse."
+          },
+          "liability": {
+            "title": "Scope of Haruto Express's liability",
+            "body": "Haruto Express is liable only for loss or errors arising directly from the company's fault during receiving, handling and shipping. For issues arising from the seller, manufacturer or causes outside Haruto Express's control, the company provides no compensation in any form."
+          }
+        }
+      },
+      "outsideControl": {
+        "title": "III. Cases outside our control and risks specific to international shipping",
+        "items": {
+          "risks": {
+            "title": "Objective risks in international shipping",
+            "body": "Given the nature of proxy buying and international shipping, order processing may encounter objective risks such as delays from shipping procedures, transit handling impacts or third-party incidents. Haruto Express makes every effort to minimise these risks, but is not liable for events outside its control or where there is insufficient basis for verification."
+          },
+          "evidence": {
+            "title": "Valid evidence required for claims",
+            "body": "Haruto Express reserves the right to refuse claims that lack valid evidence from the receiving and handling stages, including claims of missing items after full receipt has been confirmed, damage whose cause in transit cannot be established, or any sign of fraud or staged condition to claim compensation."
+          },
+          "refusal": {
+            "title": "Right to decline service",
+            "body": "For customers who do not accept the objective risks inherent in international shipping or who make demands beyond Haruto Express's control and scope of liability, the company reserves the right to decline service."
+          },
+          "acknowledgment": {
+            "title": "Explanation and acceptance of terms",
+            "body": "Our Sales and Customer Care teams explain the terms, scope of liability and claims policy before accepting an order. Using the service means the customer has read, understood and agreed to these principles to prevent disputes and protect all parties."
+          }
+        }
+      }
+    },
+    "auctionPolicy": {
+      "policyLink": "Read the full auction policy and service regulations",
+      "overview": {
+        "scope": {
+          "title": "Scope of application",
+          "body": "Applies to auction bidding and Japan–Vietnam shipping: customers using auction bidding, payment on your behalf, receiving at the Japan warehouse and/or shipping from Japan to Vietnam through Haruto Express (HRT)."
+        },
+        "principle": {
+          "title": "Principle",
+          "body": "Haruto acts as an intermediary executing bidding requests confirmed by the customer, and is not the seller or manufacturer of the product."
+        }
+      },
+      "sections": {
+        "bidding": {
+          "title": "I. Rules for joining an auction",
+          "items": [
+            "The customer provides the product link, item details, item condition, auction end time and maximum desired bid.",
+            "The customer is responsible for carefully reading the description, photos and trading terms and confirming the decision to buy before asking Haruto to bid.",
+            "Haruto places a bid only after receiving valid confirmation and the deposit communicated by Haruto for that order.",
+            "Haruto does not bid above the maximum confirmed by the customer; any bid adjustment takes effect only when Haruto confirms receipt in time.",
+            "Haruto does not guarantee winning an auction and reserves the right to refuse items not eligible for transaction or shipping."
+          ]
+        },
+        "fees": {
+          "title": "II. Winning bid, service fees and additional costs",
+          "items": [
+            "The winning bid is the final price confirmed by the platform/seller and does not automatically include other charges.",
+            "Auction fees (if any) apply according to the actual platform/seller fee and/or Haruto's auction service fee notified and confirmed with the customer. No fee is charged without an applicable rule or incurred cost.",
+            "Other costs may include: payment fees, domestic shipping in Japan, seller/platform charges, storage fees, special or bulky-goods surcharges, and Japan – Vietnam shipping.",
+            "The JPY/VND exchange rate and fee calculation follow Haruto's quote or transaction confirmation at the relevant time.",
+            "Costs not known in advance must be notified by Haruto once available; any extra cost must be duly substantiated."
+          ]
+        },
+        "payment": {
+          "title": "III. Deposit and payment upon winning (WIN)",
+          "items": [
+            "The customer places a deposit at the rate or amount confirmed by Haruto before bidding. The deposit is offset against the payment obligation of the winning order.",
+            "PAYMENT DEADLINE: IMMEDIATELY UPON WINNING THE AUCTION (WIN). As soon as the winning notice and amount payable are sent, the customer must pay the full remaining balance after deducting the deposit.",
+            "The customer should have a payment method ready before joining an auction. In case of late payment, the customer bears actual substantiated fees and damages caused by the delay.",
+            "Haruto may pause accepting new auction requests from customers who have outstanding payment obligations."
+          ]
+        },
+        "cancel": {
+          "title": "IV. Cancellation, unsuccessful bids and refunds",
+          "items": [
+            "Before a bid is placed, the customer may request cancellation; any service costs already incurred are handled as agreed.",
+            "After a bid is placed, a cancellation request is processed only if the platform/seller permits it and the cancellation is confirmed. Withdrawing a placed bid is not guaranteed.",
+            "After WIN, the customer is obliged to pay. If the customer abandons the order, Haruto may deduct valid actual costs and damages from the deposit under the agreed terms; any remaining balance is refunded.",
+            "If the bid does not win, the unused deposit is refunded or transferred to another order on request, within the timeframe confirmed with the customer.",
+            "If the seller cancels the transaction, Haruto assists in reconciling the refund from the platform/seller and returns the actual amount received to the customer after valid costs (if any)."
+          ]
+        },
+        "claims": {
+          "title": "V. Product condition and claims",
+          "items": [
+            "Auction items may be new, used, display items, missing accessories or defective. Customers should assess the risk before bidding.",
+            "Haruto helps check public listing information but does not guarantee absolute accuracy regarding quality, authenticity, origin or working condition stated by the seller.",
+            "If an item differs significantly from its description, Haruto helps contact the seller/platform to raise a claim. Returns and refunds depend on the transaction terms and resolution outcome.",
+            "Customers should save the item description and provide an unboxing video, item photos, order code and related evidence when making a claim.",
+            "Haruto is responsible for its own direct errors within the committed service scope and applicable rules."
+          ]
+        },
+        "shipping": {
+          "title": "VI. Receiving, shipping and restricted goods",
+          "items": [
+            "The seller ships the item to the Japan warehouse under the transaction terms. Domestic delivery time depends on the seller and carrier.",
+            "Japan – Vietnam freight is calculated from the rate table, chargeable weight and item characteristics. The 0.5 kg rounding rule and bulky-goods surcharges apply under Haruto's current shipping policy for the relevant route.",
+            "Customers must accurately declare the goods type, especially batteries, liquids, cosmetics, food, special equipment and items requiring inspection. Haruto may refuse prohibited or non-shippable items.",
+            "If an item won at auction cannot be shipped by the planned route, both parties agree on an appropriate handling plan and substantiated costs."
+          ]
+        },
+        "general": {
+          "title": "VII. Responsibilities of the parties and general terms",
+          "items": [
+            "Haruto: Places bids as confirmed, notifies results, supports payment, tracks delivery, provides fee information and assists with claims within the service scope.",
+            "Customer: Provides accurate information, confirms the maximum bid, prepares funds, pays immediately upon WIN, checks item descriptions and cooperates if issues arise.",
+            "The customer confirms having read and agreed to this policy before Haruto places a bid. Policy updates are published for future transactions and do not retroactively alter confirmed orders.",
+            "In case of dispute, the parties prioritise document reconciliation and negotiation in accordance with valid agreements and applicable law."
+          ]
+        }
+      }
     }
   },
   "faq": {
@@ -1303,7 +1447,9 @@
           "goods",
           "shipToJapan",
           "shipToVietnam",
-          "home"
+          "home",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
@@ -1315,13 +1461,16 @@
           "policy",
           "home",
           "priceVnJp",
-          "priceJpVn"
+          "priceJpVn",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
         "question": "Can I track my shipment online?",
         "answer": "Online tracking is being planned. For now, please contact our support staff to ask about your parcel's status.",
         "pages": [
+          "japanWarehouse",
           "shipToJapan",
           "shipToVietnam",
           "contact",
@@ -1332,15 +1481,18 @@
         "question": "Do I need a Visa or MasterCard to buy from Japan?",
         "answer": "No. Just send the product link: HARUTO quotes at the VCB + 5 rate (no surcharge) and pays the Japanese shop for you. For buying orders you pay 100% of the item price.",
         "pages": [
-          "concierge"
+          "concierge",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
         "question": "How much deposit does auction bidding need?",
-        "answer": "A 50% deposit before bidding. If you win, you pay the rest and HARUTO settles the purchase; if you don't, HARUTO refunds 100% of the deposit.",
+        "answer": "You place a deposit at the rate or amount HARUTO confirms for each order before bidding. As soon as you receive the winning notice (WIN), you pay the full remaining balance after deducting the deposit. If the bid does not win, the unused deposit is refunded or transferred to another order on request.",
         "pages": [
           "auction",
-          "concierge"
+          "concierge",
+          "auctionPolicy"
         ]
       },
       {
@@ -1349,16 +1501,18 @@
         "pages": [
           "concierge",
           "auction",
-          "shipToVietnam"
+          "shipToVietnam",
+          "auctionPolicy"
         ]
       },
       {
         "question": "Can I buy myself and send the goods to HARUTO's Japan warehouse?",
         "answer": "Yes. With our shipping-only service you buy the goods yourself and send them to HARUTO's Japan warehouse address; HARUTO consolidates them free of charge and ships them to Vietnam.",
         "pages": [
+          "japanWarehouse",
           "concierge",
           "shipToVietnam",
-          "japanWarehouse"
+          "guides"
         ]
       },
       {
@@ -1389,7 +1543,10 @@
         "answer": "The customer pays for domestic delivery in Vietnam and can choose any delivery company. Book it yourself or ask HARUTO's warehouse staff to book it; the cost follows the chosen company's rate card.",
         "pages": [
           "priceJpVn",
-          "shipToVietnam"
+          "shipToVietnam",
+          "auctionPolicy",
+          "japanWarehouse",
+          "policy"
         ]
       },
       {
@@ -1406,6 +1563,26 @@
         "answer": "HARUTO EXPRESS takes enquiries on Zalo, the Facebook page, hotlines in Vietnam and Japan, or the request form on this page. Pick whichever suits you and the HARUTO team will help with the route, the type of goods and the cost of your parcel.",
         "pages": [
           "contact"
+        ]
+      },
+      {
+        "question": "How does HARUTO's cargo insurance compensation work?",
+        "answer": "With cargo insurance (fee: 8% of the goods value), 100% of the goods value is compensated when you declare the value with full purchase invoices at shipping and the loss is confirmed to be caused by HARUTO (with delivery records at HARUTO's warehouse). Without insurance, compensation is up to 100% of the shipping fee, capped at 3,000,000 VND per order.",
+        "pages": [
+          "insurancePolicy",
+          "policy",
+          "priceVnJp",
+          "priceJpVn",
+          "concierge",
+          "japanWarehouse"
+        ]
+      },
+      {
+        "question": "Can I cancel or withdraw a bid after it has been placed?",
+        "answer": "Before a bid is placed, you may request cancellation. After a bid is placed, cancellation is only possible if the platform or seller allows it and confirms the cancellation (withdrawing a placed bid is not guaranteed). Once a bid wins (WIN), the remaining balance after deducting the deposit is payable immediately.",
+        "pages": [
+          "auctionPolicy",
+          "auction"
         ]
       }
     ],

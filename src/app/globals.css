@@ -37,6 +37,15 @@
   --shadow-md: 0 8px 24px rgb(16 44 33 / 0.08);
   --shadow-lg: 0 12px 32px rgb(10 30 18 / 0.14);
 
+  /* Glass tokens from Haruto Design System (section 1 "Glass") */
+  --glass-bg: rgb(255 255 255 / 0.45);
+  --glass-border: rgb(255 255 255 / 0.35);
+  --glass-shine: rgb(255 255 255 / 0.8);
+  --shadow-glass:
+    0 8px 32px rgb(16 44 33 / 0.1),
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    inset 0 -1px 0 rgb(255 255 255 / 0.12);
+
   --ease-ui: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -239,16 +248,31 @@
     color: var(--color-muted);
   }
 
-  /* The one text link style: an underlined action. */
+  /* The one text link style: an underlined action with a kinetic trailing arrow. */
   .link-arrow {
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.375rem;
     font-weight: 500;
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.3em;
+    transition: color 160ms var(--ease-ui);
+  }
+
+  .link-arrow::after {
+    content: "→";
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 200ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .link-arrow:hover::after,
+    .group:hover .link-arrow::after {
+      transform: translateX(3px);
+    }
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -319,14 +343,18 @@
   .nav-panel {
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -0.5rem;
     margin-top: 0.5rem;
-    min-width: 15rem;
+    min-width: 16.5rem;
+    display: grid;
+    gap: 0.125rem;
     border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
+    border-radius: 0.875rem;
     background-color: var(--color-ivory);
-    padding-block: 0.5rem;
-    box-shadow: var(--shadow-lg);
+    padding: 0.4375rem;
+    box-shadow:
+      var(--shadow-lg),
+      inset 0 1px 0 rgb(255 255 255 / 0.7);
     z-index: 60;
   }
 
@@ -344,9 +372,58 @@
     height: 0.75rem;
   }
 
-  .nav-panel a[aria-current="page"] {
-    color: var(--color-forest);
+  .nav-panel__link {
+    display: flex;
+    min-height: 2.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    color: var(--color-ink);
+    font-size: 0.9375rem;
     font-weight: 500;
+    white-space: nowrap;
+    transition:
+      background-color 140ms var(--ease-ui),
+      color 140ms var(--ease-ui);
+  }
+
+  .nav-panel__icon {
+    display: inline-flex;
+    width: 1.875rem;
+    height: 1.875rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4375rem;
+    background-color: var(--color-sage);
+    color: var(--color-forest);
+    transition:
+      background-color 140ms var(--ease-ui),
+      color 140ms var(--ease-ui);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nav-panel__link:hover {
+      background-color: var(--color-sage);
+      color: var(--color-forest);
+    }
+
+    .nav-panel__link:hover .nav-panel__icon {
+      background-color: var(--color-forest);
+      color: var(--color-gold);
+    }
+  }
+
+  .nav-panel a[aria-current="page"] {
+    background-color: var(--color-sage);
+    color: var(--color-forest);
+    font-weight: 600;
+  }
+
+  .nav-panel a[aria-current="page"] .nav-panel__icon {
+    background-color: var(--color-forest);
+    color: var(--color-gold);
   }
 
   .card {
@@ -1820,8 +1897,8 @@
 
   .marquee__viewport {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
   }
 
   .marquee__track {
@@ -2377,6 +2454,10 @@
     background-color: #fff;
     padding: 1rem;
     font-size: 0.95rem;
+    transition:
+      border-color 220ms var(--ease-ui),
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui);
   }
 
   @media (min-width: 40rem) {
@@ -2402,6 +2483,10 @@
     border-radius: var(--radius-card);
     background-color: #fff;
     padding: 1.5rem;
+    transition:
+      border-color 220ms var(--ease-ui),
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui);
   }
 
   .volumetric {
@@ -2426,14 +2511,21 @@
     background-color: #fff;
     padding: 1.5rem;
     color: var(--color-forest);
+    transition:
+      border-color 220ms var(--ease-ui),
+      box-shadow 220ms var(--ease-ui),
+      translate 220ms var(--ease-ui);
   }
 
   .stat-card--featured {
-    border-color: transparent;
+    border-color: rgb(255 255 255 / 0.14);
     background:
       radial-gradient(30rem 16rem at 100% 0%, rgb(226 162 64 / 0.25), transparent 60%),
       var(--color-forest);
     color: #fff;
+    box-shadow:
+      0 12px 32px rgb(16 44 33 / 0.16),
+      inset 0 1px 0 rgb(255 255 255 / 0.18);
   }
 
   .stat-card__value {
@@ -2469,10 +2561,16 @@
   }
 
   .warehouse-card {
+    border: 1px solid rgb(250 248 234 / 0.12);
     border-radius: 1.25rem;
-    background-color: var(--color-deep);
+    background:
+      radial-gradient(28rem 16rem at 100% 0%, rgb(226 162 64 / 0.16), transparent 65%),
+      var(--color-deep);
     padding: 1.5rem;
     color: var(--color-ivory);
+    box-shadow:
+      0 12px 32px rgb(10 30 18 / 0.16),
+      inset 0 1px 0 rgb(255 255 255 / 0.12);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -2485,11 +2583,9 @@
       transform: scale(1.05);
     }
 
-  }
-
-  @media (hover: hover) and (pointer: fine) {
     .service-card:hover .service-card__media img,
-    .guide-card:hover .guide-card__media img {
+    .guide-card:hover .guide-card__media img,
+    .svc-product:hover .svc-product__media img {
       transform: scale(1.05);
     }
 
@@ -2498,6 +2594,15 @@
       box-shadow: 0 10px 28px rgb(16 44 33 / 0.1);
     }
 
+    .info-card:hover,
+    .surcharge-card:hover,
+    .stat-card:not(.stat-card--featured):hover,
+    .svc-feature:hover,
+    .svc-product:hover {
+      translate: 0 -2px;
+      border-color: rgb(35 89 35 / 0.35);
+      box-shadow: 0 8px 24px rgb(16 44 33 / 0.08);
+    }
   }
 }
 

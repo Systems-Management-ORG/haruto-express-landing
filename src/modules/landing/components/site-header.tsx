@@ -235,7 +235,12 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
                   <ul id={`nav-${item.id}`} hidden={openGroup !== item.id} className="nav-panel">
                     {item.children.map((key) => (
                       <li key={key}>
-                        <Link href={pagePath(locale, key)} aria-current={isCurrent(key) ? "page" : undefined} className="flex min-h-11 items-center whitespace-nowrap px-4 text-[0.9375rem] hover:text-forest">
+                        <Link
+                          href={pagePath(locale, key)}
+                          aria-current={isCurrent(key) ? "page" : undefined}
+                          onClick={closeMenu}
+                          className="nav-panel__link"
+                        >
                           {tPages(`${key}.nav`)}
                         </Link>
                       </li>

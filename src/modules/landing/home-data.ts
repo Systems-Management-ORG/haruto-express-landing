@@ -62,8 +62,10 @@ export const WHY_KEYS = ["warehouse", "consultant", "twoWay", "japanDelivery", "
 
 // Guide cards: the first one is the large feature card. Text: `pages.<page>.title|intro`.
 export const GUIDE_CARDS: { page: ContentPage; image: string }[] = [
-  { page: "policy", image: "/images/haruto/kho/kho-haruto-kien-hang-tren-pallet.jpg" },
-  { page: "japanWarehouse", image: "/images/haruto/kho/mat-tien-kho-haruto-express.jpg" },
-  { page: "goods", image: "/images/haruto/kho/kho-haruto-thung-hang-xep-chong.webp" },
-  { page: "faq", image: "/images/haruto/kho/khu-lam-viec-va-kien-hang-kho-haruto.jpg" },
+  { page: "policy", image: "/images/haruto/ship-ve-vn/gui-hang-viet-nam-nhat-ban.webp" },
+  { page: "insurancePolicy", image: "/images/haruto/hang-cam/canh-kiem-tra-hai-quan.webp" },
+  { page: "auctionPolicy", image: "/images/haruto/dau-gia/dau-gia-hang-nhat-banner.webp" },
+  { page: "japanWarehouse", image: "/images/haruto/ffm/kho-ffm-nhat-ban.webp" },
+  { page: "goods", image: "/images/haruto/hero/thung-hang-va-hang-nhat-nui-phu-si.webp" },
+  { page: "faq", image: "/images/haruto/ship-ve-vn/duong-bay-nhat-viet.webp" },
 ];

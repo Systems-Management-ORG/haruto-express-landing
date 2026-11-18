@@ -29,7 +29,7 @@ export function FeatureGrid({ copy, config }: { copy: Features; config: Config }
                 {visual && "src" in visual && (
                   <Image
                     src={visual.src}
-                    alt=""
+                    alt={item.title}
                     width={visual.width}
                     height={visual.height}
                     sizes="(max-width: 639px) 45vw, (max-width: 1023px) 30vw, 18vw"
@@ -56,6 +56,7 @@ export function FeatureGrid({ copy, config }: { copy: Features; config: Config }
               iconClass="svc-badge"
               imageClass="svc-feature__img"
               sizes="5.5rem"
+              alt={item.title}
             />
             <h3 className="svc-feature__title">{item.title}</h3>
             {item.body && <p className="svc-feature__body">{item.body}</p>}

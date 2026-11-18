@@ -28,7 +28,7 @@ export function ServiceCards() {
             <li key={page}>
               <Link href={pagePath(locale, page)} className="service-card group">
                 <div className="service-card__media">
-                  <Image src={image} alt="" fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 66vw" className="object-cover" />
+                  <Image src={image} alt={tPages(`${page}.title`)} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 66vw" className="object-cover" />
                 </div>
                 <div className="service-card__panel">
                   <h3 className="text-xl leading-snug text-white">{tPages(`${page}.title`)}</h3>

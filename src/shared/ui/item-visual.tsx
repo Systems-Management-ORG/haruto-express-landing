@@ -11,12 +11,14 @@ export function ItemVisual({
   imageClass,
   iconSize = 30,
   sizes,
+  alt = "",
 }: {
   visual: Visual | undefined;
   iconClass: string;
   imageClass: string;
   iconSize?: number;
   sizes: string;
+  alt?: string;
 }) {
   if (!visual) return null;
   if ("Icon" in visual) {
@@ -27,5 +29,5 @@ export function ItemVisual({
       </span>
     );
   }
-  return <Image src={visual.src} alt="" width={visual.width} height={visual.height} sizes={sizes} className={imageClass} />;
+  return <Image src={visual.src} alt={alt} width={visual.width} height={visual.height} sizes={sizes} className={imageClass} />;
 }

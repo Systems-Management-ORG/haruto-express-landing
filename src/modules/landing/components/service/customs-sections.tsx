@@ -38,7 +38,7 @@ function GroupCard({ id, group, index, special }: { id: string; group: Group; in
       <div className="customs-card__media">
         <Image
           src={`${ART}/${GROUP_IMAGES[id]}.webp`}
-          alt=""
+          alt={group.title}
           width={244}
           height={215}
           sizes="(max-width: 639px) 80vw, (max-width: 1023px) 40vw, 15rem"

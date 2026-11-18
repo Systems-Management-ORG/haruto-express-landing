@@ -23,6 +23,7 @@ export function StepFlow({ copy, config }: { copy: Steps; config: Config }) {
                 iconClass="svc-step__icon"
                 imageClass="svc-step__img"
                 sizes="5rem"
+                alt={step.title}
               />
               <span className="svc-step__no" aria-hidden>
                 {index + 1}

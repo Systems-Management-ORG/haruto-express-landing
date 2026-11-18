@@ -1,8 +1,11 @@
 import { Gavel } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { RelatedLinks } from "@/shared/components/related-links";
+import type { Locale } from "@/shared/constants/locales";
+import { pagePath } from "@/shared/seo/pages";
 import { CtaBand } from "@/shared/ui/cta-band";
 import { SectionHead } from "@/shared/ui/section-head";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { type ServiceKey, useServiceCopy } from "../../service-copy";
 import { SERVICE_PAGES } from "../../service-pages";
 import { Faq } from "../faq";
@@ -24,6 +27,8 @@ export function ServicePage({ page }: { page: ServiceKey }) {
   const copy = useServiceCopy(page);
   const config = SERVICE_PAGES[page];
   const tPolicy = useTranslations("policy.concierge");
+  const tAuctionPolicy = useTranslations("policy.auctionPolicy");
+  const locale = useLocale() as Locale;
 
   return (
     <>
@@ -82,6 +87,11 @@ export function ServicePage({ page }: { page: ServiceKey }) {
               <div>
                 <h2 className="text-xl font-semibold text-forest">{copy.terms.title}</h2>
                 <p className="mt-1 text-muted">{copy.terms.body}</p>
+                {page === "auction" && (
+                  <Link href={pagePath(locale, "auctionPolicy")} className="link-arrow mt-2 text-forest">
+                    {tAuctionPolicy("policyLink")}
+                  </Link>
+                )}
               </div>
             </div>
           </div>

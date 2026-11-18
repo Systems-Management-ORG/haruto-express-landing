@@ -17,6 +17,7 @@ export function AudienceRow({ copy, config }: { copy: Audience; config: Config }
             imageClass="svc-audience__img"
             iconSize={44}
             sizes="5rem"
+            alt={item.title}
           />
           <h3 className="svc-audience__title">{item.title}</h3>
           {item.body && <p className="mt-1 text-sm text-muted">{item.body}</p>}

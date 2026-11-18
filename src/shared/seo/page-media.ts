@@ -26,14 +26,16 @@ export const PAGE_IMAGES: Record<Exclude<PageKey, "home">, PageImage> = {
   priceJpVn: { src: `${HERO}/thung-hang-va-hang-nhat-nui-phu-si.webp`, position: "78% 50%" },
   concierge: { src: "/images/haruto/mua-ho/mua-ho-hang-nhat.webp", position: "50% 45%" },
   auction: { src: "/images/haruto/dau-gia/dau-gia-hang-nhat-banner.webp", position: "60% 50%" },
-  japanWarehouse: { src: `${KHO}/mat-tien-kho-haruto-express.jpg` },
-  goods: { src: `${KHO}/kho-haruto-thung-hang-xep-chong.webp`, og: "/images/haruto/hang-cam/canh-kiem-tra-hai-quan.webp" },
-  policy: { src: `${KHO}/kho-haruto-kien-hang-tren-pallet.jpg` },
+  japanWarehouse: { src: "/images/haruto/ffm/kho-ffm-nhat-ban.webp", position: "65% 45%" },
+  goods: { src: "/images/haruto/hang-cam/canh-kiem-tra-hai-quan.webp", position: "60% 50%" },
+  policy: { src: "/images/haruto/ship-ve-vn/gui-hang-viet-nam-nhat-ban.webp", position: "65% 50%" },
+  insurancePolicy: { src: "/images/haruto/hang-cam/canh-kiem-tra-hai-quan.webp", position: "55% 50%" },
+  auctionPolicy: { src: "/images/haruto/dau-gia/dau-gia-hang-nhat-banner.webp", position: "60% 50%" },
   business: { src: `${KHO}/ben-trong-kho-haruto-express.jpg`, og: "/images/haruto/ffm/kho-ffm-nhat-ban.webp" },
-  faq: { src: `${KHO}/khu-lam-viec-va-kien-hang-kho-haruto.jpg` },
+  faq: { src: "/images/haruto/ship-ve-vn/duong-bay-nhat-viet.webp", position: "65% 50%" },
   // The shopfront (a real place to visit) rather than parcels; the share image keeps its art.
   contact: { src: `${KHO}/mat-tien-kho-haruto-express.jpg`, position: "62% 55%", og: `${KHO}/kho-haruto-kien-hang-cho-xu-ly.jpg` },
-  guides: { src: `${KHO}/kho-haruto-kien-hang-boc-mang.webp` },
+  guides: { src: `${HERO}/may-bay-nui-phu-si-thap-tokyo-hoa-anh-dao.webp`, position: "75% 50%" },
 };
 
 // Share image per page: generated into public/og by `npm run og:build`; the home page keeps the

@@ -6,28 +6,36 @@ import { ContactCta } from "@/shared/ui/contact-cta";
 import { CtaBand } from "@/shared/ui/cta-band";
 import { InfoHero } from "@/shared/ui/info-hero";
 import { RouteSwitch } from "@/shared/ui/route-switch";
-import { TocChips } from "@/shared/ui/toc-chips";
 import { INFO_PAGES, type InfoKey, type InfoSectionId, TIPS, anchorOf } from "../../info-pages";
 import { Contact, ContactQuickActions } from "../contact";
 import { ContactLocations } from "../contact-locations";
-import { Faq, FaqList } from "../faq";
+import { Faq, FaqList, FaqSupport } from "../faq";
 import { GuideGrid } from "../guides";
 import { ShippingCalculator } from "../shipping-calculator";
 import { useFaqGroups } from "./faq-groups";
 import { InfoSection } from "./info-section";
 import { CarrierList } from "../partners/carrier-list";
-import { Compensation, ConciergeTerms, WarehouseInfo, WarehouseTips } from "./policy-sections";
+import {
+  AuctionPolicyLedger,
+  BuyingPrinciples,
+  Compensation,
+  ConciergeTerms,
+  InsurancePolicyLedger,
+  OutsideControl,
+  WarehouseInfo,
+  WarehouseTips,
+} from "./policy-sections";
 import { BuyRate, CostBreakdown, WeightJpVn, WeightVnJp } from "./price-policy";
 import { RatesJpVn, RatesVnJp, Surcharges } from "./rates";
 
-// The info pages (pricing hub, price policy per route, policy, Japan warehouse, FAQ, guides,
-// contact), one rhythm with the
+// The info pages (pricing hub, price policy per route, policy, insurance policy, auction policy,
+// Japan warehouse, FAQ, guides, contact), one rhythm with the
 // service pages: hero (+ "on this page" chips) → sections → FAQ → closing CTA → related links.
 // Section backgrounds alternate ivory / sage by position.
 
-type FramedId = Exclude<InfoSectionId, "faqGroups" | "contact">;
+type FramedId = Exclude<InfoSectionId, "faqGroups" | "contact" | "insuranceLedger" | "auctionLedger">;
 // `route`: the price-policy page's direction (INFO_PAGES[page].route), for the bodies that need it.
-const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn" }) => ReactNode> = {
+const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn"; page?: InfoKey }) => ReactNode> = {
   calculator: ({ route }) => <ShippingCalculator withTitle={false} route={route} lockRoute={!!route} />,
   ratesVnJp: RatesVnJp,
   ratesJpVn: () => <RatesJpVn />,
@@ -41,7 +49,9 @@ const BODIES: Record<FramedId, (props: { route?: "vnJp" | "jpVn" }) => ReactNode
   conciergeTerms: ConciergeTerms,
   tipsVnJp: () => <WarehouseTips ids={TIPS.vnJp} />,
   tipsJpVn: () => <WarehouseTips ids={TIPS.jpVn} />,
-  compensation: Compensation,
+  buyingPrinciples: BuyingPrinciples,
+  compensation: ({ page }) => <Compensation showPolicyLink={page !== "insurancePolicy"} />,
+  outsideControl: OutsideControl,
   warehouse: WarehouseInfo,
   carriers: () => <CarrierList />,
   warehouseTips: () => <WarehouseTips ids={TIPS.warehouse} />,
@@ -68,7 +78,9 @@ export function InfoPage({ page }: { page: InfoKey }) {
     conciergeTerms: t("policy.concierge.title"),
     tipsVnJp: t("policy.tips.title"),
     tipsJpVn: t("policy.tips.title"),
+    buyingPrinciples: t("policy.insurance.principles.title"),
     compensation: t("policy.compensation.title"),
+    outsideControl: t("policy.insurance.outsideControl.title"),
     warehouse: t("policy.warehouse.title"),
     carriers: t("partners.carriers.title"),
     warehouseTips: t("policy.tips.title"),
@@ -95,36 +107,61 @@ export function InfoPage({ page }: { page: InfoKey }) {
           <ContactLocations />
         </>
       );
+    } else if (id === "insuranceLedger") {
+      raw = (
+        <section id="insurance-ledger" className="section">
+          <div className="wrap">
+            <InsurancePolicyLedger />
+          </div>
+        </section>
+      );
+    } else if (id === "auctionLedger") {
+      raw = (
+        <section id="auction-ledger" className="section">
+          <div className="wrap">
+            <AuctionPolicyLedger />
+          </div>
+        </section>
+      );
     } else if (id === "faqGroups") {
-      for (const group of faqGroups) {
-        blocks.push({
-          id: `faq-${group.id}`,
-          title: t(`faq.groups.${group.id}`),
-          body: (
-            <div className="max-w-[52rem]">
-              <FaqList items={group.items} />
-            </div>
-          ),
-        });
-      }
+      raw = (
+        <>
+          {faqGroups.map((group, index) => (
+            <section key={group.id} id={`faq-${group.id}`} className={index % 2 === 1 ? "section bg-sage" : "section"}>
+              <div className="wrap grid gap-8 lg:grid-cols-[minmax(0,35fr)_minmax(0,65fr)] lg:items-start lg:gap-12">
+                <div className="lg:sticky lg:top-24">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-xs font-semibold text-forest tabular-nums">
+                    <span>0{index + 1}</span>
+                    <span aria-hidden className="text-line">·</span>
+                    <span>{group.items.length}</span>
+                  </div>
+                  <h2 data-reveal className="heading-2 mt-3">{t(`faq.groups.${group.id}`)}</h2>
+                  {index === faqGroups.length - 1 && <FaqSupport page="faq" />}
+                </div>
+                <FaqList items={group.items} />
+              </div>
+            </section>
+          ))}
+        </>
+      );
     } else {
       const Body = BODIES[id];
-      blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body route={config.route} /> });
+      blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body route={config.route} page={page} /> });
     }
   }
 
-  const toc =
-    page === "faq"
-      ? blocks.map(({ id, title }) => ({ id, label: title }))
-      : (config.toc ?? []).map((id) => ({ id: anchorOf(id), label: titles[id as FramedId] }));
   // The FAQ block is ivory: rule it off when the last section above is ivory too.
-  const lastIvory = blocks.length > 0 && (blocks.length - 1) % 2 === 0;
+  const lastIvory =
+    page === "insurancePolicy" ||
+    page === "auctionPolicy" ||
+    page === "contact" ||
+    (blocks.length > 0 && (blocks.length - 1) % 2 === 0);
 
   return (
     <>
       <InfoHero
         page={page}
-        compact={page === "contact"}
+        compact={page !== "priceVnJp" && page !== "priceJpVn"}
         note={
           config.heroNote && (
             <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm text-muted">
@@ -146,16 +183,11 @@ export function InfoPage({ page }: { page: InfoKey }) {
           )
         }
         after={
-          config.route || toc.length > 0 ? (
-            <>
-              {config.route && (
-                <div className={toc.length > 0 ? "wrap" : "wrap pb-8 lg:pb-10"}>
-                  <RouteSwitch current={config.route} />
-                </div>
-              )}
-              {toc.length > 0 && <TocChips items={toc} />}
-            </>
-          ) : undefined
+          config.route && (
+            <div className="wrap pb-8 lg:pb-10">
+              <RouteSwitch current={config.route} />
+            </div>
+          )
         }
       />
 
@@ -166,7 +198,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
       ))}
       {raw}
 
-      {config.faq && <Faq page={page} className={lastIvory || page === "contact" ? "border-t border-line" : undefined} />}
+      {config.faq && <Faq page={page} className={lastIvory ? "border-t border-line" : undefined} />}
       {config.cta && (
         <CtaBand
           title={t("service.ctaDefault.title")}

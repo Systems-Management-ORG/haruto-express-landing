@@ -94,7 +94,7 @@ function GoodsRates({ kind }: { kind: (typeof VN_JP_GOODS)[number] }) {
   return (
     <article className="rate-card">
       <div className="rate-card__media">
-        <Image src={PRICING_IMAGES[kind]} alt="" fill sizes="(max-width: 1023px) 100vw, 40vw" className="object-cover" />
+        <Image src={PRICING_IMAGES[kind]} alt={t(`vnJp.${kind}.title`)} fill sizes="(max-width: 1023px) 100vw, 40vw" className="object-cover" />
         <h3 className="rate-card__title">{t(`vnJp.${kind}.title`)}</h3>
       </div>
       <div className="grid gap-6 p-5 sm:p-6">
@@ -155,7 +155,7 @@ export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy
   const card = (
     <div data-reveal className="rate-card lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
       <div className="rate-card__media lg:aspect-auto lg:min-h-full">
-        <Image src={PRICING_IMAGES.jpVn} alt="" fill sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover object-[78%_50%]" />
+        <Image src={PRICING_IMAGES.jpVn} alt={t("teaser.jpVn.label")} fill sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover object-[78%_50%]" />
       </div>
       <div className="p-6 sm:p-8 lg:p-10">
         <p className="text-sm font-medium tracking-[0.14em] text-muted uppercase">{t("teaser.jpVn.label")}</p>

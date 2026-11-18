@@ -1,4 +1,5 @@
 import { Minus, Plus } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
@@ -10,18 +11,23 @@ import { type PageKey, pagePath } from "@/shared/seo/pages";
 // `pages` so each service page gets 3–4. No answers about prices or transit times without a source.
 export type FaqItem = { question: string; answer: string; pages?: PageKey[] };
 
-// The question list itself: one disclosure per question, the first one open.
+// The question list itself: one individual rounded card per question (inspired by Tiximax's FAQ
+// cards), the first one open.
 export function FaqList({ items }: { items: FaqItem[] }) {
   return (
-    <div data-reveal-group className="border-t border-line">
+    <div data-reveal-group className="grid gap-3.5">
       {items.map((item, index) => (
-        <details key={item.question} open={index === 0} className="faq-item border-b border-line py-4">
+        <details
+          key={item.question}
+          open={index === 0}
+          className="faq-item rounded-2xl border border-line bg-white px-6 py-4 shadow-2xs transition-colors open:border-forest/35"
+        >
           <summary className="text-lg font-medium text-forest">
             <span>{item.question}</span>
             <Plus size={20} aria-hidden className="faq-plus shrink-0" />
             <Minus size={20} aria-hidden className="faq-minus shrink-0" />
           </summary>
-          <p className="mt-2 pr-9">{item.answer}</p>
+          <p className="mt-3 border-t border-line/70 pt-3 pr-9 text-muted">{item.answer}</p>
         </details>
       ))}
     </div>
@@ -51,8 +57,9 @@ export function Faq({ page = "home", className }: { page?: PageKey; className?: 
 
 // Beside the questions: one minimal card with a single action, to the consultation form (the one
 // place on the page that gathers every channel). On home the form is on the page itself.
-function FaqSupport({ page }: { page: PageKey }) {
+export function FaqSupport({ page }: { page: PageKey }) {
   const t = useTranslations("faq");
+  const tPages = useTranslations("pages");
   const locale = useLocale() as Locale;
   const href = page === "home" ? "#contact" : `${pagePath(locale, "contact")}#contact`;
 
@@ -60,9 +67,16 @@ function FaqSupport({ page }: { page: PageKey }) {
     <div data-reveal className="mt-8 rounded-(--radius-card) border border-line bg-white p-6">
       <p className="text-lg font-semibold text-forest">{t("support.title")}</p>
       <p className="mt-1 text-muted">{t("support.body")}</p>
-      <a href={href} data-track="cta_faq_contact" className="btn btn-primary mt-5">
-        {t("support.cta")}
-      </a>
+      <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a href={href} data-track="cta_faq_contact" className="btn btn-primary">
+          {t("support.cta")}
+        </a>
+        {page !== "faq" && (
+          <Link href={pagePath(locale, "faq")} className="link-arrow text-forest">
+            {tPages("faq.title")}
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

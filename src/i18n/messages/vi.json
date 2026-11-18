@@ -73,12 +73,28 @@
       }
     },
     "policy": {
-      "nav": "Chính sách",
+      "nav": "Chính sách vận chuyển",
       "breadcrumb": "Chính sách vận chuyển",
       "title": "Chính sách vận chuyển và đền bù",
       "intro": "Cách tính khối lượng cho hàng thường và hàng cồng kềnh, quy ước làm tròn cân, cùng chính sách đền bù khi hàng hóa thất lạc có và không có bảo hiểm.",
       "metaTitle": "Chính sách vận chuyển & đền bù | HARUTO",
       "metaDescription": "Chính sách vận chuyển HARUTO: cách tính cân hàng cồng kềnh theo thể tích, quy ước làm tròn, và mức đền bù khi thất lạc hàng hóa có hoặc không mua bảo hiểm."
+    },
+    "insurancePolicy": {
+      "nav": "Chính sách bảo hiểm",
+      "breadcrumb": "Chính sách bảo hiểm hàng hóa",
+      "title": "Chính sách đền bù khi mua bảo hiểm hàng hóa",
+      "intro": "Nguyên tắc mua hộ hàng hóa, chính sách đền bù khi khách hàng mua hoặc không mua gói bảo hiểm hàng hóa (phí 8%, đền bù 100% giá trị hàng hóa) và các rủi ro đặc thù khi vận chuyển quốc tế.",
+      "metaTitle": "Chính sách bảo hiểm và đền bù hàng hóa | HARUTO EXPRESS",
+      "metaDescription": "Chính sách bảo hiểm hàng hóa HARUTO EXPRESS: nguyên tắc mua hộ, gói bảo hiểm 8% đền bù 100% giá trị hàng, mức đền bù khi không mua bảo hiểm và lưu ý."
+    },
+    "auctionPolicy": {
+      "nav": "Chính sách đấu giá",
+      "breadcrumb": "Chính sách và quy định đấu giá",
+      "title": "Chính sách đấu giá và quy định dịch vụ đấu giá",
+      "intro": "Áp dụng cho dịch vụ đấu giá hộ và vận chuyển hàng Nhật – Việt: quy định tham gia đấu giá, giá đấu và phí dịch vụ, đặt cọc và thanh toán ngay khi thắng đấu giá (WIN), hủy đơn, khiếu nại và vận chuyển.",
+      "metaTitle": "Chính sách và quy định dịch vụ đấu giá | HARUTO EXPRESS",
+      "metaDescription": "Chính sách đấu giá hộ hàng Nhật của HARUTO EXPRESS: quy định tham gia, giá đấu và phí dịch vụ, đặt cọc, thanh toán ngay khi WIN, hoàn tiền và vận chuyển."
     },
     "concierge": {
       "nav": "Mua hộ",
@@ -129,7 +145,7 @@
       "metaDescription": "Liên hệ HARUTO EXPRESS qua Zalo, Fanpage, hotline Việt Nam – Nhật Bản hoặc form tư vấn để được hỗ trợ vận chuyển hai chiều và nhận báo cước cho kiện hàng."
     },
     "guides": {
-      "nav": "Hướng dẫn",
+      "nav": "Cẩm nang vận chuyển",
       "breadcrumb": "Hướng dẫn",
       "title": "Hướng dẫn vận chuyển hàng",
       "intro": "Những điều nên đọc trước khi vận chuyển hàng: cách tính cân, đền bù, địa chỉ kho Nhật và danh mục hàng hóa.",
@@ -360,7 +376,7 @@
       "ribbon": "Săn hàng chất – giá tốt mỗi ngày",
       "lead": "Bạn muốn sở hữu những sản phẩm chất lượng từ Nhật Bản với mức giá hấp dẫn? HARUTO EXPRESS hỗ trợ đấu giá trực tiếp trên các sàn đấu giá Nhật Bản, giúp bạn dễ dàng tiếp cận hàng ngàn sản phẩm độc đáo mỗi ngày.",
       "points": [
-        "Đặt cọc 50%, không thắng hoàn 100% cọc",
+        "Đặt cọc theo xác nhận đơn, không thắng hoàn 100% cọc",
         "Phí minh bạch, không chi phí ẩn",
         "Hàng về kho Nhật, vận chuyển Nhật – Việt"
       ],
@@ -432,7 +448,7 @@
     },
     "terms": {
       "title": "Điều kiện đấu giá hộ",
-      "body": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công: thanh toán phần còn lại để HARUTO chi trả. Đấu không thành công: HARUTO hoàn 100% tiền cọc."
+      "body": "Đặt cọc theo tỷ lệ hoặc số tiền HARUTO xác nhận trước khi đấu giá. Khi thắng đấu giá (WIN): thanh toán ngay lập tức toàn bộ khoản còn thiếu sau khi trừ tiền đặt cọc. Nếu không thắng đấu giá: hoàn trả khoản cọc chưa sử dụng hoặc chuyển sang đơn khác theo yêu cầu."
     },
     "cta": {
       "title": "Liên hệ HARUTO EXPRESS ngay",
@@ -1227,15 +1243,21 @@
     "compensation": {
       "title": "Chính sách đền bù khi thất lạc hàng hóa",
       "insured": {
-        "title": "Có mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị hàng hóa khách khai báo. Phí bảo hiểm: 8% giá trị khai báo.",
+        "title": "Trường hợp khách hàng mua gói bảo hiểm",
+        "body": "Phí bảo hiểm: 8% giá trị hàng hóa. Mức đền bù: 100% giá trị hàng hóa.",
         "stat": "100%",
-        "statLabel": "giá trị hàng khai báo"
+        "statLabel": "giá trị hàng khai báo",
+        "conditionsTitle": "Điều kiện áp dụng:",
+        "conditions": [
+          "Khách hàng kê khai giá trị hàng hóa lúc gửi hàng với đầy đủ chứng từ, hóa đơn mua hàng.",
+          "Lỗi thất lạc hoặc mất hàng được xác định do HARUTO gây nên: có đầy đủ giấy tờ giao hàng tại kho của HARUTO."
+        ]
       },
       "uninsured": {
-        "title": "Không mua bảo hiểm hàng hóa",
-        "body": "Đền bù 100% giá trị vận chuyển, nhưng không quá 3.000.000 VNĐ/đơn hàng."
-      }
+        "title": "Trường hợp khách hàng không mua gói bảo hiểm",
+        "body": "Trường hợp khách hàng không mua gói bảo hiểm, công ty chỉ thực hiện đền bù khi hàng hóa bị mất hoặc thất lạc được xác định do lỗi của công ty. Mức đền bù tối đa trong trường hợp này là 100% giá trị vận chuyển nhưng không vượt quá 3.000.000 VNĐ/đơn hàng."
+      },
+      "policyLink": "Xem đầy đủ chính sách đền bù và bảo hiểm hàng hóa"
     },
     "concierge": {
       "title": "Mua hộ · Đấu giá hộ · Vận chuyển",
@@ -1245,7 +1267,7 @@
       },
       "auction": {
         "title": "Đấu giá hộ",
-        "body": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công: thanh toán phần còn lại để HARUTO chi trả. Đấu không thành công: HARUTO hoàn 100% tiền cọc."
+        "body": "Đặt cọc theo tỷ lệ hoặc số tiền HARUTO xác nhận trước khi đấu giá. Khi thắng đấu giá (WIN): thanh toán ngay lập tức toàn bộ khoản còn thiếu sau khi trừ tiền đặt cọc. Nếu không thắng đấu giá: hoàn trả khoản cọc chưa sử dụng hoặc chuyển sang đơn khác theo yêu cầu."
       },
       "ship": {
         "title": "Vận chuyển",
@@ -1285,6 +1307,128 @@
         "shelfLife": "Công ty không bảo hành với hàng có hạn bảo quản dưới 10 ngày.",
         "redelivery": "Nếu vắng nhà, HARUTO sẽ hẹn lại ngày giờ nhận hàng. Thời gian nhận có thể thay đổi do thời tiết, thiên tai hoặc quá trình thông quan hai nước."
       }
+    },
+    "insurance": {
+      "principles": {
+        "title": "I. Nguyên tắc mua hộ hàng hóa",
+        "items": {
+          "scope": {
+            "title": "Mua hộ theo thông tin khách hàng cung cấp",
+            "body": "Haruto Express cung cấp dịch vụ mua hộ hàng hóa dựa trên các thông tin do khách hàng cung cấp, bao gồm nhưng không giới hạn ở đường dẫn (link) sản phẩm, số lượng, mẫu mã, màu sắc, kích thước và các thuộc tính khác theo yêu cầu của khách hàng. Ngoài phạm vi các thông tin nêu trên, Haruto Express không đưa ra bất kỳ cam kết hay bảo đảm nào khác đối với hàng hóa được mua hộ."
+          },
+          "condition": {
+            "title": "Tiếp nhận và vận chuyển theo nguyên trạng từ cửa hàng",
+            "body": "Haruto Express không chịu trách nhiệm và không cam kết về chất lượng, nguồn gốc, tình trạng thực tế của sản phẩm, mức độ hoàn thiện, lỗi kỹ thuật, lỗi sản xuất, tính chính xác của thông tin do người bán cung cấp hoặc quy cách đóng gói từ phía cửa hàng. Hàng hóa sẽ được tiếp nhận và vận chuyển về Việt Nam theo đúng hiện trạng mà cửa hàng giao đến kho của Haruto Express."
+          },
+          "liability": {
+            "title": "Phạm vi trách nhiệm của Haruto Express",
+            "body": "Haruto Express chỉ chịu trách nhiệm đối với các mất mát hoặc sai sót phát sinh trực tiếp do lỗi từ phía công ty trong quá trình tiếp nhận, xử lý và vận chuyển. Đối với các trường hợp phát sinh từ phía người bán, nhà sản xuất hoặc các nguyên nhân ngoài phạm vi kiểm soát của Haruto Express, công ty không thực hiện bồi thường dưới bất kỳ hình thức nào."
+          }
+        }
+      },
+      "outsideControl": {
+        "title": "III. Các trường hợp ngoài phạm vi kiểm soát và các rủi ro đặc thù vận chuyển quốc tế",
+        "items": {
+          "risks": {
+            "title": "Rủi ro khách quan trong vận chuyển quốc tế",
+            "body": "Do tính chất đặc thù của dịch vụ mua hộ và vận chuyển quốc tế, quá trình xử lý đơn hàng có thể phát sinh những rủi ro khách quan ngoài mong muốn như chậm trễ do thủ tục vận chuyển, tác động trong quá trình trung chuyển hoặc các sự cố phát sinh từ bên thứ ba. Haruto Express sẽ nỗ lực tối đa để hạn chế các rủi ro này, tuy nhiên không chịu trách nhiệm đối với những trường hợp nằm ngoài phạm vi kiểm soát hoặc không đủ cơ sở để xác minh."
+          },
+          "evidence": {
+            "title": "Yêu cầu bằng chứng hợp lệ khi khiếu nại",
+            "body": "Haruto Express có quyền từ chối giải quyết khiếu nại đối với các trường hợp không có đầy đủ bằng chứng hợp lệ tại các khâu tiếp nhận và xử lý hàng hóa, bao gồm nhưng không giới hạn ở việc khách hàng phản ánh thiếu hàng sau khi đã xác nhận nhận đủ, khiếu nại về tình trạng hư hỏng không thể xác định nguyên nhân phát sinh trong quá trình vận chuyển, hoặc các trường hợp có dấu hiệu gian lận, cố ý tạo dựng hiện trạng hàng hóa để yêu cầu bồi thường."
+          },
+          "refusal": {
+            "title": "Quyền từ chối cung cấp dịch vụ",
+            "body": "Đối với những khách hàng không đồng ý với các rủi ro khách quan vốn có của hoạt động vận chuyển quốc tế hoặc đưa ra các yêu cầu vượt quá khả năng kiểm soát và phạm vi trách nhiệm của Haruto Express, công ty có quyền từ chối cung cấp dịch vụ."
+          },
+          "acknowledgment": {
+            "title": "Tư vấn và xác nhận đồng ý điều khoản",
+            "body": "Bộ phận Kinh doanh và Chăm sóc khách hàng có trách nhiệm giải thích rõ các điều khoản, phạm vi trách nhiệm và chính sách xử lý khiếu nại của Haruto Express trước khi tiếp nhận đơn hàng. Việc khách hàng sử dụng dịch vụ được hiểu là đã đọc, hiểu và đồng ý với các nguyên tắc nêu trên nhằm hạn chế tranh chấp và đảm bảo quyền lợi của các bên trong quá trình thực hiện dịch vụ."
+          }
+        }
+      }
+    },
+    "auctionPolicy": {
+      "policyLink": "Xem đầy đủ chính sách và quy định dịch vụ đấu giá",
+      "overview": {
+        "scope": {
+          "title": "Phạm vi áp dụng",
+          "body": "Áp dụng cho dịch vụ đấu giá hộ và vận chuyển hàng Nhật – Việt: khách hàng sử dụng dịch vụ đấu giá hộ, thanh toán hộ, nhận hàng tại kho Nhật và/hoặc vận chuyển hàng hóa từ Nhật Bản về Việt Nam qua Haruto Express (HRT)."
+        },
+        "principle": {
+          "title": "Nguyên tắc",
+          "body": "Haruto là đơn vị trung gian thực hiện yêu cầu đấu giá theo xác nhận của khách hàng, không mặc nhiên là người bán hoặc nhà sản xuất sản phẩm."
+        }
+      },
+      "sections": {
+        "bidding": {
+          "title": "I. Quy định về tham gia đấu giá",
+          "items": [
+            "Khách hàng cung cấp link sản phẩm, thông tin hàng hóa, tình trạng hàng, thời điểm kết thúc phiên và mức giá đấu tối đa mong muốn.",
+            "Khách hàng có trách nhiệm đọc kỹ mô tả, hình ảnh, điều kiện giao dịch và xác nhận quyết định mua trước khi yêu cầu Haruto tham gia.",
+            "Haruto chỉ đặt giá sau khi nhận được xác nhận hợp lệ và khoản đặt cọc theo mức được Haruto thông báo cho từng đơn hàng.",
+            "Haruto không tự ý đặt giá vượt mức tối đa đã được khách hàng xác nhận; việc điều chỉnh giá chỉ có hiệu lực khi Haruto xác nhận tiếp nhận kịp thời.",
+            "Haruto không cam kết thắng đấu giá và có quyền từ chối sản phẩm không đủ điều kiện giao dịch hoặc vận chuyển."
+          ]
+        },
+        "fees": {
+          "title": "II. Giá đấu, phí dịch vụ và các khoản phát sinh",
+          "items": [
+            "Giá thắng đấu giá là mức giá cuối cùng được nền tảng/người bán xác nhận, không mặc nhiên bao gồm các khoản phí khác.",
+            "Phí đấu giá (nếu có) được áp dụng theo phí thực tế của nền tảng/người bán và/hoặc phí dịch vụ đấu giá của Haruto đã được thông báo, xác nhận với khách hàng. Không mặc nhiên thu phí nếu không có quy định hoặc khoản phí phát sinh.",
+            "Các chi phí khác có thể bao gồm: phí thanh toán, phí vận chuyển nội địa Nhật, phí phát sinh từ người bán/nền tảng, phí lưu kho, phụ phí hàng đặc biệt/cồng kềnh và phí vận chuyển Nhật – Việt.",
+            "Tỷ giá quy đổi JPY/VND và phương thức tính phí áp dụng theo báo giá hoặc xác nhận giao dịch của Haruto tại thời điểm liên quan.",
+            "Các khoản phí chưa xác định trước phải được Haruto thông báo khi có thông tin; chi phí phát sinh cần có căn cứ phù hợp."
+          ]
+        },
+        "payment": {
+          "title": "III. Đặt cọc và thanh toán khi thắng đấu giá",
+          "items": [
+            "Khách hàng đặt cọc theo tỷ lệ hoặc số tiền Haruto xác nhận trước khi đấu giá. Khoản đặt cọc được đối trừ vào nghĩa vụ thanh toán của đơn thắng đấu giá.",
+            "THỜI HẠN THANH TOÁN: NGAY LẬP TỨC KHI THẮNG ĐẤU GIÁ (WIN). Ngay khi nhận thông báo thắng đấu giá và số tiền phải trả, khách hàng phải thanh toán toàn bộ khoản còn thiếu sau khi trừ tiền đặt cọc.",
+            "Khách hàng cần chuẩn bị sẵn phương thức thanh toán trước khi tham gia đấu giá. Trường hợp chậm thanh toán, khách hàng chịu các khoản phí và thiệt hại thực tế có căn cứ do việc chậm thanh toán gây ra.",
+            "Haruto có thể tạm dừng nhận yêu cầu đấu giá mới đối với khách hàng còn nghĩa vụ thanh toán chưa hoàn tất."
+          ]
+        },
+        "cancel": {
+          "title": "IV. Hủy đơn, không thắng và hoàn tiền",
+          "items": [
+            "Trước khi đặt giá, khách hàng có thể yêu cầu hủy; các chi phí dịch vụ đã thực hiện (nếu có) được xử lý theo thỏa thuận.",
+            "Sau khi đặt giá, yêu cầu hủy chỉ được xử lý nếu nền tảng/người bán cho phép và việc hủy được xác nhận thành công. Không bảo đảm có thể rút giá đã đặt.",
+            "Sau khi WIN, khách hàng có nghĩa vụ thanh toán. Nếu tự ý bỏ đơn, Haruto được đối trừ các khoản chi phí và thiệt hại thực tế hợp lệ từ tiền cọc theo điều kiện đã được chấp thuận; số dư còn lại (nếu có) được hoàn trả.",
+            "Nếu không thắng đấu giá, khoản cọc chưa sử dụng được hoàn trả hoặc chuyển sang đơn khác theo yêu cầu; thời gian hoàn theo thông báo đã xác nhận với khách hàng.",
+            "Nếu người bán hủy giao dịch, Haruto hỗ trợ đối soát khoản hoàn từ nền tảng/người bán và hoàn trả cho khách phần tiền thực nhận tương ứng, sau khi xử lý các chi phí hợp lệ (nếu có)."
+          ]
+        },
+        "claims": {
+          "title": "V. Tình trạng sản phẩm và khiếu nại",
+          "items": [
+            "Hàng đấu giá có thể là hàng mới, hàng đã qua sử dụng, hàng trưng bày, hàng thiếu phụ kiện hoặc hàng lỗi. Khách hàng cần đánh giá rủi ro trước khi đặt giá.",
+            "Haruto hỗ trợ kiểm tra thông tin công khai nhưng không bảo đảm tính chính xác tuyệt đối về chất lượng, tính nguyên bản, nguồn gốc hoặc khả năng hoạt động của sản phẩm do người bán cung cấp.",
+            "Nếu hàng khác đáng kể so với mô tả, Haruto hỗ trợ liên hệ người bán/nền tảng để khiếu nại. Việc đổi trả, hoàn tiền phụ thuộc điều kiện giao dịch và kết quả xử lý.",
+            "Khách hàng nên lưu mô tả sản phẩm và cung cấp video mở kiện, ảnh hàng hóa, mã đơn và các bằng chứng liên quan khi khiếu nại.",
+            "Haruto chịu trách nhiệm đối với sai sót trực tiếp của mình trong phạm vi dịch vụ cam kết và quy định áp dụng."
+          ]
+        },
+        "shipping": {
+          "title": "VI. Nhận hàng, vận chuyển và hàng hạn chế",
+          "items": [
+            "Người bán gửi hàng về kho Nhật theo điều kiện giao dịch. Thời gian giao nội địa phụ thuộc người bán và đơn vị vận chuyển.",
+            "Cước Nhật – Việt tính theo bảng giá, trọng lượng tính cước và đặc điểm hàng hóa. Quy tắc làm tròn 0,5 kg và phụ phí hàng cồng kềnh được áp dụng theo chính sách vận chuyển Haruto hiện hành cho tuyến tương ứng.",
+            "Khách hàng phải khai báo đúng loại hàng, đặc biệt với pin, chất lỏng, mỹ phẩm, thực phẩm, thiết bị đặc biệt và hàng cần kiểm định. Haruto có quyền từ chối hàng cấm hoặc không đủ điều kiện vận chuyển.",
+            "Nếu hàng đã thắng đấu giá nhưng không thể vận chuyển theo tuyến dự kiến, các bên thống nhất phương án xử lý phù hợp và chi phí phát sinh có căn cứ."
+          ]
+        },
+        "general": {
+          "title": "VII. Trách nhiệm các bên và điều khoản chung",
+          "items": [
+            "Haruto: Thực hiện đặt giá theo xác nhận, thông báo kết quả, hỗ trợ thanh toán, theo dõi giao nhận, cung cấp thông tin phí và hỗ trợ khiếu nại trong phạm vi dịch vụ.",
+            "Khách hàng: Cung cấp thông tin chính xác, xác nhận giá tối đa, chuẩn bị đủ tiền, thanh toán ngay khi WIN, kiểm tra mô tả hàng và phối hợp khi phát sinh sự cố.",
+            "Khách hàng xác nhận đã đọc và đồng ý chính sách trước khi Haruto thực hiện đặt giá. Các thay đổi chính sách được công bố cho giao dịch tương lai, không tự động thay đổi điều kiện đơn đã xác nhận.",
+            "Trường hợp có tranh chấp, các bên ưu tiên đối soát chứng từ và thương lượng; việc xử lý tuân thủ thỏa thuận hợp lệ và pháp luật áp dụng."
+          ]
+        }
+      }
     }
   },
   "faq": {
@@ -1303,7 +1447,9 @@
           "goods",
           "shipToJapan",
           "shipToVietnam",
-          "home"
+          "home",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
@@ -1315,13 +1461,16 @@
           "policy",
           "home",
           "priceVnJp",
-          "priceJpVn"
+          "priceJpVn",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
         "question": "Tôi có thể theo dõi vận đơn trực tuyến không?",
         "answer": "Tính năng tra cứu trực tuyến đang được lên kế hoạch. Hiện hãy liên hệ nhân viên hỗ trợ để hỏi tình trạng kiện hàng.",
         "pages": [
+          "japanWarehouse",
           "shipToJapan",
           "shipToVietnam",
           "contact",
@@ -1332,15 +1481,18 @@
         "question": "Mua hộ hàng Nhật có cần thẻ Visa/MasterCard không?",
         "answer": "Không. Bạn chỉ cần gửi link sản phẩm, HARUTO báo giá theo tỷ giá VCB + 5 (không phụ thu) và thanh toán hộ cho shop Nhật. Với đơn mua hộ, bạn thanh toán 100% giá trị sản phẩm.",
         "pages": [
-          "concierge"
+          "concierge",
+          "insurancePolicy",
+          "guides"
         ]
       },
       {
         "question": "Đấu giá hộ cần đặt cọc bao nhiêu?",
-        "answer": "Đặt cọc 50% giá trị trước khi đấu giá. Đấu thành công, bạn thanh toán phần còn lại để HARUTO chi trả; đấu không thành công, HARUTO hoàn 100% tiền cọc.",
+        "answer": "Khách hàng đặt cọc theo tỷ lệ hoặc số tiền HARUTO xác nhận cho từng đơn hàng trước khi đấu giá. Ngay khi nhận thông báo thắng đấu giá (WIN), bạn thanh toán toàn bộ khoản còn thiếu sau khi trừ tiền đặt cọc. Nếu không thắng đấu giá, khoản cọc chưa sử dụng được hoàn trả hoặc chuyển sang đơn khác theo yêu cầu.",
         "pages": [
           "auction",
-          "concierge"
+          "concierge",
+          "auctionPolicy"
         ]
       },
       {
@@ -1349,16 +1501,18 @@
         "pages": [
           "concierge",
           "auction",
-          "shipToVietnam"
+          "shipToVietnam",
+          "auctionPolicy"
         ]
       },
       {
         "question": "Tự mua hàng rồi gửi về kho Nhật của HARUTO được không?",
         "answer": "Được. Với dịch vụ vận chuyển, bạn tự mua và vận chuyển hàng về kho Nhật của HARUTO theo địa chỉ kho; HARUTO gom hàng miễn phí và vận chuyển về Việt Nam.",
         "pages": [
+          "japanWarehouse",
           "concierge",
           "shipToVietnam",
-          "japanWarehouse"
+          "guides"
         ]
       },
       {
@@ -1389,7 +1543,10 @@
         "answer": "Khách hàng tự chi trả cước nội địa Việt Nam và được tự chọn đơn vị vận chuyển. Bạn có thể tự đặt đơn giao hàng hoặc nhờ nhân viên kho HARUTO book đơn; chi phí theo biểu phí của đơn vị vận chuyển bạn chọn.",
         "pages": [
           "priceJpVn",
-          "shipToVietnam"
+          "shipToVietnam",
+          "auctionPolicy",
+          "japanWarehouse",
+          "policy"
         ]
       },
       {
@@ -1406,6 +1563,26 @@
         "answer": "HARUTO EXPRESS nhận tư vấn qua Zalo, Fanpage Facebook, hotline tại Việt Nam và Nhật Bản, hoặc qua form yêu cầu tư vấn trên trang này. Bạn chọn kênh thuận tiện nhất, nhân viên HARUTO sẽ hỗ trợ tuyến gửi, loại hàng và cước phí cho kiện hàng của bạn.",
         "pages": [
           "contact"
+        ]
+      },
+      {
+        "question": "Chính sách bảo hiểm hàng hóa của HARUTO đền bù như thế nào?",
+        "answer": "Khi mua gói bảo hiểm hàng hóa (phí 8% giá trị hàng hóa), khách hàng được đền bù 100% giá trị hàng hóa nếu kê khai giá trị lúc gửi hàng kèm đầy đủ chứng từ, hóa đơn mua hàng và lỗi thất lạc/mất hàng được xác định do HARUTO (có đủ giấy tờ giao hàng tại kho HARUTO). Nếu không mua bảo hiểm, mức đền bù tối đa là 100% giá trị vận chuyển nhưng không vượt quá 3.000.000 VNĐ/đơn hàng.",
+        "pages": [
+          "insurancePolicy",
+          "policy",
+          "priceVnJp",
+          "priceJpVn",
+          "concierge",
+          "japanWarehouse"
+        ]
+      },
+      {
+        "question": "Đã đặt giá đấu giá rồi có hủy hoặc rút giá được không?",
+        "answer": "Trước khi đặt giá, bạn có thể yêu cầu hủy. Sau khi đã đặt giá, yêu cầu hủy chỉ được xử lý nếu nền tảng hoặc người bán cho phép và xác nhận hủy thành công (không bảo đảm có thể rút giá đã đặt). Sau khi thắng đấu giá (WIN), khách hàng có nghĩa vụ thanh toán ngay phần còn thiếu sau khi trừ cọc.",
+        "pages": [
+          "auctionPolicy",
+          "auction"
         ]
       }
     ],

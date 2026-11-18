@@ -107,3 +107,30 @@ export function contactPage({ name, description, url, inLanguage }: { name: stri
     mainEntity: { "@id": ORG_ID },
   };
 }
+
+// Policy, goods and guide pages: structured WebPage node with dateModified for E-E-A-T freshness.
+export function webPage({
+  name,
+  description,
+  url,
+  inLanguage,
+  dateModified,
+}: {
+  name: string;
+  description: string;
+  url: string;
+  inLanguage: string;
+  dateModified: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url,
+    inLanguage,
+    dateModified,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: { "@id": ORG_ID },
+  };
+}
