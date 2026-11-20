@@ -17,11 +17,11 @@
     },
     "shipToVietnam": {
       "nav": "Ship to Vietnam",
-      "breadcrumb": "Ship from Japan to Vietnam",
-      "title": "Buy in Japan, ship to Vietnam with HARUTO EXPRESS",
-      "intro": "Buy from Yahoo Japan, Mercari, Rakuten or Amazon JP and ship to Vietnam by air: from 155,000 VND/kg, payment rate VCB + 5, free consolidation at our Japan warehouse.",
-      "metaTitle": "Ship from Japan to Vietnam from 155,000 VND/kg | HARUTO",
-      "metaDescription": "Buying service, Yahoo Auction bidding and air shipping from Japan to Vietnam: from 155,000 VND/kg, payment rate VCB + 5, free consolidation in Japan."
+      "breadcrumb": "Shipping to Vietnam from Japan",
+      "title": "Shipping to Vietnam from Japan by air – HARUTO EXPRESS",
+      "intro": "Shipping to Vietnam from Japan by air from 155,000 VND/kg, buy-for-you rate VCB + 5 with no surcharge, free consolidation at our Japan warehouse. HARUTO EXPRESS supports buying from Yahoo Japan, Mercari, Rakuten and Amazon JP.",
+      "metaTitle": "Shipping to Vietnam from Japan from 155,000 VND/kg | HARUTO",
+      "metaDescription": "Shipping to Vietnam from Japan by air at 155,000 VND/kg. Buying and Yahoo Auction bidding, payment rate VCB + 5 with no surcharge, free consolidation in Japan."
     },
     "priceVnJp": {
       "nav": "Rate policy: Vietnam → Japan",
@@ -107,9 +107,9 @@
     "auction": {
       "nav": "Auction service",
       "breadcrumb": "Japan auction bidding",
-      "title": "Japan auction bidding service – great finds, great prices",
-      "intro": "HARUTO EXPRESS bids for you directly on Japanese auction sites, opening up thousands of unique items every day, delivered to you in Vietnam.",
-      "metaTitle": "Japan auction bidding (Yahoo! Auction) | HARUTO",
+      "title": "Japan auction bidding – Yahoo! Auction, Mercari, Rakuten",
+      "intro": "Japan auction bidding on Yahoo! Auction, Mercari and Rakuten: HARUTO EXPRESS bids for you directly, opening up thousands of unique items every day, delivered to you in Vietnam.",
+      "metaTitle": "Japan auction bidding – Yahoo! Auction, Mercari | HARUTO",
       "metaDescription": "We bid for you on Yahoo! Auction, Mercari and Rakuten: electronics, cameras, watches, figures, designer bags. Clear fees, order tracking, shipping to Vietnam."
     },
     "japanWarehouse": {
@@ -372,10 +372,10 @@
   "auction": {
     "hero": {
       "eyebrow": "Japan auction bidding service",
-      "titleA": "Japan auction",
-      "titleB": "bidding service",
+      "titleA": "Japan auction bidding",
+      "titleB": "Yahoo! Auction, Mercari, Rakuten",
       "ribbon": "Quality finds, great prices, every day",
-      "lead": "Want quality products from Japan at attractive prices? HARUTO EXPRESS bids for you directly on Japanese auction sites, giving you easy access to thousands of unique items every day.",
+      "lead": "Japan auction bidding on Yahoo! Auction, Mercari and Rakuten: HARUTO EXPRESS bids for you directly, giving you access to thousands of unique Japanese products every day — delivered to Vietnam.",
       "points": [
         "Deposit per order confirmation, 100% refunded if not won",
         "Transparent fees, no hidden costs",
@@ -459,10 +459,10 @@
   },
   "shipVn": {
     "hero": {
-      "titleA": "Ship from Japan",
-      "titleB": "to Vietnam",
-      "ribbon": "Many stores – easy finds – great prices every day!",
-      "lead": "Want to buy from Yahoo Japan, Mercari, Rakuten or Amazon JP but stuck on payment and shipping? HARUTO EXPRESS handles it all.",
+      "titleA": "Shipping to Vietnam",
+      "titleB": "from Japan by air",
+      "ribbon": "From 155,000 VND/kg – buy-for-you rate VCB + 5",
+      "lead": "Shipping to Vietnam from Japan by air from 155,000 VND/kg, buy-for-you rate VCB + 5 with no surcharge. HARUTO EXPRESS handles payment and shipping from Yahoo Japan, Mercari, Rakuten and Amazon JP end-to-end.",
       "points": [
         "Buy-for-you rate VCB + 5, no surcharge",
         "Free consolidation at our Japan warehouse",
