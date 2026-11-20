@@ -1,8 +1,8 @@
 import { useTranslations } from "next-intl";
-import { FAQ_GROUPS } from "../../info-pages";
+import { FAQ_GROUPS, type FaqGroupId } from "../../info-pages";
 import type { FaqItem } from "../faq";
 
-export type FaqGroup = { id: (typeof FAQ_GROUPS)[number]["id"]; items: FaqItem[] };
+export type FaqGroup = { id: FaqGroupId; items: FaqItem[] };
 
 // Sort every question into the group of its first tag (ignoring "home"); no match → "shipping".
 // Groups without questions are dropped.

@@ -3,6 +3,7 @@ import {
   ArrowsOutLineHorizontal,
   BatteryCharging,
   Bicycle,
+  Buildings,
   CalendarCheck,
   Camera,
   ChatCircleDots,
@@ -16,12 +17,15 @@ import {
   Receipt,
   Ruler,
   ShieldWarning,
+  ShoppingCart,
   Snowflake,
   SpeakerHifi,
   Star,
   Suitcase,
   Tree,
+  Truck,
   VideoCamera,
+  Warehouse,
 } from "@phosphor-icons/react/dist/ssr";
 import type { PageKey } from "@/shared/seo/pages";
 import type { CtaAction } from "@/shared/ui/contact-cta";
@@ -207,9 +211,16 @@ export const VN_JP_BULKY_CASES: Record<"oversize" | "longSide" | "contact", { Ic
 
 // Question groups of the FAQ page. A question belongs to the group of its first tag (ignoring
 // "home"); one that matches no group goes to "shipping". Empty groups are not rendered.
-export const FAQ_GROUPS: { id: "shipping" | "buying" | "warehouse" | "business"; tags: PageKey[] }[] = [
+export type FaqGroupId = "shipping" | "buying" | "warehouse" | "business";
+export const FAQ_GROUPS: { id: FaqGroupId; tags: PageKey[] }[] = [
   { id: "shipping", tags: ["shipToJapan", "shipToVietnam", "priceVnJp", "priceJpVn", "policy", "insurancePolicy", "goods"] },
   { id: "buying", tags: ["concierge", "auction", "auctionPolicy"] },
   { id: "warehouse", tags: ["japanWarehouse"] },
   { id: "business", tags: ["business"] },
 ];
+export const FAQ_GROUP_ICONS: Record<FaqGroupId, typeof Package> = {
+  shipping: Truck,
+  buying: ShoppingCart,
+  warehouse: Warehouse,
+  business: Buildings,
+};

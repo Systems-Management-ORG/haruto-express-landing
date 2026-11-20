@@ -38,13 +38,11 @@ function amount(price: string): number | null {
   return digits ? Number(digits) : null;
 }
 
-// Weight-band table. A bar under each price shows it against the band's highest rate, and the
-// lowest rate is flagged, so the falling price per kg reads at a glance.
+// Weight-band table. Lowest rate is flagged with a clean badge.
 function RateTable({ rows, label }: { rows: Rate[]; label: string }) {
   const t = useTranslations("pricing");
   const amounts = rows.map((row) => amount(row.price));
   const known = amounts.filter((value): value is number => value !== null);
-  const max = Math.max(...known);
   const min = Math.min(...known);
 
   return (
@@ -66,15 +64,10 @@ function RateTable({ rows, label }: { rows: Rate[]; label: string }) {
                   <span className="rate-weight">{row.weight}</span>
                 </th>
                 <td>
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                     <span className="font-semibold whitespace-nowrap text-ink">{row.price}</span>
                     {best && <span className="rate-badge">{t("bestRate")}</span>}
                   </div>
-                  {value !== null && (
-                    <span aria-hidden className="rate-bar">
-                      <span style={{ width: `${Math.max(12, (value / max) * 100)}%` }} />
-                    </span>
-                  )}
                   {row.note && <span className="mt-1 block text-xs font-medium text-[#9a6514]">{row.note}</span>}
                 </td>
               </tr>
@@ -153,38 +146,41 @@ export function RatesJpVn({ variant = "teaser" }: { variant?: "teaser" | "policy
   const tDomestic = useTranslations("pricePolicy.domestic");
 
   const card = (
-    <div data-reveal className="rate-card lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1fr)]">
+    <div data-reveal className="rate-card lg:grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)]">
       <div className="rate-card__media lg:aspect-auto lg:min-h-full">
         <Image src={PRICING_IMAGES.jpVn} alt={t("teaser.jpVn.label")} fill sizes="(max-width: 1023px) 100vw, 45vw" className="object-cover object-[78%_50%]" />
       </div>
       <div className="p-6 sm:p-8 lg:p-10">
-        <p className="text-sm font-medium tracking-[0.14em] text-muted uppercase">{t("teaser.jpVn.label")}</p>
+        <div className="flex flex-wrap items-center gap-2.5">
+          <p className="text-xs font-bold tracking-[0.12em] text-forest uppercase">{t("teaser.jpVn.label")}</p>
+          <span className="rounded-full bg-forest/10 px-2.5 py-0.5 text-xs font-semibold text-forest">Đồng giá</span>
+        </div>
         <p className="mt-3 font-display font-(--weight-display) text-5xl text-forest lg:text-6xl">{t("freight.price")}</p>
-        <p className="mt-2 text-muted">{t("freight.weight")}</p>
+        <p className="mt-2 text-sm font-medium text-muted">{t("freight.weight")}</p>
         {variant === "teaser" ? (
-          <ul className="mt-8 grid gap-4 border-t border-line pt-6">
+          <ul className="mt-8 grid gap-3.5 border-t border-line pt-6">
             {([
               ["buyRate", CurrencyCircleDollar],
               ["domestic", Truck],
             ] as const).map(([key, Icon]) => (
-              <li key={key} className="flex gap-3">
-                <span className="icon-chip" aria-hidden>
+              <li key={key} className="flex items-center gap-3 rounded-xl border border-line/60 bg-ivory/50 p-3">
+                <span className="icon-chip shrink-0" aria-hidden>
                   <Icon size={20} weight="duotone" />
                 </span>
-                <span className="pt-1.5">{t(`freight.${key}`)}</span>
+                <span className="text-sm font-medium text-ink">{t(`freight.${key}`)}</span>
               </li>
             ))}
           </ul>
         ) : (
           <div className="mt-8 border-t border-line pt-6">
-            <h3 className="text-lg font-medium text-forest">{tDomestic("title")}</h3>
-            <ul className="mt-4 grid gap-4">
+            <h3 className="text-lg font-semibold text-forest">{tDomestic("title")}</h3>
+            <ul className="mt-4 grid gap-3">
               {DOMESTIC.map(([key, Icon]) => (
-                <li key={key} className="flex gap-3">
-                  <span className="icon-chip" aria-hidden>
+                <li key={key} className="flex items-start gap-3 rounded-xl border border-line/60 bg-ivory/40 p-3.5 transition-colors hover:bg-ivory/80">
+                  <span className="icon-chip shrink-0 mt-0.5" aria-hidden>
                     <Icon size={20} weight="duotone" />
                   </span>
-                  <span className="pt-1.5">{tDomestic(`items.${key}`)}</span>
+                  <span className="text-sm leading-relaxed text-ink">{tDomestic(`items.${key}`)}</span>
                 </li>
               ))}
             </ul>
@@ -206,18 +202,18 @@ export function Surcharges() {
   const items = rawRecord<{ item: string }>(t, "items");
 
   return (
-    <ul data-reveal-group className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+    <ul data-reveal-group className="grid grid-cols-2 gap-3.5 sm:gap-4 lg:grid-cols-4">
       {(Object.keys(SURCHARGES) as (keyof typeof SURCHARGES)[]).map((id) => {
         const row = items[id];
         const { vnd, per } = SURCHARGES[id];
         const fee = vnd == null ? t("items.other.fee") : `${formatVnd(vnd, locale)} ${tUnit(per)}`;
         const Icon = SURCHARGE_ICONS[id] ?? Package;
         return (
-          <li key={id} className="surcharge-card">
-            <span className="icon-chip" aria-hidden>
+          <li key={id} className="surcharge-card group">
+            <span className="icon-chip transition-colors group-hover:bg-forest group-hover:text-gold" aria-hidden>
               <Icon size={22} weight="duotone" />
             </span>
-            <p className="mt-4 flex-1 leading-snug font-medium">{row.item}</p>
+            <p className="mt-3.5 flex-1 font-semibold text-ink leading-snug">{row.item}</p>
             <p className="surcharge-card__fee">{fee}</p>
           </li>
         );

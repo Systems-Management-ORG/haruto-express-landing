@@ -25,8 +25,7 @@ function FlagJp() {
   );
 }
 
-// Route selector cards inspired by Tiximax's route switcher: flag badges + route name, with a
-// highlighted gold/forest frame on the active route.
+// Route selector cards: flag badges + route name, with clean forest styling (no orange/gold border).
 export function RouteSwitch({ current }: { current: "vnJp" | "jpVn" }) {
   const t = useTranslations("pricing");
   const locale = useLocale() as Locale;
@@ -43,13 +42,13 @@ export function RouteSwitch({ current }: { current: "vnJp" | "jpVn" }) {
             data-track={`route_switch_${dir}`}
             className={
               active
-                ? "flex items-center gap-3.5 rounded-2xl border-2 border-gold bg-forest px-5 py-3.5 text-white shadow-md transition-transform"
-                : "flex items-center gap-3.5 rounded-2xl border border-line bg-white/90 px-5 py-3.5 text-ink shadow-2xs transition-colors hover:border-forest hover:bg-white"
+                ? "flex items-center gap-3.5 rounded-2xl border border-forest bg-forest px-5 py-3.5 text-white shadow-sm focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2"
+                : "flex items-center gap-3.5 rounded-2xl border border-line bg-white px-5 py-3.5 text-forest shadow-2xs transition-all hover:border-forest/40 hover:bg-forest/5 focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2"
             }
           >
             <span className="flex items-center gap-2" aria-hidden>
               {dir === "vnJp" ? <FlagVn /> : <FlagJp />}
-              <ArrowRight size={14} weight="bold" className={active ? "text-gold" : "text-muted"} />
+              <ArrowRight size={14} weight="bold" className={active ? "text-white/80" : "text-muted"} />
               {dir === "vnJp" ? <FlagJp /> : <FlagVn />}
             </span>
             <span className={`text-sm font-semibold sm:text-base ${active ? "text-white" : "text-forest"}`}>

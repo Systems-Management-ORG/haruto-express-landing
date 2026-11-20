@@ -23,11 +23,11 @@ export function Goods() {
                 <Icon size={26} weight="fill" aria-hidden className="shrink-0" />
                 {t(`${key}.title`)}
               </h3>
-              <ul className="grid gap-2.5 p-5 sm:p-6">
+              <ul className="grid gap-3 p-5 sm:p-6">
                 {items.map((item) => (
-                  <li key={item} className="flex gap-2.5">
-                    <Icon size={18} weight="bold" aria-hidden className="goods-list__mark mt-1 shrink-0" />
-                    <span>{item}</span>
+                  <li key={item} className="flex items-start gap-2.5">
+                    <Icon size={18} weight="bold" aria-hidden className="goods-list__mark mt-0.5 shrink-0" />
+                    <span className="text-[0.9375rem] leading-relaxed text-ink/90">{item}</span>
                   </li>
                 ))}
               </ul>

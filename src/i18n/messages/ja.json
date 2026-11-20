@@ -168,7 +168,8 @@
     "groups": {
       "services": "サービス",
       "pricing": "料金",
-      "guides": "ご利用ガイド"
+      "guides": "ご利用ガイド",
+      "policies": "各種規定"
     }
   },
   "home": {
@@ -1439,6 +1440,22 @@
       "warehouse": "日本倉庫",
       "business": "企業向け・FFM"
     },
+    "groupDescriptions": {
+      "shipping": "重量計算、荷物サイズ、大型貨物追加料金、ベトナム・日本双方向の配送規定。",
+      "buying": "代理購入プロセス、VCB+5為替レート（追加料金なし）、デポジットとヤフオク規定。",
+      "warehouse": "東京倉庫の住所、荷物ラベル記載方法、日本国内の提携配送会社情報。",
+      "business": "フルフィルメント（FFM）ソリューション、日本国内での保管・梱包・配送。"
+    },
+    "hub": {
+      "searchPlaceholder": "質問をすばやく検索（例：運賃、大型貨物、オークション、日本倉庫…）",
+      "searchClear": "検索をクリア",
+      "searchResultsFor": "検索結果",
+      "searchHitsUnit": "件 該当",
+      "searchEmptyTitle": "該当する質問が見つかりません",
+      "searchEmptyBody": "別のキーワードでお試しいただくか、HARUTOのスタッフに直接お問い合わせください。",
+      "allTopics": "すべてのトピック",
+      "supportHotline": "24/7サポート："
+    },
     "items": [
       {
         "question": "どのような貨物を取り扱っていますか？",
@@ -1664,8 +1681,6 @@
   "footer": {
     "positioning": "ベトナム・日本間の双方向航空貨物輸送。",
     "navigationTitle": "ナビゲーション",
-    "addressTitle": "所在地",
-    "hotlineTitle": "ホットライン",
     "mapHint": "Google マップを開く",
     "locations": {
       "japanWarehouse": "日本倉庫",

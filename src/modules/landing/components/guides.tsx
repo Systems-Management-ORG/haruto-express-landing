@@ -41,23 +41,23 @@ export function GuideGrid() {
                     alt={tPages(`${page}.title`)}
                     fill
                     sizes="(max-width: 1023px) 100vw, 55vw"
-                    className="object-cover"
+                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
-                  <span className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 rounded-full bg-deep/90 px-3 py-1 text-xs font-semibold text-gold backdrop-blur-xs">
+                  <span className="absolute top-3.5 left-3.5 inline-flex items-center gap-1.5 rounded-full bg-deep/90 px-3 py-1 text-xs font-semibold text-gold shadow-sm backdrop-blur-xs">
                     <Icon size={15} weight="duotone" aria-hidden />
                     {tPages(`${page}.nav`)}
                   </span>
                   <span
                     aria-hidden
-                    className="absolute top-3.5 right-3.5 inline-flex size-7 items-center justify-center rounded-full bg-white/90 font-display text-xs font-semibold text-forest tabular-nums"
+                    className="absolute top-3.5 right-3.5 inline-flex size-7 items-center justify-center rounded-full bg-white/95 font-display text-xs font-bold text-forest shadow-2xs tabular-nums"
                   >
                     0{index + 1}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <h3 className="text-xl leading-snug text-forest sm:text-2xl">{tPages(`${page}.title`)}</h3>
-                  <p className="mt-2 flex-1 line-clamp-3 text-muted">{tPages(`${page}.intro`)}</p>
-                  <span className="link-arrow mt-3 self-start text-forest">{t("more")}</span>
+                  <h3 className="text-xl font-medium leading-snug text-forest sm:text-2xl transition-colors group-hover:text-forest-dark">{tPages(`${page}.title`)}</h3>
+                  <p className="mt-2.5 flex-1 line-clamp-3 text-sm sm:text-base text-muted leading-relaxed">{tPages(`${page}.intro`)}</p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-forest underline-offset-4 group-hover:underline">{t("more")}</span>
                 </div>
               </Link>
             </li>
@@ -79,23 +79,23 @@ export function GuideGrid() {
                       alt={tPages(`${page}.title`)}
                       fill
                       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                     />
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-deep/90 px-2.5 py-1 text-xs font-semibold text-gold backdrop-blur-xs">
+                    <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-deep/90 px-2.5 py-1 text-xs font-semibold text-gold shadow-sm backdrop-blur-xs">
                       <Icon size={14} weight="duotone" aria-hidden />
                       {tPages(`${page}.nav`)}
                     </span>
                     <span
                       aria-hidden
-                      className="absolute top-3 right-3 inline-flex size-6 items-center justify-center rounded-full bg-white/90 font-display text-xs font-semibold text-forest tabular-nums"
+                      className="absolute top-3 right-3 inline-flex size-6 items-center justify-center rounded-full bg-white/95 font-display text-xs font-bold text-forest shadow-2xs tabular-nums"
                     >
                       0{num}
                     </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4 sm:p-5">
-                    <h3 className="text-lg leading-snug text-forest">{tPages(`${page}.title`)}</h3>
-                    <p className="mt-1.5 flex-1 line-clamp-3 text-sm text-muted">{tPages(`${page}.intro`)}</p>
-                    <span className="link-arrow mt-3 self-start text-sm text-forest">{t("more")}</span>
+                    <h3 className="text-lg font-medium leading-snug text-forest transition-colors group-hover:text-forest-dark">{tPages(`${page}.title`)}</h3>
+                    <p className="mt-1.5 flex-1 line-clamp-3 text-sm leading-relaxed text-muted">{tPages(`${page}.intro`)}</p>
+                    <span className="mt-3.5 inline-flex items-center text-xs font-semibold text-forest underline-offset-4 group-hover:underline">{t("more")}</span>
                   </div>
                 </Link>
               </li>

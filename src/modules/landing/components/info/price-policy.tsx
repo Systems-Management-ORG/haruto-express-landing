@@ -253,8 +253,7 @@ export function WeightJpVn() {
   );
 }
 
-// An infographic from the price-policy PDFs, presented as a compact preview card with a lightbox
-// link so it complements the HTML tables above without dominating a full screen.
+// An infographic from the price-policy PDFs, presented full-width so it is always open, clear and readable.
 export function PolicyFigure({ id }: { id: keyof typeof POLICY_FIGURES }) {
   const t = useTranslations("pricePolicy.figure");
   const locale = useLocale();
@@ -264,46 +263,71 @@ export function PolicyFigure({ id }: { id: keyof typeof POLICY_FIGURES }) {
   return (
     <figure
       data-reveal
-      className="info-card mt-6 flex flex-col justify-between gap-5 border-forest/25 bg-sage/40 p-4 sm:flex-row sm:items-center sm:p-5"
+      className="mt-8 overflow-hidden rounded-2xl border border-line bg-white shadow-xs"
     >
-      <a
-        href={src}
-        target="_blank"
-        rel="noopener"
-        className="group relative block shrink-0 overflow-hidden rounded-lg border border-line bg-white sm:w-64"
-      >
-        <Image
-          src={src}
-          width={width}
-          height={height}
-          alt={t(`${id}.alt`)}
-          sizes="(max-width: 639px) 100vw, 16rem"
-          className="h-auto w-full object-cover transition-transform duration-300 group-hover:scale-103"
-        />
-      </a>
-      <figcaption className="flex flex-1 flex-col justify-between gap-4 sm:flex-row sm:items-center">
-        <div>
-          <span className="inline-block rounded-full bg-forest/10 px-2.5 py-0.5 text-xs font-semibold text-forest">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line bg-sage/40 px-5 py-3.5 sm:px-6">
+        <div className="flex items-center gap-2.5">
+          <span className="inline-block rounded-full bg-forest px-2.5 py-0.5 text-xs font-semibold text-gold uppercase tracking-wide">
             Infographic
           </span>
-          <p className="mt-1.5 text-base font-medium text-forest">{t(`${id}.caption`)}</p>
+          <h4 className="text-base font-semibold text-forest">
+            {t(`${id}.caption`)}
+          </h4>
         </div>
-        <a href={src} target="_blank" rel="noopener" className="btn btn-outline shrink-0 bg-white text-sm">
-          {t("open")}
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener"
+          className="text-xs font-semibold text-forest hover:underline flex items-center gap-1"
+        >
+          <span>{t("open")}</span>
+          <span aria-hidden>↗</span>
         </a>
-      </figcaption>
+      </div>
+      <div className="flex justify-center bg-ivory/20 p-3 sm:p-6">
+        <a
+          href={src}
+          target="_blank"
+          rel="noopener"
+          title={t("open")}
+          className="group relative block w-full max-w-4xl overflow-hidden rounded-xl border border-line/70 bg-white shadow-xs transition-all hover:shadow-md hover:border-forest/30"
+        >
+          <Image
+            src={src}
+            width={width}
+            height={height}
+            alt={t(`${id}.alt`)}
+            sizes="(max-width: 1024px) 100vw, 960px"
+            className="h-auto w-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
+          />
+        </a>
+      </div>
     </figure>
   );
 }
 
-// Japan → Vietnam buy-for-you rate: the formula, then its one-row table.
+// Japan → Vietnam buy-for-you rate: formula header, parameter highlights, and clear tabular tariff.
 export function BuyRate() {
   const t = useTranslations("pricePolicy.buyRate");
   const tSection = useTranslations("pricePolicy.sections");
 
   return (
-    <div data-reveal className="info-card">
-      <p className="font-display font-(--weight-display) text-2xl text-forest sm:text-3xl">{t("formula")}</p>
+    <div data-reveal className="info-card p-6 sm:p-8">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-line pb-6">
+        <div>
+          <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-forest/70">
+            <Coins size={18} weight="duotone" className="text-gold" />
+            Công thức tính tiền mua hộ
+          </span>
+          <p className="mt-2 font-display font-(--weight-display) text-2xl text-forest sm:text-3xl">
+            {t("formula")}
+          </p>
+        </div>
+        <div className="rounded-xl border border-line bg-sage/30 px-4 py-2.5 text-xs sm:text-sm text-forest font-medium self-start md:self-auto">
+          Áp dụng cho mọi đơn mua hàng nội địa Nhật
+        </div>
+      </div>
+
       <div tabIndex={0} role="group" aria-label={tSection("buyRate")} className="rate-table-wrap mt-6">
         <table className="rate-table">
           <thead>
@@ -315,11 +339,15 @@ export function BuyRate() {
           </thead>
           <tbody>
             <tr>
-              <th scope="row">{t("row.value")}</th>
-              <td className="font-semibold whitespace-nowrap text-forest">{t("row.rate")}</td>
+              <th scope="row" className="font-medium text-ink">
+                {t("row.value")}
+              </th>
+              <td className="font-bold whitespace-nowrap text-forest text-base">
+                {t("row.rate")}
+              </td>
               <td>
-                <span className="inline-flex items-center gap-2">
-                  <CheckCircle size={20} weight="fill" aria-hidden className="shrink-0 text-forest" />
+                <span className="inline-flex items-center gap-2 font-medium text-forest">
+                  <CheckCircle size={18} weight="fill" aria-hidden className="shrink-0 text-forest" />
                   {t("row.surcharge")}
                 </span>
               </td>

@@ -8,7 +8,7 @@
       "metaDescription": "Vận chuyển hàng hai chiều Việt Nam – Nhật Bản cho cá nhân và doanh nghiệp: bảng giá rõ ràng, kho riêng tại Nhật, nhân viên tư vấn. Liên hệ HARUTO nhận báo giá."
     },
     "shipToJapan": {
-      "nav": "Vận chuyển Việt Nhật",
+      "nav": "Vận chuyển Việt – Nhật",
       "breadcrumb": "Vận chuyển hàng đi Nhật",
       "title": "Vận chuyển hàng đi Nhật Bản từ Việt Nam",
       "intro": "Vận chuyển hàng cá nhân, quà tặng và hàng kinh doanh từ Việt Nam sang Nhật Bản: HARUTO tư vấn quy định hàng hóa, hỗ trợ thông quan và cập nhật tình trạng vận chuyển.",
@@ -168,7 +168,8 @@
     "groups": {
       "services": "Dịch vụ",
       "pricing": "Bảng giá",
-      "guides": "Hướng dẫn"
+      "guides": "Hướng dẫn",
+      "policies": "Chính sách"
     }
   },
   "home": {
@@ -1310,7 +1311,7 @@
     },
     "insurance": {
       "principles": {
-        "title": "I. Nguyên tắc mua hộ hàng hóa",
+        "title": "Nguyên tắc mua hộ hàng hóa",
         "items": {
           "scope": {
             "title": "Mua hộ theo thông tin khách hàng cung cấp",
@@ -1327,7 +1328,7 @@
         }
       },
       "outsideControl": {
-        "title": "III. Các trường hợp ngoài phạm vi kiểm soát và các rủi ro đặc thù vận chuyển quốc tế",
+        "title": "Các trường hợp ngoài phạm vi kiểm soát và các rủi ro đặc thù vận chuyển quốc tế",
         "items": {
           "risks": {
             "title": "Rủi ro khách quan trong vận chuyển quốc tế",
@@ -1362,7 +1363,7 @@
       },
       "sections": {
         "bidding": {
-          "title": "I. Quy định về tham gia đấu giá",
+          "title": "Quy định về tham gia đấu giá",
           "items": [
             "Khách hàng cung cấp link sản phẩm, thông tin hàng hóa, tình trạng hàng, thời điểm kết thúc phiên và mức giá đấu tối đa mong muốn.",
             "Khách hàng có trách nhiệm đọc kỹ mô tả, hình ảnh, điều kiện giao dịch và xác nhận quyết định mua trước khi yêu cầu Haruto tham gia.",
@@ -1372,7 +1373,7 @@
           ]
         },
         "fees": {
-          "title": "II. Giá đấu, phí dịch vụ và các khoản phát sinh",
+          "title": "Giá đấu, phí dịch vụ và các khoản phát sinh",
           "items": [
             "Giá thắng đấu giá là mức giá cuối cùng được nền tảng/người bán xác nhận, không mặc nhiên bao gồm các khoản phí khác.",
             "Phí đấu giá (nếu có) được áp dụng theo phí thực tế của nền tảng/người bán và/hoặc phí dịch vụ đấu giá của Haruto đã được thông báo, xác nhận với khách hàng. Không mặc nhiên thu phí nếu không có quy định hoặc khoản phí phát sinh.",
@@ -1382,7 +1383,7 @@
           ]
         },
         "payment": {
-          "title": "III. Đặt cọc và thanh toán khi thắng đấu giá",
+          "title": "Đặt cọc và thanh toán khi thắng đấu giá",
           "items": [
             "Khách hàng đặt cọc theo tỷ lệ hoặc số tiền Haruto xác nhận trước khi đấu giá. Khoản đặt cọc được đối trừ vào nghĩa vụ thanh toán của đơn thắng đấu giá.",
             "THỜI HẠN THANH TOÁN: NGAY LẬP TỨC KHI THẮNG ĐẤU GIÁ (WIN). Ngay khi nhận thông báo thắng đấu giá và số tiền phải trả, khách hàng phải thanh toán toàn bộ khoản còn thiếu sau khi trừ tiền đặt cọc.",
@@ -1391,7 +1392,7 @@
           ]
         },
         "cancel": {
-          "title": "IV. Hủy đơn, không thắng và hoàn tiền",
+          "title": "Hủy đơn, không thắng và hoàn tiền",
           "items": [
             "Trước khi đặt giá, khách hàng có thể yêu cầu hủy; các chi phí dịch vụ đã thực hiện (nếu có) được xử lý theo thỏa thuận.",
             "Sau khi đặt giá, yêu cầu hủy chỉ được xử lý nếu nền tảng/người bán cho phép và việc hủy được xác nhận thành công. Không bảo đảm có thể rút giá đã đặt.",
@@ -1401,7 +1402,7 @@
           ]
         },
         "claims": {
-          "title": "V. Tình trạng sản phẩm và khiếu nại",
+          "title": "Tình trạng sản phẩm và khiếu nại",
           "items": [
             "Hàng đấu giá có thể là hàng mới, hàng đã qua sử dụng, hàng trưng bày, hàng thiếu phụ kiện hoặc hàng lỗi. Khách hàng cần đánh giá rủi ro trước khi đặt giá.",
             "Haruto hỗ trợ kiểm tra thông tin công khai nhưng không bảo đảm tính chính xác tuyệt đối về chất lượng, tính nguyên bản, nguồn gốc hoặc khả năng hoạt động của sản phẩm do người bán cung cấp.",
@@ -1411,7 +1412,7 @@
           ]
         },
         "shipping": {
-          "title": "VI. Nhận hàng, vận chuyển và hàng hạn chế",
+          "title": "Nhận hàng, vận chuyển và hàng hạn chế",
           "items": [
             "Người bán gửi hàng về kho Nhật theo điều kiện giao dịch. Thời gian giao nội địa phụ thuộc người bán và đơn vị vận chuyển.",
             "Cước Nhật – Việt tính theo bảng giá, trọng lượng tính cước và đặc điểm hàng hóa. Quy tắc làm tròn 0,5 kg và phụ phí hàng cồng kềnh được áp dụng theo chính sách vận chuyển Haruto hiện hành cho tuyến tương ứng.",
@@ -1420,7 +1421,7 @@
           ]
         },
         "general": {
-          "title": "VII. Trách nhiệm các bên và điều khoản chung",
+          "title": "Trách nhiệm các bên và điều khoản chung",
           "items": [
             "Haruto: Thực hiện đặt giá theo xác nhận, thông báo kết quả, hỗ trợ thanh toán, theo dõi giao nhận, cung cấp thông tin phí và hỗ trợ khiếu nại trong phạm vi dịch vụ.",
             "Khách hàng: Cung cấp thông tin chính xác, xác nhận giá tối đa, chuẩn bị đủ tiền, thanh toán ngay khi WIN, kiểm tra mô tả hàng và phối hợp khi phát sinh sự cố.",
@@ -1438,6 +1439,22 @@
       "buying": "Mua hộ & đấu giá hộ",
       "warehouse": "Kho Nhật",
       "business": "Doanh nghiệp & FFM"
+    },
+    "groupDescriptions": {
+      "shipping": "Quy định tính cân, kích thước kiện hàng, phụ thu cồng kềnh và giao nhận hai chiều Việt – Nhật.",
+      "buying": "Quy trình mua hộ, tỷ giá VCB + 5 không phụ thu, đặt cọc và chính sách đấu giá Yahoo Auctions.",
+      "warehouse": "Địa chỉ kho Tokyo, hướng dẫn ghi thông tin kiện hàng, đối tác giao vận nội địa Nhật.",
+      "business": "Giải pháp hoàn tất đơn hàng (FFM), lưu kho chuyên nghiệp, đóng gói và phân phối toàn nước Nhật."
+    },
+    "hub": {
+      "searchPlaceholder": "Tìm nhanh câu hỏi (vd: cước phí, cồng kềnh, đấu giá, kho Nhật...)",
+      "searchClear": "Xóa tìm kiếm",
+      "searchResultsFor": "Kết quả tìm kiếm cho",
+      "searchHitsUnit": "câu hỏi phù hợp",
+      "searchEmptyTitle": "Không tìm thấy câu hỏi phù hợp",
+      "searchEmptyBody": "Bạn có thể thử tìm với từ khóa khác, hoặc liên hệ trực tiếp với tư vấn viên HARUTO để được giải đáp ngay.",
+      "allTopics": "Tất cả chủ đề",
+      "supportHotline": "Hỗ trợ 24/7:"
     },
     "items": [
       {
@@ -1664,8 +1681,6 @@
   "footer": {
     "positioning": "Vận chuyển hàng không hai chiều Việt Nam – Nhật Bản.",
     "navigationTitle": "Điều hướng",
-    "addressTitle": "Địa chỉ",
-    "hotlineTitle": "Hotline",
     "mapHint": "Mở Google Maps",
     "locations": {
       "japanWarehouse": "Kho Nhật",

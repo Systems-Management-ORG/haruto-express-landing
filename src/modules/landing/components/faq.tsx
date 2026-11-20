@@ -15,19 +15,21 @@ export type FaqItem = { question: string; answer: string; pages?: PageKey[] };
 // cards), the first one open.
 export function FaqList({ items }: { items: FaqItem[] }) {
   return (
-    <div data-reveal-group className="grid gap-3.5">
+    <div className="grid gap-3.5">
       {items.map((item, index) => (
         <details
           key={item.question}
           open={index === 0}
-          className="faq-item rounded-2xl border border-line bg-white px-6 py-4 shadow-2xs transition-colors open:border-forest/35"
+          className="faq-item group rounded-2xl border border-line bg-white px-6 py-4.5 shadow-2xs transition-[border-color,background-color,box-shadow] duration-200 hover:border-forest/30 open:border-forest/40 open:bg-forest/[0.015] open:shadow-xs"
         >
-          <summary className="text-lg font-medium text-forest">
+          <summary className="flex cursor-pointer items-center justify-between gap-4 text-base sm:text-lg font-semibold text-forest select-none">
             <span>{item.question}</span>
-            <Plus size={20} aria-hidden className="faq-plus shrink-0" />
-            <Minus size={20} aria-hidden className="faq-minus shrink-0" />
+            <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-sage/60 transition-colors group-open:bg-forest group-open:text-white">
+              <Plus size={16} weight="bold" aria-hidden className="faq-plus" />
+              <Minus size={16} weight="bold" aria-hidden className="faq-minus" />
+            </div>
           </summary>
-          <p className="mt-3 border-t border-line/70 pt-3 pr-9 text-muted">{item.answer}</p>
+          <p className="mt-3.5 border-t border-line/60 pt-3.5 pr-4 text-sm sm:text-base leading-relaxed text-muted">{item.answer}</p>
         </details>
       ))}
     </div>
@@ -72,7 +74,7 @@ export function FaqSupport({ page }: { page: PageKey }) {
           {t("support.cta")}
         </a>
         {page !== "faq" && (
-          <Link href={pagePath(locale, "faq")} className="link-arrow text-forest">
+          <Link href={pagePath(locale, "faq")} className="text-sm font-semibold text-forest underline-offset-4 hover:underline">
             {tPages("faq.title")}
           </Link>
         )}

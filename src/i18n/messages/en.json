@@ -168,7 +168,8 @@
     "groups": {
       "services": "Services",
       "pricing": "Pricing",
-      "guides": "Guides"
+      "guides": "Guides",
+      "policies": "Policies"
     }
   },
   "home": {
@@ -1439,6 +1440,22 @@
       "warehouse": "Japan warehouse",
       "business": "Business & fulfillment"
     },
+    "groupDescriptions": {
+      "shipping": "Weight calculation rules, bulky dimensions, surcharges, and two-way Vietnam–Japan delivery.",
+      "buying": "Proxy buying process, VCB + 5 exchange rate without surcharge, deposit and auction bidding rules.",
+      "warehouse": "Tokyo warehouse address, shipment labeling guidelines, and Japanese domestic delivery partners.",
+      "business": "Fulfillment solutions (FFM), professional warehousing, packing, and nationwide distribution in Japan."
+    },
+    "hub": {
+      "searchPlaceholder": "Quick search (e.g. rates, bulky, auction, Japan warehouse...)",
+      "searchClear": "Clear search",
+      "searchResultsFor": "Search results for",
+      "searchHitsUnit": "matching questions",
+      "searchEmptyTitle": "No matching questions found",
+      "searchEmptyBody": "Try other keywords or contact a HARUTO consultant directly for immediate help.",
+      "allTopics": "All topics",
+      "supportHotline": "24/7 support:"
+    },
     "items": [
       {
         "question": "What goods does HARUTO accept?",
@@ -1664,8 +1681,6 @@
   "footer": {
     "positioning": "Two-way air freight between Vietnam and Japan.",
     "navigationTitle": "Navigation",
-    "addressTitle": "Addresses",
-    "hotlineTitle": "Hotline",
     "mapHint": "Open Google Maps",
     "locations": {
       "japanWarehouse": "Japan warehouse",

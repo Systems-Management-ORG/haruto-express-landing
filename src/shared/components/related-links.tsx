@@ -1,4 +1,3 @@
-import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
@@ -24,7 +23,6 @@ export function RelatedLinks({ page }: { page: PageKey }) {
                   <span className="block text-lg font-medium text-forest">{t(`${key}.breadcrumb`)}</span>
                   <span className="mt-1.5 line-clamp-2 block text-sm text-muted">{t(`${key}.metaDescription`)}</span>
                 </span>
-                <ArrowRight size={20} aria-hidden className="related-card__arrow" />
               </Link>
             </li>
           ))}

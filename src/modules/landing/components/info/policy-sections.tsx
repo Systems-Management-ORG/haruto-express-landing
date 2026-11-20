@@ -36,6 +36,7 @@ import { rawRecord } from "@/shared/lib/raw-messages";
 import { locationById } from "@/shared/seo/business";
 import { type PageKey, pagePath } from "@/shared/seo/pages";
 import { ContactCta } from "@/shared/ui/contact-cta";
+import { CopyButton } from "@/shared/ui/copy-button";
 import { TIP_ICONS } from "../../info-pages";
 import { COMPENSATION } from "../../pricing-data";
 
@@ -163,8 +164,7 @@ export function OutsideControl() {
   );
 }
 
-// Tiximax-inspired 2-column Insurance Policy layout: main policy sections on the left, sticky
-// "MỤC LỤC BÀI VIẾT" + consultation card on the right.
+// Tiximax-inspired modern Insurance Policy layout: clean chapter flow with horizontal jump pills.
 export function InsurancePolicyLedger() {
   const tPrinciples = useTranslations("policy.insurance.principles");
   const tComp = useTranslations("policy.compensation");
@@ -172,18 +172,37 @@ export function InsurancePolicyLedger() {
   const tService = useTranslations("service");
 
   const sections = [
-    { id: "buying-principles", roman: "I", title: tPrinciples("title").replace(/^[IVX]+\.\s*/, "") },
-    { id: "compensation", roman: "II", title: tComp("title") },
-    { id: "outside-control", roman: "III", title: tOutside("title").replace(/^[IVX]+\.\s*/, "") },
+    { id: "buying-principles", num: "01", title: tPrinciples("title").replace(/^[IVX]+\.\s*/, "") },
+    { id: "compensation", num: "02", title: tComp("title") },
+    { id: "outside-control", num: "03", title: tOutside("title").replace(/^[IVX]+\.\s*/, "") },
   ];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-12">
-      <div className="grid gap-10">
+    <div>
+      {/* Quick Navigation Pills */}
+      <div className="sticky top-20 z-10 mb-8 overflow-x-auto border-y border-line/60 bg-ivory/95 py-3 backdrop-blur-md scrollbar-none sm:rounded-xl sm:border sm:px-4">
+        <div className="flex min-w-max items-center gap-2">
+          <span className="mr-1 text-xs font-semibold uppercase tracking-wider text-muted">
+            {tService("toc")}:
+          </span>
+          {sections.map(({ id, num, title }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-white px-3.5 py-1.5 text-xs font-semibold text-forest shadow-2xs transition-all hover:border-forest hover:bg-forest hover:text-white"
+            >
+              <span className="opacity-80">{num}.</span>
+              <span>{title}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid gap-8">
         <section id="buying-principles" className="info-card p-6 sm:p-8">
           <div className="flex items-center gap-3 border-b border-line pb-4">
-            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-semibold text-gold">
-              I
+            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-bold text-gold">
+              01
             </span>
             <h2 className="text-xl font-semibold text-forest sm:text-2xl">
               {tPrinciples("title").replace(/^[IVX]+\.\s*/, "")}
@@ -196,8 +215,8 @@ export function InsurancePolicyLedger() {
 
         <section id="compensation" className="info-card p-6 sm:p-8">
           <div className="flex items-center gap-3 border-b border-line pb-4">
-            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-semibold text-gold">
-              II
+            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-bold text-gold">
+              02
             </span>
             <h2 className="text-xl font-semibold text-forest sm:text-2xl">{tComp("title")}</h2>
           </div>
@@ -208,8 +227,8 @@ export function InsurancePolicyLedger() {
 
         <section id="outside-control" className="info-card p-6 sm:p-8">
           <div className="flex items-center gap-3 border-b border-line pb-4">
-            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-semibold text-gold">
-              III
+            <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-bold text-gold">
+              03
             </span>
             <h2 className="text-xl font-semibold text-forest sm:text-2xl">
               {tOutside("title").replace(/^[IVX]+\.\s*/, "")}
@@ -221,46 +240,29 @@ export function InsurancePolicyLedger() {
         </section>
       </div>
 
-      <aside className="grid gap-5 lg:sticky lg:top-24">
-        <nav aria-label={tService("toc")} className="info-card p-5">
-          <p className="text-xs font-semibold tracking-wider text-muted uppercase">{tService("toc")}</p>
-          <ol className="mt-3.5 grid gap-1">
-            {sections.map(({ id, roman, title }) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className="flex items-center gap-2.5 border-l-2 border-l-transparent py-2 pl-3 text-sm font-medium text-ink transition-colors hover:border-l-gold hover:text-forest"
-                >
-                  <span className="font-semibold text-forest tabular-nums">{roman}.</span>
-                  <span className="line-clamp-1">{title}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-
-        <div className="warehouse-card">
-          <p className="text-lg font-semibold text-gold">{tService("ctaDefault.title")}</p>
-          <p className="mt-1.5 text-sm text-ivory/85">{tService("ctaDefault.body")}</p>
-          <div className="mt-5">
-            <ContactCta action="zalo" variant="gold" />
-          </div>
+      <div className="mt-8 warehouse-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <p className="text-xl font-semibold text-gold">{tService("ctaDefault.title")}</p>
+          <p className="mt-2 text-sm text-ivory/85 max-w-xl">{tService("ctaDefault.body")}</p>
         </div>
-      </aside>
+        <div className="shrink-0">
+          <ContactCta action="zalo" variant="gold" />
+        </div>
+      </div>
     </div>
   );
 }
 
 export type AuctionSectionKey = "bidding" | "fees" | "payment" | "cancel" | "claims" | "shipping" | "general";
 
-const AUCTION_SECTIONS: { key: AuctionSectionKey; roman: string; anchor: string }[] = [
-  { key: "bidding", roman: "I", anchor: "auction-bidding" },
-  { key: "fees", roman: "II", anchor: "auction-fees" },
-  { key: "payment", roman: "III", anchor: "auction-payment" },
-  { key: "cancel", roman: "IV", anchor: "auction-cancel" },
-  { key: "claims", roman: "V", anchor: "auction-claims" },
-  { key: "shipping", roman: "VI", anchor: "auction-shipping" },
-  { key: "general", roman: "VII", anchor: "auction-general" },
+const AUCTION_SECTIONS: { key: AuctionSectionKey; num: string; anchor: string }[] = [
+  { key: "bidding", num: "01", anchor: "auction-bidding" },
+  { key: "fees", num: "02", anchor: "auction-fees" },
+  { key: "payment", num: "03", anchor: "auction-payment" },
+  { key: "cancel", num: "04", anchor: "auction-cancel" },
+  { key: "claims", num: "05", anchor: "auction-claims" },
+  { key: "shipping", num: "06", anchor: "auction-shipping" },
+  { key: "general", num: "07", anchor: "auction-general" },
 ];
 
 const AUCTION_ICONS: Record<AuctionSectionKey, (typeof Package)[]> = {
@@ -273,16 +275,15 @@ const AUCTION_ICONS: Record<AuctionSectionKey, (typeof Package)[]> = {
   general: [SealCheck, UsersThree, ClipboardText, Handshake],
 };
 
-// Editorial Policy Ledger for the Auction Policy page: Scope & Principle cards at the top, then a
-// 2-column layout with a sticky chapter navigation sidebar on the left and all 7 chapters flowing
-// seamlessly on the right.
+// Editorial Policy Ledger for the Auction Policy page: Scope & Principle cards at top,
+// sticky horizontal chapter navigation, and clean full-width cards without cramped sidebars.
 export function AuctionPolicyLedger() {
   const t = useTranslations("policy.auctionPolicy");
   const tService = useTranslations("service");
 
   return (
     <div>
-      <div data-reveal-group className="mb-10 grid gap-5 lg:grid-cols-2">
+      <div data-reveal-group className="mb-8 grid gap-5 sm:grid-cols-2">
         <article className="warehouse-card flex flex-col justify-between">
           <div className="flex items-center gap-3">
             <span className="icon-chip bg-ivory/15 text-gold" aria-hidden>
@@ -290,7 +291,7 @@ export function AuctionPolicyLedger() {
             </span>
             <h2 className="text-xl font-semibold text-gold">{t("overview.scope.title")}</h2>
           </div>
-          <p className="mt-3 text-ivory/90">{t("overview.scope.body")}</p>
+          <p className="mt-3 text-sm text-ivory/90 leading-relaxed">{t("overview.scope.body")}</p>
         </article>
         <article className="stat-card flex flex-col justify-between border-l-4 border-l-gold">
           <div className="flex items-center gap-3">
@@ -299,102 +300,104 @@ export function AuctionPolicyLedger() {
             </span>
             <h2 className="text-xl font-semibold text-forest">{t("overview.principle.title")}</h2>
           </div>
-          <p className="mt-3 text-ink">{t("overview.principle.body")}</p>
+          <p className="mt-3 text-sm text-ink leading-relaxed">{t("overview.principle.body")}</p>
         </article>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-12">
-        <div className="grid gap-10">
-          {AUCTION_SECTIONS.map(({ key, roman, anchor }) => {
-            const items = t.raw(`sections.${key}.items`) as string[];
-            const icons = AUCTION_ICONS[key];
-            return (
-              <section key={key} id={anchor} className="info-card p-6 sm:p-8">
-                <div className="flex items-center gap-3 border-b border-line pb-4">
-                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-semibold text-gold">
-                    {roman}
-                  </span>
-                  <h2 className="text-xl font-semibold text-forest sm:text-2xl">
-                    {t(`sections.${key}.title`).replace(/^[IVX]+\.\s*/, "")}
-                  </h2>
-                </div>
+      {/* Horizontal Chapter Navigation Bar */}
+      <div className="sticky top-20 z-10 mb-8 overflow-x-auto border-y border-line/60 bg-ivory/95 py-3 backdrop-blur-md scrollbar-none sm:rounded-xl sm:border sm:px-4">
+        <div className="flex min-w-max items-center gap-2">
+          <span className="mr-1 text-xs font-semibold uppercase tracking-wider text-muted">
+            {tService("toc")}:
+          </span>
+          {AUCTION_SECTIONS.map(({ key, num, anchor }) => (
+            <a
+              key={key}
+              href={`#${anchor}`}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-white px-3 py-1.5 text-xs font-medium text-forest shadow-2xs transition-all hover:border-forest hover:bg-forest hover:text-white"
+            >
+              <span className="font-bold">{num}.</span>
+              <span>{t(`sections.${key}.title`).replace(/^[IVX]+\.\s*/, "")}</span>
+            </a>
+          ))}
+        </div>
+      </div>
 
-                <ol className="mt-5 grid gap-3.5 md:grid-cols-2">
-                  {items.map((text, index) => {
-                    const Icon = icons[index] ?? ClipboardText;
-                    const highlightWin = key === "payment" && index === 1;
-                    const spanFull = highlightWin || (items.length % 2 === 1 && index === items.length - 1);
-                    return (
-                      <li
-                        key={text}
-                        className={
-                          highlightWin
-                            ? "stat-card stat-card--featured md:col-span-2"
-                            : `flex items-start gap-3 rounded-xl border border-line bg-ivory/50 p-4 ${spanFull ? "md:col-span-2" : ""}`
-                        }
-                      >
-                        {highlightWin ? (
-                          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                            <div className="flex items-start gap-3.5">
-                              <span className="icon-chip bg-gold text-deep" aria-hidden>
-                                <Clock size={22} weight="fill" />
+      <div className="grid gap-8">
+        {AUCTION_SECTIONS.map(({ key, num, anchor }) => {
+          const items = t.raw(`sections.${key}.items`) as string[];
+          const icons = AUCTION_ICONS[key];
+          return (
+            <section key={key} id={anchor} className="info-card p-6 sm:p-8">
+              <div className="flex items-center gap-3 border-b border-line pb-4">
+                <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-forest font-display text-sm font-bold text-gold">
+                  {num}
+                </span>
+                <h2 className="text-xl font-semibold text-forest sm:text-2xl">
+                  {t(`sections.${key}.title`).replace(/^[IVX]+\.\s*/, "")}
+                </h2>
+              </div>
+
+              <ol className="mt-6 grid gap-3.5 sm:grid-cols-2">
+                {items.map((text, index) => {
+                  const Icon = icons[index] ?? ClipboardText;
+                  const highlightWin = key === "payment" && index === 1;
+                  const spanFull = highlightWin || (items.length % 2 === 1 && index === items.length - 1);
+                  return (
+                    <li
+                      key={text}
+                      className={
+                        highlightWin
+                          ? "stat-card stat-card--featured sm:col-span-2"
+                          : `flex items-start gap-3.5 rounded-xl border border-line bg-ivory/40 p-4 transition-colors hover:border-forest/30 ${spanFull ? "sm:col-span-2" : ""}`
+                      }
+                    >
+                      {highlightWin ? (
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between w-full">
+                          <div className="flex items-start gap-3.5">
+                            <span className="icon-chip bg-gold text-deep" aria-hidden>
+                              <Clock size={22} weight="fill" />
+                            </span>
+                            <div>
+                              <span className="inline-block rounded-full bg-gold px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-deep">
+                                THẮNG ĐẤU GIÁ (WIN)
                               </span>
-                              <div>
-                                <span className="inline-block rounded-full bg-gold px-2.5 py-0.5 text-xs font-bold text-deep uppercase">
-                                  WIN · {roman}.{index + 1}
-                                </span>
-                                <p className="mt-2 font-medium text-white">{text}</p>
-                              </div>
+                              <p className="mt-2 text-base font-medium text-white">{text}</p>
                             </div>
                           </div>
-                        ) : (
-                          <>
-                            <span className="icon-chip size-9 bg-white" aria-hidden>
-                              <Icon size={18} weight="duotone" />
-                            </span>
-                            <div className="min-w-0 flex-1">
-                              <span className="text-xs font-semibold text-forest tabular-nums">
-                                {roman}.{index + 1}
+                        </div>
+                      ) : (
+                        <>
+                          <span className="icon-chip size-8 shrink-0 bg-white" aria-hidden>
+                            <Icon size={17} weight="duotone" />
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <span className="inline-flex size-5 items-center justify-center rounded-full bg-forest/10 text-[11px] font-bold text-forest">
+                                {index + 1}
                               </span>
-                              <p className="mt-0.5 text-[0.95rem] leading-relaxed text-ink">{text}</p>
                             </div>
-                          </>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ol>
-              </section>
-            );
-          })}
+                            <p className="text-[0.95rem] leading-relaxed text-ink">{text}</p>
+                          </div>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          );
+        })}
+      </div>
+
+      <div className="mt-8 warehouse-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <p className="text-xl font-semibold text-gold">{tService("ctaDefault.title")}</p>
+          <p className="mt-2 text-sm text-ivory/85 max-w-xl">{tService("ctaDefault.body")}</p>
         </div>
-
-        <aside className="grid gap-5 lg:sticky lg:top-24">
-          <nav aria-label={tService("toc")} className="info-card p-5">
-            <p className="text-xs font-semibold tracking-wider text-muted uppercase">{tService("toc")}</p>
-            <ol className="mt-3.5 grid gap-1">
-              {AUCTION_SECTIONS.map(({ key, roman, anchor }) => (
-                <li key={key}>
-                  <a
-                    href={`#${anchor}`}
-                    className="flex items-center gap-2.5 border-l-2 border-l-transparent py-2 pl-3 text-sm font-medium text-ink transition-colors hover:border-l-gold hover:text-forest"
-                  >
-                    <span className="font-semibold text-forest tabular-nums">{roman}.</span>
-                    <span className="line-clamp-1">{t(`sections.${key}.title`).replace(/^[IVX]+\.\s*/, "")}</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </nav>
-
-          <div className="warehouse-card">
-            <p className="text-lg font-semibold text-gold">{tService("ctaDefault.title")}</p>
-            <p className="mt-1.5 text-sm text-ivory/85">{tService("ctaDefault.body")}</p>
-            <div className="mt-5">
-              <ContactCta action="zalo" variant="gold" />
-            </div>
-          </div>
-        </aside>
+        <div className="shrink-0">
+          <ContactCta action="zalo" variant="gold" />
+        </div>
       </div>
     </div>
   );
@@ -447,20 +450,48 @@ export function WarehouseInfo() {
   const t = useTranslations("policy.warehouse");
   const japanWarehouse = locationById("japanWarehouse");
 
+  const fullWarehouseText = WAREHOUSE.map(
+    ({ key }) => `${t(`${key}.label`)}: ${t(`${key}.value`)}`
+  ).join("\n");
+
   return (
     <div data-reveal className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
-      <div className="warehouse-card">
-        <dl className="grid gap-4">
-          {WAREHOUSE.map(({ key, Icon }) => (
-            <div key={key} className="flex gap-3">
-              <Icon size={22} weight="duotone" aria-hidden className="mt-0.5 shrink-0 text-gold" />
-              <div>
-                <dt className="text-sm text-ivory/70">{t(`${key}.label`)}</dt>
-                <dd className="mt-0.5 font-medium break-words">{t(`${key}.value`)}</dd>
-              </div>
+      <div className="warehouse-card flex flex-col justify-between">
+        <div>
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 pb-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-gold">Tokyo Logistics Hub</p>
+              <h3 className="mt-1 text-lg font-semibold text-ivory">Thông tin nhận hàng tại Nhật</h3>
             </div>
-          ))}
-        </dl>
+            <CopyButton text={fullWarehouseText} label="Sao chép tất cả" />
+          </div>
+
+          <dl className="mt-6 grid gap-4">
+            {WAREHOUSE.map(({ key, Icon }) => {
+              const val = t(`${key}.value`);
+              return (
+                <div key={key} className="flex items-start justify-between gap-3 rounded-xl border border-white/10 bg-white/5 p-3.5 transition-colors hover:border-white/20">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-gold" aria-hidden>
+                      <Icon size={18} weight="duotone" />
+                    </span>
+                    <div className="min-w-0">
+                      <dt className="text-xs font-medium uppercase tracking-wider text-ivory/65">{t(`${key}.label`)}</dt>
+                      <dd className="mt-0.5 font-medium text-ivory break-words text-sm sm:text-base">{val}</dd>
+                    </div>
+                  </div>
+                  <CopyButton text={val} label="Chép" className="shrink-0 mt-0.5" />
+                </div>
+              );
+            })}
+          </dl>
+        </div>
+
+        <div className="mt-6 rounded-xl border border-white/15 bg-white/5 p-4 text-xs text-ivory/80">
+          <p className="leading-relaxed">
+            * Lưu ý: Khi gửi hàng đến kho, vui lòng ghi rõ mã định danh khách hàng trên kiện hàng để việc nhập kho diễn ra nhanh chóng và chính xác.
+          </p>
+        </div>
       </div>
       {japanWarehouse && <MapEmbed query={japanWarehouse.query} title={t("mapTitle")} openLabel={t("mapOpen")} />}
     </div>

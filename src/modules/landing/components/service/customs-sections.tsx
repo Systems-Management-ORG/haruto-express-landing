@@ -34,7 +34,7 @@ const no = (index: number) => String(index + 1).padStart(2, "0");
 function GroupCard({ id, group, index, special }: { id: string; group: Group; index: number; special: boolean }) {
   const t = useTranslations("customs.groups");
   return (
-    <li id={`nhom-${index + 1}`} className="customs-card">
+    <li id={`nhom-${index + 1}`} className="customs-card group">
       <div className="customs-card__media">
         <Image
           src={`${ART}/${GROUP_IMAGES[id]}.webp`}
@@ -42,16 +42,16 @@ function GroupCard({ id, group, index, special }: { id: string; group: Group; in
           width={244}
           height={215}
           sizes="(max-width: 639px) 80vw, (max-width: 1023px) 40vw, 15rem"
-          className="h-full w-full object-contain"
+          className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
         />
         <span className="customs-card__no">{no(index)}</span>
       </div>
-      <div className="p-5">
-        <span className={special ? "customs-tag customs-tag--special" : "customs-tag"}>
+      <div className="flex flex-1 flex-col p-5">
+        <span className={special ? "customs-tag customs-tag--special self-start" : "customs-tag self-start"}>
           {t(special ? "tagSpecial" : "tagRest")}
         </span>
-        <h3 className="mt-3 text-lg font-medium text-forest">{group.title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted">{group.body}</p>
+        <h3 className="mt-3 text-lg font-semibold text-forest">{group.title}</h3>
+        <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted">{group.body}</p>
       </div>
     </li>
   );

@@ -10,6 +10,7 @@ import { INFO_PAGES, type InfoKey, type InfoSectionId, TIPS, anchorOf } from "..
 import { Contact, ContactQuickActions } from "../contact";
 import { ContactLocations } from "../contact-locations";
 import { Faq, FaqList, FaqSupport } from "../faq";
+import { FaqHub } from "../faq-hub";
 import { GuideGrid } from "../guides";
 import { ShippingCalculator } from "../shipping-calculator";
 import { useFaqGroups } from "./faq-groups";
@@ -124,26 +125,7 @@ export function InfoPage({ page }: { page: InfoKey }) {
         </section>
       );
     } else if (id === "faqGroups") {
-      raw = (
-        <>
-          {faqGroups.map((group, index) => (
-            <section key={group.id} id={`faq-${group.id}`} className={index % 2 === 1 ? "section bg-sage" : "section"}>
-              <div className="wrap grid gap-8 lg:grid-cols-[minmax(0,35fr)_minmax(0,65fr)] lg:items-start lg:gap-12">
-                <div className="lg:sticky lg:top-24">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-xs font-semibold text-forest tabular-nums">
-                    <span>0{index + 1}</span>
-                    <span aria-hidden className="text-line">·</span>
-                    <span>{group.items.length}</span>
-                  </div>
-                  <h2 data-reveal className="heading-2 mt-3">{t(`faq.groups.${group.id}`)}</h2>
-                  {index === faqGroups.length - 1 && <FaqSupport page="faq" />}
-                </div>
-                <FaqList items={group.items} />
-              </div>
-            </section>
-          ))}
-        </>
-      );
+      raw = <FaqHub groups={faqGroups} />;
     } else {
       const Body = BODIES[id];
       blocks.push({ id: anchorOf(id), title: titles[id], intro: intros[id], body: <Body route={config.route} page={page} /> });

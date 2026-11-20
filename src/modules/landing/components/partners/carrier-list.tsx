@@ -15,19 +15,21 @@ export function CarrierList({ heading = "h3" }: { heading?: "h3" | "h4" }) {
         const name = t(`${id}.name`);
         const native = t(`${id}.native`);
         return (
-          <li key={id} className="card flex items-center gap-4">
+          <li key={id} className="card group flex items-center gap-4 p-5 transition-[border-color,box-shadow,translate] duration-200 hover:-translate-y-0.5 hover:border-forest/30 hover:shadow-xs">
             {logo ? (
-              /* eslint-disable-next-line @next/next/no-img-element -- static SVG logo, nothing to optimize */
-              <img src={logo} alt="" height={40} width={40} className="h-10 w-auto shrink-0" />
+              <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-line/60 bg-white p-2 shadow-2xs">
+                {/* eslint-disable-next-line @next/next/no-img-element -- static SVG logo, nothing to optimize */}
+                <img src={logo} alt="" height={40} width={40} className="max-h-9 w-auto object-contain" />
+              </div>
             ) : (
               <span className="icon-chip" aria-hidden>
                 <Truck size={22} weight="duotone" />
               </span>
             )}
             <div className="min-w-0">
-              <Heading className="text-lg leading-snug font-medium text-forest">{name}</Heading>
+              <Heading className="text-base sm:text-lg leading-snug font-semibold text-forest">{name}</Heading>
               {native !== name && (
-                <p lang="ja" className="text-sm text-muted">
+                <p lang="ja" className="mt-0.5 text-xs text-muted font-medium">
                   {native}
                 </p>
               )}
