@@ -6,7 +6,8 @@ import { type PageKey, pagePath } from "@/shared/seo/pages";
 
 // `pages` lists the pages a question belongs to (its FAQ block there). The home hub shows the
 // questions tagged "home"; /cau-hoi-thuong-gap shows every question, grouped (info/faq-groups.tsx);
-// FAQPage JSON-LD is emitted on the FAQ page only.
+// FAQPage JSON-LD is emitted on every page that renders a filtered block (the schema's items
+// mirror what the page shows), and the full list on /cau-hoi-thuong-gap.
 // TODO(B6): grow faq.items to 10–12 real customer questions (from Zalo/Messenger), tagged with
 // `pages` so each service page gets 3–4. No answers about prices or transit times without a source.
 export type FaqItem = { question: string; answer: string; pages?: PageKey[] };

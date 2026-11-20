@@ -94,10 +94,15 @@ export default async function SubRoute({ params }: Props) {
       }),
     );
   }
-  if (key === "faq") {
+  // FAQPage JSON-LD: /faq lists every question; a service/info page emits the subset its
+  // visible FAQ block renders (faq.tsx filters by item.pages, so schema and page match).
+  {
     const tFaq = await getTranslations({ locale, namespace: "faq" });
-    const items = tFaq.raw("items") as { question: string; answer: string }[];
-    graphs.push(faqPage(items));
+    const allItems = tFaq.raw("items") as { question: string; answer: string; pages?: PageKey[] }[];
+    const visible = key === "faq" ? allItems : allItems.filter((item) => item.pages?.includes(key));
+    if (visible.length > 0) {
+      graphs.push(faqPage(visible.map(({ question, answer }) => ({ question, answer }))));
+    }
   }
   if (key === "contact") {
     graphs.push(
