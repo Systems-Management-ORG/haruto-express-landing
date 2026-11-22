@@ -131,12 +131,18 @@ export function ShippingCalculator({
         {/* Route Selector */}
         <div className="mt-4">
           {lockRoute ? (
-            <div className="inline-flex items-center gap-2 rounded-xl bg-sage px-4 py-2 text-sm font-semibold text-forest border border-line">
+            <div className="inline-flex items-center gap-2 rounded-full bg-sage px-4 py-2 text-sm font-semibold text-forest border border-line">
               <AirplaneTilt size={16} weight="fill" className="text-forest" />
               <span>{t("routeFixed", { route: tTeaser(`${route}.label`) })}</span>
             </div>
           ) : (
-            <div className="grid grid-cols-2 p-1 bg-sage/60 rounded-xl border border-line">
+            <div className="relative grid grid-cols-2 p-1 bg-white rounded-full border border-line">
+              <div
+                aria-hidden
+                className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full bg-forest shadow-xs transition-transform duration-300 ease-out motion-reduce:transition-none pointer-events-none ${
+                  route === "jpVn" ? "translate-x-full" : "translate-x-0"
+                }`}
+              />
               {ROUTES.map((r) => {
                 const active = route === r;
                 return (
@@ -144,16 +150,16 @@ export function ShippingCalculator({
                     key={r}
                     type="button"
                     onClick={() => setRoute(r)}
-                    className={`relative flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-semibold transition-all duration-150 ${
+                    className={`relative z-10 flex items-center justify-center gap-2 py-2 px-3 rounded-full text-sm font-semibold transition-colors duration-200 ${
                       active
-                        ? "bg-white text-forest shadow-xs"
-                        : "text-muted hover:text-forest hover:bg-white/50"
+                        ? "text-white"
+                        : "text-forest hover:text-forest/80"
                     }`}
                   >
                     <AirplaneTilt
                       size={16}
                       weight={active ? "fill" : "regular"}
-                      className={active ? "text-forest" : "text-muted"}
+                      className={`transition-colors duration-200 ${active ? "text-white" : "text-forest"}`}
                     />
                     <span className="truncate">{tTeaser(`${r}.label`)}</span>
                   </button>

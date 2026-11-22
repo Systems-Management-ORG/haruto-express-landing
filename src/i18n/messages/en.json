@@ -170,7 +170,10 @@
       "pricing": "Pricing",
       "guides": "Guides",
       "policies": "Policies"
-    }
+    },
+    "login": "Sign in",
+    "loginTitle": "Haruto Express sign-in",
+    "closeLogin": "Close sign-in"
   },
   "home": {
     "services": {

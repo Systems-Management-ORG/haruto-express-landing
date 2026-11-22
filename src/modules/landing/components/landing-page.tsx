@@ -10,7 +10,6 @@ import { PricingTeaser } from "./pricing-teaser";
 import { ServiceCards } from "./service-cards";
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
-import { SkyTow } from "./sky-tow";
 import { Why } from "./why";
 
 // Home is a hub: each section is a short overview that links to its own page. The full pricing
@@ -22,8 +21,7 @@ export function LandingPage() {
       <SiteHeader solid />
       <main id="main">
         <Hero />
-        <SkyTow />
-        <PartnersSection show={["marketplaces", "carriers"]} bg="sage" compact />
+        <PartnersSection show={["marketplaces", "carriers"]} bg="sage" skyTow />
         <ServiceCards />
         <GoodsTiles />
         <Why />

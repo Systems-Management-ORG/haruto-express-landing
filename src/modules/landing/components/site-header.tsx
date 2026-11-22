@@ -9,6 +9,7 @@ import { type PointerEvent as ReactPointerEvent, useEffect, useRef, useState } f
 import { LOCALES, LOCALE_LABELS, LOCALE_NAMES, isLocale } from "@/shared/constants/locales";
 import type { Locale } from "@/shared/constants/locales";
 import { NAV } from "@/shared/seo/nav";
+import { LoginDialog } from "./login-dialog";
 import { rememberReadingSpot, restoreReadingSpot } from "@/shared/lib/reading-spot";
 import { pageByLocaleSlug, pagePath } from "@/shared/seo/pages";
 
@@ -256,6 +257,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           <div className="hidden lg:block">
             <LanguageMenu />
           </div>
+          <LoginDialog className="btn btn-nav btn-login hidden whitespace-nowrap lg:inline-flex" />
           <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold btn-nav hidden whitespace-nowrap sm:inline-flex">
             <ChatCircleDots size={18} weight="duotone" aria-hidden />
             {nav("cta")}
@@ -310,6 +312,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           </ul>
           <div className="mt-3 flex flex-col gap-3">
             <LanguageMenu inline />
+            <LoginDialog className="btn btn-outline w-full" onOpen={closeMenu} />
             <Link href={pagePath(locale, "contact")} data-track="cta_contact" onClick={closeMenu} className="btn btn-gold w-full sm:hidden">
               {nav("cta")}
             </Link>

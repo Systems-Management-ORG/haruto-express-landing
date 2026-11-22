@@ -170,7 +170,10 @@
       "pricing": "料金",
       "guides": "ご利用ガイド",
       "policies": "各種規定"
-    }
+    },
+    "login": "ログイン",
+    "loginTitle": "Haruto Express ログイン",
+    "closeLogin": "ログインを閉じる"
   },
   "home": {
     "services": {

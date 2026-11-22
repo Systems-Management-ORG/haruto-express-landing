@@ -3,6 +3,7 @@ import { useLocale, useTranslations } from "next-intl";
 import type { Locale } from "@/shared/constants/locales";
 import { pagePath } from "@/shared/seo/pages";
 import { SectionHead } from "@/shared/ui/section-head";
+import { SkyTow } from "../sky-tow";
 import { CarrierList } from "./carrier-list";
 import { MarketplaceMarquee } from "./marketplace-marquee";
 
@@ -15,22 +16,26 @@ export function PartnersSection({
   show,
   bg = "ivory",
   compact = false,
+  skyTow = false,
 }: {
   show: Block[];
   bg?: "ivory" | "sage";
   compact?: boolean;
+  skyTow?: boolean;
 }) {
   const t = useTranslations("partners");
   const locale = useLocale() as Locale;
   const both = show.includes("marketplaces") && show.includes("carriers");
   const className = [compact ? "py-12 lg:py-16" : "section", bg === "sage" ? "bg-sage" : ""].filter(Boolean).join(" ");
+  const wrapClass = ["wrap", skyTow ? "md:mt-10 lg:mt-12" : ""].filter(Boolean).join(" ");
 
   // Stores alone (the buying-service page): their own H2, and no link to the buying service, since
   // that is the page the reader is on.
   if (!both && show.includes("marketplaces")) {
     return (
       <section id="partners" className={className}>
-        <div className="wrap">
+        {skyTow && <SkyTow />}
+        <div className={wrapClass}>
           <SectionHead title={t("marketplaces.title")} />
           <div className="mt-10 lg:mt-12">
             <MarketplaceMarquee label={t("marketplaces.title")} />
@@ -43,7 +48,8 @@ export function PartnersSection({
   if (!both && show.includes("carriers")) {
     return (
       <section id="partners" className={className}>
-        <div className="wrap">
+        {skyTow && <SkyTow />}
+        <div className={wrapClass}>
           <SectionHead title={t("carriers.title")} intro={t("carriers.intro")} />
           <div className="mt-10 lg:mt-12">
             <CarrierList />
@@ -55,7 +61,8 @@ export function PartnersSection({
 
   return (
     <section id="partners" className={className}>
-      <div className="wrap">
+      {skyTow && <SkyTow />}
+      <div className={wrapClass}>
         {both && <SectionHead title={t("title")} intro={t("intro")} />}
         {/* grid-cols-1 = minmax(0, 1fr): the marquee track is max-content wide and must not
             stretch the column (and with it the carrier cards and the page). */}

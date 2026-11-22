@@ -24,6 +24,17 @@ const GOOGLE_TAG_HOSTS = [
   "https://*.g.doubleclick.net",
 ].join(" ");
 
+// The header's sign-in modal shows the auth-portal in an iframe (src/shared/lib/auth-portal.ts, same switch).
+function authPortalOrigin(): string {
+  if (process.env.NEXT_PUBLIC_LOGIN_ENABLED?.trim().toLowerCase() !== "true") return "";
+  try {
+    return new URL((process.env.NEXT_PUBLIC_AUTH_PORTAL_URL ?? "").trim()).origin;
+  } catch {
+    return "";
+  }
+}
+const AUTH_PORTAL_FRAME = authPortalOrigin() ? ` ${authPortalOrigin()}` : "";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com${isDev ? " 'unsafe-eval'" : ""}`,
@@ -33,7 +44,7 @@ const contentSecurityPolicy = [
   `connect-src 'self' ${GOOGLE_TAG_HOSTS}${isDev ? " ws:" : ""}`,
   // Google Maps embeds (warehouse location) render in an iframe from these hosts; the Ads tag
   // also opens hidden doubleclick frames for conversion measurement.
-  "frame-src https://www.googletagmanager.com https://www.google.com https://maps.google.com https://td.doubleclick.net https://bid.g.doubleclick.net",
+  `frame-src https://www.googletagmanager.com https://www.google.com https://maps.google.com https://td.doubleclick.net https://bid.g.doubleclick.net${AUTH_PORTAL_FRAME}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

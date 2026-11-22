@@ -2,7 +2,8 @@
 # Stages: deps → source → test (CI checks) / build → runtime (the image that runs).
 # BuildKit reuses each layer until its inputs change: `npm ci` reruns only when package*.json changes,
 # and the npm download cache and the Next.js build cache survive even then.
-# Build-time settings (ALLOW_INDEXING, SITE_URL, NEXT_PUBLIC_GTM_ID) come from a .env.production file
+# Build-time settings (ALLOW_INDEXING, SITE_URL, NEXT_PUBLIC_GTM_ID, NEXT_PUBLIC_LOGIN_ENABLED,
+# NEXT_PUBLIC_AUTH_PORTAL_URL) come from a .env.production file
 # placed in the build context; the deploy writes it from the environment's .env on the server.
 
 FROM node:22-alpine AS deps

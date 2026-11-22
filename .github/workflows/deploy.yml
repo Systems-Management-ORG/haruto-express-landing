@@ -25,7 +25,7 @@ env:
   IMAGE_NAME: harutoexpress/landing
   KEEP_IMAGES: 2
   # Read at build time by Next.js; copied from the server .env into .env.production when present there.
-  BUILD_KEYS: ALLOW_INDEXING SITE_URL NEXT_PUBLIC_GTM_ID
+  BUILD_KEYS: ALLOW_INDEXING SITE_URL NEXT_PUBLIC_GTM_ID NEXT_PUBLIC_LOGIN_ENABLED NEXT_PUBLIC_AUTH_PORTAL_URL
 
 jobs:
   test:
