@@ -7,7 +7,7 @@ import { AnalyticsEvents } from "@/shared/analytics/analytics-events";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/shared/analytics/google-tag-manager";
 import { routing } from "@/i18n/routing";
 import { ContactFab } from "@/shared/components/contact-fab";
-import { BUSINESS, SITE_URL } from "@/shared/seo/business";
+import { BUSINESS, SITE_NAME, SITE_URL } from "@/shared/seo/business";
 import { JsonLd, PUBLIC_LOCATIONS, localBusiness, organization, website } from "@/shared/seo/json-ld";
 import { fontClassName } from "@/shared/lib/fonts";
 import "../globals.css";
@@ -28,6 +28,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: BUSINESS.name,
+  applicationName: SITE_NAME,
 };
 
 export default async function LocaleLayout({ children, params }: LocaleParams & { children: ReactNode }) {

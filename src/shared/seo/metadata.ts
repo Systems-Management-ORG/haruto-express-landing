@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/shared/constants/locales";
+import { SITE_NAME } from "./business";
 import { OG_SIZE, ogImagePath } from "./page-media";
 import { type PageKey, hreflangLocales, hreflangMap, isIndexable, pagePath } from "./pages";
 
@@ -36,7 +37,7 @@ export async function buildPageMetadata(locale: Locale, key: PageKey): Promise<M
         : { index: false, follow: true },
     openGraph: {
       type: "website",
-      siteName: "HARUTO EXPRESS",
+      siteName: SITE_NAME,
       title,
       description,
       url: pagePath(locale, key),

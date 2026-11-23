@@ -1,4 +1,13 @@
-import { BUSINESS, HOTLINES, LOCATIONS, type Location, SITE_URL, mapsUrl } from "./business";
+import {
+  BUSINESS,
+  HOTLINES,
+  LOCATIONS,
+  type Location,
+  SITE_ALTERNATE_NAMES,
+  SITE_NAME,
+  SITE_URL,
+  mapsUrl,
+} from "./business";
 
 // Renders a JSON-LD block. Safe under the CSP: it is a data script, not executable JS.
 export function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -79,13 +88,15 @@ export function organization() {
   });
 }
 
+// Google's site name comes from this node: `url` must be the domain root (with the slash).
 export function website(locale: string) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
-    url: SITE_URL,
-    name: BUSINESS.name,
+    url: `${SITE_URL}/`,
+    name: SITE_NAME,
+    alternateName: SITE_ALTERNATE_NAMES,
     inLanguage: locale,
     publisher: { "@id": ORG_ID },
   };

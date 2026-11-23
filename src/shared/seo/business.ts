@@ -4,6 +4,12 @@
 
 export const SITE_URL = (process.env.SITE_URL ?? "https://harutoexpress.com").replace(/\/$/, "");
 
+// Brand name as Google should show it next to the favicon (site name) and in og:site_name.
+// Mixed case on purpose: Google reads the WebSite node, og:site_name and application-name
+// together, and the all-caps logotype stays as an alternate name.
+export const SITE_NAME = "Haruto Express";
+export const SITE_ALTERNATE_NAMES = ["HARUTO EXPRESS", "Haruto"];
+
 export const BUSINESS = {
   name: "HARUTO EXPRESS",
   // Two-way air freight between Vietnam and Japan.
