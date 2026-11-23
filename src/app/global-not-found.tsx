@@ -5,7 +5,7 @@ import { fontClassName } from "@/shared/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "404 | HARUTO EXPRESS",
+  title: "404 | Haruto Express",
   robots: { index: false },
 };
 

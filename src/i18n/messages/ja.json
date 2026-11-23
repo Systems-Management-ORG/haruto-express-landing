@@ -85,7 +85,7 @@
       "breadcrumb": "貨物保険・補償ポリシー",
       "title": "貨物保険加入時の補償ポリシー",
       "intro": "代理購入の原則、貨物保険にご加入の場合・未加入の場合の補償規定（保険料8%・貨物価値の100%補償）、および国際輸送特有のリスクや管理範囲外の事由について定めています。",
-      "metaTitle": "貨物保険・補償ポリシー | HARUTO EXPRESS",
+      "metaTitle": "貨物保険・補償ポリシー | Haruto Express",
       "metaDescription": "HARUTO EXPRESSの貨物保険・補償ポリシー。代理購入の原則、保険料8%で申告価格100%を補償する貨物保険の適用条件、未加入時の補償上限、および国際輸送における免責事項をご案内します。"
     },
     "auctionPolicy": {
@@ -93,7 +93,7 @@
       "breadcrumb": "オークションポリシー・利用規約",
       "title": "オークションポリシーおよび代理入札サービス規約",
       "intro": "日越間の代理入札および輸送サービスに適用される規約です。入札参加ルール、落札価格と手数料、保証金および落札（WIN）時の即時支払い、キャンセル・返金、クレーム対応、発送について定めています。",
-      "metaTitle": "オークション代理入札ポリシー・規約 | HARUTO EXPRESS",
+      "metaTitle": "オークション代理入札ポリシー・規約 | Haruto Express",
       "metaDescription": "HARUTO EXPRESSの日本オークション代理入札サービス規約。入札参加ルール、落札価格と手数料、保証金および落札（WIN）時の即時支払い、キャンセル・返金、商品の状態や輸送規定をご案内します。"
     },
     "concierge": {
@@ -117,7 +117,7 @@
       "breadcrumb": "日本倉庫の住所",
       "title": "日本倉庫の住所と荷物の送り方",
       "intro": "日本の受け取り倉庫の情報：郵便番号、住所、受取人電話番号、受取人名の記載ルール、そして倉庫へ荷物を送る際の重要なご注意。",
-      "metaTitle": "HARUTO EXPRESSの日本倉庫住所",
+      "metaTitle": "Haruto Expressの日本倉庫住所",
       "metaDescription": "HARUTOの日本の受け取り倉庫情報：郵便番号、住所、受取人電話番号、受取人名の記載ルール、ベトナムへ移送する前に倉庫へ荷物を送る際のご注意をご案内します。"
     },
     "faq": {
@@ -125,7 +125,7 @@
       "breadcrumb": "よくある質問",
       "title": "よくある質問",
       "intro": "取り扱う貨物の種類、運賃の計算方法、ベトナム・日本間の荷物の追跡について、よくある質問にお答えします。",
-      "metaTitle": "よくある質問 | HARUTO EXPRESS",
+      "metaTitle": "よくある質問 | Haruto Express",
       "metaDescription": "ベトナム・日本間の輸送に関するよくある質問。取り扱う貨物、実重量と容積重量による運賃の計算方法、荷物の追跡方法についてお答えします。"
     },
     "business": {
@@ -141,7 +141,7 @@
       "breadcrumb": "お問い合わせ",
       "title": "HARUTO EXPRESSへのお問い合わせ",
       "intro": "発送するルートと貨物の種類をお知らせください。ご相談とお見積もりを承ります。",
-      "metaTitle": "お問い合わせ | HARUTO EXPRESS",
+      "metaTitle": "お問い合わせ | Haruto Express",
       "metaDescription": "双方向のベトナム・日本間輸送のご相談と、荷物のお見積もりはHARUTO EXPRESSへお問い合わせください。"
     },
     "guides": {
@@ -149,7 +149,7 @@
       "breadcrumb": "ガイド",
       "title": "発送ガイド",
       "intro": "発送前にご確認ください：重量計算、補償、日本倉庫の住所、取扱品目。",
-      "metaTitle": "発送ガイド | HARUTO EXPRESS",
+      "metaTitle": "発送ガイド | Haruto Express",
       "metaDescription": "ベトナム・日本間の梱包・申告・発送に関するHARUTO EXPRESSのガイド。内容は準備中で、近日中に公開予定です。"
     }
   },
@@ -1699,6 +1699,6 @@
     "text": "お探しのページは存在しないか、移動した可能性があります。",
     "home": "ホームへ戻る",
     "contact": "相談する",
-    "metaTitle": "ページが見つかりません | HARUTO EXPRESS"
+    "metaTitle": "ページが見つかりません | Haruto Express"
   }
 }
