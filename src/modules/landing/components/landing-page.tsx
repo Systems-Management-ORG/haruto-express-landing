@@ -18,7 +18,7 @@ import { Why } from "./why";
 export function LandingPage() {
   return (
     <>
-      <SiteHeader solid />
+      <SiteHeader tone="dark" />
       <main id="main">
         <Hero />
         <PartnersSection show={["marketplaces", "carriers"]} bg="sage" skyTow />

@@ -20,8 +20,6 @@ type Props = { params: Promise<{ locale: string; rest: string[] }> };
 
 // Regenerate daily so the footer year stays current without a rebuild.
 export const revalidate = 86400;
-// Only the registry's slugs exist; every other path is a real 404.
-export const dynamicParams = false;
 
 export function generateStaticParams() {
   return LOCALES.flatMap((locale) =>
@@ -70,9 +68,9 @@ const OFFERS: Partial<Record<PageKey, ReturnType<typeof perKgOffer>[]>> = {
 export default async function SubRoute({ params }: Props) {
   const { locale, rest } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
   const key = resolveKey(locale as Locale, rest);
   if (!key) notFound();
-  setRequestLocale(locale);
 
   const homeHref = `/${locale}`;
   const tp = await getTranslations({ locale, namespace: `pages.${key}` });
@@ -127,7 +125,7 @@ export default async function SubRoute({ params }: Props) {
 
   return (
     <>
-      <SiteHeader homeHref={homeHref} solid />
+      <SiteHeader homeHref={homeHref} />
       {graphs.map((data, index) => (
         <JsonLd key={index} data={data} />
       ))}

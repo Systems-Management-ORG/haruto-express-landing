@@ -12,9 +12,13 @@ type Status = "idle" | "sending" | "sent" | "error";
 // the POST /api/leads contract in the spec. This is a consultation request, not an order.
 export function ContactForm() {
   const t = useTranslations("contact");
+  const tRoutes = useTranslations("routes");
   const locale = useLocale();
   const [kind, setKind] = useState<Kind>("PERSONAL");
+  const [origin, setOrigin] = useState<"VN" | "JP">("VN");
   const [status, setStatus] = useState<Status>("idle");
+  const destination = origin === "VN" ? "JP" : "VN";
+  const direction = origin === "VN" ? "VN_JP" : "JP_VN";
   const kinds: { value: Kind; label: string }[] = [
     { value: "PERSONAL", label: t("kindPersonal") },
     { value: "BUSINESS", label: t("kindBusiness") },
@@ -37,7 +41,7 @@ export function ContactForm() {
           company: data.get("company") ?? "",
           phone: data.get("phone"),
           email: data.get("email"),
-          direction: data.get("direction"),
+          direction,
           weightKg: data.get("weightKg"),
           description: data.get("description"),
           privacyConsent: data.get("privacyConsent") === "on",
@@ -50,6 +54,7 @@ export function ContactForm() {
       setStatus("sent");
       form.reset();
       setKind("PERSONAL");
+      setOrigin("VN");
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({ event: "generate_lead" });
     } catch {
@@ -101,20 +106,34 @@ export function ContactForm() {
 
       <fieldset>
         <legend className="field-label">{t("kindLegend")}</legend>
-        <div className="segmented">
-          {kinds.map((item) => (
-            <label key={item.value} className="segmented__option" data-checked={kind === item.value || undefined}>
-              <input
-                type="radio"
-                name="kind"
-                value={item.value}
-                checked={kind === item.value}
-                onChange={() => setKind(item.value)}
-                className="sr-only"
-              />
-              {item.label}
-            </label>
-          ))}
+        <div className="relative grid grid-cols-2 rounded-full border border-line bg-white p-1">
+          <div
+            aria-hidden
+            className={`pointer-events-none absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full bg-forest shadow-xs transition-transform duration-300 ease-out motion-reduce:transition-none ${
+              kind === "BUSINESS" ? "translate-x-full" : "translate-x-0"
+            }`}
+          />
+          {kinds.map((item) => {
+            const active = kind === item.value;
+            return (
+              <label
+                key={item.value}
+                className={`relative z-10 flex min-h-10 cursor-pointer items-center justify-center rounded-full px-3 py-2 text-center text-sm font-semibold transition-colors duration-200 ${
+                  active ? "text-white" : "text-forest hover:text-forest/80"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="kind"
+                  value={item.value}
+                  checked={active}
+                  onChange={() => setKind(item.value)}
+                  className="sr-only"
+                />
+                {item.label}
+              </label>
+            );
+          })}
         </div>
       </fieldset>
 
@@ -144,20 +163,37 @@ export function ContactForm() {
           </div>
         ) : null}
 
-        <div className="sm:col-span-2">
+        <div>
           <label htmlFor="email" className="field-label">{t("fields.email")}{optional}</label>
           <input id="email" name="email" type="email" maxLength={160} autoComplete="email" className="field" />
         </div>
         <div>
-          <label htmlFor="direction" className="field-label">{t("fields.direction")}</label>
-          <select id="direction" name="direction" className="field">
-            <option value="VN_JP">{t("routeVnJp")}</option>
-            <option value="JP_VN">{t("routeJpVn")}</option>
+          <label htmlFor="weightKg" className="field-label">{t("fields.weight")}{optional}</label>
+          <input id="weightKg" name="weightKg" type="number" min="0" step="0.1" inputMode="decimal" className="field" />
+        </div>
+        <div>
+          <label htmlFor="routeFrom" className="field-label">{t("fields.from")}</label>
+          <select
+            id="routeFrom"
+            value={origin}
+            onChange={(event) => setOrigin(event.target.value === "JP" ? "JP" : "VN")}
+            className="field"
+          >
+            <option value="VN">{tRoutes("vietnam")}</option>
+            <option value="JP">{tRoutes("japan")}</option>
           </select>
         </div>
         <div>
-          <label htmlFor="weightKg" className="field-label">{t("fields.weight")}{optional}</label>
-          <input id="weightKg" name="weightKg" type="number" min="0" step="0.1" inputMode="decimal" className="field" />
+          <label htmlFor="routeTo" className="field-label">{t("fields.to")}</label>
+          <select
+            id="routeTo"
+            value={destination}
+            onChange={(event) => setOrigin(event.target.value === "JP" ? "VN" : "JP")}
+            className="field"
+          >
+            <option value="JP">{tRoutes("japan")}</option>
+            <option value="VN">{tRoutes("vietnam")}</option>
+          </select>
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="description" className="field-label">{t("fields.description")}{optional}</label>

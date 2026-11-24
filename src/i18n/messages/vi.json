@@ -1632,6 +1632,8 @@
       "phone": "Số điện thoại",
       "email": "Email",
       "direction": "Tuyến",
+      "from": "Vận chuyển từ",
+      "to": "Đến",
       "weight": "Cân nặng (kg)",
       "description": "Mô tả hàng",
       "consent": "Tôi đồng ý cho HARUTO xử lý dữ liệu cá nhân để tư vấn yêu cầu này."
@@ -1695,10 +1697,12 @@
     "bottomNote": "Vận chuyển hàng không 2 chiều Việt Nam ⇄ Nhật Bản"
   },
   "notFound": {
-    "title": "Không tìm thấy trang",
-    "text": "Trang bạn tìm không tồn tại hoặc đã được chuyển đi.",
+    "eyebrow": "Vận chuyển đường hàng không · Việt Nam ⇄ Nhật Bản",
+    "title": "Bưu kiện lạc tuyến.",
+    "text": "Trang bạn tìm có thể đã đổi địa chỉ.",
     "home": "Về trang chủ",
     "contact": "Liên hệ tư vấn",
+    "routesLabel": "Tuyến dịch vụ đang mở",
     "metaTitle": "Không tìm thấy trang | Haruto Express"
   }
 }

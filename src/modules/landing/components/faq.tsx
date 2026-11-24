@@ -16,7 +16,7 @@ export type FaqItem = { question: string; answer: string; pages?: PageKey[] };
 // cards), the first one open.
 export function FaqList({ items }: { items: FaqItem[] }) {
   return (
-    <div className="grid gap-3.5">
+    <div className="grid content-start gap-3.5">
       {items.map((item, index) => (
         <details
           key={item.question}
@@ -47,7 +47,7 @@ export function Faq({ page = "home", className }: { page?: PageKey; className?: 
 
   return (
     <section id="faq" className={className ? `section ${className}` : "section"}>
-      <div className="wrap grid gap-8 lg:grid-cols-[minmax(0,35fr)_minmax(0,65fr)] lg:gap-12">
+      <div className="wrap grid items-start gap-8 lg:grid-cols-[minmax(0,44fr)_minmax(0,56fr)] lg:gap-12">
         <div className="lg:sticky lg:top-24 lg:self-start">
           <h2 data-reveal className="heading-2">{t("title")}</h2>
           <FaqSupport page={page} />
@@ -70,12 +70,12 @@ export function FaqSupport({ page }: { page: PageKey }) {
     <div data-reveal className="mt-8 rounded-(--radius-card) border border-line bg-white p-6">
       <p className="text-lg font-semibold text-forest">{t("support.title")}</p>
       <p className="mt-1 text-muted">{t("support.body")}</p>
-      <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+      <div className="mt-5 flex flex-wrap items-center gap-3">
         <a href={href} data-track="cta_faq_contact" className="btn btn-primary">
           {t("support.cta")}
         </a>
         {page !== "faq" && (
-          <Link href={pagePath(locale, "faq")} className="text-sm font-semibold text-forest underline-offset-4 hover:underline">
+          <Link href={pagePath(locale, "faq")} className="btn btn-outline">
             {tPages("faq.title")}
           </Link>
         )}

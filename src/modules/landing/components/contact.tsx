@@ -19,18 +19,15 @@ export function ContactQuickActions() {
     <ul className="quick-actions" data-fab-away>
       {zalo && (
         <li>
-          <a href={zalo.href} target="_blank" rel="noopener noreferrer" data-track="click_zalo" className="quick-action">
+          <a href={zalo.href} target="_blank" rel="noopener noreferrer" data-track="click_zalo" className="quick-action h-full">
             <ChannelIcon id="zalo" size={36} />
-            <span className="min-w-0">
-              <span className="quick-action__title">{t("channels.zalo")}</span>
-              <span className="quick-action__sub">{t("channelHints.zalo")}</span>
-            </span>
+            <span className="quick-action__title">{t("channels.zalo")}</span>
           </a>
         </li>
       )}
       {lines.map((line) => (
         <li key={line.id}>
-          <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="quick-action">
+          <a href={telHref(line.tel)} data-track={`click_hotline_${line.id}`} className="quick-action h-full">
             <span className="icon-chip size-9" aria-hidden>
               <PhoneIcon size={20} />
             </span>
@@ -43,12 +40,9 @@ export function ContactQuickActions() {
       ))}
       {facebook && (
         <li>
-          <a href={facebook.href} target="_blank" rel="noopener noreferrer" data-track="click_facebook" className="quick-action">
+          <a href={facebook.href} target="_blank" rel="noopener noreferrer" data-track="click_facebook" className="quick-action h-full">
             <ChannelIcon id="facebook" size={36} />
-            <span className="min-w-0">
-              <span className="quick-action__title">{t("channels.facebook")}</span>
-              <span className="quick-action__sub">{t("channelHints.facebook")}</span>
-            </span>
+            <span className="quick-action__title">{t("channels.facebook")}</span>
           </a>
         </li>
       )}
@@ -106,10 +100,7 @@ export function Contact({ variant = "home" }: { variant?: "home" | "page" }) {
                         className="channel-link group"
                       >
                         <ChannelIcon id={id} size={40} />
-                        <span className="flex-1">
-                          <span className="block font-medium text-ink">{t(`channels.${id}`)}</span>
-                          <span className="block text-sm text-muted">{t(`channelHints.${id}`)}</span>
-                        </span>
+                        <span className="flex-1 font-medium text-ink">{t(`channels.${id}`)}</span>
                       </a>
                     </li>
                   ))}

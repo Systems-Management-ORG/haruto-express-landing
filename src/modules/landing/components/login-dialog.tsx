@@ -1,6 +1,6 @@
 "use client";
 
-import { SignIn, X } from "@phosphor-icons/react/dist/ssr";
+import { X } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { AUTH_PORTAL_ORIGIN } from "@/shared/lib/auth-portal";
@@ -37,7 +37,6 @@ export function LoginDialog({ className = "", onOpen }: { className?: string; on
         }}
         className={className}
       >
-        <SignIn size={18} weight="bold" aria-hidden />
         {nav("login")}
       </button>
 

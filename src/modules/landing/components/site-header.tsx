@@ -1,6 +1,6 @@
 "use client";
 
-import { CaretDown, ChatCircleDots, List, X } from "@phosphor-icons/react/dist/ssr";
+import { CaretDown, List, X } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -22,7 +22,7 @@ function localeHref(pathname: string, target: Locale): string {
   const slug = parts.slice(1).join("/");
   if (!slug) return `/${target}`;
   const def = pageByLocaleSlug(current, slug);
-  return def ? pagePath(target, def.key) : `/${target}`;
+  return def ? pagePath(target, def.key) : `/${target}/${slug}`;
 }
 
 function LanguageMenu({ inline = false }: { inline?: boolean }) {
@@ -60,7 +60,7 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
         aria-expanded={open}
         aria-label={`${label}: ${LOCALE_NAMES[locale]}`}
         onClick={() => setOpen((value) => !value)}
-        className="flex min-h-11 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium"
+        className="lang-toggle flex min-h-10 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium transition-colors duration-150"
       >
         {LOCALE_LABELS[locale]}
         <CaretDown size={14} aria-hidden className={`transition-transform duration-150 ${open ? "rotate-180" : ""}`} />
@@ -69,8 +69,8 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
         hidden={!open}
         className={
           inline
-            ? "mt-1"
-            : "absolute right-0 top-full mt-1 min-w-40 rounded-md border border-line bg-ivory py-1 text-ink shadow-[0_8px_24px_rgb(10_30_18/0.16)]"
+            ? "mt-1 space-y-0.5 rounded-xl border border-line bg-white/60 p-1"
+            : "nav-dropdown absolute right-0 top-full mt-2 min-w-42 rounded-xl border border-line bg-ivory/95 p-1.5 text-ink shadow-[0_12px_32px_rgb(10_30_18/0.16),inset_0_1px_0_rgb(255_255_255/0.75)] backdrop-blur-xl"
         }
       >
         {/* Client-side navigation: only the new language's content is fetched and swapped in, no
@@ -87,9 +87,10 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
                 setOpen(false);
               }}
               aria-current={item === locale ? "page" : undefined}
-              className={`flex min-h-11 items-center px-3 text-sm ${item === locale ? "font-medium text-forest" : ""}`}
+              className={`flex min-h-10 items-center justify-between rounded-lg px-3 text-sm transition-colors duration-140 hover:bg-sage hover:text-forest ${item === locale ? "bg-sage font-semibold text-forest" : ""}`}
             >
-              {LOCALE_NAMES[item]}
+              <span>{LOCALE_NAMES[item]}</span>
+              <span className="text-xs opacity-60">{LOCALE_LABELS[item]}</span>
             </Link>
           </li>
         ))}
@@ -98,7 +99,15 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
   );
 }
 
-export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string; solid?: boolean }) {
+export function SiteHeader({
+  homeHref = "",
+  solid = false,
+  tone = "light",
+}: {
+  homeHref?: string;
+  solid?: boolean;
+  tone?: "light" | "dark";
+}) {
   const nav = useTranslations("nav");
   const groups = useTranslations("nav.groups");
   const tPages = useTranslations("pages");
@@ -139,7 +148,7 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
 
   useEffect(() => {
     if (solid) return;
-    const updateScrolled = () => setScrolled(window.scrollY > 0);
+    const updateScrolled = () => setScrolled(window.scrollY > 12);
     updateScrolled();
     window.addEventListener("scroll", updateScrolled, { passive: true });
     return () => window.removeEventListener("scroll", updateScrolled);
@@ -193,7 +202,14 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
   const transparent = !scrolled && !open && !openGroup;
 
   return (
-    <header ref={headerRef} data-transparent={transparent} data-scrolled={scrolled} data-solid={solid || undefined} className="site-header">
+    <header
+      ref={headerRef}
+      data-transparent={transparent}
+      data-scrolled={scrolled}
+      data-tone={tone}
+      data-solid={solid || undefined}
+      className="site-header"
+    >
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-ink"
@@ -201,9 +217,11 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
         {nav("skip")}
       </a>
       <div className="wrap flex h-[4.5rem] items-center justify-between gap-4 lg:justify-start lg:gap-8 xl:gap-10">
-        <Link href={homeHref || `/${locale}`} className="flex min-h-11 items-center gap-2.5">
+        <Link href={homeHref || `/${locale}`} className="site-header__brand flex min-h-11 items-center gap-2.5">
           <Image src="/logo/haruto-mark.png" alt="" width={46} height={40} priority className="site-header__mark h-10 w-auto" />
-          <span className="text-[0.9375rem] font-medium leading-tight tracking-wide whitespace-nowrap">HARUTO EXPRESS</span>
+          <span className="font-display text-[0.9375rem] font-semibold leading-tight tracking-[0.04em] whitespace-nowrap">
+            HARUTO EXPRESS
+          </span>
         </Link>
 
         <nav aria-label={nav("primary")} className="hidden lg:block">
@@ -259,7 +277,6 @@ export function SiteHeader({ homeHref = "", solid = false }: { homeHref?: string
           </div>
           <LoginDialog className="btn btn-nav btn-login hidden whitespace-nowrap lg:inline-flex" />
           <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold btn-nav hidden whitespace-nowrap sm:inline-flex">
-            <ChatCircleDots size={18} weight="duotone" aria-hidden />
             {nav("cta")}
           </Link>
           <button

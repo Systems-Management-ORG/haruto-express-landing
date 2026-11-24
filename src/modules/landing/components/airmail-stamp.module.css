@@ -1,0 +1,12 @@
+.parcel { transform-origin: 196px 99px; }
+@media (prefers-reduced-motion: no-preference) {
+  .parcel { animation: drift 5s ease-in-out infinite alternate; }
+  .cloud { animation: breeze 8s ease-in-out infinite alternate; }
+  .trail { animation: trace 2s linear infinite; }
+}
+@keyframes drift {
+  from { transform: translate(-7px, -6px) rotate(-5deg); }
+  to { transform: translate(9px, 7px) rotate(6deg); }
+}
+@keyframes breeze { to { transform: translateX(19px); } }
+@keyframes trace { to { stroke-dashoffset: -22; } }

@@ -24,9 +24,7 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
   return (
     <footer className="bg-deep text-ivory">
       <div className="wrap py-12 lg:py-16">
-        {/* Band 1: brand (identity + description + socials) on the left, nav columns on the right.
-            Brand no longer carries hotlines/addresses — those live in their own band below, which
-            keeps the two sides of this row close in height. */}
+        {/* Band 1: brand (identity + description + hotlines + socials) on the left, nav columns on the right. */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-12 lg:gap-8">
           <div className="col-span-2 lg:col-span-4">
             <Link href={homeHref || `/${locale}`} className="flex items-center gap-4">
@@ -43,6 +41,29 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
               </span>
             </Link>
             <p className="mt-4 max-w-[26rem] text-ivory/85">{t("positioning")}</p>
+
+            <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
+              {HOTLINES.map((line) => (
+                <li key={line.id}>
+                  <a
+                    href={telHref(line.tel)}
+                    data-track={`click_hotline_${line.id}`}
+                    className="group inline-flex items-center gap-3"
+                  >
+                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-gold text-deep" aria-hidden>
+                      <PhoneIcon size={16} />
+                    </span>
+                    <span className="leading-snug">
+                      <span className="block text-xs text-ivory/70">{tContact(`hotlines.${line.id}`)}</span>
+                      <span className="block text-base font-semibold tracking-wide text-gold tabular-nums transition-colors group-hover:text-ivory">
+                        {line.display}
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
             {CHAT_CHANNELS.length > 0 && (
               <ul className="mt-5 flex gap-3">
                 {CHAT_CHANNELS.map(({ id, href }) => (
@@ -83,31 +104,9 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
           })}
         </div>
 
-        {/* Band 2: two hotlines in a row, then three addresses in a row — the content that used to
-            stack in the brand column, now spread across the full width so the footer stops looking
-            L-shaped. No heading above them; the content speaks for itself. */}
-        <div className="mt-12 grid gap-8 border-t border-ivory/15 pt-10 lg:mt-14 lg:gap-10">
-          <ul className="grid gap-4 sm:grid-cols-2 lg:gap-6">
-            {HOTLINES.map((line) => (
-              <li key={line.id}>
-                <a
-                  href={telHref(line.tel)}
-                  data-track={`click_hotline_${line.id}`}
-                  className="group flex min-h-11 items-center gap-3 hover:text-gold"
-                >
-                  <span className="footer-phone" aria-hidden>
-                    <PhoneIcon size={20} />
-                  </span>
-                  <span>
-                    <span className="block text-sm text-ivory/70 group-hover:text-gold">{tContact(`hotlines.${line.id}`)}</span>
-                    <span className="block text-lg font-semibold tracking-wide">{line.display}</span>
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {/* Band 2: Three warehouse/office locations in 3 balanced columns. */}
+        <div className="mt-10 border-t border-ivory/15 pt-8">
+          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {LOCATIONS.map((loc) => (
               <li key={loc.id}>
                 <a
@@ -115,12 +114,16 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${t(`locations.${loc.id}`)}: ${t("mapHint")}`}
-                  className="group flex gap-2.5 hover:text-gold"
+                  className="group flex items-start gap-2.5"
                 >
-                  <MapPin size={18} weight="fill" aria-hidden className="mt-0.5 shrink-0 text-gold" />
+                  <MapPin size={18} weight="fill" aria-hidden className="mt-1 shrink-0 text-gold" />
                   <span>
-                    <span className="block text-sm font-medium">{t(`locations.${loc.id}`)}</span>
-                    <span className="block text-sm text-ivory/75 group-hover:text-ivory">{loc.address}</span>
+                    <strong className="block text-sm font-semibold text-gold transition-colors group-hover:text-ivory">
+                      {t(`locations.${loc.id}`)}
+                    </strong>
+                    <span className="mt-1 block text-sm text-ivory/80 transition-colors group-hover:text-ivory">
+                      {loc.address}
+                    </span>
                   </span>
                 </a>
               </li>
@@ -128,22 +131,19 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
           </ul>
         </div>
 
-        {/* Band 3: the carriers HARUTO works with inside Japan, named out of respect for them. A
-            slim inline strip — the label sits beside the names instead of above, so the row reads
-            as one sentence of partners. Names only (their logos are drawn for light grounds); not
-            links. */}
-        <div className="mt-10 border-t border-ivory/15 pt-6">
-          <div className="flex flex-col gap-x-6 gap-y-2 text-sm sm:flex-row sm:flex-wrap sm:items-center">
-            <span className="text-ivory/60">{tCarriers("title")}:</span>
-            <ul aria-label={tCarriers("title")} className="flex flex-wrap items-center gap-x-5 gap-y-1">
+        {/* Band 3: Domestic Japan carriers */}
+        <div className="mt-8 border-t border-ivory/15 pt-8">
+          <div className="flex flex-col gap-4 text-base sm:flex-row sm:flex-wrap sm:items-center">
+            <span className="footer-heading mb-0">{tCarriers("title")}</span>
+            <ul aria-label={tCarriers("title")} className="flex flex-wrap items-center gap-4">
               {CARRIER_ORDER.map((id) => {
                 const name = tCarriers(`items.${id}.name`);
                 const native = tCarriers(`items.${id}.native`);
                 return (
-                  <li key={id} className="text-ivory/85">
-                    <span className="font-medium">{name}</span>
+                  <li key={id} className="text-base text-ivory">
+                    <span className="font-semibold">{name}</span>
                     {native !== name && (
-                      <span lang="ja" className="ml-1.5 text-ivory/60">
+                      <span lang="ja" className="ml-2 text-ivory/75">
                         {native}
                       </span>
                     )}

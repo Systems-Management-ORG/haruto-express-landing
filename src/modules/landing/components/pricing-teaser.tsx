@@ -27,25 +27,22 @@ export function PricingTeaser({ withHeader = true }: { withHeader?: boolean }) {
           </>
         )}
 
-        {/* Rates on the left, the calculator on the right (stacked on small screens). */}
-        <div className="mt-10 grid gap-8 lg:mt-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
-          <div>
-            <div data-reveal-group className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-              {CARDS.map(({ key, page }) => (
-                <Link key={key} href={pagePath(locale, page)} className="teaser-card group">
-                  <div className="teaser-card__media aspect-[21/9]">
-                    <Image src={PRICING_IMAGES[key]} alt={t(`${key}.label`)} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 40vw" className="object-cover object-[75%_50%]" />
-                    <span className="teaser-card__label">{t(`${key}.label`)}</span>
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <p className="font-display font-(--weight-display) text-3xl text-forest tabular-nums lg:text-4xl">{t(`${key}.price`)}</p>
-                    <p className="mt-2 text-muted">{t(`${key}.caption`)}</p>
-                    <span className="link-arrow mt-auto pt-3 text-forest">{t("cardCta")}</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            <p data-reveal className="mt-6 text-sm text-muted">{t("note")}</p>
+        {/* Row 1: Two rate cards in 2 columns. Row 2: The freight calculator full width. */}
+        <div className="mt-10 grid gap-8 lg:mt-12">
+          <div data-reveal-group className="grid gap-6 sm:grid-cols-2">
+            {CARDS.map(({ key, page }) => (
+              <Link key={key} href={pagePath(locale, page)} className="teaser-card group">
+                <div className="teaser-card__media aspect-[21/9]">
+                  <Image src={PRICING_IMAGES[key]} alt={t(`${key}.label`)} fill sizes="(max-width: 639px) 100vw, 50vw" className="object-cover object-[75%_50%]" />
+                  <span className="teaser-card__label">{t(`${key}.label`)}</span>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <p className="font-display font-(--weight-display) text-3xl text-forest tabular-nums lg:text-4xl">{t(`${key}.price`)}</p>
+                  <p className="mt-2 text-muted">{t(`${key}.caption`)}</p>
+                  <span className="link-arrow mt-auto pt-3 text-forest">{t("cardCta")}</span>
+                </div>
+              </Link>
+            ))}
           </div>
 
           <ShippingCalculator />

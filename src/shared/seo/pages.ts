@@ -45,26 +45,26 @@ const s = (vi: string, en: string): Record<Locale, string> => ({ vi, en, ja: en 
 
 export const PAGES: Record<PageKey, PageDef> = {
   home: { key: "home", slugs: s("", ""), indexable: true, updatedAt: "2026-11-15", priority: 1, changeFrequency: "weekly", related: ["priceVnJp", "shipToJapan", "shipToVietnam"] },
-  shipToJapan: { key: "shipToJapan", slugs: s("gui-hang-di-nhat", "ship-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceVnJp", "policy", "goods", "japanWarehouse"] },
-  shipToVietnam: { key: "shipToVietnam", slugs: s("ship-hang-nhat-ve-viet-nam", "ship-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceJpVn", "concierge", "japanWarehouse", "policy"] },
+  shipToJapan: { key: "shipToJapan", slugs: s("gui-hang-di-nhat", "ship-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceVnJp", "policy", "goods"] },
+  shipToVietnam: { key: "shipToVietnam", slugs: s("ship-hang-nhat-ve-viet-nam", "ship-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.9, changeFrequency: "weekly", parent: "home", related: ["priceJpVn", "concierge", "japanWarehouse"] },
   // Rate policy per route (PDFs effective 2026-10-01). The old /bang-gia hub redirects to the
   // home page's pricing block (next.config.ts).
-  priceVnJp: { key: "priceVnJp", slugs: s("chinh-sach-gia-viet-nhat", "pricing-vietnam-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["shipToJapan", "goods", "policy", "priceJpVn"] },
-  priceJpVn: { key: "priceJpVn", slugs: s("chinh-sach-gia-nhat-viet", "pricing-japan-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "concierge", "japanWarehouse", "priceVnJp"] },
+  priceVnJp: { key: "priceVnJp", slugs: s("chinh-sach-gia-viet-nhat", "pricing-vietnam-to-japan"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["shipToJapan", "goods", "policy"] },
+  priceJpVn: { key: "priceJpVn", slugs: s("chinh-sach-gia-nhat-viet", "pricing-japan-to-vietnam"), indexable: true, updatedAt: "2026-11-15", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "concierge", "japanWarehouse"] },
   goods: { key: "goods", slugs: s("hang-nhan-va-hang-cam", "accepted-and-prohibited-items"), indexable: true, updatedAt: "2026-11-13", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "policy", "shipToJapan"] },
-  policy: { key: "policy", slugs: s("chinh-sach-van-chuyen", "shipping-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["insurancePolicy", "auctionPolicy", "priceVnJp", "japanWarehouse"] },
-  insurancePolicy: { key: "insurancePolicy", slugs: s("chinh-sach-bao-hiem", "insurance-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["policy", "priceVnJp", "priceJpVn", "concierge"] },
-  auctionPolicy: { key: "auctionPolicy", slugs: s("chinh-sach-dau-gia", "auction-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "concierge", "priceJpVn", "insurancePolicy"] },
-  concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "auctionPolicy", "insurancePolicy", "shipToVietnam"] },
-  auction: { key: "auction", slugs: s("dau-gia-ho-hang-nhat", "japan-auction-service"), indexable: true, updatedAt: "2026-11-18", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["auctionPolicy", "concierge", "shipToVietnam", "japanWarehouse"] },
+  policy: { key: "policy", slugs: s("chinh-sach-van-chuyen", "shipping-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["insurancePolicy", "auctionPolicy", "priceVnJp"] },
+  insurancePolicy: { key: "insurancePolicy", slugs: s("chinh-sach-bao-hiem", "insurance-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["policy", "priceVnJp", "priceJpVn"] },
+  auctionPolicy: { key: "auctionPolicy", slugs: s("chinh-sach-dau-gia", "auction-policy"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "concierge", "priceJpVn"] },
+  concierge: { key: "concierge", slugs: s("mua-ho-hang-nhat", "japan-buying-service"), indexable: true, updatedAt: "2026-11-18", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["auction", "auctionPolicy", "insurancePolicy"] },
+  auction: { key: "auction", slugs: s("dau-gia-ho-hang-nhat", "japan-auction-service"), indexable: true, updatedAt: "2026-11-18", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["auctionPolicy", "concierge", "shipToVietnam"] },
   japanWarehouse: { key: "japanWarehouse", slugs: s("dia-chi-kho-nhat", "japan-warehouse"), indexable: true, updatedAt: "2026-11-15", priority: 0.7, changeFrequency: "monthly", parent: "home", related: ["shipToVietnam", "policy", "priceJpVn"] },
-  faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, updatedAt: "2026-11-18", priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "priceJpVn", "policy", "contact"] },
+  faq: { key: "faq", slugs: s("cau-hoi-thuong-gap", "faq"), indexable: true, updatedAt: "2026-11-18", priority: 0.6, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "priceJpVn", "policy"] },
   // Fulfillment (FFM) in Japan for businesses. Key and slug kept from the former "business" page.
   business: { key: "business", slugs: s("doanh-nghiep", "business"), indexable: true, updatedAt: "2026-11-13", priority: 0.8, changeFrequency: "monthly", parent: "home", related: ["japanWarehouse", "shipToVietnam", "shipToJapan"] },
   // Contact: real NAP (hotlines, chat channels, locations) from business.ts, so it is indexable.
   contact: { key: "contact", slugs: s("lien-he", "contact"), indexable: true, updatedAt: "2026-11-13", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "priceJpVn", "faq"] },
   // Scaffold until the guides are written (S06): reachable in nav but noindex + off sitemap.
-  guides: { key: "guides", slugs: s("huong-dan", "guides"), indexable: false, updatedAt: "2026-11-13", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "goods"] },
+  guides: { key: "guides", slugs: s("huong-dan", "guides"), indexable: false, updatedAt: "2026-11-13", priority: 0.5, changeFrequency: "monthly", parent: "home", related: ["priceVnJp", "goods", "policy"] },
 };
 
 // Locales whose copy a fluent reader has reviewed. Unreviewed locales still render, but as

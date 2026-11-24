@@ -4,11 +4,11 @@ import type { Locale } from "@/shared/constants/locales";
 import { PAGES, type PageKey, pagePath } from "@/shared/seo/pages";
 import { SectionHead } from "@/shared/ui/section-head";
 
-// Internal-linking block at the foot of every subpage: 2-4 related routes from the registry.
+// Internal-linking block at the foot of every subpage: at most 3 related routes from the registry.
 export function RelatedLinks({ page }: { page: PageKey }) {
   const locale = useLocale() as Locale;
   const t = useTranslations("pages");
-  const related = PAGES[page].related.filter((k) => k !== page);
+  const related = PAGES[page].related.filter((k) => k !== page).slice(0, 3);
   if (related.length === 0) return null;
 
   return (

@@ -28,9 +28,7 @@ export function ContactCta({ action, label, variant = "primary" }: { action: Cta
   if (action === "zalo" && zalo) {
     return (
       <a href={zalo.href} target="_blank" rel="noopener noreferrer" data-track="click_zalo" className={className}>
-        <span className="rounded-md bg-white p-0.5">
-          <ChannelIcon id="zalo" size={22} />
-        </span>
+        <ChannelIcon id="zalo" size={24} />
         {label ?? t("zalo")}
       </a>
     );

@@ -1632,6 +1632,8 @@
       "phone": "Phone number",
       "email": "Email",
       "direction": "Route",
+      "from": "Ship from",
+      "to": "To",
       "weight": "Weight (kg)",
       "description": "Description of goods",
       "consent": "I agree to HARUTO processing my personal data to respond to this request."
@@ -1695,10 +1697,12 @@
     "bottomNote": "Two-way air freight Vietnam ⇄ Japan"
   },
   "notFound": {
-    "title": "Page not found",
-    "text": "The page you are looking for does not exist or has been moved.",
+    "eyebrow": "Air freight · Vietnam ⇄ Japan",
+    "title": "A little off course.",
+    "text": "The page you’re looking for may have moved.",
     "home": "Back to home",
     "contact": "Contact us",
+    "routesLabel": "Active air routes",
     "metaTitle": "Page not found | Haruto Express"
   }
 }
