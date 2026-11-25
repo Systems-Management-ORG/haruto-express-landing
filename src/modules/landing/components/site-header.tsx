@@ -60,7 +60,7 @@ function LanguageMenu({ inline = false }: { inline?: boolean }) {
         aria-expanded={open}
         aria-label={`${label}: ${LOCALE_NAMES[locale]}`}
         onClick={() => setOpen((value) => !value)}
-        className="lang-toggle flex min-h-10 items-center gap-1.5 rounded-md px-2.5 text-sm font-medium transition-colors duration-150"
+        className="lang-toggle flex h-10 items-center gap-1.5 rounded-md px-2.5 text-[0.9375rem] font-medium transition-colors duration-150"
       >
         {LOCALE_LABELS[locale]}
         <CaretDown size={14} aria-hidden className={`transition-transform duration-150 ${open ? "rotate-180" : ""}`} />
@@ -229,7 +229,7 @@ export function SiteHeader({
             {NAV.map((item) =>
               item.type === "link" ? (
                 <li key={item.key}>
-                  <Link href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} className="nav-link whitespace-nowrap py-3 text-[0.9375rem] font-medium">
+                  <Link href={pagePath(locale, item.key)} aria-current={isCurrent(item.key) ? "page" : undefined} className="nav-link h-10 items-center whitespace-nowrap text-[0.9375rem] font-medium">
                     {tPages(`${item.key}.nav`)}
                   </Link>
                 </li>
@@ -246,7 +246,7 @@ export function SiteHeader({
                     aria-controls={`nav-${item.id}`}
                     onClick={() => setOpenGroup((current) => (current === item.id ? null : item.id))}
                     data-active={item.children.some(isCurrent) || undefined}
-                    className="nav-link flex items-center gap-1 whitespace-nowrap py-3 text-[0.9375rem] font-medium"
+                    className="nav-link flex h-10 items-center gap-1 whitespace-nowrap text-[0.9375rem] font-medium"
                   >
                     {groups(item.id)}
                     <CaretDown size={13} aria-hidden className={`transition-transform duration-150 ${openGroup === item.id ? "rotate-180" : ""}`} />
@@ -275,8 +275,8 @@ export function SiteHeader({
           <div className="hidden lg:block">
             <LanguageMenu />
           </div>
-          <LoginDialog className="btn btn-nav btn-login hidden whitespace-nowrap lg:inline-flex" />
-          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold btn-nav hidden whitespace-nowrap sm:inline-flex">
+          <LoginDialog className="btn btn-nav btn-login hidden h-10 whitespace-nowrap lg:inline-flex" />
+          <Link href={pagePath(locale, "contact")} data-track="cta_contact" className="btn btn-gold btn-nav hidden h-10 whitespace-nowrap sm:inline-flex">
             {nav("cta")}
           </Link>
           <button
@@ -286,9 +286,9 @@ export function SiteHeader({
             aria-controls="mobile-menu"
             aria-label={open ? nav("closeMenu") : nav("openMenu")}
             onClick={() => (open ? closeMenu() : setOpen(true))}
-            className="flex size-11 touch-manipulation items-center justify-center rounded-lg border border-current lg:hidden"
+            className="flex size-10 touch-manipulation items-center justify-center rounded-lg border border-current lg:hidden"
           >
-            {open ? <X size={22} aria-hidden /> : <List size={22} aria-hidden />}
+            {open ? <X size={20} aria-hidden /> : <List size={20} aria-hidden />}
           </button>
         </div>
       </div>

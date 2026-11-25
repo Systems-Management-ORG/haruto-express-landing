@@ -1,28 +1,35 @@
 "use client";
 
-import { CheckCircle, CircleNotch, WarningCircle } from "@phosphor-icons/react/dist/ssr";
+import { AirplaneTilt, Check, CheckCircle, CircleNotch, WarningCircle } from "@phosphor-icons/react/dist/ssr";
 import { useLocale, useTranslations } from "next-intl";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useId, useState } from "react";
 import { CHAT_CHANNELS, ChannelIcon } from "@/shared/components/contact-links";
 
 type Kind = "PERSONAL" | "BUSINESS";
+type Origin = "VN" | "JP";
 type Status = "idle" | "sending" | "sent" | "error";
 
 // Posts to /api/leads, which forwards the request to the HARUTO leads sheet. Field names follow
 // the POST /api/leads contract in the spec. This is a consultation request, not an order.
 export function ContactForm() {
   const t = useTranslations("contact");
-  const tRoutes = useTranslations("routes");
   const locale = useLocale();
+  const formId = useId();
   const [kind, setKind] = useState<Kind>("PERSONAL");
-  const [origin, setOrigin] = useState<"VN" | "JP">("VN");
+  const [origin, setOrigin] = useState<Origin>("VN");
   const [status, setStatus] = useState<Status>("idle");
-  const destination = origin === "VN" ? "JP" : "VN";
   const direction = origin === "VN" ? "VN_JP" : "JP_VN";
+
   const kinds: { value: Kind; label: string }[] = [
     { value: "PERSONAL", label: t("kindPersonal") },
     { value: "BUSINESS", label: t("kindBusiness") },
   ];
+
+  const routes: { origin: Origin; label: string }[] = [
+    { origin: "VN", label: t("routeVnJp") },
+    { origin: "JP", label: t("routeJpVn") },
+  ];
+
   const optional = <span className="font-normal text-muted"> ({t("optional")})</span>;
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -63,7 +70,7 @@ export function ContactForm() {
   }
 
   const channelButtons = CHAT_CHANNELS.length > 0 && (
-    <div className="mt-3 flex flex-wrap gap-2">
+    <div className="mt-4 flex flex-wrap justify-center gap-2.5">
       {CHAT_CHANNELS.map(({ id, href }) => (
         <a
           key={id}
@@ -71,7 +78,7 @@ export function ContactForm() {
           target="_blank"
           rel="noopener noreferrer"
           data-track={`click_${id}`}
-          className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-line bg-white px-3 font-medium text-ink hover:border-forest"
+          className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-line bg-white px-3.5 font-medium text-ink transition-colors hover:border-forest"
         >
           <ChannelIcon id={id} size={22} />
           {t(`channels.${id}`)}
@@ -82,11 +89,11 @@ export function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="card text-center" role="status">
+      <div className="card text-center lg:p-10" role="status">
         <CheckCircle size={56} weight="duotone" aria-hidden className="mx-auto text-forest" />
-        <h3 className="mt-4 text-2xl text-forest">{t("sent.title")}</h3>
-        <p className="mx-auto mt-2 max-w-[26rem] text-muted">{t("sent.body")}</p>
-        <div className="flex justify-center">{channelButtons}</div>
+        <h3 className="mt-4 text-2xl font-semibold text-forest">{t("sent.title")}</h3>
+        <p className="mx-auto mt-2 max-w-[26rem] text-muted text-pretty">{t("sent.body")}</p>
+        {channelButtons}
         <button type="button" onClick={() => setStatus("idle")} className="btn btn-outline mt-6">
           {t("sent.again")}
         </button>
@@ -96,30 +103,27 @@ export function ContactForm() {
 
   return (
     <form className="card lg:p-10" data-fab-away onSubmit={onSubmit}>
-      {/* Honeypot: hidden from people and assistive tech; bots tend to fill every field. */}
-      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label>
+      {/* Honeypot: hidden from people and assistive tech; bots parsing raw HTML fill every field. */}
+      <div hidden aria-hidden="true" className="hidden">
+        <label htmlFor={`${formId}-website`}>
           Website
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+          <input id={`${formId}-website`} type="text" name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
 
+      {/* Customer Type Segmented Switch */}
       <fieldset>
         <legend className="field-label">{t("kindLegend")}</legend>
-        <div className="relative grid grid-cols-2 rounded-full border border-line bg-white p-1">
-          <div
-            aria-hidden
-            className={`pointer-events-none absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] rounded-full bg-forest shadow-xs transition-transform duration-300 ease-out motion-reduce:transition-none ${
-              kind === "BUSINESS" ? "translate-x-full" : "translate-x-0"
-            }`}
-          />
+        <div className="grid grid-cols-2 gap-1 rounded-full border border-line bg-sage/55 p-1">
           {kinds.map((item) => {
             const active = kind === item.value;
             return (
               <label
                 key={item.value}
-                className={`relative z-10 flex min-h-10 cursor-pointer items-center justify-center rounded-full px-3 py-2 text-center text-sm font-semibold transition-colors duration-200 ${
-                  active ? "text-white" : "text-forest hover:text-forest/80"
+                className={`flex min-h-11 cursor-pointer items-center justify-center rounded-full px-3 py-2 text-center text-sm font-semibold transition-all duration-150 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-gold ${
+                  active
+                    ? "bg-forest text-white shadow-xs"
+                    : "text-forest hover:bg-forest/8"
                 }`}
               >
                 <input
@@ -139,81 +143,181 @@ export function ContactForm() {
 
       <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="fullName" className="field-label">{t("fields.fullName")}</label>
-          <input id="fullName" name="fullName" required maxLength={120} autoComplete="name" className="field" />
+          <label htmlFor={`${formId}-fullName`} className="field-label">
+            {t("fields.fullName")}
+          </label>
+          <input
+            id={`${formId}-fullName`}
+            name="fullName"
+            required
+            maxLength={120}
+            autoComplete="name"
+            className="field"
+          />
         </div>
         <div>
-          <label htmlFor="phone" className="field-label">{t("fields.phone")}</label>
+          <label htmlFor={`${formId}-phone`} className="field-label">
+            {t("fields.phone")}
+          </label>
           <input
-            id="phone"
+            id={`${formId}-phone`}
             name="phone"
             type="tel"
             required
             pattern="[+()0-9 .\-]{8,20}"
             title={t("phoneHint")}
             autoComplete="tel"
-            className="field"
+            className="field tabular-nums"
           />
         </div>
 
         {kind === "BUSINESS" ? (
           <div className="sm:col-span-2">
-            <label htmlFor="company" className="field-label">{t("fields.company")}</label>
-            <input id="company" name="company" required maxLength={160} autoComplete="organization" className="field" />
+            <label htmlFor={`${formId}-company`} className="field-label">
+              {t("fields.company")}
+            </label>
+            <input
+              id={`${formId}-company`}
+              name="company"
+              required
+              maxLength={160}
+              autoComplete="organization"
+              className="field"
+            />
           </div>
         ) : null}
 
         <div>
-          <label htmlFor="email" className="field-label">{t("fields.email")}{optional}</label>
-          <input id="email" name="email" type="email" maxLength={160} autoComplete="email" className="field" />
-        </div>
-        <div>
-          <label htmlFor="weightKg" className="field-label">{t("fields.weight")}{optional}</label>
-          <input id="weightKg" name="weightKg" type="number" min="0" step="0.1" inputMode="decimal" className="field" />
-        </div>
-        <div>
-          <label htmlFor="routeFrom" className="field-label">{t("fields.from")}</label>
-          <select
-            id="routeFrom"
-            value={origin}
-            onChange={(event) => setOrigin(event.target.value === "JP" ? "JP" : "VN")}
+          <label htmlFor={`${formId}-email`} className="field-label">
+            {t("fields.email")}
+            {optional}
+          </label>
+          <input
+            id={`${formId}-email`}
+            name="email"
+            type="email"
+            maxLength={160}
+            autoComplete="email"
             className="field"
-          >
-            <option value="VN">{tRoutes("vietnam")}</option>
-            <option value="JP">{tRoutes("japan")}</option>
-          </select>
+          />
         </div>
         <div>
-          <label htmlFor="routeTo" className="field-label">{t("fields.to")}</label>
-          <select
-            id="routeTo"
-            value={destination}
-            onChange={(event) => setOrigin(event.target.value === "JP" ? "VN" : "JP")}
-            className="field"
-          >
-            <option value="JP">{tRoutes("japan")}</option>
-            <option value="VN">{tRoutes("vietnam")}</option>
-          </select>
+          <label htmlFor={`${formId}-weightKg`} className="field-label">
+            {t("fields.weight")}
+            {optional}
+          </label>
+          <div className="relative flex items-center">
+            <input
+              id={`${formId}-weightKg`}
+              name="weightKg"
+              type="number"
+              min="0"
+              step="0.1"
+              inputMode="decimal"
+              className="field pr-11 tabular-nums"
+            />
+            <span className="pointer-events-none absolute inset-y-0 right-3.5 my-auto flex h-5 items-center text-sm font-medium text-muted">
+              kg
+            </span>
+          </div>
         </div>
+
+        {/* Route Direction Selector: replaces 2 redundant native <select> boxes with a single-tap 2-way route control */}
+        <fieldset className="sm:col-span-2">
+          <legend className="field-label">{t("fields.direction")}</legend>
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {routes.map((route) => {
+              const active = origin === route.origin;
+              return (
+                <label
+                  key={route.origin}
+                  className={`flex min-h-12 cursor-pointer items-center gap-2.5 rounded-lg border px-3.5 py-2.5 text-sm font-semibold transition-all duration-150 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-gold ${
+                    active
+                      ? "border-forest bg-sage/75 text-forest ring-2 ring-forest/15"
+                      : "border-line bg-white text-ink hover:border-forest/50"
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="routeDirection"
+                    value={route.origin}
+                    checked={active}
+                    onChange={() => setOrigin(route.origin)}
+                    className="sr-only"
+                  />
+                  <span
+                    aria-hidden
+                    className={`inline-flex size-7 shrink-0 items-center justify-center rounded-md transition-colors ${
+                      active ? "bg-forest text-gold" : "bg-sage text-forest"
+                    }`}
+                  >
+                    <AirplaneTilt size={16} weight={active ? "fill" : "regular"} />
+                  </span>
+                  <span className="min-w-0 flex-1 truncate">{route.label}</span>
+                  <span
+                    aria-hidden
+                    className={`inline-flex size-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
+                      active ? "border-forest bg-forest text-white" : "border-forest/35 bg-white text-transparent"
+                    }`}
+                  >
+                    <Check size={12} weight="bold" />
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+
         <div className="sm:col-span-2">
-          <label htmlFor="description" className="field-label">{t("fields.description")}{optional}</label>
-          <textarea id="description" name="description" rows={3} maxLength={2000} className="field" />
+          <label htmlFor={`${formId}-description`} className="field-label">
+            {t("fields.description")}
+            {optional}
+          </label>
+          <textarea
+            id={`${formId}-description`}
+            name="description"
+            rows={3}
+            maxLength={2000}
+            className="field"
+          />
         </div>
       </div>
 
-      <label className="mt-5 flex min-h-11 items-start gap-3 text-sm leading-relaxed">
-        <input type="checkbox" name="privacyConsent" required className="mt-0.5 size-5 shrink-0 accent-forest" />
-        <span>{t("fields.consent")}</span>
+      {/* Custom styled checkbox (choice-controls.md): peer appearance-none + SVG Check icon */}
+      <label className="mt-5 flex min-h-11 w-fit cursor-pointer items-start gap-3 text-sm leading-relaxed select-none">
+        <span className="relative mt-0.5 inline-flex size-5 shrink-0 items-center justify-center">
+          <input
+            type="checkbox"
+            name="privacyConsent"
+            required
+            className="peer size-5 cursor-pointer appearance-none rounded-md border-[1.5px] border-forest/50 bg-white transition-colors checked:border-forest checked:bg-forest focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+          />
+          <Check
+            size={13}
+            weight="bold"
+            aria-hidden
+            className="pointer-events-none absolute text-white opacity-0 transition-opacity peer-checked:opacity-100"
+          />
+        </span>
+        <span className="text-ink text-pretty">{t("fields.consent")}</span>
       </label>
 
       {status === "error" && (
-        <p role="alert" className="mt-5 flex gap-2.5 rounded-lg border border-[#e4b4b2] bg-[#fbeeed] px-4 py-3 text-sm text-[#7f2523]">
+        <p
+          role="alert"
+          className="mt-5 flex gap-2.5 rounded-lg border border-orange-deep/35 bg-orange-soft px-4 py-3 text-sm text-orange-deep"
+        >
           <WarningCircle size={20} weight="fill" aria-hidden className="mt-0.5 shrink-0" />
-          <span>{t("error")}</span>
+          <span className="text-pretty">{t("error")}</span>
         </p>
       )}
 
-      <button type="submit" disabled={status === "sending"} aria-busy={status === "sending"} className="btn btn-primary mt-5 w-full">
+      <button
+        type="submit"
+        aria-disabled={status === "sending" || undefined}
+        aria-busy={status === "sending" || undefined}
+        className="btn btn-primary mt-5 w-full aria-disabled:pointer-events-none aria-disabled:opacity-75"
+      >
         {status === "sending" && <CircleNotch size={18} weight="bold" aria-hidden className="animate-spin" />}
         {status === "sending" ? t("sending") : t("submit")}
       </button>

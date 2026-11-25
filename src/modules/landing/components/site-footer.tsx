@@ -25,8 +25,8 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
     <footer className="bg-deep text-ivory">
       <div className="wrap py-12 lg:py-16">
         {/* Band 1: brand (identity + description + hotlines + socials) on the left, nav columns on the right. */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-12 lg:gap-8">
-          <div className="col-span-2 lg:col-span-4">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          <div className="sm:col-span-2 lg:col-span-4">
             <Link href={homeHref || `/${locale}`} className="flex items-center gap-4">
               <Image
                 src="/logo/haruto-lockup.webp"
@@ -37,10 +37,10 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
               />
               <span>
                 <span className="block text-lg font-medium">HARUTO EXPRESS</span>
-                <span className="block text-sm text-gold">{t("tagline")}</span>
+                <span className="block text-sm text-gold text-pretty">{t("tagline")}</span>
               </span>
             </Link>
-            <p className="mt-4 max-w-[26rem] text-ivory/85">{t("positioning")}</p>
+            <p className="mt-4 max-w-[26rem] text-ivory/85 text-pretty">{t("positioning")}</p>
 
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1">
               {HOTLINES.map((line) => (
@@ -85,30 +85,39 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
             )}
           </div>
 
-          {GROUPS.map((group) => {
-            const links = group.id === "guides" ? [...group.children, ...LOOSE_LINKS] : group.children;
-            return (
-              <nav key={group.id} aria-label={tNav(`groups.${group.id}`)} className="lg:col-span-2 lg:first-of-type:col-start-5">
-                <p className="footer-heading">{tNav(`groups.${group.id}`)}</p>
-                <ul className="mt-2">
-                  {links.map((key) => (
-                    <li key={key}>
-                      <Link href={pagePath(locale, key)} className="flex min-h-10 items-center text-ivory/85 hover:text-gold">
-                        {tPages(`${key}.nav`)}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            );
-          })}
+          <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:col-span-2 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-2 xl:grid-cols-4">
+            {GROUPS.map((group) => {
+              const links = group.id === "guides" ? [...group.children, ...LOOSE_LINKS] : group.children;
+              return (
+                <nav key={group.id} aria-label={tNav(`groups.${group.id}`)} className="min-w-0">
+                  <p className="footer-heading">{tNav(`groups.${group.id}`)}</p>
+                  <ul className="mt-2.5 flex flex-col gap-1">
+                    {links.map((key) => {
+                      const label = tPages(`${key}.nav`);
+                      return (
+                        <li key={key} className="min-w-0">
+                          <Link
+                            href={pagePath(locale, key)}
+                            title={label}
+                            className="flex min-h-9 items-center text-sm text-ivory/85 transition-colors hover:text-gold"
+                          >
+                            <span className="truncate">{label}</span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+              );
+            })}
+          </div>
         </div>
 
         {/* Band 2: Three warehouse/office locations in 3 balanced columns. */}
         <div className="mt-10 border-t border-ivory/15 pt-8">
           <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {LOCATIONS.map((loc) => (
-              <li key={loc.id}>
+              <li key={loc.id} className="min-w-0">
                 <a
                   href={mapsUrl(loc.query)}
                   target="_blank"
@@ -117,11 +126,11 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
                   className="group flex items-start gap-2.5"
                 >
                   <MapPin size={18} weight="fill" aria-hidden className="mt-1 shrink-0 text-gold" />
-                  <span>
+                  <span className="min-w-0">
                     <strong className="block text-sm font-semibold text-gold transition-colors group-hover:text-ivory">
                       {t(`locations.${loc.id}`)}
                     </strong>
-                    <span className="mt-1 block text-sm text-ivory/80 transition-colors group-hover:text-ivory">
+                    <span className="mt-1 block text-sm text-ivory/80 text-pretty wrap-break-word transition-colors group-hover:text-ivory">
                       {loc.address}
                     </span>
                   </span>
@@ -133,15 +142,15 @@ export function SiteFooter({ homeHref = "" }: { homeHref?: string }) {
 
         {/* Band 3: Domestic Japan carriers */}
         <div className="mt-8 border-t border-ivory/15 pt-8">
-          <div className="flex flex-col gap-4 text-base sm:flex-row sm:flex-wrap sm:items-center">
-            <span className="footer-heading mb-0">{tCarriers("title")}</span>
-            <ul aria-label={tCarriers("title")} className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-col gap-3 text-base lg:flex-row lg:items-center lg:gap-6">
+            <span className="footer-heading mb-0 shrink-0">{tCarriers("title")}</span>
+            <ul aria-label={tCarriers("title")} className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-6">
               {CARRIER_ORDER.map((id) => {
                 const name = tCarriers(`items.${id}.name`);
                 const native = tCarriers(`items.${id}.native`);
                 return (
-                  <li key={id} className="text-base text-ivory">
-                    <span className="font-semibold">{name}</span>
+                  <li key={id} className="min-w-0 text-sm sm:text-base text-ivory text-pretty">
+                    <span className="font-semibold text-pretty">{name}</span>
                     {native !== name && (
                       <span lang="ja" className="ml-2 text-ivory/75">
                         {native}

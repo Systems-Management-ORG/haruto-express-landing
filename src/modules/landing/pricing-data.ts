@@ -29,14 +29,14 @@ export const VN_JP_CLEAN: Tier[] = [
 // Vietnam → Japan, mixed goods (food, clothing, footwear…). Published up to 30 kg.
 // TODO(B2): pricing above 30 kg is not published.
 export const VN_JP_MIXED: Tier[] = [
-  { minKg: 1, maxKg: 1, vndPerKg: 390_000 },
-  { minKg: 2, maxKg: 2, vndPerKg: 260_000 },
-  { minKg: 3, maxKg: 3, vndPerKg: 215_000 },
-  { minKg: 4, maxKg: 4, vndPerKg: 185_000 },
-  { minKg: 5, maxKg: 5, vndPerKg: 170_000 },
-  { minKg: 6, maxKg: 6, vndPerKg: 150_000 },
+  { minKg: 1, maxKg: 2, vndPerKg: 390_000 },
+  { minKg: 2, maxKg: 3, vndPerKg: 260_000 },
+  { minKg: 3, maxKg: 4, vndPerKg: 215_000 },
+  { minKg: 4, maxKg: 5, vndPerKg: 185_000 },
+  { minKg: 5, maxKg: 6, vndPerKg: 170_000 },
+  { minKg: 6, maxKg: 7, vndPerKg: 150_000 },
   { minKg: 7, maxKg: 9, vndPerKg: 140_000 },
-  { minKg: 10, maxKg: 10, vndPerKg: 135_000 },
+  { minKg: 9, maxKg: 10, vndPerKg: 135_000 },
   { minKg: 11, maxKg: 14, vndPerKg: 125_000 },
   { minKg: 15, maxKg: 20, vndPerKg: 120_000 },
   { minKg: 21, maxKg: 25, vndPerKg: 108_000 },

@@ -29,7 +29,11 @@ export function Breadcrumbs({ page }: { page: PageKey }) {
                 <span aria-current="page">{t(`${key}.breadcrumb`)}</span>
               ) : (
                 <>
-                  <Link href={pagePath(locale, key)} className="underline-offset-4 hover:underline">
+                  {/* N9 & N11: ::before expands tap target to ≥ 32px without changing breadcrumb line height */}
+                  <Link
+                    href={pagePath(locale, key)}
+                    className="relative inline-flex min-h-8 items-center underline-offset-4 hover:underline"
+                  >
                     {t(`${key}.breadcrumb`)}
                   </Link>
                   <CaretRight size={13} aria-hidden className="opacity-60" />
